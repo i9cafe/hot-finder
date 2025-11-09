@@ -123,21 +123,28 @@ const app = angular.module('hotFinder', ['ngRoute'
           object.subscriberCount = items[j].channelInfo.data.items[0].statistics.videoCount;
           object.viewCountBySubscriberCount = (Number(object.viewCount) / Number(object.subscriberCount)).toFixed(0);
           object.duration = this.formatISODuration(items[j].videoInfo.data.items[0].contentDetails.duration);
+          object.playTime = this.formatISODurationSecond(items[j].videoInfo.data.items[0].contentDetails.duration);
           object.videoUrl = "https://www.youtube.com/watch?v=" + items[j].id.videoId;
           object.thumbnailsUrl = "https://img.youtube.com/vi/" + items[j].id.videoId + "/0.jpg";
 
           result[j] = object;
         }
 
+        if (vm.params.shortsSecond > 0) {
+          result = result.filter(function(target) {
+            return Number(target.playTime) <= Number(vm.params.shortsSecond);
+          });
+        }
+
         if (vm.params.minViewCount > 0) {
           result = result.filter(function(target) {
-            return target.viewCount > vm.params.minViewCount;
+            return Number(target.viewCount) > Number(vm.params.minViewCount);
           });
         }
 
         if (vm.params.viewCountByMinTime > 0) {
           result = result.filter(function(target) {
-            return target.viewCountByTime > vm.params.viewCountByMinTime;
+            return Number(target.viewCountByTime) > Number(vm.params.viewCountByMinTime);
           });
         }
 
@@ -246,6 +253,24 @@ const app = angular.module('hotFinder', ['ngRoute'
         return result.join(' ');
       };
 
+      this.formatISODurationSecond = (duration) => {
+        // 정규식으로 각 단위를 추출
+        const regex = /P(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?)?/;
+        const matches = duration.match(regex);
+      
+        if (!matches) return '0초';
+      
+        const days = parseInt(matches[1] || 0, 10);
+        const hours = parseInt(matches[2] || 0, 10);
+        const minutes = parseInt(matches[3] || 0, 10);
+        const seconds = parseInt(matches[4] || 0, 10);
+      
+        // 총 초 계산
+        const totalSeconds = (days * 86400) + (hours * 3600) + (minutes * 60) + seconds;
+      
+        return totalSeconds;
+      };
+
       // 로딩 화면 보이기
       this.showLoader = () => {
         document.getElementById('loader').style.display = 'flex';
@@ -302,4 +327,5 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
