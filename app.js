@@ -26,7 +26,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
       vm.params = {};
       vm.params.excuteMode = "KEYWORD";
-      vm.params.shortsLong = "shorts";
+      vm.params.shortsLong = "short";
       vm.params.shortsSecond = 300;
       vm.params.recentDay = 10;
       vm.params.country = "KR";
@@ -65,7 +65,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
       this.reset = () => {
         vm.params.excuteMode = "KEYWORD";
-        vm.params.shortsLong = "shorts";
+        vm.params.shortsLong = "short";
         vm.params.shortsSecond = 300;
         vm.params.recentDay = 10;
         vm.params.country = "KR";
@@ -174,7 +174,7 @@ const app = angular.module('hotFinder', ['ngRoute'
               type: "video",
               regionCode: vm.params.country,
               relevanceLanguage: vm.params.language,
-              //videoDuration: vm.params.shortsLong,
+              videoDuration: vm.params.shortsLong,
               q: vm.params.keyword,
               publishedAfter: new Date(today.setDate(today.getDate() - vm.params.recentDay)),
             },
@@ -302,3 +302,4 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
