@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko" ng-app="hotFinder">
+	<head>
+	  <meta charset="utf-8" />
+	  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+	  <title> hotFinder </title>
+	  <script src="angular.js"></script>
+	  <script src="angular-route.js"></script>
+	  <script src="ui-bootstrap-tpls-0.10.0.min.js"></script>
+	  <script src="app.js"></script>
+	  <script src="jquery.slim.min.js"></script>
+		<script src="axios.min.js"></script>
+		<script src="ui-grid_Exporter-cellFilter.js"></script>
+
+	  <link rel="stylesheet" href="bootstrap.min.css">
+	  <link rel="stylesheet" href="font-awesome.min.css">
+	  <link rel="stylesheet" href="style.css" />
+
+		<link data-require="ui-grid@3.0.1" data-semver="3.0.1" rel="stylesheet" href="https://cdn.rawgit.com/angular-ui/bower-ui-grid/v3.0.1/ui-grid.min.css" />
+    <script data-require="ui-grid@3.0.1" data-semver="3.0.1" src="https://cdn.rawgit.com/angular-ui/bower-ui-grid/v3.0.1/ui-grid.min.js"></script>
+    <script data-require="ui-bootstrap-tpls@0.14.3" data-semver="0.14.3" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.js"></script>
+	</head>
+
+	<body ng-controller="IndexController as vm">
+
+	  <div style="height:120px; background:none;">
+	  </div>
+
+	  <div style="display:flex; justify-content:center;">
+		<div class="col-xs-4" style="height:340px; border: 1px solid lightgray; box-shadow: 0 0 5px lightgray;">
+		  <form method="post" style="text-align:center;">
+			<div class="login-title" style="margin-bottom:15px; margin-top:30px;">
+			  LOGIN
+			</div>
+			<div style="margin-bottom:15px;">
+			  <input id="id" class="login-inputbox form-control" style="height: 40px;" type="text" placeholder="ID">
+			</div>
+			<div style="margin-bottom:20px;">
+			  <input id="pw" class="login-inputbox form-control" style="height: 40px;" type="password" placeholder="Password">
+			</div>
+			<button class="login-button" style="margin-bottom:5px;" ng-click="vm.login()" ng-dblclick="false"> Login </button>
+		  </form>
+		</div>
+	  </div>
+
+	</body>
+</html>
