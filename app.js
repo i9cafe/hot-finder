@@ -273,12 +273,10 @@ const app = angular.module('hotFinder', ['ngRoute'
 
       this.changeShortsLong = () => {
         $timeout(() => {
-          if (vm.params.shortsLong === "short") {
-             document.getElementById('label-shortsSecond').style.color = "yellow";
-          } else {
-             document.getElementById('label-shortsSecond').style.color = "#9AA3BE";
-          }      
-        }
+          const label = document.getElementById('label-shortsSecond');
+          if (!label) return;
+          label.style.color = (vm.params.shortsLong === "short") ? "yellow" : "#9AA3BE";   
+        };
       };
 
       // 로딩 화면 보이기
@@ -337,6 +335,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
