@@ -212,7 +212,7 @@ const app = angular.module('hotFinder', ['ngRoute'
           return response.data.items;
         } catch (error) {
           if (error.message.indexOf("403") > -1) {
-            alert('할당량이 모두 소진되어 오후 4시에 다시 이용해주세요.');
+            alert('할당량이 모두 소진되어 태평양 표준시 00:00에 다시 이용해주세요. \n https://ko.thetimenow.com/pst/pacific_standard_time');
           } else {          
             alert('[Error] api: search, detail: ' + error);
           }
@@ -233,7 +233,7 @@ const app = angular.module('hotFinder', ['ngRoute'
           return response;
         } catch (error) {
           if (error.message.indexOf("403") > -1) {
-            alert('할당량이 모두 소진되어 오후 4시에 다시 이용해주세요.');
+            alert('할당량이 모두 소진되어 태평양 표준시 00:00에 다시 이용해주세요. \n https://ko.thetimenow.com/pst/pacific_standard_time');
           } else {          
             alert('[Error] api: search, detail: ' + error);
           }
@@ -253,7 +253,7 @@ const app = angular.module('hotFinder', ['ngRoute'
           return response;
         } catch (error) {
           if (error.message.indexOf("403") > -1) {
-            alert('할당량이 모두 소진되어 오후 4시에 다시 이용해주세요.');
+            alert('할당량이 모두 소진되어 태평양 표준시 00:00에 다시 이용해주세요. \n https://ko.thetimenow.com/pst/pacific_standard_time');
           } else {          
             alert('[Error] api: search, detail: ' + error);
           }
@@ -383,4 +383,5 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
