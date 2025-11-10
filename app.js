@@ -130,7 +130,7 @@ const app = angular.module('hotFinder', ['ngRoute'
           result[j] = object;
         }
 
-        if (vm.params.shortsLong === "short" && vm.params.shortsSecond > 0) {
+        if (vm.params.shortsLong === "short" && Number(vm.params.shortsSecond) > 0) {
           result = result.filter(function(target) {
             return Number(target.playTime) <= Number(vm.params.shortsSecond);
           });
@@ -276,6 +276,7 @@ const app = angular.module('hotFinder', ['ngRoute'
           const label = document.getElementById('label-shortsSecond');
           if (!label) return;
           label.style.color = (vm.params.shortsLong === "short") ? "yellow" : "#9AA3BE";   
+          vm.params.shortsSecond = (vm.params.shortsLong === "short") ? 30 : "";   
         });
       };
 
@@ -335,6 +336,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
