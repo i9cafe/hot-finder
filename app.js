@@ -50,7 +50,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
       $scope.gridOptions.columnDefs = [
         { displayName: "No", field: "no", width: "5%" },
-        { displayName: "채널명", field: "channelName", width: "12%" },
+        { displayName: "채널명", field: "channelName", width: "11%" },
         { displayName: "제목", field: "videoTitle", width: "14%" },
         { displayName: "업로드일", field: "videoUploadDate", width: "12%", cellFilter: "date:'yyyy-MM-dd hh:mm:ss'" },
         { displayName: "조회수", field: "viewCount", width: "7%", cellFilter: 'number' },
@@ -383,51 +383,4 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
