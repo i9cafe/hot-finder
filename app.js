@@ -58,7 +58,13 @@ const app = angular.module('hotFinder', ['ngRoute'
         { displayName: "구독자수", field: "subscriberCount", width: "10%", cellFilter: 'number' },
         { displayName: "구독자수대비조회수", field: "viewCountBySubscriberCount", width: "15%", cellFilter: 'number:2' },
         { displayName: "영상길이", field: "duration", width: "10%" },
-        { displayName: "영상링크", field: "videoUrl", width: "30%" },
+        { displayName: "영상링크", field: "videoUrl", width: "30%",
+          cellTemplate: '<div class="ui-grid-cell-contents">' +
+                          '<a href="{{COL_FIELD}}" target="_blank">' +
+                            '{{COL_FIELD}}' +
+                          '</a>' +
+                        '</div>' 
+        },
         { displayName: "썸네일링크", field: "thumbnailsUrl", width: "30%" },
       ];
 
@@ -356,6 +362,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
