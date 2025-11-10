@@ -78,7 +78,7 @@ const app = angular.module('hotFinder', ['ngRoute'
         vm.params.keyword = "";
 
         $timeout(() => {
-          document.getElementById('label-shortsSecond').style.color = "9AA3BE";
+          document.getElementById('label-shortsSecond').style.color = "#9AA3BE";
           document.getElementById('searchbox-shortsSecond').setAttribute("readonly", true);
         });
       };
@@ -351,6 +351,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
