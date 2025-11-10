@@ -103,9 +103,9 @@
                   </div>
                   <div class="col-md-4">
                     <div class="field col-md-12">
-                      <label class="label col-md-6">채널당 최대 검색 수</label>
+                      <label class="label col-md-6" style="color:yellow;">채널당 최대 검색 수</label>
                       <div class="control col-md-6">
-                        <input id="searchbox-maxSearchCountByChannel" type="number" style="width:100%;" ng-model="vm.params.maxSearchCountByChannel"/>
+                        <input id="searchbox-maxSearchCountByChannel" type="number" style="width:100%; color:gray;" ng-model="vm.params.maxSearchCountByChannel" disabled/>
                       </div>
                     </div>
                   </div>
@@ -113,7 +113,7 @@
                     <div class="field col-md-12">
                       <label class="label col-md-6" style="color:yellow;">검색어당 최대 검색 수</label>
                       <div class="control col-md-6">
-                        <input id="searchbox-maxSearchCountByKeyword" type="number" style="width:100%; color:gray;" ng-model="vm.params.maxSearchCountByKeyword" disabled />
+                        <input id="searchbox-maxSearchCountByKeyword" type="number" style="width:100%; color:gray;" ng-model="vm.params.maxSearchCountByKeyword" disabled/>
                       </div>
                     </div>
                   </div>
@@ -178,6 +178,7 @@
 
   </body>
 </html>
+
 
 
 
