@@ -211,8 +211,10 @@ const app = angular.module('hotFinder', ['ngRoute'
 
           return response.data.items;
         } catch (error) {
+          const resetTimeKST = getYouTubeQuotaResetTimeKST();
+          
           if (error.message.indexOf("403") > -1) {
-            alert('일일 할당량이 모두 소진되어 태평양 표준시 00:00 이후에 다시 이용해주세요.');
+            alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST.toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }));
           } else {          
             alert('[Error] api: search, detail: ' + error);
           }
@@ -232,8 +234,10 @@ const app = angular.module('hotFinder', ['ngRoute'
 
           return response;
         } catch (error) {
+          const resetTimeKST = getYouTubeQuotaResetTimeKST();
+          
           if (error.message.indexOf("403") > -1) {
-            alert('일일 할당량이 모두 소진되어 태평양 표준시 00:00 이후에 다시 이용해주세요.');
+            alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST.toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }));
           } else {          
             alert('[Error] api: search, detail: ' + error);
           }
@@ -252,8 +256,10 @@ const app = angular.module('hotFinder', ['ngRoute'
 
           return response;
         } catch (error) {
+          const resetTimeKST = getYouTubeQuotaResetTimeKST();
+          
           if (error.message.indexOf("403") > -1) {
-            alert('일일 할당량이 모두 소진되어 태평양 표준시 00:00 이후에 다시 이용해주세요.');
+            alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST.toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }));
           } else {          
             alert('[Error] api: search, detail: ' + error);
           }
@@ -339,6 +345,31 @@ const app = angular.module('hotFinder', ['ngRoute'
         document.getElementById('content').style.display = 'block';
       };
 
+      /**
+       * YouTube Data API v3 할당량 초기화 시간이
+       * 한국 시간(KST) 기준으로 언제인지 계산해주는 함수
+       */
+      this.getYouTubeQuotaResetTimeKST = () => {
+        // 현재 날짜 기준으로 "오늘"의 태평양 자정(00:00 PST/PDT) 구하기
+        const now = new Date();
+      
+        // 태평양 표준시 기준의 자정 생성
+        const pacificMidnight = new Date(
+          now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" })
+        );
+        pacificMidnight.setHours(0, 0, 0, 0);
+      
+        // 이 태평양 자정을 UTC로 변환
+        const utcTime = new Date(
+          pacificMidnight.toLocaleString("en-US", { timeZone: "UTC" })
+        );
+      
+        // UTC → KST(UTC+9) 로 변환
+        const kstTime = new Date(utcTime.getTime() + 9 * 60 * 60 * 1000);
+      
+        return kstTime;
+      };
+
     }
   ])
 
@@ -383,6 +414,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
