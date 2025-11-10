@@ -125,9 +125,9 @@ const app = angular.module('hotFinder', ['ngRoute'
           object.viewCount = items[j].videoInfo.data.items[0].statistics.viewCount;
           let uploadDate = new Date(object.videoUploadDate);
           let diffDate = nowDate.getTime() - uploadDate.getTime();
-          object.viewCountByTime = (Number(object.viewCount) / (diffDate / (1000 * 60 * 60))).toFixed(0);
+          object.viewCountByTime = (Number(object.viewCount) / (diffDate / (1000 * 60 * 60))).toFixed(2);
           object.subscriberCount = items[j].channelInfo.data.items[0].statistics.subscriberCount;
-          object.viewCountBySubscriberCount = (Number(object.viewCount) / Number(object.subscriberCount)).toFixed(0);
+          object.viewCountBySubscriberCount = (Number(object.viewCount) / Number(object.subscriberCount)).toFixed(2);
           object.duration = this.formatISODuration(items[j].videoInfo.data.items[0].contentDetails.duration);
           object.playTime = this.formatISODurationSecond(items[j].videoInfo.data.items[0].contentDetails.duration);
           object.videoUrl = "https://www.youtube.com/watch?v=" + items[j].id.videoId;
@@ -356,6 +356,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
