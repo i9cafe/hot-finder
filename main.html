@@ -60,7 +60,7 @@
                     <div class="field col-md-12">
                       <label class="label col-md-4" style="color:yellow;">쇼츠/롱폼</label>
                       <div class="control col-md-8">
-                        <select id="searchbox-shortsLong" ng-model="vm.params.shortsLong">
+                        <select id="searchbox-shortsLong" ng-model="vm.params.shortsLong" ng-change="vm.changeShortsLong()">
                           <option value="short" style="color:black;">쇼츠(4분 미만)</option>
                           <option value="medium" style="color:black;">중간(4분 이상~20분 미만)</option>
                           <option value="long" style="color:black;">롱폼(20분 초과)</option>
@@ -71,7 +71,7 @@
                   </div>
                   <div class="col-md-4">
                     <div class="field col-md-12">
-                      <label class="label col-md-4" ng-style="{'color' : vm.params.shortsLong === 'short' ? 'yellow' : 'white'}">쇼츠 기준(초)</label>
+                      <label class="label col-md-4">쇼츠 기준(초)</label>
                       <div class="control col-md-8">
                         <input id="searchbox-shortsSecond" type="number" style="width:100%;" ng-model="vm.params.shortsSecond"/>
                       </div>
@@ -178,6 +178,7 @@
 
   </body>
 </html>
+
 
 
 
