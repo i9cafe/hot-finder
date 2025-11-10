@@ -177,7 +177,7 @@ const app = angular.module('hotFinder', ['ngRoute'
           const response = await apiClient.get('search', {
             params: {
               part: 'snippet',
-              maxResults: 50,
+              maxResults: vm.params.maxSearchCountByKeyword,
               type: "video",
               regionCode: vm.params.country,
               relevanceLanguage: vm.params.language,
@@ -327,6 +327,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
