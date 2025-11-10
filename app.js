@@ -49,15 +49,15 @@ const app = angular.module('hotFinder', ['ngRoute'
       };
 
       $scope.gridOptions.columnDefs = [
-        { displayName: "No", field: "no", width: "4%" },
-        { displayName: "채널명", field: "channelName", width: "11%" },
+        { displayName: "No", field: "no", width: "5%" },
+        { displayName: "채널명", field: "channelName", width: "12%" },
         { displayName: "제목", field: "videoTitle", width: "14%" },
         { displayName: "업로드일", field: "videoUploadDate", width: "12%", cellFilter: "date:'yyyy-MM-dd hh:mm:ss'" },
         { displayName: "조회수", field: "viewCount", width: "7%", cellFilter: 'number' },
         { displayName: "시간당조회수", field: "viewCountByTime", width: "9%", cellFilter: 'number:2' },
         { displayName: "구독자수", field: "subscriberCount", width: "7%", cellFilter: 'number' },
         { displayName: "구독자수대비조회수", field: "viewCountBySubscriberCount", width: "12%", cellFilter: 'number:2' },
-        { displayName: "영상길이", field: "duration", width: "7%" },
+        { displayName: "영상길이", field: "duration", width: "8%" },
         { displayName: "영상링크", field: "videoUrl", width: "7%",
           cellTemplate: '<div class="ui-grid-cell-contents">' +
                           '<a href="{{COL_FIELD}}" target="_blank">' +
@@ -383,6 +383,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
