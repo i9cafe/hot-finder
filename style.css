@@ -99,12 +99,12 @@ body{
   background:var(--panel);border:1px solid var(--border);border-radius:var(--radius);
   box-shadow:var(--shadow);
 }
-.card .head{padding:14px 16px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
-.card .head h2{margin:0;font-size:15px}
+.card .head{padding:10px 16px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.card .head h2{margin:0;font-size:13px}
 .card .body{padding:16px}
 
 /* filters */
-form.filters{display:grid;gap:14px}
+form.filters{display:grid;gap:8px}
 .row{display:grid;gap:12px;grid-template-columns:repeat(4,1fr)}
 .row-3{grid-template-columns:repeat(3,1fr)}
 .row-2{grid-template-columns:repeat(2,1fr)}
@@ -112,8 +112,8 @@ form.filters{display:grid;gap:14px}
 @media (max-width:1024px){ .row,.row-3{grid-template-columns:repeat(2,1fr)} }
 @media (max-width:640px){ .row,.row-3,.row-2{grid-template-columns:1fr} }
 
-.field{display:flex;flex-direction:row;margin-bottom:10px;}
-.label{font-size:14px;color:var(--muted);text-align: left;}
+.field{display:flex;flex-direction:row;margin-bottom:8px;}
+.label{font-size:14px;color:var(--muted);text-align: left;padding:0px;line-height:2;}
 .control{
   display:flex;align-items:center;gap:10px;
   background:#10141c;border:1px solid var(--border);border-radius:12px;
@@ -127,10 +127,10 @@ form.filters{display:grid;gap:14px}
 .note{color:var(--muted);font-size:12px}
 
 /* actions */
-.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:4px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;}
 .btn{
   border:1px solid var(--border);background:linear-gradient(180deg,#1f2736,#0f141e);
-  color:var(--text);padding:10px 14px;border-radius:12px;cursor:pointer;font-weight:700;font-size:13px
+  color:var(--text);padding:6px 16px;border-radius:12px;cursor:pointer;font-weight:700;font-size:14px
 }
 .btn:hover{border-color:#3a4455}
 .btn.primary{border-color:#2e71ff66;box-shadow:0 0 0 1px #2e71ff33 inset}
@@ -155,7 +155,7 @@ tbody tr:hover{background:#121726}
 .link a:hover{text-decoration:underline}
 .badge{
   display:inline-flex;align-items:center;gap:6px;
-  padding:6px 8px;border-radius:10px;border:1px solid #ffab0040;background:#ffab0011;color:#ffbf66;
+  padding:5px 8px;border-radius:10px;border:1px solid #ffab0040;background:#ffab0011;color:#ffbf66;
   font-size:12px;font-weight:700
 }
 .toolbar{display:flex;gap:8px;align-items:center}
@@ -164,3 +164,4 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
