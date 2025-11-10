@@ -9,7 +9,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
   .controller('MainController', [
     '$scope',
-    '$modal',
+    '$timeout',
     function($scope, $modal) {
 
       /*************************** DEFAULT INFO SETUP ***************************/
@@ -335,6 +335,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
