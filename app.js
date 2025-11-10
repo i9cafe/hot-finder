@@ -109,7 +109,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
         let items = await this.doSearch();
 
-        if (items === null || items.length === 0) {
+        if (items === undefined || items === null || items.length === 0) {
           return;
         }
 
@@ -368,6 +368,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
