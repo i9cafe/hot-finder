@@ -271,6 +271,16 @@ const app = angular.module('hotFinder', ['ngRoute'
         return totalSeconds;
       };
 
+      this.changeShortsLong = () => {
+        let value = document.getElementById('searchbox-shortsLong').value;
+
+        if (value == "short") {
+          document.getElementById('label-shortsSecond').sytle.color = "yellow";
+        } else {
+          document.getElementById('label-shortsSecond').sytle.color = "white";          
+        }        
+      };
+
       // 로딩 화면 보이기
       this.showLoader = () => {
         document.getElementById('loader').style.display = 'flex';
@@ -327,6 +337,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
