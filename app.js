@@ -76,6 +76,9 @@ const app = angular.module('hotFinder', ['ngRoute'
         vm.params.viewCountByMinTime = 10;
         vm.params.checkPopular = "N";
         vm.params.keyword = "";
+
+        document.getElementById('label-shortsSecond').style.color = "9AA3BE";
+        document.getElementById('searchbox-shortsSecond').setAttribute("readonly", true);
       };
 
       this.search = async () => {
@@ -346,6 +349,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
