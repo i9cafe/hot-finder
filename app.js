@@ -272,9 +272,7 @@ const app = angular.module('hotFinder', ['ngRoute'
       };
 
       this.changeShortsLong = () => {
-        let value = document.getElementById('searchbox-shortsLong').value;
-
-        if (value === "short") {
+        if (vm.params.shortsLong === "short") {
            document.getElementById('label-shortsSecond').style.color = "yellow";
         } else {
            document.getElementById('label-shortsSecond').style.color = "#9AA3BE";
@@ -337,6 +335,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
