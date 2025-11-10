@@ -154,7 +154,7 @@ const app = angular.module('hotFinder', ['ngRoute'
           });
         }
 
-        for (int k = 0; k < result.length; k++) {
+        for (let k = 0; k < result.length; k++) {
           result[k].no = k + 1;
         }
 
@@ -356,6 +356,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
