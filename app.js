@@ -77,8 +77,10 @@ const app = angular.module('hotFinder', ['ngRoute'
         vm.params.checkPopular = "N";
         vm.params.keyword = "";
 
-        document.getElementById('label-shortsSecond').style.color = "9AA3BE";
-        document.getElementById('searchbox-shortsSecond').setAttribute("readonly", true);
+        $timeout(() => {
+          document.getElementById('label-shortsSecond').style.color = "9AA3BE";
+          document.getElementById('searchbox-shortsSecond').setAttribute("readonly", true);
+        });
       };
 
       this.search = async () => {
@@ -349,6 +351,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
