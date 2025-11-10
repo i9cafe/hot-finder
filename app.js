@@ -211,7 +211,11 @@ const app = angular.module('hotFinder', ['ngRoute'
 
           return response.data.items;
         } catch (error) {
-          alert('[Error] api: search, detail: ' + error);
+          if (error.indexOf("403") > -1) {
+            alert('할당량이 모두 소진되어 오후 4시에 다시 이용해주세요.');
+          } else {          
+            alert('[Error] api: search, detail: ' + error);
+          }
         }
       };
 
@@ -227,7 +231,11 @@ const app = angular.module('hotFinder', ['ngRoute'
 
           return response;
         } catch (error) {
-          alert('[Error] api: videos, detail: ' + error);
+          if (error.indexOf("403") > -1) {
+            alert('할당량이 모두 소진되어 오후 4시에 다시 이용해주세요.');
+          } else {          
+            alert('[Error] api: search, detail: ' + error);
+          }
         }
       };
 
@@ -242,7 +250,11 @@ const app = angular.module('hotFinder', ['ngRoute'
 
           return response;
         } catch (error) {
-          alert('[Error] api: channels, detail: ' + error);
+          if (error.indexOf("403") > -1) {
+            alert('할당량이 모두 소진되어 오후 4시에 다시 이용해주세요.');
+          } else {          
+            alert('[Error] api: search, detail: ' + error);
+          }
         }
       };
 
@@ -368,6 +380,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
