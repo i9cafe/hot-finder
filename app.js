@@ -136,21 +136,21 @@ const app = angular.module('hotFinder', ['ngRoute'
           result[j] = object;
         }
 
-        if (vm.params.shortsLong === "short" && Number(vm.params.shortsSecond) > 0) {
+        if (vm.params.shortsLong === "short" && Number(vm.params.shortsSecond) >= 0) {
           result = result.filter(function(target) {
             return Number(target.playTime) <= Number(vm.params.shortsSecond);
           });
         }
 
-        if (vm.params.minViewCount > 0) {
+        if (Number(vm.params.minViewCount) >= 0) {
           result = result.filter(function(target) {
-            return Number(target.viewCount) > Number(vm.params.minViewCount);
+            return Number(target.viewCount) >= Number(vm.params.minViewCount);
           });
         }
 
-        if (vm.params.viewCountByMinTime > 0) {
+        if (Number(vm.params.viewCountByMinTime) >= 0) {
           result = result.filter(function(target) {
-            return Number(target.viewCountByTime) > Number(vm.params.viewCountByMinTime);
+            return Number(target.viewCountByTime) >= Number(vm.params.viewCountByMinTime);
           });
         }
 
@@ -356,6 +356,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
