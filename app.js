@@ -216,6 +216,7 @@ const app = angular.module('hotFinder', ['ngRoute'
           } else {          
             alert('[Error] api: search, detail: ' + error);
           }
+          this.hideLoader(); // 로딩 종료
         }
       };
 
@@ -236,6 +237,7 @@ const app = angular.module('hotFinder', ['ngRoute'
           } else {          
             alert('[Error] api: search, detail: ' + error);
           }
+          this.hideLoader(); // 로딩 종료
         }
       };
 
@@ -255,6 +257,7 @@ const app = angular.module('hotFinder', ['ngRoute'
           } else {          
             alert('[Error] api: search, detail: ' + error);
           }
+          this.hideLoader(); // 로딩 종료
         }
       };
 
@@ -380,6 +383,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
