@@ -276,7 +276,7 @@ const app = angular.module('hotFinder', ['ngRoute'
           const label = document.getElementById('label-shortsSecond');
           if (!label) return;
           label.style.color = (vm.params.shortsLong === "short") ? "yellow" : "#9AA3BE";   
-        };
+        });
       };
 
       // 로딩 화면 보이기
@@ -335,6 +335,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
