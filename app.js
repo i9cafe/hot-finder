@@ -26,7 +26,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
       vm.params = {};
       vm.params.excuteMode = "KEYWORD";
-      vm.params.shortsLong = "short";
+      vm.params.shortsLong = "long";
       vm.params.shortsSecond = 30;
       vm.params.recentDay = 10;
       vm.params.country = "KR";
@@ -65,7 +65,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
       this.reset = () => {
         vm.params.excuteMode = "KEYWORD";
-        vm.params.shortsLong = "short";
+        vm.params.shortsLong = "long";
         vm.params.shortsSecond = 30;
         vm.params.recentDay = 10;
         vm.params.country = "KR";
@@ -274,8 +274,17 @@ const app = angular.module('hotFinder', ['ngRoute'
       this.changeShortsLong = () => {
         $timeout(() => {
           const label = document.getElementById('label-shortsSecond');
-          if (!label) return;
+          if (!label) return;          
           label.style.color = (vm.params.shortsLong === "short") ? "yellow" : "#9AA3BE";   
+          
+          const searchbox = document.getElementById('searchbox-shortsSecond');
+          if (!searchbox) return;          
+          if (vm.params.shortsLong === "short") {
+            searchbox.setAttribute("readonly", true);
+          } else {
+            searchbox.removeAttribute("readonly");            
+          }
+          
           vm.params.shortsSecond = (vm.params.shortsLong === "short") ? 30 : "";   
         });
       };
@@ -336,6 +345,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
