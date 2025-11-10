@@ -65,7 +65,13 @@ const app = angular.module('hotFinder', ['ngRoute'
                           '</a>' +
                         '</div>' 
         },
-        { displayName: "썸네일링크", field: "thumbnailsUrl", width: "30%" },
+        { displayName: "썸네일링크", field: "thumbnailsUrl", width: "30%",
+          cellTemplate: '<div class="ui-grid-cell-contents">' +
+                          '<a href="{{COL_FIELD}}" target="_blank">' +
+                            '{{COL_FIELD}}' +
+                          '</a>' +
+                        '</div>' 
+        },
       ];
 
       $scope.gridOptions.data = [];
@@ -362,6 +368,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
