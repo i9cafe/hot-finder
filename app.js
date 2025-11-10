@@ -282,7 +282,8 @@ const app = angular.module('hotFinder', ['ngRoute'
           if (vm.params.shortsLong !== "short") {
             searchbox.setAttribute("readonly", true);
           } else {
-            searchbox.removeAttribute("readonly");            
+            searchbox.removeAttribute("readonly");   
+            searchbox.focus();
           }
           
           vm.params.shortsSecond = (vm.params.shortsLong === "short") ? 30 : "";   
@@ -345,6 +346,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
