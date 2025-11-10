@@ -130,7 +130,7 @@ const app = angular.module('hotFinder', ['ngRoute'
           result[j] = object;
         }
 
-        if (vm.params.shortsSecond > 0) {
+        if (vm.params.shortsLong === "short" && vm.params.shortsSecond > 0) {
           result = result.filter(function(target) {
             return Number(target.playTime) <= Number(vm.params.shortsSecond);
           });
@@ -327,6 +327,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
