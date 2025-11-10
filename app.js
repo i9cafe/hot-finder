@@ -20,8 +20,6 @@ const app = angular.module('hotFinder', ['ngRoute'
         params: { key: YOUTUBE_API_KEY },
       });
 
-      vm.labelStyle = { color: 'white' };
-
       vm.data = {};
       vm.data.hide = "접기";
       vm.data.totalCount = 0;
@@ -277,9 +275,9 @@ const app = angular.module('hotFinder', ['ngRoute'
         let value = document.getElementById('searchbox-shortsLong').value;
 
         if (value === "short") {
-          this.labelStyle = { color: 'yellow' };
+           document.getElementById('label-shortsLong').style.color = "yellow";
         } else {
-          this.labelStyle = { color: 'white' };
+           document.getElementById('label-shortsLong').style.color = "#9AA3BE";
         }      
       };
 
@@ -339,6 +337,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
