@@ -43,7 +43,6 @@ const app = angular.module('hotFinder', ['ngRoute'
       $scope.gridOptions = {
         enableColumnResizing: true,
         enableSorting: true,
-        enableFiltering: true,
         enableColumnMoving: false,
 
         onRegisterApi: function (gridapi) {
@@ -417,6 +416,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
