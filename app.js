@@ -5,7 +5,9 @@ const app = angular.module('hotFinder', ['ngRoute'
                 , "ui.grid"
                 , "ui.grid.resizeColumns"
                 , "ui.grid.moveColumns"
-                , "ui.grid.exporter"])
+                , "ui.grid.exporter"
+				, 'ui.grid.pagination'
+				, 'ui.grid.selection'])
 
   .controller('MainController', [
     '$scope',
@@ -14,12 +16,13 @@ const app = angular.module('hotFinder', ['ngRoute'
 
       /*************************** DEFAULT INFO SETUP ***************************/
       const vm = this;
+	  
       const YOUTUBE_API_KEY = "AIzaSyCg2tnEwBThaOS6-sdEzz--8skbl_C3Gps";
       const apiClient = axios.create({
         baseURL: "https://youtube.googleapis.com/youtube/v3",
         params: { key: YOUTUBE_API_KEY },
       });
-
+	  
       vm.data = {};
       vm.data.hide = "접기";
       vm.data.totalCount = 0;
@@ -31,19 +34,28 @@ const app = angular.module('hotFinder', ['ngRoute'
       vm.params.recentDay = 10;
       vm.params.country = "KR";
       vm.params.language = "ko";
-      vm.params.maxSearchCountByChannel = 50;
+      vm.params.maxSearchCountByChannel = 10;
       vm.params.maxSearchCountByKeyword = 50;
       vm.params.minViewCount = 20000;
       vm.params.viewCountByMinTime = 500;
       vm.params.checkPopular = "N";
       vm.params.keyword = "";
+	  
+	  vm.keyword = {};
+	  vm.keyword.includeKey = "";
+	  vm.keyword.exceptKey = "";
 
   	  //alert('Welcome! Have a nice day :)');
 
       $scope.gridOptions = {
         enableColumnResizing: true,
         enableSorting: true,
-        enableColumnMoving: false,
+        enableColumnMoving: false,	
+		exporterCsvFilename: 'export.csv',
+	    exporterCsvCustomFormatter: function(grid, csv) {
+			return '\uFEFF' + csv; // BOM 추가
+		  },
+		exporterMenuCsv: false, // 메뉴 비활성화 (직접 버튼으로 다운로드)
 
         onRegisterApi: function (gridapi) {
           $scope.gridApi = gridapi;
@@ -85,7 +97,7 @@ const app = angular.module('hotFinder', ['ngRoute'
         vm.params.recentDay = 10;
         vm.params.country = "KR";
         vm.params.language = "ko";
-        vm.params.maxSearchCountByChannel = 50;
+        vm.params.maxSearchCountByChannel = 10;
         vm.params.maxSearchCountByKeyword = 50;
         vm.params.minViewCount = 20000;
         vm.params.viewCountByMinTime = 500;
@@ -99,89 +111,98 @@ const app = angular.module('hotFinder', ['ngRoute'
       };
 
       this.search = async () => {
+		
+		if (vm.params.excuteMode === "CHANNEL") { 
+			
+		} else if (vm.params.excuteMode === "KEYWORD") {			
+			if (vm.keyword.includeKey === "") {
+			  alert("키워드 설정 탭에서 검색 키워드를 입력하세요.");
+			  const keywordInput = document.getElementById('keyword-includeKey');
+			  keywordInput.focus();
+			  return;
+			}		
+			  
+			vm.params.keyword = vm.keyword.includeKey + ' ' + vm.keyword.exceptKey;
 
-        if (vm.params.excuteMode === "KEYWORD" && vm.params.keyword === "") {
-          alert("검색 키워드를 입력하세요!");
-          const keywordInput = document.getElementById('searchbox-keyword');
-          keywordInput.focus();
-          return;
-        }
+			this.showLoader(); // 로딩 시작
 
-        this.showLoader(); // 로딩 시작
+			let items = await this.doSearch();
 
-        let items = await this.doSearch();
+			if (items === undefined || items === null || items.length === 0) {
+			  return;
+			}
 
-        if (items === undefined || items === null || items.length === 0) {
-          return;
-        }
+			for (let i = 0; i < items.length; i++) {
+			  let item = items[i];
 
-        for (let i = 0; i < items.length; i++) {
-          let item = items[i];
+			  let videoId = item.id.videoId;
+			  let videoInfo = await this.doSearchVideo(videoId);
+			  item.videoInfo = videoInfo;
 
-          let videoId = item.id.videoId;
-          let videoInfo = await this.doSearchVideo(videoId);
-          item.videoInfo = videoInfo;
+			  let channelId = item.snippet.channelId;
+			  let channelInfo = await this.doSearchChannel(channelId);
+			  item.channelInfo = channelInfo;
+			}
 
-          let channelId = item.snippet.channelId;
-          let channelInfo = await this.doSearchChannel(channelId);
-          item.channelInfo = channelInfo;
-        }
+			let result = [];
+			let nowDate = new Date();
 
-        let result = [];
-        let nowDate = new Date();
+			for (let j = 0; j < items.length; j++) {
+			  let object = {};
 
-        for (let j = 0; j < items.length; j++) {
-          let object = {};
+			  object.channelName = items[j].snippet.channelTitle;
+			  object.videoTitle = items[j].videoInfo.data.items[0].snippet.title;
+			  object.videoUploadDate = items[j].snippet.publishedAt;
+			  object.viewCount = Number(items[j].videoInfo.data.items[0].statistics.viewCount);
+			  let uploadDate = new Date(object.videoUploadDate);
+			  let diffDate = nowDate.getTime() - uploadDate.getTime();
+			  object.viewCountByTime = (Number(object.viewCount) / (diffDate / (1000 * 60 * 60))).toFixed(2);
+			  object.subscriberCount = Number(items[j].channelInfo.data.items[0].statistics.subscriberCount);
+			  object.viewCountBySubscriberCount = (Number(object.viewCount) / Number(object.subscriberCount)).toFixed(2);
+			  object.duration = this.formatISODuration(items[j].videoInfo.data.items[0].contentDetails.duration);
+			  object.playTime = Number(this.formatISODurationSecond(items[j].videoInfo.data.items[0].contentDetails.duration));
+			  object.videoUrl = "https://www.youtube.com/watch?v=" + items[j].id.videoId;
+			  object.thumbnailsUrl = "https://img.youtube.com/vi/" + items[j].id.videoId + "/0.jpg";
 
-          object.channelName = items[j].snippet.channelTitle;
-          object.videoTitle = items[j].videoInfo.data.items[0].snippet.title;
-          object.videoUploadDate = items[j].snippet.publishedAt;
-          object.viewCount = Number(items[j].videoInfo.data.items[0].statistics.viewCount);
-          let uploadDate = new Date(object.videoUploadDate);
-          let diffDate = nowDate.getTime() - uploadDate.getTime();
-          object.viewCountByTime = (Number(object.viewCount) / (diffDate / (1000 * 60 * 60))).toFixed(2);
-          object.subscriberCount = Number(items[j].channelInfo.data.items[0].statistics.subscriberCount);
-          object.viewCountBySubscriberCount = (Number(object.viewCount) / Number(object.subscriberCount)).toFixed(2);
-          object.duration = this.formatISODuration(items[j].videoInfo.data.items[0].contentDetails.duration);
-          object.playTime = Number(this.formatISODurationSecond(items[j].videoInfo.data.items[0].contentDetails.duration));
-          object.videoUrl = "https://www.youtube.com/watch?v=" + items[j].id.videoId;
-          object.thumbnailsUrl = "https://img.youtube.com/vi/" + items[j].id.videoId + "/0.jpg";
+			  result[j] = object;
+			}
 
-          result[j] = object;
-        }
+			if (vm.params.shortsLong === "short" && Number(vm.params.shortsSecond) >= 0) {
+			  result = result.filter(function(target) {
+				return Number(target.playTime) <= Number(vm.params.shortsSecond);
+			  });
+			}
 
-        if (vm.params.shortsLong === "short" && Number(vm.params.shortsSecond) >= 0) {
-          result = result.filter(function(target) {
-            return Number(target.playTime) <= Number(vm.params.shortsSecond);
-          });
-        }
+			if (Number(vm.params.minViewCount) >= 0) {
+			  result = result.filter(function(target) {
+				return Number(target.viewCount) >= Number(vm.params.minViewCount);
+			  });
+			}
 
-        if (Number(vm.params.minViewCount) >= 0) {
-          result = result.filter(function(target) {
-            return Number(target.viewCount) >= Number(vm.params.minViewCount);
-          });
-        }
+			if (Number(vm.params.viewCountByMinTime) >= 0) {
+			  result = result.filter(function(target) {
+				return Number(target.viewCountByTime) >= Number(vm.params.viewCountByMinTime);
+			  });
+			}
 
-        if (Number(vm.params.viewCountByMinTime) >= 0) {
-          result = result.filter(function(target) {
-            return Number(target.viewCountByTime) >= Number(vm.params.viewCountByMinTime);
-          });
-        }
+			for (let k = 0; k < result.length; k++) {
+			  result[k].no = k + 1;
+			}
 
-        for (let k = 0; k < result.length; k++) {
-          result[k].no = k + 1;
-        }
+			$scope.gridOptions.data = result;
+			$scope.$apply();
 
-        $scope.gridOptions.data = result;
-        $scope.$apply();
+			vm.data.totalCount = result.length;
 
-        vm.data.totalCount = result.length;
+			this.hideLoader(); // 로딩 종료
 
-        this.hideLoader(); // 로딩 종료
-
-        if (vm.data.totalCount === 0) {
-          alert("검색 조건에 해당하는 조회 결과가 0건 입니다!");
-        }
+			if (vm.data.totalCount === 0) {
+			  alert("검색 조건에 해당하는 조회 결과가 0건 입니다!");
+			}
+		} else { // 둘다
+			
+			
+		}
       }
 
       this.hide = () => {
@@ -206,6 +227,7 @@ const app = angular.module('hotFinder', ['ngRoute'
               regionCode: vm.params.country,
               relevanceLanguage: vm.params.language,
               videoDuration: vm.params.shortsLong,
+			  order: (vm.params.checkPopular === 'Y' ? 'viewCount' : 'relevance'),
               q: vm.params.keyword,
               publishedAfter: new Date(today.setDate(today.getDate() - vm.params.recentDay)),
             },
@@ -270,8 +292,8 @@ const app = angular.module('hotFinder', ['ngRoute'
       };
 
       this.excelDownload = () => {
-        $scope.gridApi.exporter.csvExport("visible", "visible", true);
-      };
+		  $scope.gridApi.exporter.csvExport("visible", "visible", true);
+		};
 
       this.formatISODuration = (duration) => {
         // 정규식으로 각 단위를 추출
