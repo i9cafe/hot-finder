@@ -100,7 +100,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
       this.search = async () => {
 
-        if (vm.params.excuteMode = "KEYWORD" && vm.params.keyword === "") {
+        if (vm.params.excuteMode === "KEYWORD" && vm.params.keyword === "") {
           alert("검색 키워드를 입력하세요!");
           const keywordInput = document.getElementById('searchbox-keyword');
           keywordInput.focus();
@@ -416,6 +416,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
