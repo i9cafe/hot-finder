@@ -25,7 +25,7 @@ const app = angular.module('hotFinder', ['ngRoute'
       vm.data.totalCount = 0;
 
       vm.params = {};
-      vm.params.excuteMode = "KEYWORD";
+      vm.params.excuteMode = "CHANNEL";
       vm.params.shortsLong = "long";
       vm.params.shortsSecond = "";
       vm.params.recentDay = 10;
@@ -79,7 +79,7 @@ const app = angular.module('hotFinder', ['ngRoute'
       $scope.gridOptions.data = [];
 
       this.reset = () => {
-        vm.params.excuteMode = "KEYWORD";
+        vm.params.excuteMode = "CHANNEL";
         vm.params.shortsLong = "long";
         vm.params.shortsSecond = "";
         vm.params.recentDay = 10;
@@ -100,12 +100,12 @@ const app = angular.module('hotFinder', ['ngRoute'
 
       this.search = async () => {
 
-        // if (vm.params.keyword === "") {
-        //   alert("검색 키워드를 입력하세요!");
-        //   const keywordInput = document.getElementById('searchbox-keyword');
-        //   keywordInput.focus();
-        //   return;
-        // }
+        if (vm.params.excuteMode = "KEYWORD" && vm.params.keyword === "") {
+          alert("검색 키워드를 입력하세요!");
+          const keywordInput = document.getElementById('searchbox-keyword');
+          keywordInput.focus();
+          return;
+        }
 
         this.showLoader(); // 로딩 시작
 
@@ -416,6 +416,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
