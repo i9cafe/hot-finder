@@ -49,7 +49,7 @@
                     <div class="field col-md-12">
                       <label class="label col-md-4" style="color:yellow;">실행모드</label>
                       <div class="control col-md-8">
-                        <select id="searchbox-excuteMode" ng-model="vm.params.excuteMode" disabled>
+                        <select id="searchbox-excuteMode" ng-model="vm.params.excuteMode">
                           <option value="CHANNEL" style="color:black;">채널</option>
                           <option value="KEYWORD" style="color:black;">키워드</option>
                         </select>
@@ -145,7 +145,7 @@
                     <div class="field col-md-12">
                       <label class="label col-md-4" style="color:yellow;">검색 키워드</label>
                       <div class="control col-md-8">
-                        <input id="searchbox-keyword" type="text" style="width:100%;" ng-model="vm.params.keyword" placeholder="예) 골프, 뉴스, 리뷰 ..." />
+                        <input id="searchbox-keyword" type="text" style="width:100%;" ng-model="vm.params.keyword" placeholder="키워드 모드에서 활성화됩니다." />
                       </div>
                     </div>
                   </div>
@@ -178,6 +178,7 @@
 
   </body>
 </html>
+
 
 
 
