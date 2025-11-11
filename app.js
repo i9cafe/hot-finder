@@ -23,6 +23,38 @@ const app = angular.module('hotFinder', ['ngRoute'
         params: { key: YOUTUBE_API_KEY },
       });
 	  
+	  vm.channelMaster = {};
+	  vm.channelMaster.array = [
+		  {
+			id: "UCOZnrJilN9FsL8pGd0by6xg",
+			name: "썰이빛나는밤에",
+		  }, {
+			id: "UCrW6eDWbbdmxr-XfOkvQKwQ",
+			name: "사연튜브 • 사연라디오",
+		  }, {
+			id: "3",
+			name: "3",
+		  }, {
+			id: "4",
+			name: "4",
+		  }, {
+			id: "5",
+			name: "5",
+		  }, {
+			id: "6",
+			name: "6",
+		  }, {
+			id: "...",
+			name: "...",
+		  }, {
+			id: "134",
+			name: "134",
+		  }, {
+			id: "135",
+			name: "135",
+		  }
+	  ];
+	  
       vm.data = {};
       vm.data.hide = "접기";
       vm.data.totalCount = 0;
@@ -105,7 +137,6 @@ const app = angular.module('hotFinder', ['ngRoute'
         vm.params.keyword = "";
 
         $timeout(() => {
-          document.getElementById('label-shortsSecond').style.color = "#9AA3BE";
           document.getElementById('searchbox-shortsSecond').setAttribute("readonly", true);
         });
       };
@@ -113,6 +144,11 @@ const app = angular.module('hotFinder', ['ngRoute'
       this.search = async () => {
 		
 		if (vm.params.excuteMode === "CHANNEL") { 
+			
+			alert("해당 기능은 아직 준비 중입니다.");
+			
+			
+			
 			
 		} else if (vm.params.excuteMode === "KEYWORD") {			
 			if (vm.keyword.includeKey === "") {
@@ -201,6 +237,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			}
 		} else { // 둘다
 			
+			alert("해당 기능은 아직 준비 중입니다.");
 			
 		}
       }
@@ -339,10 +376,7 @@ const app = angular.module('hotFinder', ['ngRoute'
       };
 
       this.changeShortsLong = () => {
-        $timeout(() => {
-          const label = document.getElementById('label-shortsSecond');
-          if (!label) return;          
-          label.style.color = (vm.params.shortsLong === "short") ? "yellow" : "#9AA3BE";   
+        $timeout(() => {  
           
           const searchbox = document.getElementById('searchbox-shortsSecond');
           if (!searchbox) return;          
