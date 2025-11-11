@@ -33,8 +33,8 @@ const app = angular.module('hotFinder', ['ngRoute'
       vm.params.language = "ko";
       vm.params.maxSearchCountByChannel = 50;
       vm.params.maxSearchCountByKeyword = 50;
-      vm.params.minViewCount = 1000;
-      vm.params.viewCountByMinTime = 10;
+      vm.params.minViewCount = 20000;
+      vm.params.viewCountByMinTime = 500;
       vm.params.checkPopular = "N";
       vm.params.keyword = "";
 
@@ -85,8 +85,8 @@ const app = angular.module('hotFinder', ['ngRoute'
         vm.params.language = "ko";
         vm.params.maxSearchCountByChannel = 50;
         vm.params.maxSearchCountByKeyword = 50;
-        vm.params.minViewCount = 1000;
-        vm.params.viewCountByMinTime = 10;
+        vm.params.minViewCount = 20000;
+        vm.params.viewCountByMinTime = 500;
         vm.params.checkPopular = "N";
         vm.params.keyword = "";
 
@@ -98,12 +98,12 @@ const app = angular.module('hotFinder', ['ngRoute'
 
       this.search = async () => {
 
-        if (vm.params.keyword === "") {
-          alert("검색 키워드를 입력하세요!");
-          const keywordInput = document.getElementById('searchbox-keyword');
-          keywordInput.focus();
-          return;
-        }
+        // if (vm.params.keyword === "") {
+        //   alert("검색 키워드를 입력하세요!");
+        //   const keywordInput = document.getElementById('searchbox-keyword');
+        //   keywordInput.focus();
+        //   return;
+        // }
 
         this.showLoader(); // 로딩 시작
 
@@ -414,6 +414,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
