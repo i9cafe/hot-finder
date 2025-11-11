@@ -16,8 +16,9 @@
 	  <link rel="stylesheet" href="font-awesome.min.css">
 	  <link rel="stylesheet" href="style.css" />
 
-		<link data-require="ui-grid@3.0.1" data-semver="3.0.1" rel="stylesheet" href="https://cdn.rawgit.com/angular-ui/bower-ui-grid/v3.0.1/ui-grid.min.css" />
-    <script data-require="ui-grid@3.0.1" data-semver="3.0.1" src="https://cdn.rawgit.com/angular-ui/bower-ui-grid/v3.0.1/ui-grid.min.js"></script>
+	<link rel="stylesheet" href="https://cdn.rawgit.com/angular-ui/bower-ui-grid/v3.2.9/ui-grid.min.css">
+<script src="https://cdn.rawgit.com/angular-ui/bower-ui-grid/v3.2.9/ui-grid.min.js"></script>
+<script src="https://cdn.rawgit.com/angular-ui/bower-ui-grid/v3.2.9/ui-grid-exporter.min.js"></script>	
     <script data-require="ui-bootstrap-tpls@0.14.3" data-semver="0.14.3" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.js"></script>
   </head>
 
@@ -42,122 +43,165 @@
           </div>
         </div>
 
-        <div id="search-area" class="body">
-          <form class="filters" action="#" method="get">
-            <div class="col-md-12">
-                  <div class="col-md-4">
-                    <div class="field col-md-12">
-                      <label class="label col-md-4" style="color:yellow;">실행모드</label>
-                      <div class="control col-md-8">
-                        <select id="searchbox-excuteMode" ng-model="vm.params.excuteMode">
-                          <option value="CHANNEL" style="color:black;">채널</option>
-                          <option value="KEYWORD" style="color:black;">키워드</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="field col-md-12">
-                      <label class="label col-md-4" style="color:yellow;">쇼츠/롱폼</label>
-                      <div class="control col-md-8">
-                        <select id="searchbox-shortsLong" ng-model="vm.params.shortsLong" ng-change="vm.changeShortsLong()">
-                          <option value="short" style="color:black;">쇼츠(4분 미만)</option>
-                          <option value="medium" style="color:black;">중간(4분 이상~20분 미만)</option>
-                          <option value="long" style="color:black;">롱폼(20분 초과)</option>
-                          <option value="any" style="color:black;">전체</option>
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="field col-md-12">
-                      <label id="label-shortsSecond" class="label col-md-4" style="color:#9AA3BE;"> 쇼츠 기준(초)</label>
-                      <div class="control col-md-8">
-                        <input id="searchbox-shortsSecond" type="number" style="width:100%;" ng-model="vm.params.shortsSecond" placeholder="쇼츠 선택 시 활성화됩니다." readonly/>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="field col-md-12">
-                      <label class="label col-md-8" style="color:yellow;">최근 며칠간의 영상을 조회할까요</label>
-                      <div class="control col-md-4">
-                        <input id="searchbox-recentDay" type="number" style="width:100%;" ng-model="vm.params.recentDay"/>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="field col-md-12">
-                      <label class="label col-md-4" style="color:yellow;">대상국가</label>
-                      <div class="control col-md-8">
-                        <input id="searchbox-country" type="text" style="width:100%;" ng-model="vm.params.country"/>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="field col-md-12">
-                      <label class="label col-md-4" style="color:yellow;">언어</label>
-                      <div class="control col-md-8">
-                        <input id="searchbox-language" type="text" style="width:100%;" ng-model="vm.params.language"/>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="field col-md-12">
-                      <label class="label col-md-6" style="color:yellow;">채널당 최대 검색 수</label>
-                      <div class="control col-md-6">
-                        <input id="searchbox-maxSearchCountByChannel" type="number" style="width:100%; color:gray;" ng-model="vm.params.maxSearchCountByChannel" disabled/>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="field col-md-12">
-                      <label class="label col-md-6" style="color:yellow;">검색어당 최대 검색 수</label>
-                      <div class="control col-md-6">
-                        <input id="searchbox-maxSearchCountByKeyword" type="number" style="width:100%; color:gray;" ng-model="vm.params.maxSearchCountByKeyword" disabled/>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="field col-md-12">
-                      <label class="label col-md-4" style="color:yellow;">최소 조회수</label>
-                      <div class="control col-md-8">
-                        <input id="searchbox-minViewCount" type="number" style="width:100%;" ng-model="vm.params.minViewCount"/>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="field col-md-12">
-                      <label class="label col-md-6" style="color:yellow;">최소 시간당 조회수</label>
-                      <div class="control col-md-6">
-                        <input id="searchbox-viewCountByMinTime" type="number" style="width:100%;" ng-model="vm.params.viewCountByMinTime"/>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="field col-md-12">
-                      <label class="label col-md-6">채널별 인기영상 보기</label>
-                      <div class="col-md-6">
-                        <input type="checkbox" ng-model="vm.params.checkPopular" style="width:20px; height:20px; display:inline; vertical-align:text-bottom; cursor:pointer;" ng-true-value="'Y'" ng-false-value="'N'"></input>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="field col-md-12">
-                      <label class="label col-md-4" style="color:yellow;">검색 키워드</label>
-                      <div class="control col-md-8">
-                        <input id="searchbox-keyword" type="text" style="width:100%;" ng-model="vm.params.keyword" placeholder="키워드 모드에서 활성화됩니다." />
-                      </div>
-                    </div>
-                  </div>
-              </div>
+		<div id="search-area" class="body">
+			<!-- UI-Bootstrap 탭 -->
+			<uib-tabset justified="true">
+			  
+			  <!-- 탭1 -->
+			  <uib-tab heading="채널 모드 사전 설정">
+				<div style="padding: 15px;">
+				  <h4>채널 핸들명</h4>
+				  <p>이곳에 원하는 기능이나 설정을 추가하세요.</p>
+				</div>
+			  </uib-tab>
 
-              <div class="actions" style="justify-content: end;">
-                <button class="btn primary" type="submit" ng-click="vm.search()"></i>검색</button>
-                <button class="btn ghost" ng-click="vm.reset()"></i>리셋</button>
-                <button class="btn ghost" ng-click="vm.excelDownload()" style="display: none;">엑셀 다운로드</button>
-              </div>
-            </div>
-          </form>
+			  <!-- 탭2 -->
+			  <uib-tab heading="키워드 모드 사전 설정">
+				<div class="body">
+				  <form class="filters">
+					<h4>검색 키워드</h4>
+					<div class="col-md-12">
+						<div class="field col-md-12">
+							  <div class="control col-md-12">
+								<input id="keyword-includeKey" type="text" style="width:100%;" ng-model="vm.keyword.includeKey"
+								placeholder="'|' 구분자를 사용하여 여러 개의 키워드로도 검색이 가능합니다. 예) 보트 | 항해 | 바다"/>
+							  </div>
+						</div>		
+					</div>
+					<h4>제외할 키워드</h4>
+					<div class="col-md-12">
+						<div class="field col-md-12">
+							  <div class="control col-md-12">
+								<input id="keyword-exceptKey" type="text" style="width:100%;" ng-model="vm.keyword.exceptKey"
+								placeholder="키워드 앞에 '-'을 붙여 검색 결과에서 제외할 수 있습니다. 예) -낚시 -다이빙"/>
+							  </div>
+						</div>			
+					</div>
+				  </form>
+				</div>
+			  </uib-tab>
+
+			  <!-- 기존 검색조건 탭 -->
+			  <uib-tab active="true" heading="검색조건">
+				<div class="body" style="padding-left:0px;padding-right:0px;padding-bottom:0px;">
+				  <form class="filters">
+					<div class="col-md-12">
+						  <div class="col-md-4">
+							<div class="field col-md-12">
+							  <label class="label col-md-4" style="color:yellow;">실행모드</label>
+							  <div class="control col-md-8">
+								<select id="searchbox-excuteMode" ng-model="vm.params.excuteMode">
+								  <option value="CHANNEL" style="color:black;">채널</option>
+								  <option value="KEYWORD" style="color:black;">키워드</option>
+								  <option value="BOTH" style="color:black;">둘다</option>
+								</select>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-md-4">
+							<div class="field col-md-12">
+							  <label class="label col-md-4" style="color:yellow;">쇼츠/롱폼</label>
+							  <div class="control col-md-8">
+								<select id="searchbox-shortsLong" ng-model="vm.params.shortsLong" ng-change="vm.changeShortsLong()">
+								  <option value="short" style="color:black;">쇼츠(4분 미만)</option>
+								  <option value="medium" style="color:black;">중간(4분 이상~20분 미만)</option>
+								  <option value="long" style="color:black;">롱폼(20분 초과)</option>
+								  <option value="any" style="color:black;">전체</option>
+								</select>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-md-4">
+							<div class="field col-md-12">
+							  <label id="label-shortsSecond" class="label col-md-4" style="color:#9AA3BE;"> 쇼츠 기준(초)</label>
+							  <div class="control col-md-8">
+								<input id="searchbox-shortsSecond" type="number" style="width:100%;" ng-model="vm.params.shortsSecond" placeholder="쇼츠 선택 시 활성화됩니다." readonly/>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-md-4">
+							<div class="field col-md-12">
+							  <label class="label col-md-8" style="color:yellow;">최근 며칠간의 영상을 조회할까요</label>
+							  <div class="control col-md-4">
+								<input id="searchbox-recentDay" type="number" style="width:100%;" ng-model="vm.params.recentDay"/>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-md-4">
+							<div class="field col-md-12">
+							  <label class="label col-md-4" style="color:yellow;">대상국가</label>
+							  <div class="control col-md-8">
+								<input id="searchbox-country" type="text" style="width:100%;" ng-model="vm.params.country"/>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-md-4">
+							<div class="field col-md-12">
+							  <label class="label col-md-4" style="color:yellow;">언어</label>
+							  <div class="control col-md-8">
+								<input id="searchbox-language" type="text" style="width:100%;" ng-model="vm.params.language"/>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-md-4">
+							<div class="field col-md-12">
+							  <label class="label col-md-6" style="color:yellow;">채널당 최대 검색 수</label>
+							  <div class="control col-md-6">
+								<input id="searchbox-maxSearchCountByChannel" type="number" style="width:100%; color:gray;" ng-model="vm.params.maxSearchCountByChannel" disabled/>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-md-4">
+							<div class="field col-md-12">
+							  <label class="label col-md-6" style="color:yellow;">검색어당 최대 검색 수</label>
+							  <div class="control col-md-6">
+								<input id="searchbox-maxSearchCountByKeyword" type="number" style="width:100%; color:gray;" ng-model="vm.params.maxSearchCountByKeyword" disabled/>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-md-4">
+							<div class="field col-md-12">
+							  <label class="label col-md-4" style="color:yellow;">최소 조회수</label>
+							  <div class="control col-md-8">
+								<input id="searchbox-minViewCount" type="number" style="width:100%;" ng-model="vm.params.minViewCount"/>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-md-4">
+							<div class="field col-md-12">
+							  <label class="label col-md-6" style="color:yellow;">최소 시간당 조회수</label>
+							  <div class="control col-md-6">
+								<input id="searchbox-viewCountByMinTime" type="number" style="width:100%;" ng-model="vm.params.viewCountByMinTime"/>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-md-4">
+							<div class="field col-md-12">
+							  <label class="label col-md-6" style="color:yellow;">채널별 인기영상 보기</label>
+							  <div class="col-md-6">
+								<input type="checkbox" ng-model="vm.params.checkPopular" style="width:20px; height:20px; display:inline; vertical-align:text-bottom; cursor:pointer;" ng-true-value="'Y'" ng-false-value="'N'"></input>
+							  </div>
+							</div>
+						  </div>
+						  <div class="col-md-4" style="visibility:hidden;">
+							<div class="field col-md-12">
+							  <label class="label col-md-4" style="color:yellow;">검색 키워드</label>
+							  <div class="control col-md-8">
+								<input id="searchbox-keyword" type="text" style="width:100%;" ng-model="vm.params.keyword" placeholder="키워드 모드에서 활성화됩니다." />
+							  </div>
+							</div>
+						  </div>
+					  </div>
+
+					  <div class="actions" style="justify-content: end; padding-left:15px; padding-right:15px;">
+						<button class="btn primary" type="submit" ng-click="vm.search()"></i>검색</button>
+						<button class="btn ghost" ng-click="vm.reset()"></i>리셋</button>						
+					  </div>
+					</div>
+				  </form>
+				</div>
+			  </uib-tab>
+			</uib-tabset>
         </div>
       </section>
 
@@ -165,8 +209,9 @@
       <section class="card table-card">
         <div class="head">
           <h2>조회결과</h2>
-          <div class="toolbar">
+          <div class="toolbar">            
             <span class="meta">총 {{ vm.data.totalCount }}건</span>
+			<button class="btn success" ng-click="vm.excelDownload()">엑셀 다운로드</button>
           </div>
         </div>
 
