@@ -327,8 +327,108 @@ const app = angular.module('hotFinder', ['ngRoute'
 			  alert("검색 조건에 해당하는 조회 결과가 0건 입니다!");
 			}
 		} else { // 둘다
+		
+			if (vm.keyword.includeKey === "") {
+			  alert("키워드 설정 탭에서 검색 키워드를 입력하세요.");
+			  const keywordInput = document.getElementById('keyword-includeKey');
+			  keywordInput.focus();
+			  return;
+			}		
+			  
+			vm.params.keyword = vm.keyword.includeKey + ' ' + vm.keyword.exceptKey;
 			
-			alert("해당 기능은 아직 준비 중입니다.");
+			this.showLoader(); // 로딩 시작
+			
+			let result = [];			
+			let nowDate = new Date();
+			
+			let dataBeforeCnt = 0;
+						
+			for (let index = 0; index < vm.channelMaster.array.length; index++) {
+				
+				let channelId = vm.channelMaster.array[index].id;
+				
+				if (channelId === undefined || channelId === null || channelId.indexOf("U") === -1) {
+				  continue;
+				}
+				
+				let items = await this.doSearchBothMode(channelId);
+
+				if (items === undefined || items === null || items.length === 0) {
+				  continue;
+				}
+				
+				for (let i = 0; i < items.length; i++) {
+				  let item = items[i];
+
+				  let videoId = item.id.videoId;
+				  let videoInfo = await this.doSearchVideo(videoId);
+				  item.videoInfo = videoInfo;
+
+				  let channelId = item.snippet.channelId;
+				  let channelInfo = await this.doSearchChannel(channelId);
+				  item.channelInfo = channelInfo;
+				}			
+				
+				for (let j = 0; j < items.length; j++) {
+				  let object = {};
+
+				  object.channelName = items[j].snippet.channelTitle;
+				  object.videoTitle = items[j].videoInfo.data.items[0].snippet.title;
+				  object.videoUploadDate = items[j].snippet.publishedAt;
+				  object.viewCount = Number(items[j].videoInfo.data.items[0].statistics.viewCount);
+				  let uploadDate = new Date(object.videoUploadDate);
+				  let diffDate = nowDate.getTime() - uploadDate.getTime();
+				  object.viewCountByTime = (Number(object.viewCount) / (diffDate / (1000 * 60 * 60))).toFixed(2);
+				  object.subscriberCount = Number(items[j].channelInfo.data.items[0].statistics.subscriberCount);
+				  object.viewCountBySubscriberCount = (Number(object.viewCount) / Number(object.subscriberCount)).toFixed(2);
+				  object.duration = this.formatISODuration(items[j].videoInfo.data.items[0].contentDetails.duration);
+				  object.playTime = Number(this.formatISODurationSecond(items[j].videoInfo.data.items[0].contentDetails.duration));
+				  object.videoUrl = "https://www.youtube.com/watch?v=" + items[j].id.videoId;
+				  object.thumbnailsUrl = "https://img.youtube.com/vi/" + items[j].id.videoId + "/0.jpg";
+			      
+				  if (index === 0) {
+					result[j] = object;
+				  } else {
+					result[j + dataBeforeCnt] = object; 
+				  }
+				}	
+
+				dataBeforeCnt += result.length;				
+			}			
+
+			if (vm.params.shortsLong === "short" && Number(vm.params.shortsSecond) >= 0) {
+			  result = result.filter(function(target) {
+				return Number(target.playTime) <= Number(vm.params.shortsSecond);
+			  });
+			}
+
+			if (Number(vm.params.minViewCount) >= 0) {
+			  result = result.filter(function(target) {
+				return Number(target.viewCount) >= Number(vm.params.minViewCount);
+			  });
+			}
+
+			if (Number(vm.params.viewCountByMinTime) >= 0) {
+			  result = result.filter(function(target) {
+				return Number(target.viewCountByTime) >= Number(vm.params.viewCountByMinTime);
+			  });
+			}
+
+			for (let k = 0; k < result.length; k++) {
+			  result[k].no = k + 1;
+			}
+
+			$scope.gridOptions.data = result;
+			$scope.$apply();
+
+			vm.data.totalCount = result.length;
+			
+			this.hideLoader(); // 로딩 종료
+
+			if (vm.data.totalCount === 0) {
+			  alert("검색 조건에 해당하는 조회 결과가 0건 입니다!");
+			}
 			
 		}
       }
@@ -388,6 +488,38 @@ const app = angular.module('hotFinder', ['ngRoute'
               videoDuration: vm.params.shortsLong,
 			  order: (vm.params.checkPopular === 'Y' ? 'viewCount' : 'relevance'),
               channelId: arguChannelId,
+              publishedAfter: new Date(today.setDate(today.getDate() - vm.params.recentDay)),
+            },
+          });
+			
+          return response.data.items;
+        } catch (error) {
+          const resetTimeKST = getYouTubeQuotaResetTimeKST();
+          
+          if (error.message.indexOf("403") > -1) {
+            alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST.toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }));
+          } else {          
+            alert('[Error] api: search, detail: ' + error);
+          }
+          this.hideLoader(); // 로딩 종료
+        }
+      };
+	  
+	  this.doSearchBothMode = async (arguChannelId) => {
+        try {
+          const today = new Date();
+
+          const response = await apiClient.get('search', {
+            params: {
+              part: 'snippet',
+              maxResults: (vm.params.maxSearchCountByChannel <= 0 ? 1 : vm.params.maxSearchCountByChannel),
+              type: "video",
+              regionCode: vm.params.country,
+              relevanceLanguage: vm.params.language,
+              videoDuration: vm.params.shortsLong,
+			  order: (vm.params.checkPopular === 'Y' ? 'viewCount' : 'relevance'),
+              channelId: arguChannelId,
+			  q: vm.params.keyword,
               publishedAfter: new Date(today.setDate(today.getDate() - vm.params.recentDay)),
             },
           });
