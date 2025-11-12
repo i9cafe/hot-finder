@@ -17,8 +17,8 @@ const app = angular.module('hotFinder', ['ngRoute'
       /*************************** DEFAULT INFO SETUP ***************************/
       const vm = this;
 	  
-      const YOUTUBE_API_KEY = "AIzaSyCg2tnEwBThaOS6-sdEzz--8skbl_C3Gps";
-      const apiClient = axios.create({
+      let YOUTUBE_API_KEY = "AIzaSyCg2tnEwBThaOS6-sdEzz--8skbl_C3Gps";
+      let apiClient = axios.create({
         baseURL: "https://youtube.googleapis.com/youtube/v3",
         params: { key: YOUTUBE_API_KEY },
       });
@@ -471,6 +471,7 @@ const app = angular.module('hotFinder', ['ngRoute'
             alert('[Error] api: search, detail: ' + error);
           }
           this.hideLoader(); // 로딩 종료
+		  return [];
         }
       };
 	  
@@ -502,6 +503,7 @@ const app = angular.module('hotFinder', ['ngRoute'
             alert('[Error] api: search, detail: ' + error);
           }
           this.hideLoader(); // 로딩 종료
+		  return [];
         }
       };
 	  
@@ -534,6 +536,7 @@ const app = angular.module('hotFinder', ['ngRoute'
             alert('[Error] api: search, detail: ' + error);
           }
           this.hideLoader(); // 로딩 종료
+		  return [];
         }
       };
 
@@ -557,6 +560,7 @@ const app = angular.module('hotFinder', ['ngRoute'
             alert('[Error] api: search, detail: ' + error);
           }
           this.hideLoader(); // 로딩 종료
+		  return [];
         }
       };
 
@@ -579,6 +583,7 @@ const app = angular.module('hotFinder', ['ngRoute'
             alert('[Error] api: search, detail: ' + error);
           }
           this.hideLoader(); // 로딩 종료
+		  return [];
         }
       };
 
@@ -726,6 +731,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
