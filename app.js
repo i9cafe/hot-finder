@@ -85,6 +85,10 @@ const app = angular.module('hotFinder', ['ngRoute'
 			comment: "",
 		  }
 	  ];
+		
+	vm.channelMaster.okTotalCount = vm.channelMaster.array.filter(function(target) {
+			return target.flag === "Y";
+		  });
 	  	  
       vm.data = {};
       vm.data.hide = "접기";
@@ -801,6 +805,13 @@ const app = angular.module('hotFinder', ['ngRoute'
 			location.reload(); // 페이지 새로고침
 		}
 
+		this.clickGridCheckbox = () => {
+
+			vm.channelMaster.okTotalCount = vm.channelMaster.array.filter(function(target) {
+				return target.flag === "Y";
+			  });
+		};
+
       /**
        * YouTube Data API v3 할당량 초기화 시간이
        * 한국 시간(KST) 기준으로 언제인지 계산해주는 함수
@@ -873,6 +884,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
