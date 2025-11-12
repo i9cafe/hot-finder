@@ -776,6 +776,10 @@ const app = angular.module('hotFinder', ['ngRoute'
         document.getElementById('content').style.display = 'block';
       };
 
+		this.clickHome = () => {
+			location.reload(); // 페이지 새로고침
+		}
+
       /**
        * YouTube Data API v3 할당량 초기화 시간이
        * 한국 시간(KST) 기준으로 언제인지 계산해주는 함수
@@ -845,6 +849,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
