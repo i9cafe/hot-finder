@@ -76,7 +76,8 @@
 										<input type="checkbox"
 							                   ng-model="channel.flag"
 							                   ng-true-value="'Y'"
-							                   ng-false-value="'N'">
+							                   ng-false-value="'N'"
+											   ng-click="vm.clickGridCheckbox()">
 									</td>
 									<td style="display: none;">{{channel.comment}}</td>
 								  </tr>
@@ -256,6 +257,7 @@
 
   </body>
 </html>
+
 
 
 
