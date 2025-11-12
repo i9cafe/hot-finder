@@ -72,10 +72,12 @@
 									<td>{{channel.name}}</td>
 									<td>{{channel.id}}</td>
 									<td><a href="{{channel.url}}" target="_blank">{{channel.url}}</a></td>
-									<td><input type="checkbox"
+									<td id="checkbox-column">
+										<input type="checkbox"
 							                   ng-model="channel.flag"
 							                   ng-true-value="'Y'"
-							                   ng-false-value="'N'"></td>
+							                   ng-false-value="'N'">
+									</td>
 									<td>   </td>
 								  </tr>
 								</tbody>
@@ -254,6 +256,7 @@
 
   </body>
 </html>
+
 
 
 
