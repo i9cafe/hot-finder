@@ -207,12 +207,11 @@
 							  </div>
 							</div>
 						  </div>
-						  <div class="col-md-4" style="visibility:hidden;">
+						  <div class="col-md-4">
 							<div class="field col-md-12">
-							  <label class="label col-md-4" style="color:yellow;">검색 키워드</label>
-							  <div class="control col-md-8">
-								<input id="searchbox-keyword" type="text" style="width:100%;" ng-model="vm.params.keyword" placeholder="키워드 모드에서 활성화됩니다." />
-							  </div>
+							  <label class="label col-md-12" style="color:yellow;" ng-show="vm.params.excuteMode === 'CHANNEL'">채널 모드 사전 설정에 존재하는 총 {{vm.channelMaster.array.length}}개 채널에 대해 검색합니다.</label>
+							  <label class="label col-md-12" style="color:yellow;" ng-show="vm.params.excuteMode === 'KEYWORD'">키워드 모드 사전 설정에 입력한 키워드 기반으로 검색합니다.</label>
+							  <label class="label col-md-12" style="color:yellow;" ng-show="vm.params.excuteMode === 'BOTH'">총 {{vm.channelMaster.array.length}}개 채널을 대상으로 키워드에 대한 결과를 검색합니다.</label>
 							</div>
 						  </div>
 					  </div>
@@ -247,6 +246,7 @@
 
   </body>
 </html>
+
 
 
 
