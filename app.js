@@ -671,7 +671,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 			// CSV 문자열 생성
 			let csv = '';
-			  csv += columnHeaders.map(escapeCSV).join(',') + '\n';
+			  csv += columnHeaders.map(this.escapeCSV).join(',') + '\n';
 			
 			  rows.forEach(row => {
 			    const rowData = columnNames.map(colName => this.escapeCSV(row[colName]));
@@ -855,6 +855,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
