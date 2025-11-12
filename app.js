@@ -83,11 +83,7 @@ const app = angular.module('hotFinder', ['ngRoute'
         enableColumnResizing: true,
         enableSorting: true,
         enableColumnMoving: false,	
-		exporterCsvFilename: 'export.csv',
-	    exporterCsvCustomFormatter: function(grid, csv) {
-			return '\uFEFF' + csv; // BOM 추가
-		  },
-		exporterMenuCsv: false, // 메뉴 비활성화 (직접 버튼으로 다운로드)
+		exporterMenuCsv: false, 
 
         onRegisterApi: function (gridapi) {
           $scope.gridApi = gridapi;
@@ -588,7 +584,55 @@ const app = angular.module('hotFinder', ['ngRoute'
       };
 
       this.excelDownload = () => {
-		  $scope.gridApi.exporter.csvExport("visible", "visible", true);
+		  //$scope.gridApi.exporter.csvExport("visible", "visible");
+		  
+		  // 컬럼별 name 배열 (데이터 접근용)
+			const columnNames = $scope.gridOptions.columnDefs.map(col => col.name);
+
+			// 컬럼별 displayName 배열 (CSV 헤더용)
+			const columnHeaders = $scope.gridOptions.columnDefs.map(col => col.displayName || col.name);
+			
+			const rows = $scope.gridOptions.data;
+
+			// CSV 문자열 생성
+			let csv = '';
+			csv += columnHeaders.join(',') + '\n'; // 헤더
+
+			// 데이터
+			rows.forEach(row => {
+				const rowData = columnNames.map(colName => {
+					let cell = row[colName] !== undefined ? row[colName] : '';
+					if (typeof cell === 'string' && (cell.includes(',') || cell.includes('\n'))) {
+						cell = `"${cell}"`;
+					}
+					return cell;
+				});
+				csv += rowData.join(',') + '\n';
+			});
+
+			// UTF-8 BOM 추가
+			const csvWithBOM = '\uFEFF' + csv;
+			
+			// 오늘 날짜 문자열 생성: YYYYMMDD
+			const today = new Date();
+			const yyyy = today.getFullYear();
+			const mm = String(today.getMonth() + 1).padStart(2, '0'); // 월은 0~11
+			const dd = String(today.getDate()).padStart(2, '0');
+			const dateStr = `${yyyy}${mm}${dd}`;
+
+			// 파일명에 날짜 포함
+			const fileName = `유튜브조회결과_${dateStr}.csv`;
+
+			// Blob 생성 후 다운로드
+			const blob = new Blob([csvWithBOM], { type: 'text/csv;charset=utf-8;' });
+			const downloadLink = document.createElement('a');
+			const url = URL.createObjectURL(blob);
+			downloadLink.href = url;
+			downloadLink.download = fileName;
+			document.body.appendChild(downloadLink);
+			downloadLink.click();
+			document.body.removeChild(downloadLink);
+			URL.revokeObjectURL(url);
 		};
 
       this.formatISODuration = (duration) => {
