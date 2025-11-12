@@ -33,38 +33,47 @@ const app = angular.module('hotFinder', ['ngRoute'
 			id: "UCOZnrJilN9FsL8pGd0by6xg",
 			name: "썰이빛나는밤에",
 			url: chanelBaseUrl + "UCOZnrJilN9FsL8pGd0by6xg",
+			flag: "Y",
 		  }, {
 			id: "UCrW6eDWbbdmxr-XfOkvQKwQ",
 			name: "사연튜브 • 사연라디오",
 			url: chanelBaseUrl + "UCrW6eDWbbdmxr-XfOkvQKwQ",
+			flag: "Y",
 		  }, {
 			id: "UC8XIOLMm8kpoaEzjovaoesw",
 			name: "금빛이야기",
 			url: chanelBaseUrl + "UC8XIOLMm8kpoaEzjovaoesw",
+			flag: "Y",
 		  }, {
 			id: "4",
 			name: "4",
 			url: "4",
+			flag: "N",
 		  }, {
 			id: "5",
 			name: "5",
 			url: "5",
+			flag: "N",
 		  }, {
 			id: "6",
 			name: "6",
 			url: "6",
+			flag: "N",
 		  }, {
 			id: "...",
 			name: "...",
 			url: "...",
+			flag: "N",
 		  }, {
 			id: "134",
 			name: "134",
 			url: "134",
+			flag: "N",
 		  }, {
 			id: "135",
 			name: "135",
 			url: "135",
+			flag: "N",
 		  }
 	  ];
 	  	  
@@ -855,6 +864,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
