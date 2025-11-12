@@ -785,24 +785,27 @@ const app = angular.module('hotFinder', ['ngRoute'
        * 한국 시간(KST) 기준으로 언제인지 계산해주는 함수
        */
       this.getYouTubeQuotaResetTimeKST = () => {
-        // 현재 날짜 기준으로 "오늘"의 태평양 자정(00:00 PST/PDT) 구하기
-        const now = new Date();
-      
-        // 태평양 표준시 기준의 자정 생성
-        const pacificMidnight = new Date(
-          now.toLocaleString("en-US", { timeZone: "America/Los_Angeles" })
-        );
-        pacificMidnight.setHours(0, 0, 0, 0);
-      
-        // 이 태평양 자정을 UTC로 변환
-        const utcTime = new Date(
-          pacificMidnight.toLocaleString("en-US", { timeZone: "UTC" })
-        );
-      
-        // UTC → KST(UTC+9) 로 변환
-        const kstTime = new Date(utcTime.getTime() + 9 * 60 * 60 * 1000);
-      
-        return kstTime;
+        // 현재 날짜의 태평양 시간대 기준 자정
+		  const pacificMidnight = new Date(
+		    new Intl.DateTimeFormat("en-US", {
+		      timeZone: "America/Los_Angeles",
+		      year: "numeric",
+		      month: "2-digit",
+		      day: "2-digit"
+		    }).format(new Date())
+		  );
+		
+		  // 자정으로 고정
+		  pacificMidnight.setHours(0, 0, 0, 0);
+		
+		  // 같은 시각을 한국 시간으로 변환
+		  const koreaTime = new Intl.DateTimeFormat("ko-KR", {
+		    timeZone: "Asia/Seoul",
+		    dateStyle: "full",
+		    timeStyle: "long"
+		  }).format(pacificMidnight);
+		
+		  return koreaTime;
       };
 
     }
@@ -849,6 +852,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
