@@ -281,7 +281,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			this.hideLoader(); // 로딩 종료
 
 			if (vm.data.totalCount === 0) {
-			  alert("검색 조건에 해당하는 조회 결과가 0건 입니다!");
+			  alert("검색조건을 만족하는 조회 결과가 없습니다.");
 			}
 			
 		} else if (vm.params.excuteMode === "KEYWORD") {			
@@ -376,7 +376,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			this.hideLoader(); // 로딩 종료
 
 			if (vm.data.totalCount === 0) {
-			  alert("검색 조건에 해당하는 조회 결과가 0건 입니다!");
+			  alert("검색조건을 만족하는 조회 결과가 없습니다.");
 			}
 		} else { // 둘다
 		
@@ -488,7 +488,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			this.hideLoader(); // 로딩 종료
 
 			if (vm.data.totalCount === 0) {
-			  alert("검색 조건에 해당하는 조회 결과가 0건 입니다!");
+			  alert("검색조건을 만족하는 조회 결과가 없습니다.");
 			}
 			
 		}
@@ -845,6 +845,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
