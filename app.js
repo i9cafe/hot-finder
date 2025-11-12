@@ -239,7 +239,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			
 		} else if (vm.params.excuteMode === "KEYWORD") {			
 			if (vm.keyword.includeKey === "") {
-			  alert("키워드 설정 탭에서 검색 키워드를 입력하세요.");
+			  alert("키워드 모드 사전 설정 탭에서 검색 키워드를 입력하세요.");
 			  const keywordInput = document.getElementById('keyword-includeKey');
 			  keywordInput.focus();
 			  return;
@@ -325,7 +325,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 		} else { // 둘다
 		
 			if (vm.keyword.includeKey === "") {
-			  alert("키워드 설정 탭에서 검색 키워드를 입력하세요.");
+			  alert("키워드 모드 사전 설정 탭에서 검색 키워드를 입력하세요.");
 			  const keywordInput = document.getElementById('keyword-includeKey');
 			  keywordInput.focus();
 			  return;
@@ -780,6 +780,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
