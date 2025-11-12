@@ -648,6 +648,16 @@ const app = angular.module('hotFinder', ['ngRoute'
         }
       };
 
+	this.escapeCSV = (value) => {
+	    if (value === null || value === undefined) return '';
+	    let cell = String(value);
+	    cell = cell.replace(/"/g, '""'); // 따옴표 이스케이프
+	    if (/[",\n]/.test(cell)) {
+	      cell = `"${cell}"`; // 콤마, 따옴표, 줄바꿈이 있으면 전체 감싸기
+	    }
+	    return cell;
+	  }
+
       this.excelDownload = () => {
 		  //$scope.gridApi.exporter.csvExport("visible", "visible");
 		  
@@ -661,19 +671,12 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 			// CSV 문자열 생성
 			let csv = '';
-			csv += columnHeaders.join(',') + '\n'; // 헤더
-
-			// 데이터
-			rows.forEach(row => {
-				const rowData = columnNames.map(colName => {
-					let cell = row[colName] !== undefined ? row[colName] : '';
-					if (typeof cell === 'string' && (cell.includes(',') || cell.includes('\n'))) {
-						cell = `"${cell}"`;
-					}
-					return cell;
-				});
-				csv += rowData.join(',') + '\n';
-			});
+			  csv += columnHeaders.map(escapeCSV).join(',') + '\n';
+			
+			  rows.forEach(row => {
+			    const rowData = columnNames.map(colName => this.escapeCSV(row[colName]));
+			    csv += rowData.join(',') + '\n';
+			  });
 
 			// UTF-8 BOM 추가
 			const csvWithBOM = '\uFEFF' + csv;
@@ -852,6 +855,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
