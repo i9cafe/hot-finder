@@ -152,32 +152,34 @@ const app = angular.module('hotFinder', ['ngRoute'
 
       this.search = async () => {
 
-		if (vm.params.maxSearchCountByChannel < 1 || vm.params.maxSearchCountByChannel > 50) {
+		if (vm.params.maxSearchCountByChannel === undefined || vm.params.maxSearchCountByChannel === null || vm.params.maxSearchCountByChannel === "" || 
+			vm.params.maxSearchCountByChannel < 1 || vm.params.maxSearchCountByChannel > 50) {
 			alert("채널당 최대 검색 수는 1 ~ 50 사이의 값을 입력해주세요.");
 			return;
 		}
 
-		  if (vm.params.maxSearchCountByKeyword < 1 || vm.params.maxSearchCountByKeyword > 50) {
+		  if (vm.params.maxSearchCountByKeyword === undefined || vm.params.maxSearchCountByKeyword === null || vm.params.maxSearchCountByKeyword === "" || 
+			  vm.params.maxSearchCountByKeyword < 1 || vm.params.maxSearchCountByKeyword > 50) {
 			alert("검색어당 최대 검색 수는 1 ~ 50 사이의 값을 입력해주세요.");
 			return;
 		}
 
-		if (vm.params.shortsLong === 'short' && vm.params.shortsSecond < 1) {
+		if (vm.params.shortsLong === 'short' && (vm.params.shortsSecond === undefined || vm.params.shortsSecond === null || vm.params.shortsSecond === "" || vm.params.shortsSecond < 1)) {
 			alert("1 이상의 값을 입력하세요. [쇼츠 기준(초)]");
 			return;
 		}
 
-		if (vm.params.recentDay < 1) {
+		if (vm.params.recentDay === undefined || vm.params.recentDay === null || vm.params.recentDay === "" || vm.params.recentDay < 1) {
 			alert("1 이상의 값을 입력하세요. [최근 며칠간의 영상을 조회할까요]");
 			return;
 		}
 
-		if (vm.params.minViewCount < 1) {
+		if (vm.params.minViewCount === undefined || vm.params.minViewCount === null || vm.params.minViewCount === "" || vm.params.minViewCount < 1) {
 			alert("1 이상의 값을 입력하세요. [최소 조회수]");
 			return;
 		}
 
-		if (vm.params.viewCountByMinTime < 1) {
+		if (vm.params.viewCountByMinTime === undefined || vm.params.viewCountByMinTime === null || vm.params.viewCountByMinTime === "" || vm.params.viewCountByMinTime < 1) {
 			alert("1 이상의 값을 입력하세요. [최소 시간당 조회수]");
 			return;
 		}
@@ -843,6 +845,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
