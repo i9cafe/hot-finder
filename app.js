@@ -24,7 +24,9 @@ const app = angular.module('hotFinder', ['ngRoute'
       });
 
 	  const chanelBaseUrl = "https://www.youtube.com/channel/";
-	  
+
+		// url 로 채널 id 찾기
+		//https://commentpicker.com/youtube-channel-id.php
 	  vm.channelMaster = {};
 	  vm.channelMaster.array = [
 		  {
@@ -36,26 +38,33 @@ const app = angular.module('hotFinder', ['ngRoute'
 			name: "사연튜브 • 사연라디오",
 			url: chanelBaseUrl + "UCrW6eDWbbdmxr-XfOkvQKwQ",
 		  }, {
-			id: "3",
-			name: "3",
+			id: "UC8XIOLMm8kpoaEzjovaoesw",
+			name: "금빛이야기",
+			url: chanelBaseUrl + "UC8XIOLMm8kpoaEzjovaoesw",
 		  }, {
 			id: "4",
 			name: "4",
+			url: "4",
 		  }, {
 			id: "5",
 			name: "5",
+			url: "5",
 		  }, {
 			id: "6",
 			name: "6",
+			url: "6",
 		  }, {
 			id: "...",
 			name: "...",
+			url: "...",
 		  }, {
 			id: "134",
 			name: "134",
+			url: "134",
 		  }, {
 			id: "135",
 			name: "135",
+			url: "135",
 		  }
 	  ];
 	  	  
@@ -784,6 +793,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
