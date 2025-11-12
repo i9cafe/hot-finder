@@ -10,7 +10,7 @@
 }
 
 .scrollable-table {
-  max-height: 165px;        
+  max-height: 181px;        
   overflow-y: auto;         
   border: 1px solid #1a1c28;  /* 테두리 어둡게 */
   border-radius: 4px;
@@ -221,6 +221,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
