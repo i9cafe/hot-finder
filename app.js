@@ -83,7 +83,7 @@ const app = angular.module('hotFinder', ['ngRoute'
       vm.params.maxSearchCountByKeyword = 50;
       vm.params.minViewCount = 20000;
       vm.params.viewCountByMinTime = 500;
-      vm.params.checkPopular = "N";
+      vm.params.checkPopular = "Y";
       vm.params.keyword = "";
 	  
 	  vm.keyword = {};
@@ -142,7 +142,7 @@ const app = angular.module('hotFinder', ['ngRoute'
         vm.params.maxSearchCountByKeyword = 50;
         vm.params.minViewCount = 20000;
         vm.params.viewCountByMinTime = 500;
-        vm.params.checkPopular = "N";
+        vm.params.checkPopular = "Y";
         vm.params.keyword = "";
 
         $timeout(() => {
@@ -235,6 +235,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 			  });
 			}
 
+			result = result.sort((a, b) => b.viewCount - a.viewCount); 
+
 			for (let k = 0; k < result.length; k++) {
 			  result[k].no = k + 1;
 			}
@@ -320,6 +322,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 				return Number(target.viewCountByTime) >= Number(vm.params.viewCountByMinTime);
 			  });
 			}
+
+			result = result.sort((a, b) => b.viewCount - a.viewCount); 
 
 			for (let k = 0; k < result.length; k++) {
 			  result[k].no = k + 1;
@@ -423,6 +427,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 				return Number(target.viewCountByTime) >= Number(vm.params.viewCountByMinTime);
 			  });
 			}
+
+			result = result.sort((a, b) => b.viewCount - a.viewCount); 
 
 			for (let k = 0; k < result.length; k++) {
 			  result[k].no = k + 1;
@@ -793,6 +799,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
