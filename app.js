@@ -785,27 +785,27 @@ const app = angular.module('hotFinder', ['ngRoute'
        * 한국 시간(KST) 기준으로 언제인지 계산해주는 함수
        */
       this.getKoreaTimeFromPacificMidnight = () => {
-        // 현재 날짜의 태평양 시간대 기준 자정
-		  const pacificMidnight = new Date(
-		    new Intl.DateTimeFormat("en-US", {
-		      timeZone: "America/Los_Angeles",
-		      year: "numeric",
-		      month: "2-digit",
-		      day: "2-digit"
-		    }).format(new Date())
-		  );
-		
-		  // 자정으로 고정
-		  pacificMidnight.setHours(0, 0, 0, 0);
-		
-		  // 같은 시각을 한국 시간으로 변환
-		  const koreaTime = new Intl.DateTimeFormat("ko-KR", {
-		    timeZone: "Asia/Seoul",
-		    dateStyle: "full",
-		    timeStyle: "long"
-		  }).format(pacificMidnight);
-		
-		  return koreaTime;
+       // 현재 날짜의 태평양 시간대 기준 자정
+	  const pacificMidnight = new Date(
+	    new Intl.DateTimeFormat("en-US", {
+	      timeZone: "America/Los_Angeles",
+	      year: "numeric",
+	      month: "2-digit",
+	      day: "2-digit"
+	    }).format(new Date())
+	  );
+	
+	  // 자정으로 설정
+	  pacificMidnight.setHours(0, 0, 0, 0);
+	
+	  // 한국 시간으로 변환
+	  const koreaTimeStr = pacificMidnight.toLocaleTimeString("ko-KR", {
+	    timeZone: "Asia/Seoul",
+	    hour: "numeric",
+	    hour12: true
+	  });
+	
+	  return koreaTimeStr;
       };
 
     }
@@ -852,6 +852,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
