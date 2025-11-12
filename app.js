@@ -151,6 +151,36 @@ const app = angular.module('hotFinder', ['ngRoute'
       };
 
       this.search = async () => {
+
+		if (vm.params.maxSearchCountByChannel < 1 || vm.params.maxSearchCountByChannel > 50) {
+			alert("채널당 최대 검색 수는 1 ~ 50 사이의 값을 입력해주세요.");
+			return;
+		}
+
+		  if (vm.params.maxSearchCountByKeyword < 1 || vm.params.maxSearchCountByKeyword > 50) {
+			alert("검색어당 최대 검색 수는 1 ~ 50 사이의 값을 입력해주세요.");
+			return;
+		}
+
+		if (vm.params.shortsLong === 'short' && vm.params.shortsSecond < 1) {
+			alert("1 이상의 값을 입력하세요. [쇼츠 기준(초)]");
+			return;
+		}
+
+		if (vm.params.recentDay < 1) {
+			alert("1 이상의 값을 입력하세요. [최근 며칠간의 영상을 조회할까요]");
+			return;
+		}
+
+		if (vm.params.minViewCount < 1) {
+			alert("1 이상의 값을 입력하세요. [최소 조회수]");
+			return;
+		}
+
+		if (vm.params.viewCountByMinTime < 1) {
+			alert("1 이상의 값을 입력하세요. [최소 시간당 조회수]");
+			return;
+		}
 		
 		if (vm.params.excuteMode === "CHANNEL") { 
 			
@@ -259,6 +289,13 @@ const app = angular.module('hotFinder', ['ngRoute'
 			  keywordInput.focus();
 			  return;
 			}		
+
+			if (vm.keyword.exceptKey.length > 0 && vm.keyword.exceptKey.indexOf("-") === -1) {
+			  alert("제외할 키워드는 키워드 앞에 '-'를 붙여주세요. 예) -낚시 -다이빙");
+			  const keywordInput2 = document.getElementById('keyword-exceptKey');
+			  keywordInput2.focus();
+			  return;
+			}	
 			  
 			vm.params.keyword = vm.keyword.includeKey + ' ' + vm.keyword.exceptKey;
 
@@ -346,7 +383,14 @@ const app = angular.module('hotFinder', ['ngRoute'
 			  const keywordInput = document.getElementById('keyword-includeKey');
 			  keywordInput.focus();
 			  return;
-			}		
+			}			
+
+			if (vm.keyword.exceptKey.length > 0 && vm.keyword.exceptKey.indexOf("-") === -1) {
+			  alert("제외할 키워드는 키워드 앞에 '-'를 붙여주세요. 예) -낚시 -다이빙");
+			  const keywordInput2 = document.getElementById('keyword-exceptKey');
+			  keywordInput2.focus();
+			  return;
+			}	
 			  
 			vm.params.keyword = vm.keyword.includeKey + ' ' + vm.keyword.exceptKey;
 			
@@ -799,6 +843,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
