@@ -227,6 +227,10 @@ const app = angular.module('hotFinder', ['ngRoute'
 				if (channelId === undefined || channelId === null || channelId.indexOf("U") === -1) {
 				  continue;
 				}
+
+				if (vm.channelMaster.array[index].flag === "N") {
+					continue;
+				}
 				
 				let items = await this.doSearchChannelMode(channelId);
 
@@ -438,6 +442,10 @@ const app = angular.module('hotFinder', ['ngRoute'
 				
 				if (channelId === undefined || channelId === null || channelId.indexOf("U") === -1) {
 				  continue;
+				}
+
+				if (vm.channelMaster.array[index].flag === "N") {
+					continue;
 				}
 				
 				let items = await this.doSearchBothMode(channelId);
@@ -891,6 +899,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
