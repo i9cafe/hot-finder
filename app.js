@@ -524,7 +524,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
           return response.data.items;
         } catch (error) {
-          const resetTimeKST = this.getYouTubeQuotaResetTimeKST();
+          const resetTimeKST = this.getKoreaTimeFromPacificMidnight();
           
           if (error.message.indexOf("403") > -1) {
             alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST.toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }));
@@ -556,7 +556,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			
           return response.data.items;
         } catch (error) {
-          const resetTimeKST = this.getYouTubeQuotaResetTimeKST();
+          const resetTimeKST = this.getKoreaTimeFromPacificMidnight();
           
           if (error.message.indexOf("403") > -1) {
             alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST.toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }));
@@ -589,7 +589,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			
           return response.data.items;
         } catch (error) {
-          const resetTimeKST = this.getYouTubeQuotaResetTimeKST();
+          const resetTimeKST = this.getKoreaTimeFromPacificMidnight();
           
           if (error.message.indexOf("403") > -1) {
             alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST.toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }));
@@ -613,7 +613,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
           return response;
         } catch (error) {
-          const resetTimeKST = this.getYouTubeQuotaResetTimeKST();
+          const resetTimeKST = this.getKoreaTimeFromPacificMidnight();
           
           if (error.message.indexOf("403") > -1) {
             alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST.toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }));
@@ -636,7 +636,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
           return response;
         } catch (error) {
-          const resetTimeKST = this.getYouTubeQuotaResetTimeKST();
+          const resetTimeKST = this.getKoreaTimeFromPacificMidnight();
           
           if (error.message.indexOf("403") > -1) {
             alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST.toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }));
@@ -784,7 +784,7 @@ const app = angular.module('hotFinder', ['ngRoute'
        * YouTube Data API v3 할당량 초기화 시간이
        * 한국 시간(KST) 기준으로 언제인지 계산해주는 함수
        */
-      this.getYouTubeQuotaResetTimeKST = () => {
+      this.getKoreaTimeFromPacificMidnight = () => {
         // 현재 날짜의 태평양 시간대 기준 자정
 		  const pacificMidnight = new Date(
 		    new Intl.DateTimeFormat("en-US", {
@@ -852,6 +852,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
