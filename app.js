@@ -16,53 +16,9 @@ const app = angular.module('hotFinder', ['ngRoute'
 
       /*************************** DEFAULT INFO SETUP ***************************/
       const vm = this;
-
-	  const API_KEY_1 = "AIzaSyCg2tnEwBThaOS6-sdEzz--8skbl_C3Gps";
-	  const API_KEY_2 = "AIzaSyBFT2Y3sAXhOPZd-Y5h1scadspnMBcYEGo";
-	  const API_KEY_3 = "AIzaSyBVPOmT2g8C0rMbJG8y4oOe64mqSzWWnAY";
-	  const API_KEY_4 = "AIzaSyAKUTywRPZz2MO7hg1sArXp2WYaJp1nKCA";
-	  const API_KEY_5 = "AIzaSyCpaS7sCyrLS9vnRVWkHPwAjr2LYqnZKiU";
-	  const API_KEY_6 = "AIzaSyDawY1UvDVEwmDe8o7kN5JmWvq-zx5ywGY";
-	  const API_KEY_7 = "AIzaSyBfkmJ7jWVsbgprRJ4NyHQ16HAXSVeJgl0";
-	  const API_KEY_8 = "AIzaSyBzT492sqpyCGZbdrl6ixr0KuAI5SzJVhs";
-	  const API_KEY_9 = "AIzaSyC_Un9blmEZx6xHiWqjH3-jplP8tIdb4NQ";
-	  const API_KEY_10 = "AIzaSyBu9BpNNjZsrfYTHmvr62HsTzLK84ZWADE";
-	  const API_KEY_11 = "AIzaSyCEqLuzvSzcFIHP97V3aWlaZPD71XxUxxM";
-	  const API_KEY_12 = "AIzaSyBdMa7DCBphLOgFpt6fB0E2H5tn98Lzaho";
-	  const API_KEY_13 = "AIzaSyBHhEHmFlv5dDYceF1SfgqIROBsT4NfGD8";
-	  const API_KEY_14 = "AIzaSyDUVdGwK0KOj6_uTD8Kn7EYai9nx_ggifs";
-	  const API_KEY_15 = "AIzaSyBrPus5-K9I2molng3DvQUWYGZtlsDbLxM";
-	  const API_KEY_16 = "AIzaSyACyfwjXLbATwNNkI8OPN7AXJfcUyzHrIQ";
-	  const API_KEY_17 = "AIzaSyBv1j9fzAfKftkkpRL8gFJUH1qx06Q-SlI";
-	  const API_KEY_18 = "AIzaSyCse1wdoWZJP-IXaJf1Q3MV120euRC8d9g";
-	  const API_KEY_19 = "AIzaSyCQGiquFNZG7C8HYtXD-FEhseFouDjNwYk";
-	  const API_KEY_20 = "AIzaSyD_Vvs4kic5J95DrMS6WdDFPl3orYR_m08";
-
-	  const API_KEYS = [
-		  API_KEY_1,
-		  API_KEY_2,
-		  API_KEY_3,
-		  API_KEY_4,
-		  API_KEY_5,
-		  API_KEY_6,
-		  API_KEY_7,
-		  API_KEY_8,
-		  API_KEY_9,
-		  API_KEY_10,
-		  API_KEY_11,
-		  API_KEY_12,
-		  API_KEY_13,		  
-		  API_KEY_14,		  
-		  API_KEY_15,		  
-		  API_KEY_16,		  
-		  API_KEY_17,		  
-		  API_KEY_18,		  
-		  API_KEY_19,		  
-		  API_KEY_20
-	  ];
 	  
-      let YOUTUBE_API_KEY = "AIzaSyCg2tnEwBThaOS6-sdEzz--8skbl_C3Gps";
-      let apiClient = axios.create({
+      const YOUTUBE_API_KEY = "AIzaSyCg2tnEwBThaOS6-sdEzz--8skbl_C3Gps";
+      const apiClient = axios.create({
         baseURL: "https://youtube.googleapis.com/youtube/v3",
         params: { key: YOUTUBE_API_KEY },
       });
@@ -775,6 +731,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
