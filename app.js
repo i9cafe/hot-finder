@@ -88,7 +88,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 		
 	vm.channelMaster.okTotalCount = vm.channelMaster.array.filter(function(target) {
 			return target.flag === "Y";
-		  });
+		  }).length;
 	  	  
       vm.data = {};
       vm.data.hide = "접기";
@@ -809,7 +809,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 			vm.channelMaster.okTotalCount = vm.channelMaster.array.filter(function(target) {
 				return target.flag === "Y";
-			  });
+			  }).length;
 		};
 
       /**
@@ -884,6 +884,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
