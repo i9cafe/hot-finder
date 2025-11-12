@@ -8,7 +8,7 @@
 
 /* 테이블 전체 스타일 */
 .scrollable-table table {
-  width: 40%;
+  width: 100%;
   border-collapse: collapse;
   font-family: Arial, sans-serif;
   color: #e0e0e0;             /* 텍스트 밝게 */
@@ -210,5 +210,6 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
