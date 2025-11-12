@@ -694,6 +694,11 @@ const app = angular.module('hotFinder', ['ngRoute'
         });
       };
 
+	  this.clickKeywordTab = () => {
+		const keywordInputControl = document.getElementById('keyword-includeKey');
+		keywordInputControl.focus();
+	  };
+
       // 로딩 화면 보이기
       this.showLoader = () => {
         document.getElementById('loader').style.display = 'flex';
@@ -775,6 +780,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
