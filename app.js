@@ -31,6 +31,12 @@ const app = angular.module('hotFinder', ['ngRoute'
 	  const API_KEY_12 = "AIzaSyBdMa7DCBphLOgFpt6fB0E2H5tn98Lzaho";
 	  const API_KEY_13 = "AIzaSyBHhEHmFlv5dDYceF1SfgqIROBsT4NfGD8";
 	  const API_KEY_14 = "AIzaSyDUVdGwK0KOj6_uTD8Kn7EYai9nx_ggifs";
+	  const API_KEY_15 = "AIzaSyBrPus5-K9I2molng3DvQUWYGZtlsDbLxM";
+	  const API_KEY_16 = "AIzaSyACyfwjXLbATwNNkI8OPN7AXJfcUyzHrIQ";
+	  const API_KEY_17 = "AIzaSyBv1j9fzAfKftkkpRL8gFJUH1qx06Q-SlI";
+	  const API_KEY_18 = "AIzaSyCse1wdoWZJP-IXaJf1Q3MV120euRC8d9g";
+	  const API_KEY_19 = "AIzaSyCQGiquFNZG7C8HYtXD-FEhseFouDjNwYk";
+	  const API_KEY_20 = "AIzaSyD_Vvs4kic5J95DrMS6WdDFPl3orYR_m08";
 
 	  const API_KEYS = [
 		  API_KEY_1,
@@ -46,7 +52,13 @@ const app = angular.module('hotFinder', ['ngRoute'
 		  API_KEY_11,
 		  API_KEY_12,
 		  API_KEY_13,		  
-		  API_KEY_14
+		  API_KEY_14,		  
+		  API_KEY_15,		  
+		  API_KEY_16,		  
+		  API_KEY_17,		  
+		  API_KEY_18,		  
+		  API_KEY_19,		  
+		  API_KEY_20
 	  ];
 	  
       let YOUTUBE_API_KEY = "AIzaSyCg2tnEwBThaOS6-sdEzz--8skbl_C3Gps";
@@ -763,6 +775,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
