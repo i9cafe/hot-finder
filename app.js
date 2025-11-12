@@ -524,7 +524,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
           return response.data.items;
         } catch (error) {
-          const resetTimeKST = getYouTubeQuotaResetTimeKST();
+          const resetTimeKST = this.getYouTubeQuotaResetTimeKST();
           
           if (error.message.indexOf("403") > -1) {
             alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST.toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }));
@@ -556,7 +556,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			
           return response.data.items;
         } catch (error) {
-          const resetTimeKST = getYouTubeQuotaResetTimeKST();
+          const resetTimeKST = this.getYouTubeQuotaResetTimeKST();
           
           if (error.message.indexOf("403") > -1) {
             alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST.toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }));
@@ -589,7 +589,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			
           return response.data.items;
         } catch (error) {
-          const resetTimeKST = getYouTubeQuotaResetTimeKST();
+          const resetTimeKST = this.getYouTubeQuotaResetTimeKST();
           
           if (error.message.indexOf("403") > -1) {
             alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST.toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }));
@@ -613,7 +613,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
           return response;
         } catch (error) {
-          const resetTimeKST = getYouTubeQuotaResetTimeKST();
+          const resetTimeKST = this.getYouTubeQuotaResetTimeKST();
           
           if (error.message.indexOf("403") > -1) {
             alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST.toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }));
@@ -636,7 +636,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
           return response;
         } catch (error) {
-          const resetTimeKST = getYouTubeQuotaResetTimeKST();
+          const resetTimeKST = this.getYouTubeQuotaResetTimeKST();
           
           if (error.message.indexOf("403") > -1) {
             alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST.toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }));
@@ -849,6 +849,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
