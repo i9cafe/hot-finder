@@ -147,7 +147,7 @@
 							<div class="field col-md-12">
 							  <label class="label col-md-8" >최근 며칠간의 영상을 조회할까요</label>
 							  <div class="control col-md-4">
-								<input id="searchbox-recentDay" type="number" style="width:100%;" ng-model="vm.params.recentDay"/>
+								<input id="searchbox-recentDay" type="number" min="1" style="width:100%;" ng-model="vm.params.recentDay"/>
 							  </div>
 							</div>
 						  </div>
@@ -171,7 +171,7 @@
 							<div class="field col-md-12">
 							  <label class="label col-md-6" >채널당 최대 검색 수</label>
 							  <div class="control col-md-6">
-								<input id="searchbox-maxSearchCountByChannel" type="number" style="width:100%;" ng-model="vm.params.maxSearchCountByChannel" />
+								<input id="searchbox-maxSearchCountByChannel" type="number" min="1" max="50" style="width:100%;" ng-model="vm.params.maxSearchCountByChannel" />
 							  </div>
 							</div>
 						  </div>
@@ -179,7 +179,7 @@
 							<div class="field col-md-12">
 							  <label class="label col-md-6" >검색어당 최대 검색 수</label>
 							  <div class="control col-md-6">
-								<input id="searchbox-maxSearchCountByKeyword" type="number" style="width:100%;" ng-model="vm.params.maxSearchCountByKeyword" />
+								<input id="searchbox-maxSearchCountByKeyword" type="number" min="1" max="50" style="width:100%;" ng-model="vm.params.maxSearchCountByKeyword" />
 							  </div>
 							</div>
 						  </div>
@@ -187,7 +187,7 @@
 							<div class="field col-md-12">
 							  <label class="label col-md-4">최소 조회수</label>
 							  <div class="control col-md-8">
-								<input id="searchbox-minViewCount" type="number" style="width:100%;" ng-model="vm.params.minViewCount"/>
+								<input id="searchbox-minViewCount" type="number" min="1" style="width:100%;" ng-model="vm.params.minViewCount"/>
 							  </div>
 							</div>
 						  </div>
@@ -195,7 +195,7 @@
 							<div class="field col-md-12">
 							  <label class="label col-md-6" >최소 시간당 조회수</label>
 							  <div class="control col-md-6">
-								<input id="searchbox-viewCountByMinTime" type="number" style="width:100%;" ng-model="vm.params.viewCountByMinTime"/>
+								<input id="searchbox-viewCountByMinTime" type="number" min="1" style="width:100%;" ng-model="vm.params.viewCountByMinTime"/>
 							  </div>
 							</div>
 						  </div>
@@ -247,6 +247,7 @@
 
   </body>
 </html>
+
 
 
 
