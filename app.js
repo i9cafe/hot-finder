@@ -266,6 +266,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 				  object.playTime = Number(this.formatISODurationSecond(items[j].videoInfo.data.items[0].contentDetails.duration));
 				  object.videoUrl = "https://www.youtube.com/watch?v=" + items[j].id.videoId;
 				  object.thumbnailsUrl = "https://img.youtube.com/vi/" + items[j].id.videoId + "/0.jpg";
+					object.videoUploadDate = object.videoUploadDate.replace("T", " ");
+					object.videoUploadDate = object.videoUploadDate.replace("Z", "");
 			      
 				  if (index === 0) {
 					result[j] = object;
@@ -368,6 +370,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 			  object.playTime = Number(this.formatISODurationSecond(items[j].videoInfo.data.items[0].contentDetails.duration));
 			  object.videoUrl = "https://www.youtube.com/watch?v=" + items[j].id.videoId;
 			  object.thumbnailsUrl = "https://img.youtube.com/vi/" + items[j].id.videoId + "/0.jpg";
+					object.videoUploadDate = object.videoUploadDate.replace("T", " ");
+					object.videoUploadDate = object.videoUploadDate.replace("Z", "");
 
 			  result[j] = object;
 			}
@@ -482,6 +486,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 				  object.playTime = Number(this.formatISODurationSecond(items[j].videoInfo.data.items[0].contentDetails.duration));
 				  object.videoUrl = "https://www.youtube.com/watch?v=" + items[j].id.videoId;
 				  object.thumbnailsUrl = "https://img.youtube.com/vi/" + items[j].id.videoId + "/0.jpg";
+					object.videoUploadDate = object.videoUploadDate.replace("T", " ");
+					object.videoUploadDate = object.videoUploadDate.replace("Z", "");
 			      
 				  if (index === 0) {
 					result[j] = object;
@@ -899,6 +905,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
