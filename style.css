@@ -150,7 +150,7 @@ body{
 .card .body{padding:16px}
 
 /* filters */
-form.filters{display:grid;gap:8px}
+form.filters{display:grid;}
 .row{display:grid;gap:12px;grid-template-columns:repeat(4,1fr)}
 .row-3{grid-template-columns:repeat(3,1fr)}
 .row-2{grid-template-columns:repeat(2,1fr)}
@@ -210,4 +210,5 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
