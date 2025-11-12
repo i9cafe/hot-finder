@@ -22,15 +22,19 @@ const app = angular.module('hotFinder', ['ngRoute'
         baseURL: "https://youtube.googleapis.com/youtube/v3",
         params: { key: YOUTUBE_API_KEY },
       });
+
+	  const chanelBaseUrl = "https://www.youtube.com/channel/";
 	  
 	  vm.channelMaster = {};
 	  vm.channelMaster.array = [
 		  {
 			id: "UCOZnrJilN9FsL8pGd0by6xg",
 			name: "썰이빛나는밤에",
+			url: chanelBaseUrl + "UCOZnrJilN9FsL8pGd0by6xg";
 		  }, {
 			id: "UCrW6eDWbbdmxr-XfOkvQKwQ",
 			name: "사연튜브 • 사연라디오",
+			url: chanelBaseUrl + "UCrW6eDWbbdmxr-XfOkvQKwQ";
 		  }, {
 			id: "3",
 			name: "3",
@@ -780,6 +784,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
