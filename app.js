@@ -690,7 +690,7 @@ const app = angular.module('hotFinder', ['ngRoute'
             searchbox.focus();
           }
           
-          vm.params.shortsSecond = (vm.params.shortsLong === "short") ? 30 : "";   
+          vm.params.shortsSecond = (vm.params.shortsLong === "short") ? 300 : "";   
         });
       };
 
@@ -775,6 +775,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
