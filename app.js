@@ -207,10 +207,12 @@ const app = angular.module('hotFinder', ['ngRoute'
 		}
 		
 		if (vm.params.excuteMode === "CHANNEL") { 
-			
-			//alert("해당 기능은 아직 준비 중입니다.");
-			//return;
-			
+
+			if (vm.channelMaster.okTotalCount === 0) {
+				alert("채널 모드 사전 설정 탭에서 검색할 채널을 1개 이상 체크하세요.");
+				return;
+			}
+						
 			this.showLoader(); // 로딩 시작
 			
 			let result = [];			
@@ -401,6 +403,11 @@ const app = angular.module('hotFinder', ['ngRoute'
 			  alert("검색조건을 만족하는 조회 결과가 없습니다.");
 			}
 		} else { // 둘다
+
+			if (vm.channelMaster.okTotalCount === 0) {
+				alert("채널 모드 사전 설정 탭에서 검색할 채널을 1개 이상 체크하세요.");
+				return;
+			}
 		
 			if (vm.keyword.includeKey === "") {
 			  alert("키워드 모드 사전 설정 탭에서 검색 키워드를 입력하세요.");
@@ -884,6 +891,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
