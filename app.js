@@ -246,7 +246,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 				  }
 				}	
 
-				dataBeforeCnt += result.length;				
+				dataBeforeCnt = result.length;				
 			}			
 
 			if (vm.params.shortsLong === "short" && Number(vm.params.shortsSecond) >= 0) {
@@ -453,7 +453,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 				  }
 				}	
 
-				dataBeforeCnt += result.length;				
+				dataBeforeCnt = result.length;				
 			}			
 
 			if (vm.params.shortsLong === "short" && Number(vm.params.shortsSecond) >= 0) {
@@ -849,6 +849,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
