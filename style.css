@@ -1,20 +1,26 @@
-/* 스타일 1: 기본 노란색 + 밑줄 */
-.hover-yellow-underline li:hover {
+/* 공통 스타일 */
+.modal-body ol li {
+  font-size: 20px;
+  margin-bottom: 3px;
+  transition: color 0.3s ease, text-decoration-color 0.3s ease;
+  cursor: pointer;
+}
+
+/* 공통 hover 기본 효과 */
+.modal-body ol li:hover {
   color: yellow;
   text-decoration: underline;
-  cursor: pointer;
 }
 
-/* 스타일 2: 좀 더 부드러운 전환 효과 추가 */
-.hover-yellow-underline-smooth li {
-  transition: color 0.3s ease, text-decoration-color 0.3s ease;
+/* 스타일 1: 기본 노란색 밑줄 */
+.hover-yellow-underline li:hover {
+  color: yellow;
 }
 
+/* 스타일 2: 부드러운 전환 + 진한 금색 + 두꺼운 밑줄 */
 .hover-yellow-underline-smooth li:hover {
   color: #ffd700; /* 금빛 노란색 */
-  text-decoration: underline;
   text-decoration-thickness: 2px;
-  cursor: pointer;
 }
 
 /*
@@ -248,6 +254,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
