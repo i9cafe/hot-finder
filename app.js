@@ -704,7 +704,9 @@ const app = angular.module('hotFinder', ['ngRoute'
           
           if (error.message.indexOf("403") > -1) {
             alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST.toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }));
-          } else {          
+          } else if (error.message.indexOf("400") > -1) {
+			alert('잘못된 API KEY 입니다.');
+		  } else {          
             alert('[Error] api: search, detail: ' + error);
           }
           this.hideLoader(); // 로딩 종료
@@ -736,7 +738,9 @@ const app = angular.module('hotFinder', ['ngRoute'
           
           if (error.message.indexOf("403") > -1) {
             alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST.toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }));
-          } else {          
+          } else if (error.message.indexOf("400") > -1) {
+			alert('잘못된 API KEY 입니다.');
+		  } else {          
             alert('[Error] api: search, detail: ' + error);
           }
           this.hideLoader(); // 로딩 종료
@@ -769,7 +773,9 @@ const app = angular.module('hotFinder', ['ngRoute'
           
           if (error.message.indexOf("403") > -1) {
             alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST.toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }));
-          } else {          
+          } else if (error.message.indexOf("400") > -1) {
+			alert('잘못된 API KEY 입니다.');
+		  } else {          
             alert('[Error] api: search, detail: ' + error);
           }
           this.hideLoader(); // 로딩 종료
@@ -793,7 +799,9 @@ const app = angular.module('hotFinder', ['ngRoute'
           
           if (error.message.indexOf("403") > -1) {
             alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST.toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }));
-          } else {          
+          } else if (error.message.indexOf("400") > -1) {
+			alert('잘못된 API KEY 입니다.');
+		  } else {          
             alert('[Error] api: search, detail: ' + error);
           }
           this.hideLoader(); // 로딩 종료
@@ -816,7 +824,9 @@ const app = angular.module('hotFinder', ['ngRoute'
           
           if (error.message.indexOf("403") > -1) {
             alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST.toLocaleString("ko-KR", { timeZone: "Asia/Seoul" }));
-          } else {          
+          } else if (error.message.indexOf("400") > -1) {
+			alert('잘못된 API KEY 입니다.');
+		  } else {          
             alert('[Error] api: search, detail: ' + error);
           }
           this.hideLoader(); // 로딩 종료
@@ -1038,6 +1048,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
