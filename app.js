@@ -150,6 +150,48 @@ const app = angular.module('hotFinder', ['ngRoute'
 			flag: "Y",
 			comment: "",
 		  }, {
+			id: "UCKCN9FEc3M225mFPlGiOteQ",
+			name: "인생풍경",
+			url: chanelBaseUrl + "UCKCN9FEc3M225mFPlGiOteQ",
+			flag: "Y",
+			comment: "",
+		  }, {
+			id: "UC-jw_--Ma-gr9N0WvD3A9Ow",
+			name: "인생은육십부터",
+			url: chanelBaseUrl + "UC-jw_--Ma-gr9N0WvD3A9Ow",
+			flag: "Y",
+			comment: "",
+		  }, {
+			id: "UCP51IWwyjeKnf6Xk9rvYLkg",
+			name: "사연의빛",
+			url: chanelBaseUrl + "UCP51IWwyjeKnf6Xk9rvYLkg",
+			flag: "Y",
+			comment: "",
+		  }, {
+			id: "UCbs5S2Jmrrrk6u_pGJ1EsDg",
+			name: "눈내린소나무같은인생사연",
+			url: chanelBaseUrl + "UCbs5S2Jmrrrk6u_pGJ1EsDg",
+			flag: "Y",
+			comment: "",
+		  }, {
+			id: "UCwUcHg9hRa-5rjJ7vv8rJzQ",
+			name: "세월의지혜",
+			url: chanelBaseUrl + "UCwUcHg9hRa-5rjJ7vv8rJzQ",
+			flag: "Y",
+			comment: "",
+		  }, {
+			id: "UCrtZDHeWyWmc_PXYh_bPQog",
+			name: "감사월드",
+			url: chanelBaseUrl + "UCrtZDHeWyWmc_PXYh_bPQog",
+			flag: "Y",
+			comment: "",
+		  }, {
+			id: "UCrtZDHeWyWmc_PXYh_bPQog",
+			name: "하늘빛마음",
+			url: chanelBaseUrl + "UCrtZDHeWyWmc_PXYh_bPQog",
+			flag: "Y",
+			comment: "",
+		  }, {
 			id: "UCrRBSlHTvHGOd6hyF3DLPPw",
 			name: "랄라하의 사연드라마",
 			url: chanelBaseUrl + "UCrRBSlHTvHGOd6hyF3DLPPw",
@@ -977,6 +1019,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
