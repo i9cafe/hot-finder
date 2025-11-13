@@ -1,3 +1,22 @@
+/* 스타일 1: 기본 노란색 + 밑줄 */
+.hover-yellow-underline li:hover {
+  color: yellow;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+/* 스타일 2: 좀 더 부드러운 전환 효과 추가 */
+.hover-yellow-underline-smooth li {
+  transition: color 0.3s ease, text-decoration-color 0.3s ease;
+}
+
+.hover-yellow-underline-smooth li:hover {
+  color: #ffd700; /* 금빛 노란색 */
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  cursor: pointer;
+}
+
 /*
  modal
 */
@@ -229,6 +248,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
