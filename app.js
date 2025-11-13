@@ -192,11 +192,23 @@ const app = angular.module('hotFinder', ['ngRoute'
 			flag: "Y",
 			comment: "27",
 		  }, {
+			id: "UC1GyaYKcLa2lU5JBFCDP4VQ",
+			name: "어둠속의빛",
+			url: chanelBaseUrl + "UC1GyaYKcLa2lU5JBFCDP4VQ",
+			flag: "Y",
+			comment: "28",
+		  }, {
+			id: "UCXwBhLpVZQOfBid9_h-FMrA",
+			name: "톡톡사연",
+			url: chanelBaseUrl + "UCXwBhLpVZQOfBid9_h-FMrA",
+			flag: "Y",
+			comment: "29",
+		  }, {
 			id: "UCrRBSlHTvHGOd6hyF3DLPPw",
 			name: "랄라하의사연드라마",
 			url: chanelBaseUrl + "UCrRBSlHTvHGOd6hyF3DLPPw",
 			flag: "Y",
-			comment: "28",
+			comment: "30",
 		  }
 	  ].sort((a, b) => a.name.localeCompare(b.name, 'ko'));	
 		
@@ -1019,6 +1031,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
