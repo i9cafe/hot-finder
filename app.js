@@ -1083,6 +1083,41 @@ const app = angular.module('hotFinder', ['ngRoute'
 			const key = document.getElementById('key5').innerText;
 			$modalInstance.close({ apiKey: key });
 		}
+		
+		this.selectData6 = () => {			
+			const key = document.getElementById('key6').innerText;
+			$modalInstance.close({ apiKey: key });
+		}
+		
+		this.selectData7 = () => {			
+			const key = document.getElementById('key7').innerText;
+			$modalInstance.close({ apiKey: key });
+		}
+		
+		this.selectData8 = () => {			
+			const key = document.getElementById('key8').innerText;
+			$modalInstance.close({ apiKey: key });
+		}
+		
+		this.selectData9 = () => {			
+			const key = document.getElementById('key9').innerText;
+			$modalInstance.close({ apiKey: key });
+		}
+		
+		this.selectData10 = () => {			
+			const key = document.getElementById('key10').innerText;
+			$modalInstance.close({ apiKey: key });
+		}
+		
+		this.selectData11 = () => {			
+			const key = document.getElementById('key11').innerText;
+			$modalInstance.close({ apiKey: key });
+		}
+		
+		this.selectData12 = () => {			
+			const key = document.getElementById('key12').innerText;
+			$modalInstance.close({ apiKey: key });
+		}
 
 		}
 	])
@@ -1128,6 +1163,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
