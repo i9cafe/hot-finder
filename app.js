@@ -1010,6 +1010,11 @@ const app = angular.module('hotFinder', ['ngRoute'
 		  return `${h>=12?'오후':'오전'} ${h%12||12}시`; 
       };
 
+		this.showKey = () => {
+
+
+		};
+
     }
   ])
 
@@ -1054,6 +1059,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
