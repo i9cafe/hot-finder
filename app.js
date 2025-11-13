@@ -21,7 +21,7 @@ const app = angular.module('hotFinder', ['ngRoute'
       vm.data.apiKey = "AIzaSyCg2tnEwBThaOS6-sdEzz--8skbl_C3Gps";
 		// AIzaSyDA4CE4IBeDHUKdAvkYUmioojsF9x_xWww
 		
-      const apiClient = axios.create({
+      let apiClient = axios.create({
         baseURL: "https://youtube.googleapis.com/youtube/v3",
         params: { key: vm.data.apiKey },
       });
@@ -301,6 +301,11 @@ const app = angular.module('hotFinder', ['ngRoute'
       };
 
       this.search = async () => {
+
+		  apiClient = axios.create({
+	        baseURL: "https://youtube.googleapis.com/youtube/v3",
+	        params: { key: vm.data.apiKey },
+	      });
 
 		if (vm.params.maxSearchCountByChannel === undefined || vm.params.maxSearchCountByChannel === null || vm.params.maxSearchCountByChannel === "" || 
 			vm.params.maxSearchCountByChannel < 1 || vm.params.maxSearchCountByChannel > 50) {
@@ -1033,6 +1038,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
