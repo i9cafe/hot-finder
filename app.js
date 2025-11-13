@@ -1033,7 +1033,9 @@ const app = angular.module('hotFinder', ['ngRoute'
 				}
 
 				openModal().result.then(result => {
-
+					if (result.apiKey !== undefined || result.apiKey !== null || result.apiKey !== "") {
+						vm.data.apiKey = result.apiKey;
+					}
 				}, cancel => {
 
 				});
@@ -1055,6 +1057,12 @@ const app = angular.module('hotFinder', ['ngRoute'
 		self.parameters = angular.copy(parameters) || {};
 
 		$scope.data = angular.copy(self.parameters.data);
+
+		
+		this.selectData1 = () => {			
+			const id = document.getElementById('key1');
+			$modalInstance.close({ apiKey: id });
+		}
 
 		}
 	])
@@ -1100,6 +1108,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
