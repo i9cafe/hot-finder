@@ -59,8 +59,9 @@
 						<h4 style="color:#9AA3B2;">
 							검색 대상 채널 리스트 (전체 {{vm.channelMaster.array.length}}개 중 체크된 총 {{vm.channelMaster.okTotalCount}}개에 대해서 검색합니다.)
 						</h4>
+						<span id="longTable" ng-click="vm.longTable();">{{vm.data.longTableDesc}}</span>
 						<div class="field col-md-12">
-							<div class="scrollable-table">
+							<div id="scrollable-grid" class="scrollable-table" style="max-height: 181px;">
 							  <table>
 								<thead>
 								  <tr>
