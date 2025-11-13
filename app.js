@@ -17,11 +17,13 @@ const app = angular.module('hotFinder', ['ngRoute'
       /*************************** DEFAULT INFO SETUP ***************************/
       const vm = this;
 	  
-      const YOUTUBE_API_KEY = "AIzaSyCg2tnEwBThaOS6-sdEzz--8skbl_C3Gps";
+      vm.data = {};
+      vm.data.apiKey = "AIzaSyCg2tnEwBThaOS6-sdEzz--8skbl_C3Gps";
 		// AIzaSyDA4CE4IBeDHUKdAvkYUmioojsF9x_xWww
+		
       const apiClient = axios.create({
         baseURL: "https://youtube.googleapis.com/youtube/v3",
-        params: { key: YOUTUBE_API_KEY },
+        params: { key: vm.data.apiKey },
       });
 
 	  const chanelBaseUrl = "https://www.youtube.com/channel/";
@@ -217,7 +219,6 @@ const app = angular.module('hotFinder', ['ngRoute'
 			return target.flag === "Y";
 		  }).length;
 	  	  
-      vm.data = {};
       vm.data.hide = "접기";
       vm.data.totalCount = 0;
 
@@ -1032,6 +1033,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
