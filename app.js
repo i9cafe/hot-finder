@@ -186,9 +186,9 @@ const app = angular.module('hotFinder', ['ngRoute'
 			flag: "Y",
 			comment: "",
 		  }, {
-			id: "UCrtZDHeWyWmc_PXYh_bPQog",
+			id: "UCJaX4fqnQGoq1oPbpv6pGmg",
 			name: "하늘빛마음",
-			url: chanelBaseUrl + "UCrtZDHeWyWmc_PXYh_bPQog",
+			url: chanelBaseUrl + "UCJaX4fqnQGoq1oPbpv6pGmg",
 			flag: "Y",
 			comment: "",
 		  }, {
@@ -1019,6 +1019,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
