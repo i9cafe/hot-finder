@@ -226,6 +226,7 @@ const app = angular.module('hotFinder', ['ngRoute'
       vm.data.totalCount = 0;
 	  
 	  vm.data.longTableDesc = '리스트 펼치기';
+	  vm.data.channelAllFlag = 'Y';
 
       vm.params = {};
       vm.params.excuteMode = "CHANNEL";
@@ -1018,6 +1019,26 @@ const app = angular.module('hotFinder', ['ngRoute'
 					vm.data.longTableDesc = '리스트 펼치기';
 				});		
 			}
+		};
+		
+		this.clickGridCheckboxAll = () => {
+
+			if (vm.data.channelAllFlag === 'Y') {			
+				vm.channelMaster.array.map(function(target) {
+					target.flag = 'Y';
+					return target;
+				});
+				vm.channelMaster.okTotalCount = vm.channelMaster.array.length;
+			
+			} else {
+				vm.channelMaster.array.map(function(target) {
+					target.flag = 'N';
+					return target;
+				});
+				vm.channelMaster.okTotalCount = 0;
+				
+			}		
+			
 		};
 
       this.getKoreaTimeFromPacificMidnight = () => {
