@@ -1004,10 +1004,10 @@ const app = angular.module('hotFinder', ['ngRoute'
 				const n = new Date(), y = n.getUTCFullYear(),
 		        s = new Date(Date.UTC(y,2,8 + (7-new Date(Date.UTC(y,2,8)).getUTCDay())%7,10)),
 		        e = new Date(Date.UTC(y,10,1 + (7-new Date(Date.UTC(y,10,1)).getUTCDay())%7,9)),
-		        o = n >= s && n < e ? -7 : -8,
+		        o = (n >= s && n < e ? -7 : -8),
 		        k = new Date(Date.UTC(y,n.getUTCMonth(),n.getUTCDate(),-o,0,0)+9*3600*1000),
-		        h = k.getHours();
-		  return `${h>=12?'오후':'오전'} ${h%12||12}시`;	  
+		        h = k.getUTCHours();
+		  return `${h>=12?'오후':'오전'} ${h%12||12}시`; 
       };
 
     }
@@ -1054,6 +1054,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
