@@ -23,7 +23,6 @@
   border-collapse: collapse;
   font-family: Arial, sans-serif;
   color: #e0e0e0;             /* 텍스트 밝게 */
-  table-layout: auto;         /* 기본은 데이터 길이에 맞게 유동적 */
 }
 
 /* 테이블 헤더 스타일 */
@@ -54,22 +53,6 @@
 /* 마우스 오버 시 강조 */
 .scrollable-table tbody tr:hover {
   background-color: #2b3341;  /* 헤더 색상과 동일 */
-}
-
-/* ---------------------------- */
-/* 반응형: 작은 화면에서만 ellipsis 처리 */
-/* ---------------------------- */
-@media (max-width: 900px) {
-  .scrollable-table table {
-    table-layout: fixed;  /* 열 너비 고정 */
-  }
-
-  .scrollable-table th,
-  .scrollable-table td {
-    white-space: nowrap;      /* 줄바꿈 방지 */
-    overflow: hidden;         /* 넘친 텍스트 숨김 */
-    text-overflow: ellipsis;  /* ... 표시 */
-  }
 }
 
 /* 전체 화면 덮는 로딩 오버레이 */
@@ -238,9 +221,6 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
-
-
-
 
 
 
