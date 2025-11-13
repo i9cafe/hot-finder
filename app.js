@@ -84,7 +84,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			flag: "N",
 			comment: "",
 		  }
-	  ].sort((a, b) => a.name - b.name);;		
+	  ].sort((a, b) => a.name.localeCompare(b.name, 'ko'));	
 		
 	vm.channelMaster.okTotalCount = vm.channelMaster.array.filter(function(target) {
 			return target.flag === "Y";
@@ -905,6 +905,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
