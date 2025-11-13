@@ -981,27 +981,35 @@ const app = angular.module('hotFinder', ['ngRoute'
        * 한국 시간(KST) 기준으로 언제인지 계산해주는 함수
        */
       this.getKoreaTimeFromPacificMidnight = () => {
-       // 현재 날짜의 태평양 시간대 기준 자정
-	  const pacificMidnight = new Date(
-	    new Intl.DateTimeFormat("en-US", {
-	      timeZone: "America/Los_Angeles",
-	      year: "numeric",
-	      month: "2-digit",
-	      day: "2-digit"
-	    }).format(new Date())
-	  );
-	
-	  // 자정으로 설정
-	  pacificMidnight.setHours(0, 0, 0, 0);
-	
-	  // 한국 시간으로 변환
-	  const koreaTimeStr = pacificMidnight.toLocaleTimeString("ko-KR", {
-	    timeZone: "Asia/Seoul",
-	    hour: "numeric",
-	    hour12: true
-	  });
-	
-	  return koreaTimeStr;
+
+		  const year = date.getUTCFullYear();
+
+		  // DST 시작: 3월 둘째 일요일
+		  const dstStart = new Date(Date.UTC(year, 2, 8));
+		  const dayStart = dstStart.getUTCDay();
+		  const secondSunday = 8 + ((7 - dayStart) % 7);
+		  const dstStartDate = new Date(Date.UTC(year, 2, secondSunday, 10, 0, 0)); // 10:00 UTC = 02:00 PT
+		
+		  // DST 종료: 11월 첫째 일요일
+		  const dstEnd = new Date(Date.UTC(year, 10, 1));
+		  const dayEnd = dstEnd.getUTCDay();
+		  const firstSunday = 1 + ((7 - dayEnd) % 7);
+		  const dstEndDate = new Date(Date.UTC(year, 10, firstSunday, 9, 0, 0)); // 09:00 UTC = 02:00 PDT
+		
+		  const isDST = date >= dstStartDate && date < dstEndDate;
+		
+		  // PT 기준 초기화 시간 자정 → UTC 기준
+		  const ptResetHourUTC = isDST ? 7 : 8;
+		  const resetUTC = new Date(Date.UTC(year, date.getUTCMonth(), date.getUTCDate(), ptResetHourUTC, 0, 0));
+		
+		  // KST 변환 (+9시간)
+		  const resetKST = new Date(resetUTC.getTime() + 9 * 60 * 60 * 1000);
+		  let hours = resetKST.getHours();
+		  const ampm = hours >= 12 ? "오후" : "오전";
+		  hours = hours % 12;
+		  if (hours === 0) hours = 12;
+		
+		  return `${ampm} ${hours}시`;
       };
 
     }
@@ -1048,6 +1056,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
