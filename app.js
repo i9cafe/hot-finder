@@ -976,43 +976,40 @@ const app = angular.module('hotFinder', ['ngRoute'
 
       this.getKoreaTimeFromPacificMidnight = () => {
 		 	const now = new Date();
-
-		    // 미국 태평양 시간(PST/PDT) offset 계산
-		    const year = now.getUTCFullYear();
 		
-		    // DST 시작: 3월 둘째 일요일, 02:00 PT
+		    // PT 기준 날짜
+		    const year = now.getUTCFullYear();
+		    const month = now.getUTCMonth();
+		    const day = now.getUTCDate();
+		
+		    // DST 계산
 		    const dstStart = new Date(Date.UTC(year, 2, 8));
 		    const dayStart = dstStart.getUTCDay();
 		    const secondSunday = 8 + ((7 - dayStart) % 7);
-		    const dstStartUTC = new Date(Date.UTC(year, 2, secondSunday, 10, 0, 0)); // 10:00 UTC = 02:00 PT
+		    const dstStartUTC = new Date(Date.UTC(year, 2, secondSunday, 10, 0, 0));
 		
-		    // DST 종료: 11월 첫째 일요일, 02:00 PT
 		    const dstEnd = new Date(Date.UTC(year, 10, 1));
 		    const dayEnd = dstEnd.getUTCDay();
 		    const firstSunday = 1 + ((7 - dayEnd) % 7);
-		    const dstEndUTC = new Date(Date.UTC(year, 10, firstSunday, 9, 0, 0)); // 09:00 UTC = 02:00 PDT
+		    const dstEndUTC = new Date(Date.UTC(year, 10, firstSunday, 9, 0, 0));
 		
 		    const isDST = now >= dstStartUTC && now < dstEndUTC;
 		    const ptOffset = isDST ? -7 : -8; // UTC 기준 PT offset
 		
 		    // PT 자정 -> UTC
-		    const ptMidnightUTC = new Date(Date.UTC(
-		        now.getUTCFullYear(),
-		        now.getUTCMonth(),
-		        now.getUTCDate(),
-		        -ptOffset, // UTC 기준 시각
-		        0,
-		        0
-		    ));
+		    const ptMidnightUTC = new Date(Date.UTC(year, month, day, 0 - ptOffset, 0, 0));
 		
 		    // KST 변환 (+9시간)
 		    const resetKST = new Date(ptMidnightUTC.getTime() + 9 * 60 * 60 * 1000);
 		
 		    let hours = resetKST.getHours();
 		    const ampm = hours >= 12 ? "오후" : "오전";
-		    hours = hours % 12 || 12;
 		
-		    return `${ampm} ${hours}시`;
+		    // 12시간제 변환
+		    hours = hours % 12;
+		    if (hours === 0) hours = 12;
+		
+		    return `${ampm} ${hours}시`; // 예: "오후 5시"
       };
 
     }
@@ -1059,6 +1056,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
