@@ -30,12 +30,11 @@
 
     <main class="wrap">
       <!-- https://ko.wikipedia.org/wiki/%ED%8C%8C%EC%9D%BC:Youtube_logo.png -->
-      <div class="title" style="cursor:pointer;" ng-click="vm.clickHome()">
+      <div class="title" style="cursor:pointer; width:23%;" ng-click="vm.clickHome()">
 		  <img src="image-youtube.png" width="40" height="25" style="margin-right:10px; cursor:pointer;" ng-click="vm.clickHome()">YouTube Hot Finder</div>
       <div class="sub">검색 조건을 설정하고 결과를 확인하세요.</div>
-		<div class="field container" style="top:67px; right:90px; position:absolute;">
-			API KEY
-			<input id="apiKey" class="control box" type="text" style="width:30%;" ng-model="vm.data.apiKey"/>
+		<div class="field container">
+			<input id="apiKey" class="control box" type="text" style="width:30%; top:67px; right:90px; position:absolute;" ng-model="vm.data.apiKey"/>
 		</div>
 
       <!-- 검색조건 카드 -->
@@ -263,6 +262,7 @@
 
   </body>
 </html>
+
 
 
 
