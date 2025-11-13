@@ -138,6 +138,18 @@ const app = angular.module('hotFinder', ['ngRoute'
 			flag: "Y",
 			comment: "",
 		  }, {
+			id: "UCNuGU6mCxH-qXcfH7gjMlmA",
+			name: "각설탕회관",
+			url: chanelBaseUrl + "UCNuGU6mCxH-qXcfH7gjMlmA",
+			flag: "Y",
+			comment: "",
+		  }, {
+			id: "UCOLQ6s0kRWGurtiZkn7lpsA",
+			name: "늘푸른인생",
+			url: chanelBaseUrl + "UCOLQ6s0kRWGurtiZkn7lpsA",
+			flag: "Y",
+			comment: "",
+		  }, {
 			id: "UCrRBSlHTvHGOd6hyF3DLPPw",
 			name: "랄라하의 사연드라마",
 			url: chanelBaseUrl + "UCrRBSlHTvHGOd6hyF3DLPPw",
@@ -965,6 +977,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
