@@ -16,6 +16,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 
       /*************************** DEFAULT INFO SETUP ***************************/
       const vm = this;
+
+	  let failedFlag = 'N';
 	  
       vm.data = {};
       vm.data.apiKey = "AIzaSyCg2tnEwBThaOS6-sdEzz--8skbl_C3Gps";
@@ -300,6 +302,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 
       this.search = async () => {
 
+		  failedFlag = 'N';
+
 		  apiClient = axios.create({
 	        baseURL: "https://youtube.googleapis.com/youtube/v3",
 	        params: { key: vm.data.apiKey },
@@ -366,7 +370,11 @@ const app = angular.module('hotFinder', ['ngRoute'
 				let items = await this.doSearchChannelMode(channelId);
 
 				if (items === undefined || items === null || items.length === 0) {
-				  continue;
+				  continue;					
+				}
+
+				if (failedFlag === 'Y') {
+					return;	
 				}
 				
 				for (let i = 0; i < items.length; i++) {
@@ -468,6 +476,10 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 			if (items === undefined || items === null || items.length === 0) {
 			  return;
+			}
+
+			if (failedFlag === 'Y') {
+				return;	
 			}
 
 			for (let i = 0; i < items.length; i++) {
@@ -588,6 +600,10 @@ const app = angular.module('hotFinder', ['ngRoute'
 				if (items === undefined || items === null || items.length === 0) {
 				  continue;
 				}
+
+				if (failedFlag === 'Y') {
+					return;	
+				}
 				
 				for (let i = 0; i < items.length; i++) {
 				  let item = items[i];
@@ -707,6 +723,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 		  } else {          
             alert('[Error] api: search, detail: ' + error);
           }
+
+	      failedFlag = 'Y';
           this.hideLoader(); // 로딩 종료
 		  return [];
         }
@@ -741,6 +759,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 		  } else {          
             alert('[Error] api: search, detail: ' + error);
           }
+
+	      failedFlag = 'Y';
           this.hideLoader(); // 로딩 종료
 		  return [];
         }
@@ -776,6 +796,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 		  } else {          
             alert('[Error] api: search, detail: ' + error);
           }
+
+	      failedFlag = 'Y';
           this.hideLoader(); // 로딩 종료
 		  return [];
         }
@@ -802,6 +824,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 		  } else {          
             alert('[Error] api: search, detail: ' + error);
           }
+
+	      failedFlag = 'Y';
           this.hideLoader(); // 로딩 종료
 		  return [];
         }
@@ -827,6 +851,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 		  } else {          
             alert('[Error] api: search, detail: ' + error);
           }
+
+	      failedFlag = 'Y';
           this.hideLoader(); // 로딩 종료
 		  return [];
         }
@@ -1058,6 +1084,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
