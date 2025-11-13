@@ -369,12 +369,12 @@ const app = angular.module('hotFinder', ['ngRoute'
 				
 				let items = await this.doSearchChannelMode(channelId);
 
-				if (items === undefined || items === null || items.length === 0) {
-				  continue;					
-				}
-
 				if (failedFlag === 'Y') {
 					return;	
+				}
+
+				if (items === undefined || items === null || items.length === 0) {
+				  continue;					
 				}
 				
 				for (let i = 0; i < items.length; i++) {
@@ -474,12 +474,12 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 			let items = await this.doSearchKeywordMode();
 
-			if (items === undefined || items === null || items.length === 0) {
-			  return;
-			}
-
 			if (failedFlag === 'Y') {
 				return;	
+			}
+
+			if (items === undefined || items === null || items.length === 0) {
+			  return;
 			}
 
 			for (let i = 0; i < items.length; i++) {
@@ -597,12 +597,12 @@ const app = angular.module('hotFinder', ['ngRoute'
 				
 				let items = await this.doSearchBothMode(channelId);
 
-				if (items === undefined || items === null || items.length === 0) {
-				  continue;
-				}
-
 				if (failedFlag === 'Y') {
 					return;	
+				}
+
+				if (items === undefined || items === null || items.length === 0) {
+				  continue;
 				}
 				
 				for (let i = 0; i < items.length; i++) {
@@ -1054,6 +1054,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
