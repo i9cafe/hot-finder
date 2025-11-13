@@ -18,9 +18,14 @@
 }
 
 /* 스타일 2: 부드러운 전환 + 진한 금색 + 두꺼운 밑줄 */
-.hover-yellow-underline-smooth li:hover {
-  color: #ffd700; /* 금빛 노란색 */
+#longTable {
+  color: pink;
   text-decoration-thickness: 2px;
+  text-decoration: underline;
+  position:absolute; 
+  top:12px; 
+  right:166px; 
+  cursor:pointer;
 }
 
 /*
@@ -42,8 +47,7 @@
   cursor: pointer;
 }
 
-.scrollable-table {
-  max-height: 181px;        
+.scrollable-table {          
   overflow-y: auto;         
   border: 1px solid #1a1c28;  /* 테두리 어둡게 */
   border-radius: 4px;
