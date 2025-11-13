@@ -48,40 +48,58 @@ const app = angular.module('hotFinder', ['ngRoute'
 			flag: "Y",
 			comment: "",
 		  }, {
-			id: "4",
-			name: "4",
-			url: "4",
-			flag: "N",
+			id: "UCepniAEbQ3T75M2OuInzIOw",
+			name: "소리로 읽는 세상",
+			url: chanelBaseUrl + "UCepniAEbQ3T75M2OuInzIOw",
+			flag: "Y",
 			comment: "",
 		  }, {
-			id: "5",
-			name: "5",
-			url: "5",
-			flag: "N",
+			id: "UCjgM7Q280TRWOHmDT6Nr34A",
+			name: "탑골사연공원",
+			url: chanelBaseUrl + "UCjgM7Q280TRWOHmDT6Nr34A",
+			flag: "Y",
 			comment: "",
 		  }, {
-			id: "6",
-			name: "6",
-			url: "6",
-			flag: "N",
+			id: "UCzmHMfc84ebwfkRQV5ufAKw",
+			name: "황혼사연",
+			url: chanelBaseUrl + "UCzmHMfc84ebwfkRQV5ufAKw",
+			flag: "Y",
 			comment: "",
 		  }, {
-			id: "...",
-			name: "...",
-			url: "...",
-			flag: "N",
+			id: "UCT2S9OFvyF4rMZZQeNcIu3Q",
+			name: "인생사연",
+			url: chanelBaseUrl + "UCT2S9OFvyF4rMZZQeNcIu3Q",
+			flag: "Y",
 			comment: "",
 		  }, {
-			id: "134",
-			name: "134",
-			url: "134",
-			flag: "N",
+			id: "UCko5Mjg45-Kz8P2mq_2FFsg",
+			name: "풀빛사연",
+			url: chanelBaseUrl + "UCko5Mjg45-Kz8P2mq_2FFsg",
+			flag: "Y",
 			comment: "",
 		  }, {
-			id: "135",
-			name: "135",
-			url: "135",
-			flag: "N",
+			id: "UCZmDNNxAYodRPudlI0si0XA",
+			name: "매일사연",
+			url: chanelBaseUrl + "UCZmDNNxAYodRPudlI0si0XA",
+			flag: "Y",
+			comment: "",
+		  }, {
+			id: "UCnDG7vNvXXpYxtv8ao5oWlw",
+			name: "인생정자",
+			url: chanelBaseUrl + "UCnDG7vNvXXpYxtv8ao5oWlw",
+			flag: "Y",
+			comment: "",
+		  }, {
+			id: "UC5Fznx6E3uzShi7n_kIEFRA",
+			name: "사연만사",
+			url: chanelBaseUrl + "UC5Fznx6E3uzShi7n_kIEFRA",
+			flag: "Y",
+			comment: "",
+		  }, {
+			id: "UCrRBSlHTvHGOd6hyF3DLPPw",
+			name: "랄라하의 사연드라마",
+			url: chanelBaseUrl + "UCrRBSlHTvHGOd6hyF3DLPPw",
+			flag: "Y",
 			comment: "",
 		  }
 	  ].sort((a, b) => a.name.localeCompare(b.name, 'ko'));	
@@ -905,6 +923,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
