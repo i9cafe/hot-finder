@@ -12,7 +12,8 @@ const app = angular.module('hotFinder', ['ngRoute'
   .controller('MainController', [
     '$scope',
     '$timeout',
-    function($scope, $timeout) {
+	'$modal',
+    function($scope, $timeout, $modal) {
 
       /*************************** DEFAULT INFO SETUP ***************************/
       const vm = this;
@@ -1012,6 +1013,29 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 		this.showKey = () => {
 
+			function openModal() {
+					return $modal.open({
+						templateUrl: 'modal.html',
+						windowClass: 'modal-fullscreen',
+						controller: 'SubController',
+						controllerAs: 'self',
+						backdrop: 'static',
+						size: 'sm',
+						resolve: {
+							parameters: () => {
+								return {
+									result: "success",
+								};
+							}
+						}
+					});
+				}
+
+				openModal().result.then(result => {
+
+				}, cancel => {
+
+				});
 
 		};
 
@@ -1059,6 +1083,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
