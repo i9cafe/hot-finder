@@ -2,7 +2,7 @@
  modal
 */
 .modal-fullscreen .modal-dialog {
-  width: 90%;
+  width: 50%;
   margin-top: 20px;
 }
 
@@ -229,6 +229,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
