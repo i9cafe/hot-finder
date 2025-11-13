@@ -976,40 +976,30 @@ const app = angular.module('hotFinder', ['ngRoute'
 
       this.getKoreaTimeFromPacificMidnight = () => {
 		 	const now = new Date();
-		
-		    // PT 기준 날짜
-		    const year = now.getUTCFullYear();
-		    const month = now.getUTCMonth();
-		    const day = now.getUTCDate();
-		
-		    // DST 계산
-		    const dstStart = new Date(Date.UTC(year, 2, 8));
-		    const dayStart = dstStart.getUTCDay();
-		    const secondSunday = 8 + ((7 - dayStart) % 7);
-		    const dstStartUTC = new Date(Date.UTC(year, 2, secondSunday, 10, 0, 0));
-		
-		    const dstEnd = new Date(Date.UTC(year, 10, 1));
-		    const dayEnd = dstEnd.getUTCDay();
-		    const firstSunday = 1 + ((7 - dayEnd) % 7);
-		    const dstEndUTC = new Date(Date.UTC(year, 10, firstSunday, 9, 0, 0));
-		
-		    const isDST = now >= dstStartUTC && now < dstEndUTC;
+
+		    // PT offset 자동 계산 (DST 포함)
+		    const jan = new Date(now.getFullYear(), 0, 1);
+		    const jul = new Date(now.getFullYear(), 6, 1);
+		    const stdOffset = Math.max(jan.getTimezoneOffset(), jul.getTimezoneOffset()) / 60; // PST 기준
+		    const isDST = now.getTimezoneOffset() < stdOffset;
 		    const ptOffset = isDST ? -7 : -8; // UTC 기준 PT offset
 		
-		    // PT 자정 -> UTC
-		    const ptMidnightUTC = new Date(Date.UTC(year, month, day, 0 - ptOffset, 0, 0));
+		    // 오늘 PT 자정 → UTC → KST
+		    const ptMidnightUTC = new Date(Date.UTC(
+		        now.getFullYear(),
+		        now.getMonth(),
+		        now.getDate(),
+		        0 - ptOffset
+		    ));
 		
-		    // KST 변환 (+9시간)
-		    const resetKST = new Date(ptMidnightUTC.getTime() + 9 * 60 * 60 * 1000);
-		
-		    let hours = resetKST.getHours();
-		    const ampm = hours >= 12 ? "오후" : "오전";
+		    const kstTime = new Date(ptMidnightUTC.getTime() + 9 * 60 * 60 * 1000);
 		
 		    // 12시간제 변환
-		    hours = hours % 12;
-		    if (hours === 0) hours = 12;
+		    let hours = kstTime.getHours();
+		    const ampm = hours >= 12 ? "오후" : "오전";
+		    hours = hours % 12 || 12;
 		
-		    return `${ampm} ${hours}시`; // 예: "오후 5시"
+		    return `${ampm} ${hours}시`;
       };
 
     }
@@ -1056,6 +1046,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
