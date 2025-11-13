@@ -240,8 +240,6 @@ const app = angular.module('hotFinder', ['ngRoute'
 	  vm.keyword.includeKey = "";
 	  vm.keyword.exceptKey = "";
 
-  	  //alert('Welcome! Have a nice day :)');
-
       $scope.gridOptions = {
         enableColumnResizing: true,
         enableSorting: true,
@@ -976,10 +974,6 @@ const app = angular.module('hotFinder', ['ngRoute'
 			  }).length;
 		};
 
-      /**
-       * YouTube Data API v3 할당량 초기화 시간이
-       * 한국 시간(KST) 기준으로 언제인지 계산해주는 함수
-       */
       this.getKoreaTimeFromPacificMidnight = () => {
 		 	const now = new Date();
 
@@ -1065,6 +1059,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
