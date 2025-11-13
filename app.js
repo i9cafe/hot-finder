@@ -18,6 +18,7 @@ const app = angular.module('hotFinder', ['ngRoute'
       const vm = this;
 	  
       const YOUTUBE_API_KEY = "AIzaSyCg2tnEwBThaOS6-sdEzz--8skbl_C3Gps";
+		// AIzaSyDA4CE4IBeDHUKdAvkYUmioojsF9x_xWww
       const apiClient = axios.create({
         baseURL: "https://youtube.googleapis.com/youtube/v3",
         params: { key: YOUTUBE_API_KEY },
@@ -1031,6 +1032,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
