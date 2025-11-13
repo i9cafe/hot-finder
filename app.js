@@ -224,6 +224,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 	  	  
       vm.data.hide = "접기";
       vm.data.totalCount = 0;
+	  
+	  vm.data.longTableDesc = '리스트 펼치기';
 
       vm.params = {};
       vm.params.excuteMode = "CHANNEL";
@@ -999,6 +1001,23 @@ const app = angular.module('hotFinder', ['ngRoute'
 			vm.channelMaster.okTotalCount = vm.channelMaster.array.filter(function(target) {
 				return target.flag === "Y";
 			  }).length;
+		};
+		
+		this.longTable = () => {	
+
+			if (vm.data.longTableDesc === '리스트 펼치기') {				
+				$timeout(() => {
+				  const element = document.getElementById('scrollable-grid');
+					element.style.removeProperty('max-height');
+					vm.data.longTableDesc = '리스트 접기';
+				});			
+			} else {
+				$timeout(() => {
+				  const element = document.getElementById('scrollable-grid');
+					element.style.setProperty('max-height', '181px');
+					vm.data.longTableDesc = '리스트 펼치기';
+				});		
+			}
 		};
 
       this.getKoreaTimeFromPacificMidnight = () => {
