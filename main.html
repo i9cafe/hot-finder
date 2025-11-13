@@ -69,7 +69,15 @@
 									<th>채널명</th>
 									<th>채널 ID</th>
 									<th>채널 링크</th>
-									<th>검색 대상 여부</th>
+									<th>검색 대상 여부
+										<input type="checkbox"
+												   ng-model="vm.data.channelAllFlag"
+												   ng-true-value="'Y'"
+												   ng-false-value="'N'"
+												   ng-click="vm.clickGridCheckboxAll()"
+												   style="width:15px;height:15px;margin-left:8px;
+														margin-right:5px;cursor:pointer;">
+									</th>
 									<th style="display: none;">비고</th>
 								  </tr>
 								</thead>
