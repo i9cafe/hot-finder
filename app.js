@@ -1021,6 +1021,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 						controllerAs: 'self',
 						backdrop: 'static',
 						size: 'sm',
+  						animation: true,
 						resolve: {
 							parameters: () => {
 								return {
@@ -1099,6 +1100,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
