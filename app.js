@@ -193,7 +193,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			comment: "",
 		  }, {
 			id: "UCrRBSlHTvHGOd6hyF3DLPPw",
-			name: "랄라하의 사연드라마",
+			name: "랄라하의사연드라마",
 			url: chanelBaseUrl + "UCrRBSlHTvHGOd6hyF3DLPPw",
 			flag: "Y",
 			comment: "",
@@ -1019,6 +1019,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
