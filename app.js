@@ -96,6 +96,48 @@ const app = angular.module('hotFinder', ['ngRoute'
 			flag: "Y",
 			comment: "",
 		  }, {
+			id: "UCXVtesz30jjhcUQZAlhOUqw",
+			name: "은하수별동네",
+			url: chanelBaseUrl + "UCXVtesz30jjhcUQZAlhOUqw",
+			flag: "Y",
+			comment: "",
+		  }, {
+			id: "UCm9niqYY_OzexSD4zLvNBeQ",
+			name: "운명같은이야기",
+			url: chanelBaseUrl + "UCm9niqYY_OzexSD4zLvNBeQ",
+			flag: "Y",
+			comment: "",
+		  }, {
+			id: "UCHq8jnJywM22kIwjo8RgCIg",
+			name: "세상만사요지경속이다",
+			url: chanelBaseUrl + "UCHq8jnJywM22kIwjo8RgCIg",
+			flag: "Y",
+			comment: "",
+		  }, {
+			id: "UCRJK3vc6sLqwTUkAZt7_Z6Q",
+			name: "스페셜튜브",
+			url: chanelBaseUrl + "UCRJK3vc6sLqwTUkAZt7_Z6Q",
+			flag: "Y",
+			comment: "",
+		  }, {
+			id: "UC6jMDfjyquRk30OSoe1xjJQ",
+			name: "마음의등대",
+			url: chanelBaseUrl + "UC6jMDfjyquRk30OSoe1xjJQ",
+			flag: "Y",
+			comment: "",
+		  }, {
+			id: "UC-MGBGZzfLLfmDiZP73f6ZQ",
+			name: "노후의아름다운이야기",
+			url: chanelBaseUrl + "UC-MGBGZzfLLfmDiZP73f6ZQ",
+			flag: "Y",
+			comment: "",
+		  }, {
+			id: "UClmsF6cF0oSTBlR9pfG0MZw",
+			name: "은빛다방",
+			url: chanelBaseUrl + "UClmsF6cF0oSTBlR9pfG0MZw",
+			flag: "Y",
+			comment: "",
+		  }, {
 			id: "UCrRBSlHTvHGOd6hyF3DLPPw",
 			name: "랄라하의 사연드라마",
 			url: chanelBaseUrl + "UCrRBSlHTvHGOd6hyF3DLPPw",
@@ -923,6 +965,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
