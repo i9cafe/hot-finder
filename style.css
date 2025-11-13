@@ -23,7 +23,7 @@
   border-collapse: collapse;
   font-family: Arial, sans-serif;
   color: #e0e0e0;             /* 텍스트 밝게 */
-  table-layout: fixed;        /* ellipsis 적용을 위해 열 너비 고정 */
+  table-layout: auto;         /* 기본은 데이터 길이에 맞게 유동적 */
 }
 
 /* 테이블 헤더 스타일 */
@@ -35,18 +35,12 @@
   padding: 8px;
   text-align: left;
   border-bottom: 2px solid #3a4060;
-  white-space: nowrap;         /* 헤더도 줄바꿈 방지 */
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 /* 테이블 데이터 스타일 */
 .scrollable-table td {
   padding: 8px;
   border-bottom: 1px solid #1a1c28; /* 데이터 구분선 */
-  white-space: nowrap;         /* 줄바꿈 방지 */
-  overflow: hidden;            /* 넘치는 텍스트 숨김 */
-  text-overflow: ellipsis;     /* ... 표시 */
 }
 
 /* 홀수/짝수 행 배경색 */
@@ -62,12 +56,22 @@
   background-color: #2b3341;  /* 헤더 색상과 동일 */
 }
 
-/* 반응형: 화면이 작아질수록 자동으로 더 잘리도록 */
-@media (max-width: 600px) {
+/* ---------------------------- */
+/* 반응형: 작은 화면에서만 ellipsis 처리 */
+/* ---------------------------- */
+@media (max-width: 900px) {
+  .scrollable-table table {
+    table-layout: fixed;  /* 열 너비 고정 */
+  }
+
+  .scrollable-table th,
   .scrollable-table td {
-    font-size: 13px;
+    white-space: nowrap;      /* 줄바꿈 방지 */
+    overflow: hidden;         /* 넘친 텍스트 숨김 */
+    text-overflow: ellipsis;  /* ... 표시 */
   }
 }
+
 /* 전체 화면 덮는 로딩 오버레이 */
 .loader-overlay {
   position: fixed;
@@ -234,6 +238,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
