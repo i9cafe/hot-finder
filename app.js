@@ -982,6 +982,8 @@ const app = angular.module('hotFinder', ['ngRoute'
        */
       this.getKoreaTimeFromPacificMidnight = () => {
 
+		 	let date = new Date();
+		  
 		  const year = date.getUTCFullYear();
 
 		  // DST 시작: 3월 둘째 일요일
@@ -1056,6 +1058,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
