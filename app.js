@@ -981,37 +981,44 @@ const app = angular.module('hotFinder', ['ngRoute'
        * 한국 시간(KST) 기준으로 언제인지 계산해주는 함수
        */
       this.getKoreaTimeFromPacificMidnight = () => {
+		 	const now = new Date();
 
-		 	let date = new Date();
-		  
-		  const year = date.getUTCFullYear();
-
-		  // DST 시작: 3월 둘째 일요일
-		  const dstStart = new Date(Date.UTC(year, 2, 8));
-		  const dayStart = dstStart.getUTCDay();
-		  const secondSunday = 8 + ((7 - dayStart) % 7);
-		  const dstStartDate = new Date(Date.UTC(year, 2, secondSunday, 10, 0, 0)); // 10:00 UTC = 02:00 PT
+		    // 미국 태평양 시간(PST/PDT) offset 계산
+		    const year = now.getUTCFullYear();
 		
-		  // DST 종료: 11월 첫째 일요일
-		  const dstEnd = new Date(Date.UTC(year, 10, 1));
-		  const dayEnd = dstEnd.getUTCDay();
-		  const firstSunday = 1 + ((7 - dayEnd) % 7);
-		  const dstEndDate = new Date(Date.UTC(year, 10, firstSunday, 9, 0, 0)); // 09:00 UTC = 02:00 PDT
+		    // DST 시작: 3월 둘째 일요일, 02:00 PT
+		    const dstStart = new Date(Date.UTC(year, 2, 8));
+		    const dayStart = dstStart.getUTCDay();
+		    const secondSunday = 8 + ((7 - dayStart) % 7);
+		    const dstStartUTC = new Date(Date.UTC(year, 2, secondSunday, 10, 0, 0)); // 10:00 UTC = 02:00 PT
 		
-		  const isDST = date >= dstStartDate && date < dstEndDate;
+		    // DST 종료: 11월 첫째 일요일, 02:00 PT
+		    const dstEnd = new Date(Date.UTC(year, 10, 1));
+		    const dayEnd = dstEnd.getUTCDay();
+		    const firstSunday = 1 + ((7 - dayEnd) % 7);
+		    const dstEndUTC = new Date(Date.UTC(year, 10, firstSunday, 9, 0, 0)); // 09:00 UTC = 02:00 PDT
 		
-		  // PT 기준 초기화 시간 자정 → UTC 기준
-		  const ptResetHourUTC = isDST ? 7 : 8;
-		  const resetUTC = new Date(Date.UTC(year, date.getUTCMonth(), date.getUTCDate(), ptResetHourUTC, 0, 0));
+		    const isDST = now >= dstStartUTC && now < dstEndUTC;
+		    const ptOffset = isDST ? -7 : -8; // UTC 기준 PT offset
 		
-		  // KST 변환 (+9시간)
-		  const resetKST = new Date(resetUTC.getTime() + 9 * 60 * 60 * 1000);
-		  let hours = resetKST.getHours();
-		  const ampm = hours >= 12 ? "오후" : "오전";
-		  hours = hours % 12;
-		  if (hours === 0) hours = 12;
+		    // PT 자정 -> UTC
+		    const ptMidnightUTC = new Date(Date.UTC(
+		        now.getUTCFullYear(),
+		        now.getUTCMonth(),
+		        now.getUTCDate(),
+		        -ptOffset, // UTC 기준 시각
+		        0,
+		        0
+		    ));
 		
-		  return `${ampm} ${hours}시`;
+		    // KST 변환 (+9시간)
+		    const resetKST = new Date(ptMidnightUTC.getTime() + 9 * 60 * 60 * 1000);
+		
+		    let hours = resetKST.getHours();
+		    const ampm = hours >= 12 ? "오후" : "오전";
+		    hours = hours % 12 || 12;
+		
+		    return `${ampm} ${hours}시`;
       };
 
     }
@@ -1058,6 +1065,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
