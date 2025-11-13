@@ -1001,13 +1001,13 @@ const app = angular.module('hotFinder', ['ngRoute'
 		};
 
       this.getKoreaTimeFromPacificMidnight = () => {
-		const now = new Date(), y = now.getUTCFullYear(),
-		          dstStart = new Date(Date.UTC(y,2,8 + (7 - new Date(Date.UTC(y,2,8)).getUTCDay()) % 7,10)),
-		          dstEnd = new Date(Date.UTC(y,10,1 + (7 - new Date(Date.UTC(y,10,1)).getUTCDay()) % 7,9)),
-		          offset = (now >= dstStart && now < dstEnd) ? -7 : -8,
-		          kst = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), -offset, 0, 0) + 9*3600*1000),
-		          h = kst.getHours();
-		    return `${h>=12?'오후':'오전'} ${h%12||12}시`;		  
+				const n = new Date(), y = n.getUTCFullYear(),
+		        s = new Date(Date.UTC(y,2,8 + (7-new Date(Date.UTC(y,2,8)).getUTCDay())%7,10)),
+		        e = new Date(Date.UTC(y,10,1 + (7-new Date(Date.UTC(y,10,1)).getUTCDay())%7,9)),
+		        o = n >= s && n < e ? -7 : -8,
+		        k = new Date(Date.UTC(y,n.getUTCMonth(),n.getUTCDate(),-o,0,0)+9*3600*1000),
+		        h = k.getHours();
+		  return `${h>=12?'오후':'오전'} ${h%12||12}시`;	  
       };
 
     }
@@ -1054,6 +1054,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
