@@ -1024,7 +1024,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 						resolve: {
 							parameters: () => {
 								return {
-									result: "success",
+									data: "success",
 								};
 							}
 						}
@@ -1041,6 +1041,22 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
+  .controller('SubController', [
+	'$scope',
+	'$modalInstance',
+	'parameters',
+	function($scope, $modalInstance, parameters) {
+
+		/*************************** DEFAULT INFO SETUP ***************************/
+		const self = this;
+
+		self.parameters = angular.copy(parameters) || {};
+
+		$scope.data = angular.copy(self.parameters.data);
+
+		}
+	])
 
   .controller('IndexController', [
     '$scope',
@@ -1083,6 +1099,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
