@@ -1,28 +1,32 @@
 .gradient-text {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: bold;
-    color: white; /* 기본 글자색 */
+    text-align: center;
 
+    /* 글자색 대신 gradient 적용 */
     background: linear-gradient(
-        to right, 
-        white, 
-        mediumpurple, 
+        to right,
+        white,
+        mediumpurple,
+        white,
+        mediumpurple,
         white
     );
 
-    background-size: 200% auto;
+    background-size: 200% 100%; /* gradient 이동 범위 넉넉하게 */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    animation: gradientMove 10s linear infinite;
+    /* 무한 자연스럽게 이동 */
+    animation: gradientMove 3s linear infinite;
 }
 
 @keyframes gradientMove {
     0% {
-        background-position: 0% 50%;
+        background-position: 0% 0%;
     }
     100% {
-        background-position: 100% 50%;
+        background-position: 200% 0%;
     }
 }
 
@@ -302,6 +306,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
