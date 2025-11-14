@@ -1,3 +1,8 @@
+/* 숫자 input 더블클릭 시 전체 선택 */
+input[type="number"] {
+    user-select: text; /* 텍스트 선택 가능 */
+}
+
 /* =======================
    UI-Grid 3.2.9 Dark Theme
    - 2단계 줄무늬(row striping)
@@ -408,6 +413,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
