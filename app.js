@@ -1097,14 +1097,14 @@ const app = angular.module('hotFinder', ['ngRoute'
 		this.clearInclude = () => {			
 	  		vm.keyword.includeKey = "";
 			
-			let element = document.getElementById('include-clear');
+			let element = document.getElementById('keyword-includeKey');
 			  element.focus();
 		};
 
 		this.clearExcept = () => {			
 	  		vm.keyword.exceptKey = "";
 			
-			let element = document.getElementById('except-clear');
+			let element = document.getElementById('keyword-exceptKey');
 			  element.focus();
 		};
 
@@ -1229,6 +1229,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
