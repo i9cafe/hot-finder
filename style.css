@@ -80,6 +80,10 @@
   color: deeppink;
 }
 
+#key-help:hover {
+  color: skyblue;
+}
+
 /*
  modal
 */
@@ -310,6 +314,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
