@@ -1,3 +1,31 @@
+.gradient-text {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white; /* 기본 글자색 */
+
+    background: linear-gradient(
+        to right, 
+        white, 
+        mediumpurple, 
+        white
+    );
+
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: gradientMove 3s linear infinite;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
 #include-clear:hover {
   color: white !important;
 }
@@ -274,6 +302,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
