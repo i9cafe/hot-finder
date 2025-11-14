@@ -67,7 +67,7 @@
 
 /* 스타일 2: 부드러운 전환 + 진한 금색 + 두꺼운 밑줄 */
 #longTable {
-  color: pink;
+  color: hotpink;
   text-decoration-thickness: 2px;
   text-decoration: underline;
   position:absolute; 
@@ -306,6 +306,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
