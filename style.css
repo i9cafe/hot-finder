@@ -15,95 +15,154 @@ input[type="number"] {
 }
 
 /* =======================
-   UI-Grid 3.2.9 Dark Theme
-   - 2단계 줄무늬(row striping)
-   - 하이퍼링크 밝은 색
-   - Hover 및 선택 강조
-   - 글자색 lightgray
+   UI-Grid 3.2.9 Dark Theme (Variables + Full Compatibility)
    ======================= */
 
-/* 전체 그리드 배경 */
+/* === 색상 변수 (CSS Custom Properties) === */
+:root {
+    --bg-grid: #0f1115;
+    --bg-header: #171a21;
+    --bg-row-odd: #222936;
+    --bg-row-even: #1c2230;
+    --bg-hover: #2b3341;
+    --bg-selected: #505060;
+    --bg-menu: #171a21;
+    --bg-menu-hover: #2b3341;
+    --border-color: #2b3341;
+    --text-color: lightgray;
+    --text-hover: #ffffff;
+    --link-color: #87CEFA;
+    --link-hover: #ADD8E6;
+    --scrollbar-thumb: #2b3341;
+    --scrollbar-track: #0f1115;
+}
+
+/* === 전체 그리드 === */
 .ui-grid, 
 .ui-grid .ui-grid-viewport {
-    background-color: #0f1115 !important; /* 기본 배경 */
-    color: lightgray !important;
+    background-color: var(--bg-grid) !important;
+    color: var(--text-color) !important;
     font-family: Arial, sans-serif !important;
 }
 
-/* 헤더 스타일 */
+/* === 헤더 스타일 === */
 .ui-grid-header-cell {
-    background-color: #171a21 !important;
-    color: lightgray !important;
+    background-color: var(--bg-header) !important;
+    color: var(--text-color) !important;
     border-bottom: 1px solid #1c2230 !important;
     font-weight: bold !important;
 }
 
-/* 헤더 텍스트 */
 .ui-grid-header-cell .ui-grid-cell-contents {
-    color: lightgray !important;
+    color: var(--text-color) !important;
 }
 
-/* 셀 기본 스타일 */
+/* === 셀 스타일 === */
 .ui-grid-cell {
-    color: lightgray !important;
-    border-right: 1px solid #2b3341 !important;
+    color: var(--text-color) !important;
+    border-right: 1px solid var(--border-color) !important;
 }
 
-/* 2단계 줄무늬 스타일 */
+/* === 2단계 줄무늬(row striping) === */
 .ui-grid-row:nth-child(even) .ui-grid-cell {
-    background-color: #1c2230 !important;
+    background-color: var(--bg-row-even) !important;
 }
 .ui-grid-row:nth-child(odd) .ui-grid-cell {
-    background-color: #222936 !important;
+    background-color: var(--bg-row-odd) !important;
 }
 
-/* 행 hover 효과 */
+/* === 행 hover === */
 .ui-grid-row:hover .ui-grid-cell {
-    background-color: #2b3341 !important;
+    background-color: var(--bg-hover) !important;
 }
 
-/* 선택된 행 */
+/* === 선택된 행 === */
 .ui-grid-row-selected .ui-grid-cell {
-    background-color: #505060 !important;
+    background-color: var(--bg-selected) !important;
 }
 
-/* 하이퍼링크 스타일 */
+/* === 하이퍼링크 === */
 .ui-grid-cell a {
-    color: #87CEFA !important; /* 밝은 하늘색 */
+    color: var(--link-color) !important;
     text-decoration: underline !important;
 }
 
 .ui-grid-cell a:hover {
-    color: #ADD8E6 !important; /* hover 시 밝게 */
+    color: var(--link-hover) !important;
     text-decoration: underline !important;
 }
 
-/* 페이징 및 컨트롤 패널 */
+/* === 페이징 / 컨트롤 패널 === */
 .ui-grid-pager-panel {
-    background-color: #171a21 !important;
-    color: lightgray !important;
+    background-color: var(--bg-header) !important;
+    color: var(--text-color) !important;
     border-top: 1px solid #1c2230 !important;
 }
 
-/* 체크박스, 필터 입력 */
+/* === 체크박스 / 필터 === */
 .ui-grid-icon-ok, 
 .ui-grid-icon-checkbox-checked, 
 .ui-grid-filter-container input {
-    color: lightgray !important;
+    color: var(--text-color) !important;
 }
 
-/* 스크롤바 스타일 (Webkit) */
+/* === 스크롤바 (Webkit + Firefox) === */
+.ui-grid-viewport {
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track); /* Firefox */
+}
+
+/* Webkit 기반 브라우저 */
 .ui-grid-viewport::-webkit-scrollbar {
     width: 8px;
 }
-
 .ui-grid-viewport::-webkit-scrollbar-thumb {
-    background-color: #2b3341 !important;
+    background-color: var(--scrollbar-thumb) !important;
     border-radius: 4px !important;
 }
-
 .ui-grid-viewport::-webkit-scrollbar-track {
-    background-color: #0f1115 !important;
+    background-color: var(--scrollbar-track) !important;
+}
+
+/* === 헤더 메뉴 다크모드 === */
+.ui-grid-menu {
+    background-color: var(--bg-menu) !important;
+    color: var(--text-color) !important;
+    border: 1px solid var(--border-color) !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.5) !important;
+    min-width: 150px !important;
+    z-index: 1000 !important;
+}
+
+.ui-grid-menu-item {
+    background-color: var(--bg-menu) !important;
+    color: var(--text-color) !important;
+    padding: 5px 10px;
+    cursor: pointer;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* 아이콘과 텍스트 간격 */
+}
+
+.ui-grid-menu-item:hover {
+    background-color: var(--bg-menu-hover) !important;
+    color: var(--text-hover) !important;
+}
+
+/* 메뉴 아이콘 색상 */
+.ui-grid-menu-item .ui-grid-icon-up,
+.ui-grid-menu-item .ui-grid-icon-down,
+.ui-grid-menu-item .ui-grid-icon-eye-close,
+.ui-grid-menu-item .ui-grid-icon-eye-open {
+    color: var(--text-color) !important;
+}
+
+.ui-grid-menu-item:hover .ui-grid-icon-up,
+.ui-grid-menu-item:hover .ui-grid-icon-down,
+.ui-grid-menu-item:hover .ui-grid-icon-eye-close,
+.ui-grid-menu-item:hover .ui-grid-icon-eye-open {
+    color: var(--text-hover) !important;
 }
 
 /* title animation*/
@@ -424,6 +483,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
