@@ -1,7 +1,8 @@
 /* =======================
-   UI-Grid 3.2.9 Smooth Gradient Dark Theme
-   - 부드러운 4단계 행 배경
-   - 하이퍼링크 밝은 색상
+   UI-Grid 3.2.9 Dark Theme
+   - 2단계 줄무늬(row striping)
+   - 하이퍼링크 밝은 색
+   - Hover 및 선택 강조
    - 글자색 lightgray
    ======================= */
 
@@ -15,13 +16,13 @@
 
 /* 헤더 스타일 */
 .ui-grid-header-cell {
-    background-color: #171a21 !important; /* 헤더 배경 */
+    background-color: #171a21 !important;
     color: lightgray !important;
     border-bottom: 1px solid #1c2230 !important;
     font-weight: bold !important;
 }
 
-/* 헤더 안 텍스트 */
+/* 헤더 텍스트 */
 .ui-grid-header-cell .ui-grid-cell-contents {
     color: lightgray !important;
 }
@@ -32,23 +33,17 @@
     border-right: 1px solid #2b3341 !important;
 }
 
-/* 행마다 부드러운 4단계 그라데이션 배경 */
-.ui-grid-row:nth-child(4n+1) .ui-grid-cell {
+/* 2단계 줄무늬 스타일 */
+.ui-grid-row:nth-child(even) .ui-grid-cell {
     background-color: #1c2230 !important;
 }
-.ui-grid-row:nth-child(4n+2) .ui-grid-cell {
-    background-color: #202836 !important;
-}
-.ui-grid-row:nth-child(4n+3) .ui-grid-cell {
-    background-color: #252e3d !important;
-}
-.ui-grid-row:nth-child(4n+4) .ui-grid-cell {
-    background-color: #2a3545 !important;
+.ui-grid-row:nth-child(odd) .ui-grid-cell {
+    background-color: #222936 !important;
 }
 
 /* 행 hover 효과 */
 .ui-grid-row:hover .ui-grid-cell {
-    background-color: #333d52 !important;
+    background-color: #2b3341 !important;
 }
 
 /* 선택된 행 */
@@ -63,7 +58,7 @@
 }
 
 .ui-grid-cell a:hover {
-    color: #ADD8E6 !important; /* hover 시 살짝 밝게 */
+    color: #ADD8E6 !important; /* hover 시 밝게 */
     text-decoration: underline !important;
 }
 
@@ -74,7 +69,7 @@
     border-top: 1px solid #1c2230 !important;
 }
 
-/* 체크박스, 필터 영역 텍스트 */
+/* 체크박스, 필터 입력 */
 .ui-grid-icon-ok, 
 .ui-grid-icon-checkbox-checked, 
 .ui-grid-filter-container input {
@@ -413,6 +408,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
