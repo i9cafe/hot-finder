@@ -31,8 +31,10 @@
 
     <main class="wrap">
         <!-- https://ko.wikipedia.org/wiki/%ED%8C%8C%EC%9D%BC:Youtube_logo.png -->
-        <div class="title" style="cursor:pointer; width:23%;" ng-click="vm.clickHome()">
-            <img src="image-youtube.png" width="40" height="25" style="margin-right:10px; cursor:pointer;" ng-click="vm.clickHome()">YouTube Hot Finder</div>
+        <div class="title" style="cursor:pointer; width:23%;" ng-click="vm.clickHome()" title="새로고침">
+            <img src="image-youtube.png" width="40" height="25" style="margin-right:10px; cursor:pointer;" ng-click="vm.clickHome()" title="새로고침">
+			YouTube Hot Finder
+		</div>
         <div class="sub">검색 조건을 설정하고 결과를 확인하세요.</div>
         <div class="field container" style="position:relative;">
             <span class="badge" style="cursor:pointer; top:-34.5px; right:-31px; position:absolute; z-index:2; border:0px; background:none; color:gray;" ng-click="vm.showKey()">KEY</span>
@@ -234,7 +236,7 @@
 
                                 <div class="actions" style="justify-content: end; padding-left:15px; padding-right:15px;">
                                     <button class="btn primary" type="submit" ng-click="vm.search()"></i>검색</button>
-                                    <button class="btn ghost" ng-click="vm.reset()"></i>리셋</button>
+                                    <button class="btn ghost" ng-click="vm.reset()" title="검색조건 탭을 초기화합니다."></i>리셋</button>
                                 </div>
                         </div>
                         </form>
@@ -263,5 +265,6 @@
 </body>
 
 </html>
+
 
 
