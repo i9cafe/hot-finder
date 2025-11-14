@@ -2,8 +2,16 @@
   color: white;
 }
 
+#include-clear:focus {
+  border-color: white;
+}
+
 #except-clear:hover {
   color: white;
+}
+
+#except-clear:focus {
+  border-color: white;
 }
 
 /* 공통 스타일 */
@@ -266,6 +274,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
