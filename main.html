@@ -34,7 +34,7 @@
         <div class="title" style="cursor:pointer; width:23%;" ng-click="vm.clickHome()">
             <img src="image-youtube.png" width="40" height="25" style="margin-right:10px; cursor:pointer;" ng-click="vm.clickHome()">YouTube Hot Finder</div>
         <div class="sub">검색 조건을 설정하고 결과를 확인하세요.</div>
-        <div class="field container">
+        <div class="field container" style="position:relative;">
             <span class="badge" style="cursor:pointer; top:70.5px; right:95px; position:absolute; z-index:2; border:0px; background:none; color:gray;" ng-click="vm.showKey()">KEY</span>
             <input id="apiKey" class="control box" type="text" style="width:30%; top:67px; right:90px; position:absolute; z-index:1;" ng-model="vm.data.apiKey" />
         </div>
@@ -263,3 +263,4 @@
 </body>
 
 </html>
+
