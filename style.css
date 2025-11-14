@@ -56,7 +56,7 @@
 
 /* 공통 hover 기본 효과 */
 .modal-body ol li:hover {
-  color: aqua;
+  color: aquamarine;
   text-decoration: underline;
 }
 
@@ -81,7 +81,7 @@
 }
 
 #key-help:hover {
-  color: skyblue !important;
+  color: aqua !important;
 }
 
 /*
@@ -314,6 +314,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
