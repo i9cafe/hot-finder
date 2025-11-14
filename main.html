@@ -195,7 +195,7 @@
 						  </div>
 						  <div class="col-md-4">
 							<div class="field col-md-12">
-							  <label class="label col-md-6" title="채널/둘다 모드 에서 검색 시 채널 1개당 설정한 수만큼 데이터를 조회합니다.">채널당 최대 검색 수</label>
+							  <label class="label col-md-6" title="채널/둘다 모드 에서 검색 시 채널 1개당 조회하는 동영상의 개수">채널당 최대 검색 수</label>
 							  <div class="control col-md-6">
 								<input id="searchbox-maxSearchCountByChannel" type="number" min="1" max="50" style="width:100%;" ng-model="vm.params.maxSearchCountByChannel" />
 							  </div>
@@ -203,7 +203,7 @@
 						  </div>
 						  <div class="col-md-4">
 							<div class="field col-md-12">
-							  <label class="label col-md-6" title="키워드 모드에서 검색 시 설정한 수만큼 데이터를 조회합니다.">검색어당 최대 검색 수</label>
+							  <label class="label col-md-6" title="키워드 모드에서 검색 시 조회하는 동영상의 개수">검색어당 최대 검색 수</label>
 							  <div class="control col-md-6">
 								<input id="searchbox-maxSearchCountByKeyword" type="number" min="1" max="50" style="width:100%;" ng-model="vm.params.maxSearchCountByKeyword" />
 							  </div>
@@ -211,7 +211,7 @@
 						  </div>
 						  <div class="col-md-4">
 							<div class="field col-md-12">
-							  <label class="label col-md-4">최소 조회 수</label>
+							  <label class="label col-md-4" title="전체 조회 수">최소 조회 수</label>
 							  <div class="control col-md-8">
 								<input id="searchbox-minViewCount" type="number" min="1" style="width:100%;" ng-model="vm.params.minViewCount"/>
 							  </div>
@@ -219,7 +219,7 @@
 						  </div>
 						  <div class="col-md-4">
 							<div class="field col-md-12">
-							  <label class="label col-md-6" >최소 시간당 조회 수</label>
+							  <label class="label col-md-6" title="해당 동영상이 게시된 이후부터 지금까지 1시간당 조회 수">최소 시간당 조회 수</label>
 							  <div class="control col-md-6">
 								<input id="searchbox-viewCountByMinTime" type="number" min="1" style="width:100%;" ng-model="vm.params.viewCountByMinTime"/>
 							  </div>
@@ -227,7 +227,7 @@
 						  </div>
 						  <div class="col-md-4">
 							<div class="field col-md-12">
-							  <label class="label col-md-6" >채널별 인기 영상 보기</label>
+							  <label class="label col-md-6" title="체크 시 전체 조회 수 기준으로, 체크 해제 시 관련도 순 기준으로 동영상을 조회합니다.">채널별 인기 영상 보기</label>
 							  <div class="col-md-6">
 								<input type="checkbox" ng-model="vm.params.checkPopular" style="width:20px; height:20px; display:inline; vertical-align:text-bottom; cursor:pointer;" ng-true-value="'Y'" ng-false-value="'N'"></input>
 							  </div>
@@ -272,6 +272,7 @@
 
   </body>
 </html>
+
 
 
 
