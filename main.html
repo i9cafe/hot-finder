@@ -133,7 +133,7 @@
 
                     <!-- 기존 검색조건 탭 -->
                     <uib-tab active="true" heading="검색 조건">
-                        <div class="body" style="padding-left:0px;padding-right:0px;padding-bottom:0px;padding-top:18px;">
+                        <div class="body" style="padding-left:0px;padding-right:0px;padding-bottom:0px;padding-top:5px;">
                             <form class="filters">
                                 <div class="col-md-12" style="padding-top: 13px;">
                                     <div class="col-md-4">
@@ -147,8 +147,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                    </div>
-									
+                                    </div>									
                                     <div class="col-md-4">
                                         <div class="field col-md-12">
                                             <label class="label col-md-12" style="color:yellow; font-weight:500;" ng-show="vm.params.excuteMode === 'CHANNEL'">채널 모드 사전 설정에서 
@@ -161,7 +160,7 @@
                                         </div>
                                     </div>
                                 </div>
-								<div class="col-md-12">
+								<div class="col-md-12" style="margin-top:2px;">
                                     <div class="col-md-4">
                                         <div class="field col-md-12">
                                             <label class="label col-md-4">쇼츠 / 롱폼</label>
@@ -249,7 +248,7 @@
                                     </div>
                                 </div>
 
-                                <div class="actions" style="justify-content: end; padding-left:15px; padding-right:15px; margin-top:28px;">
+                                <div class="actions" style="justify-content: end; padding-left:15px; padding-right:15px;">
                                     <button class="btn primary" type="submit" ng-click="vm.search()"></i>검색</button>
                                     <button class="btn ghost" ng-click="vm.reset()" title="검색조건 탭을 초기화합니다."></i>리셋</button>
                                 </div>
@@ -280,6 +279,7 @@
 </body>
 
 </html>
+
 
 
 
