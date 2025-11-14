@@ -1,12 +1,5 @@
-.filters .col-md-12 {
-    display: flex;
-    flex-wrap: wrap; /* 줄 바꿈 허용 */
-    gap: 15px;       /* 열 간격 */
-}
-
 .filters .col-md-4 {
-    flex: 0 0 calc(33.333% - 10px); /* 약간 여유를 주어 밀림 방지 */
-    box-sizing: border-box;
+    width: 32.9%; /* 33.333%보다 살짝 줄여서 밀림 방지 */
 }
 
 /* 하이퍼링크 스타일 */
@@ -500,6 +493,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
