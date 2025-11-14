@@ -1,11 +1,14 @@
 /* =======================
    UI-Grid 3.2.9 Custom Dark Theme
+   - 배경 4단계 그라데이션 행
+   - 하이퍼링크 밝은 색상
+   - 글자색 lightgray
    ======================= */
 
 /* 전체 그리드 배경 */
 .ui-grid, 
 .ui-grid .ui-grid-viewport {
-    background-color: #0f1115 !important; /* 가장 어두운 배경 */
+    background-color: #0f1115 !important; /* 기본 배경 */
     color: lightgray !important;
     font-family: Arial, sans-serif !important;
 }
@@ -23,26 +26,45 @@
     color: lightgray !important;
 }
 
-/* 일반 셀 스타일 */
+/* 셀 기본 스타일 */
 .ui-grid-cell {
-    background-color: #1c2230 !important; /* 셀 배경 */
     color: lightgray !important;
     border-right: 1px solid #2b3341 !important; /* 구분선 */
 }
 
-/* 셀 안 텍스트 */
-.ui-grid-cell .ui-grid-cell-contents {
-    color: lightgray !important;
+/* 행마다 배경 4단계 구분 */
+.ui-grid-row:nth-child(4n+1) .ui-grid-cell {
+    background-color: #1c2230 !important;
+}
+.ui-grid-row:nth-child(4n+2) .ui-grid-cell {
+    background-color: #22293c !important;
+}
+.ui-grid-row:nth-child(4n+3) .ui-grid-cell {
+    background-color: #2b3341 !important;
+}
+.ui-grid-row:nth-child(4n+4) .ui-grid-cell {
+    background-color: #323a4d !important;
 }
 
 /* 행 hover 효과 */
 .ui-grid-row:hover .ui-grid-cell {
-    background-color: #2b3341 !important; /* hover시 조금 더 밝게 */
+    background-color: #3a405a !important;
 }
 
 /* 선택된 행 */
 .ui-grid-row-selected .ui-grid-cell {
-    background-color: #2b3341 !important;
+    background-color: #505060 !important;
+}
+
+/* 하이퍼링크 스타일 */
+.ui-grid-cell a {
+    color: #87CEFA !important; /* 밝은 하늘색 */
+    text-decoration: underline !important;
+}
+
+.ui-grid-cell a:hover {
+    color: #ADD8E6 !important; /* hover 시 살짝 밝게 */
+    text-decoration: underline !important;
 }
 
 /* 페이징 및 컨트롤 패널 */
@@ -391,6 +413,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
