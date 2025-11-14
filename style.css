@@ -1,3 +1,14 @@
+/* 하이퍼링크 스타일 */
+td a {
+    color: #87CEFA !important; /* 밝은 하늘색 */
+    text-decoration: underline !important;
+}
+
+td a:hover {
+    color: #ADD8E6 !important; /* hover 시 밝게 */
+    text-decoration: underline !important;
+}
+
 /* 숫자 input 더블클릭 시 전체 선택 */
 input[type="number"] {
     user-select: text; /* 텍스트 선택 가능 */
@@ -413,6 +424,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
