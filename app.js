@@ -342,7 +342,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 			if (vm.params.maxSearchCountByChannel === undefined || vm.params.maxSearchCountByChannel === null || vm.params.maxSearchCountByChannel === "" || 
 			vm.params.maxSearchCountByChannel < 1 || vm.params.maxSearchCountByChannel > 50) {
-			alert("채널당 최대 검색 수는 1 ~ 50 사이의 값을 입력해주세요.");
+			alert("1 ~ 50 사이의 값을 입력해주세요. [채널당 최대 검색 수]");
 			return;
 		}
 						
@@ -469,7 +469,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 		  if (vm.params.maxSearchCountByKeyword === undefined || vm.params.maxSearchCountByKeyword === null || vm.params.maxSearchCountByKeyword === "" || 
 			  vm.params.maxSearchCountByKeyword < 1 || vm.params.maxSearchCountByKeyword > 50) {
-			alert("검색어당 최대 검색 수는 1 ~ 50 사이의 값을 입력해주세요.");
+			alert("1 ~ 50 사이의 값을 입력해주세요. [검색어당 최대 검색 수]");
 			return;
 		}
 			  
@@ -581,13 +581,13 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 			if (vm.params.maxSearchCountByChannel === undefined || vm.params.maxSearchCountByChannel === null || vm.params.maxSearchCountByChannel === "" || 
 			vm.params.maxSearchCountByChannel < 1 || vm.params.maxSearchCountByChannel > 50) {
-			alert("채널당 최대 검색 수는 1 ~ 50 사이의 값을 입력해주세요.");
+			alert("1 ~ 50 사이의 값을 입력해주세요. [채널당 최대 검색 수]");
 			return;
 		}
 
 		  if (vm.params.maxSearchCountByKeyword === undefined || vm.params.maxSearchCountByKeyword === null || vm.params.maxSearchCountByKeyword === "" || 
 			  vm.params.maxSearchCountByKeyword < 1 || vm.params.maxSearchCountByKeyword > 50) {
-			alert("검색어당 최대 검색 수는 1 ~ 50 사이의 값을 입력해주세요.");
+			alert("1 ~ 50 사이의 값을 입력해주세요. [검색어당 최대 검색 수]");
 			return;
 		}
 			  
@@ -1216,6 +1216,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
