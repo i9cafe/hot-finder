@@ -31,11 +31,11 @@
 }
 
 #include-clear:hover {
-  color: white !important;
+  color: lightgray !important;
 }
 
 #except-clear:hover {
-  color: white !important;
+  color: lightgray !important;
 }
 
 #control-includeKey:has(input:focus) {
@@ -315,6 +315,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
