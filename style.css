@@ -14,7 +14,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    animation: gradientMove 3s linear infinite;
+    animation: gradientMove 10s linear infinite;
 }
 
 @keyframes gradientMove {
@@ -302,6 +302,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
