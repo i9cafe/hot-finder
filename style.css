@@ -8,12 +8,12 @@
 
 #control-includeKey:has(input:focus) {
   border-color: white !important;
-  border: 2px;
+  border: 2px solid !important;
 }
 
 #control-exceptKey:has(input:focus) {
   border-color: white !important;
-  border: 2px;
+  border: 2px solid !important;
 }
 
 /* 공통 스타일 */
@@ -276,6 +276,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
