@@ -21,7 +21,7 @@ input[type="number"] {
 }
 
 /* =======================
-   UI-Grid 3.2.9 Dark Theme (Variables + Full Compatibility)
+   UI-Grid 3.2.9 Dark Theme (Variables + Full Compatibility + Menu Fix)
    ======================= */
 
 /* === 색상 변수 (CSS Custom Properties) === */
@@ -55,7 +55,7 @@ input[type="number"] {
 .ui-grid-header-cell {
     background-color: var(--bg-header) !important;
     color: var(--text-color) !important;
-    border-bottom: 1px solid #1c2230 !important;
+    border-bottom: 1px solid var(--border-color) !important;
     font-weight: bold !important;
 }
 
@@ -102,7 +102,7 @@ input[type="number"] {
 .ui-grid-pager-panel {
     background-color: var(--bg-header) !important;
     color: var(--text-color) !important;
-    border-top: 1px solid #1c2230 !important;
+    border-top: 1px solid var(--border-color) !important;
 }
 
 /* === 체크박스 / 필터 === */
@@ -132,11 +132,16 @@ input[type="number"] {
 
 /* === 헤더 메뉴 다크모드 === */
 .ui-grid-menu {
+    display: flex;                  /* Flex로 높이 조정 */
+    flex-direction: column;         /* 세로로 아이템 배치 */
+    padding: 0 !important;          /* 불필요한 padding 제거 */
+    min-width: 150px !important;    /* 기존 최소 너비 유지 */
     background-color: var(--bg-menu) !important;
     color: var(--text-color) !important;
     border: 1px solid var(--border-color) !important;
     box-shadow: 0 2px 5px rgba(0,0,0,0.5) !important;
-    min-width: 150px !important;
+    height: auto !important;        /* 높이를 내용에 맞춤 */
+    line-height: normal !important;
     z-index: 1000 !important;
 }
 
@@ -149,6 +154,7 @@ input[type="number"] {
     display: flex;
     align-items: center;
     gap: 8px; /* 아이콘과 텍스트 간격 */
+    flex: 0 0 auto; /* 높이를 아이템에 맞춤 */
 }
 
 .ui-grid-menu-item:hover {
@@ -489,6 +495,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
