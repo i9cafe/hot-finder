@@ -52,7 +52,7 @@
                 </div>
             </div>
 
-            <div id="search-area" class="body" style="min-height:335px;">
+            <div id="search-area" class="body" style="min-height:341px;">
                 <!-- UI-Bootstrap 탭 -->
                 <uib-tabset justified="true">
 
@@ -107,7 +107,7 @@
 
                     <!-- 탭2 -->
                     <uib-tab heading="키워드 모드 사전 설정" ng-click="vm.clickKeywordTab()">
-                        <div class="body" style="margin-top:10px;">
+                        <div class="body" style="margin-top:15px;">
                             <form class="filters" style="gap:10px;">
                                 <div class="col-md-12">
                                     <h4 style="color:#9AA3B2;">검색 키워드</h4>
@@ -133,7 +133,7 @@
 
                     <!-- 기존 검색조건 탭 -->
                     <uib-tab active="true" heading="검색 조건">
-                        <div class="body" style="padding-left:0px;padding-right:0px;padding-bottom:0px;">
+                        <div class="body" style="padding-left:0px;padding-right:0px;padding-bottom:0px;padding-top:18px;">
                             <form class="filters">
                                 <div class="col-md-12" style="padding-top: 13px;">
                                     <div class="col-md-4">
@@ -226,6 +226,18 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4">
+                                        <div class="field col-md-12">                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="field col-md-12">                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="field col-md-12">                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
                                         <div class="field col-md-12">
                                             <label class="label col-md-6" title="체크 시 조회 수 기준으로, 체크 해제 시 관련도 순 기준으로 동영상을 조회합니다.">채널별 인기 영상 보기</label>
                                             <div class="col-md-6">
@@ -246,7 +258,7 @@
                                     </div>
                                 </div>
 
-                                <div class="actions" style="justify-content: end; padding-left:15px; padding-right:15px;">
+                                <div class="actions" style="justify-content: end; padding-left:15px; padding-right:15px; margin-top:28px;">
                                     <button class="btn primary" type="submit" ng-click="vm.search()"></i>검색</button>
                                     <button class="btn ghost" ng-click="vm.reset()" title="검색조건 탭을 초기화합니다."></i>리셋</button>
                                 </div>
@@ -277,6 +289,7 @@
 </body>
 
 </html>
+
 
 
 
