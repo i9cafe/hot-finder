@@ -81,7 +81,7 @@
 }
 
 #key-help:hover {
-  color: skyblue;
+  color: skyblue !important;
 }
 
 /*
@@ -314,6 +314,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
