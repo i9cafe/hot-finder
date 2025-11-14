@@ -58,6 +58,7 @@
 .modal-body ol li:hover {
   color: aquamarine;
   text-decoration: underline;
+  font-weight: 1000;
 }
 
 /* 스타일 1: 기본 노란색 밑줄 */
@@ -314,6 +315,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
