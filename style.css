@@ -1,6 +1,11 @@
-.filters .field,
-.filters .control,
+.filters .col-md-12 {
+    display: flex;
+    flex-wrap: wrap; /* 줄 바꿈 허용 */
+    gap: 15px;       /* 열 간격 */
+}
+
 .filters .col-md-4 {
+    flex: 0 0 calc(33.333% - 10px); /* 약간 여유를 주어 밀림 방지 */
     box-sizing: border-box;
 }
 
@@ -495,6 +500,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
