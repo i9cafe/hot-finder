@@ -195,7 +195,7 @@
 						  </div>
 						  <div class="col-md-4">
 							<div class="field col-md-12">
-							  <label class="label col-md-6" >채널당 최대 검색 수</label>
+							  <label class="label col-md-6" title="채널/둘다 모드 에서 검색 시 채널 1개당 설정한 수만큼 데이터를 조회합니다.">채널당 최대 검색 수</label>
 							  <div class="control col-md-6">
 								<input id="searchbox-maxSearchCountByChannel" type="number" min="1" max="50" style="width:100%;" ng-model="vm.params.maxSearchCountByChannel" />
 							  </div>
@@ -203,7 +203,7 @@
 						  </div>
 						  <div class="col-md-4">
 							<div class="field col-md-12">
-							  <label class="label col-md-6" >검색어당 최대 검색 수</label>
+							  <label class="label col-md-6" title="키워드 모드에서 검색 시 설정한 수만큼 데이터를 조회합니다.">검색어당 최대 검색 수</label>
 							  <div class="control col-md-6">
 								<input id="searchbox-maxSearchCountByKeyword" type="number" min="1" max="50" style="width:100%;" ng-model="vm.params.maxSearchCountByKeyword" />
 							  </div>
@@ -272,6 +272,7 @@
 
   </body>
 </html>
+
 
 
 
