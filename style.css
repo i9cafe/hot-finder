@@ -1,6 +1,6 @@
 /* =======================
-   UI-Grid 3.2.9 Custom Dark Theme
-   - 배경 4단계 그라데이션 행
+   UI-Grid 3.2.9 Smooth Gradient Dark Theme
+   - 부드러운 4단계 행 배경
    - 하이퍼링크 밝은 색상
    - 글자색 lightgray
    ======================= */
@@ -29,26 +29,26 @@
 /* 셀 기본 스타일 */
 .ui-grid-cell {
     color: lightgray !important;
-    border-right: 1px solid #2b3341 !important; /* 구분선 */
+    border-right: 1px solid #2b3341 !important;
 }
 
-/* 행마다 배경 4단계 구분 */
+/* 행마다 부드러운 4단계 그라데이션 배경 */
 .ui-grid-row:nth-child(4n+1) .ui-grid-cell {
     background-color: #1c2230 !important;
 }
 .ui-grid-row:nth-child(4n+2) .ui-grid-cell {
-    background-color: #22293c !important;
+    background-color: #202836 !important;
 }
 .ui-grid-row:nth-child(4n+3) .ui-grid-cell {
-    background-color: #2b3341 !important;
+    background-color: #252e3d !important;
 }
 .ui-grid-row:nth-child(4n+4) .ui-grid-cell {
-    background-color: #323a4d !important;
+    background-color: #2a3545 !important;
 }
 
 /* 행 hover 효과 */
 .ui-grid-row:hover .ui-grid-cell {
-    background-color: #3a405a !important;
+    background-color: #333d52 !important;
 }
 
 /* 선택된 행 */
@@ -413,6 +413,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
