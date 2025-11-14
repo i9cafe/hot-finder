@@ -1,3 +1,9 @@
+.filters .field,
+.filters .control,
+.filters .col-md-4 {
+    box-sizing: border-box;
+}
+
 /* 하이퍼링크 스타일 */
 td a {
     color: #87CEFA !important; /* 밝은 하늘색 */
@@ -483,6 +489,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
