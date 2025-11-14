@@ -76,6 +76,10 @@
   cursor:pointer;
 }
 
+#longTable:hover {
+  color: deeppink;
+}
+
 /*
  modal
 */
@@ -306,6 +310,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
