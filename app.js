@@ -500,7 +500,13 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 		  if (vm.params.maxSearchCountByKeyword === undefined || vm.params.maxSearchCountByKeyword === null || vm.params.maxSearchCountByKeyword === "" || 
 			  vm.params.maxSearchCountByKeyword < 1 || vm.params.maxSearchCountByKeyword > 50) {
-			alert("1 ~ 50 사이의 값을 입력해주세요. [검색어당 최대 검색 수]");
+			alert("1 ~ 50 사이의 값을 입력해주세요. [검색어당 최대 검색 수 1]");
+			return;
+		}
+
+			if (vm.data.pageTokenPage === undefined || vm.data.pageTokenPage === null || vm.data.pageTokenPage === "" || 
+			  vm.data.pageTokenPage < 1 || vm.data.pageTokenPage > 10) {
+			alert("1 ~ 10 사이의 값을 입력해주세요. [검색어당 최대 검색 수 2]");
 			return;
 		}
 			  
@@ -1435,6 +1441,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
