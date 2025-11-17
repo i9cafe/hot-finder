@@ -424,28 +424,15 @@ const app = angular.module('hotFinder', ['ngRoute'
 				}			
 				
 				for (let j = 0; j < items.length; j++) {
-				  let object = {};
+				  let obj = {};
+					let itm = items[j];
 
-				  object.channelName = items[j].snippet.channelTitle;
-				  object.videoTitle = items[j].videoInfo.snippet.title;
-				  object.videoUploadDate = items[j].snippet.publishedAt;
-				  object.viewCount = Number(items[j].videoInfo.statistics.viewCount);
-				  let uploadDate = new Date(object.videoUploadDate);
-				  let diffDate = nowDate.getTime() - uploadDate.getTime();
-				  object.viewCountByTime = (Number(object.viewCount) / (diffDate / (1000 * 60 * 60))).toFixed(2);
-				  object.subscriberCount = Number(items[j].channelInfo.statistics.subscriberCount);
-				  object.viewCountBySubscriberCount = (Number(object.viewCount) / Number(object.subscriberCount)).toFixed(2);
-				  object.duration = this.formatISODuration(items[j].videoInfo.contentDetails.duration);
-				  object.playTime = Number(this.formatISODurationSecond(items[j].videoInfo.contentDetails.duration));
-				  object.videoUrl = "https://www.youtube.com/watch?v=" + items[j].id.videoId;
-				  object.thumbnailsUrl = "https://img.youtube.com/vi/" + items[j].id.videoId + "/0.jpg";
-					object.videoUploadDate = object.videoUploadDate.replace("T", " ");
-					object.videoUploadDate = object.videoUploadDate.replace("Z", "");
+					obj = this.makeObj(obj, itm);
 			      
 				  if (index === 0) {
-					result[j] = object;
+					result[j] = obj;
 				  } else {
-					result[j + dataBeforeCnt] = object; 
+					result[j + dataBeforeCnt] = obj; 
 				  }
 				}	
 
@@ -573,25 +560,12 @@ const app = angular.module('hotFinder', ['ngRoute'
 			let lastDataLengthCount = 0;
 
 			for (let j = 0; j < items.length; j++) {
-			  let object = {};
+			  let obj = {};
+				let itm = items[j];
 
-			  object.channelName = items[j].snippet.channelTitle;
-			  object.videoTitle = items[j].videoInfo.snippet.title;
-			  object.videoUploadDate = items[j].snippet.publishedAt;
-			  object.viewCount = Number(items[j].videoInfo.statistics.viewCount);
-			  let uploadDate = new Date(object.videoUploadDate);
-			  let diffDate = nowDate.getTime() - uploadDate.getTime();
-			  object.viewCountByTime = (Number(object.viewCount) / (diffDate / (1000 * 60 * 60))).toFixed(2);
-			  object.subscriberCount = Number(items[j].channelInfo.statistics.subscriberCount);
-			  object.viewCountBySubscriberCount = (Number(object.viewCount) / Number(object.subscriberCount)).toFixed(2);
-			  object.duration = this.formatISODuration(items[j].videoInfo.contentDetails.duration);
-			  object.playTime = Number(this.formatISODurationSecond(items[j].videoInfo.contentDetails.duration));
-			  object.videoUrl = "https://www.youtube.com/watch?v=" + items[j].id.videoId;
-			  object.thumbnailsUrl = "https://img.youtube.com/vi/" + items[j].id.videoId + "/0.jpg";
-					object.videoUploadDate = object.videoUploadDate.replace("T", " ");
-					object.videoUploadDate = object.videoUploadDate.replace("Z", "");
+					obj = this.makeObj(obj, itm);
 
-			  result[j] = object;
+			  result[j] = obj;
 			}
 			
 			lastDataLengthCount = result.length;
@@ -650,22 +624,9 @@ const app = angular.module('hotFinder', ['ngRoute'
 				
 				for (let v = 0; v < items.length; v++) {
 				  let obj = {};
+					let itm = items[v];
 
-				  obj.channelName = items[v].snippet.channelTitle;
-				  obj.videoTitle = items[v].videoInfo.snippet.title;
-				  obj.videoUploadDate = items[v].snippet.publishedAt;
-				  obj.viewCount = Number(items[v].videoInfo.statistics.viewCount);
-				  let uploadDate2 = new Date(obj.videoUploadDate);
-				  let diffDate2 = nowDate.getTime() - uploadDate2.getTime();
-				  obj.viewCountByTime = (Number(obj.viewCount) / (diffDate2 / (1000 * 60 * 60))).toFixed(2);
-				  obj.subscriberCount = Number(items[v].channelInfo.statistics.subscriberCount);
-				  obj.viewCountBySubscriberCount = (Number(obj.viewCount) / Number(obj.subscriberCount)).toFixed(2);
-				  obj.duration = this.formatISODuration(items[v].videoInfo.contentDetails.duration);
-				  obj.playTime = Number(this.formatISODurationSecond(items[v].videoInfo.contentDetails.duration));
-				  obj.videoUrl = "https://www.youtube.com/watch?v=" + items[v].id.videoId;
-				  obj.thumbnailsUrl = "https://img.youtube.com/vi/" + items[v].id.videoId + "/0.jpg";
-						obj.videoUploadDate = obj.videoUploadDate.replace("T", " ");
-						obj.videoUploadDate = obj.videoUploadDate.replace("Z", "");
+					obj = this.makeObj(obj, itm);
 
 				  result[lastDataLengthCount + v] = obj;
 				}
@@ -812,28 +773,15 @@ const app = angular.module('hotFinder', ['ngRoute'
 				}			
 				
 				for (let j = 0; j < items.length; j++) {
-				  let object = {};
+				  let obj = {};
+					let itm = items[j];
 
-				  object.channelName = items[j].snippet.channelTitle;
-				  object.videoTitle = items[j].videoInfo.snippet.title;
-				  object.videoUploadDate = items[j].snippet.publishedAt;
-				  object.viewCount = Number(items[j].videoInfo.statistics.viewCount);
-				  let uploadDate = new Date(object.videoUploadDate);
-				  let diffDate = nowDate.getTime() - uploadDate.getTime();
-				  object.viewCountByTime = (Number(object.viewCount) / (diffDate / (1000 * 60 * 60))).toFixed(2);
-				  object.subscriberCount = Number(items[j].channelInfo.statistics.subscriberCount);
-				  object.viewCountBySubscriberCount = (Number(object.viewCount) / Number(object.subscriberCount)).toFixed(2);
-				  object.duration = this.formatISODuration(items[j].videoInfo.contentDetails.duration);
-				  object.playTime = Number(this.formatISODurationSecond(items[j].videoInfo.contentDetails.duration));
-				  object.videoUrl = "https://www.youtube.com/watch?v=" + items[j].id.videoId;
-				  object.thumbnailsUrl = "https://img.youtube.com/vi/" + items[j].id.videoId + "/0.jpg";
-					object.videoUploadDate = object.videoUploadDate.replace("T", " ");
-					object.videoUploadDate = object.videoUploadDate.replace("Z", "");
+					obj = this.makeObj(obj, itm);
 			      
 				  if (index === 0) {
-					result[j] = object;
+					result[j] = obj;
 				  } else {
-					result[j + dataBeforeCnt] = object; 
+					result[j + dataBeforeCnt] = obj; 
 				  }
 				}	
 
@@ -877,6 +825,31 @@ const app = angular.module('hotFinder', ['ngRoute'
 			
 		}
       }
+
+		this.makeObj = (obj, itm) => {
+			
+			let nowDate = new Date();
+
+			obj = {};
+
+			obj.channelName = itm.snippet.channelTitle;
+				  obj.videoTitle = itm.videoInfo.snippet.title;
+				  obj.videoUploadDate = itm.snippet.publishedAt;
+				  obj.viewCount = Number(itm.videoInfo.statistics.viewCount);
+				  let uploadDate = new Date(obj.videoUploadDate);
+				  let diffDate = nowDate.getTime() - uploadDate.getTime();
+				  obj.viewCountByTime = (Number(obj.viewCount) / (diffDate / (1000 * 60 * 60))).toFixed(2);
+				  obj.subscriberCount = Number(itm.channelInfo.statistics.subscriberCount);
+				  obj.viewCountBySubscriberCount = (Number(obj.viewCount) / Number(obj.subscriberCount)).toFixed(2);
+				  obj.duration = this.formatISODuration(itm.videoInfo.contentDetails.duration);
+				  obj.playTime = Number(this.formatISODurationSecond(itm.videoInfo.contentDetails.duration));
+				  obj.videoUrl = "https://www.youtube.com/watch?v=" + itm.id.videoId;
+				  obj.thumbnailsUrl = "https://img.youtube.com/vi/" + itm.id.videoId + "/0.jpg";
+					obj.videoUploadDate = obj.videoUploadDate.replace("T", " ");
+					obj.videoUploadDate = obj.videoUploadDate.replace("Z", "");
+			
+			return obj;
+		};
 
       this.hide = () => {
         if (vm.data.hide === "접기") {
@@ -922,7 +895,7 @@ const app = angular.module('hotFinder', ['ngRoute'
           } else if (error.message.indexOf("400") > -1) {
 			alert('잘못된 API KEY 입니다.');
 		  } else {          
-            alert('[Error] api: search, detail: ' + error);
+            alert('[Error]: ' + error);
           }
 
 	      failedFlag = 'Y';
@@ -967,7 +940,7 @@ const app = angular.module('hotFinder', ['ngRoute'
           } else if (error.message.indexOf("400") > -1) {
 			alert('잘못된 API KEY 입니다.');
 		  } else {          
-            alert('[Error] api: search, detail: ' + error);
+            alert('[Error]: ' + error);
           }
 
 	      failedFlag = 'Y';
@@ -1003,7 +976,7 @@ const app = angular.module('hotFinder', ['ngRoute'
           } else if (error.message.indexOf("400") > -1) {
 			alert('잘못된 API KEY 입니다.');
 		  } else {          
-            alert('[Error] api: search, detail: ' + error);
+            alert('[Error]: ' + error);
           }
 
 	      failedFlag = 'Y';
@@ -1040,7 +1013,7 @@ const app = angular.module('hotFinder', ['ngRoute'
           } else if (error.message.indexOf("400") > -1) {
 			alert('잘못된 API KEY 입니다.');
 		  } else {          
-            alert('[Error] api: search, detail: ' + error);
+            alert('[Error]: ' + error);
           }
 
 	      failedFlag = 'Y';
@@ -1067,7 +1040,7 @@ const app = angular.module('hotFinder', ['ngRoute'
           } else if (error.message.indexOf("400") > -1) {
 			alert('잘못된 API KEY 입니다.');
 		  } else {          
-            alert('[Error] api: search, detail: ' + error);
+            alert('[Error]: ' + error);
           }
 
 	      failedFlag = 'Y';
@@ -1094,7 +1067,7 @@ const app = angular.module('hotFinder', ['ngRoute'
           } else if (error.message.indexOf("400") > -1) {
 			alert('잘못된 API KEY 입니다.');
 		  } else {          
-            alert('[Error] api: search, detail: ' + error);
+            alert('[Error]: ' + error);
           }
 
 	      failedFlag = 'Y';
@@ -1201,6 +1174,31 @@ const app = angular.module('hotFinder', ['ngRoute'
           }
           
           vm.params.shortsSecond = (vm.params.shortsLong === "short") ? 300 : "";   
+        });
+      };
+
+		this.changeRecentUse = () => {
+        $timeout(() => {  
+          const searchUse = document.getElementById('searchbox-recentDay');
+          if (!searchUse) return;    
+          
+          const searchStart = document.getElementById('search-startDate');
+          if (!searchStart) return;          
+			
+          const searchEnd = document.getElementById('search-endDate');
+          if (!searchEnd) return;          
+			
+          if (vm.data.recentUse === "Y") {
+            searchUse.setAttribute("readonly", false);
+            searchStart.setAttribute("readonly", true);
+            searchEnd.setAttribute("readonly", true);
+			  searchUse.focus();
+          } else {
+            searchUse.setAttribute("readonly", true);
+            searchStart.setAttribute("readonly", false);
+            searchEnd.setAttribute("readonly", false);
+			  searchStart.focus();
+          }          
         });
       };
 
@@ -1442,6 +1440,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
