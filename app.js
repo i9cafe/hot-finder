@@ -229,6 +229,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 	  vm.data.channelAllFlag = 'Y';
 		
 		  vm.data.pageTokenPage = 6;
+	    vm.data.recentUse = 'Y';
 
       vm.params = {};
       vm.params.excuteMode = "CHANNEL";
@@ -303,6 +304,7 @@ const app = angular.module('hotFinder', ['ngRoute'
         vm.params.keyword = "";
 
 		  vm.data.pageTokenPage = 6;
+	    vm.data.recentUse = 'Y';
 
         $timeout(() => {
           document.getElementById('searchbox-shortsSecond').setAttribute("readonly", true);
@@ -1438,6 +1440,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
