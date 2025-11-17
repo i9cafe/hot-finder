@@ -1189,14 +1189,14 @@ const app = angular.module('hotFinder', ['ngRoute'
           if (!searchEnd) return;          
 			
           if (vm.data.recentUse === "Y") {
-            searchUse.setAttribute("readonly", false);
+            searchUse.removeAttribute("readonly"); 
             searchStart.setAttribute("readonly", true);
             searchEnd.setAttribute("readonly", true);
 			  searchUse.focus();
           } else {
             searchUse.setAttribute("readonly", true);
-            searchStart.setAttribute("readonly", false);
-            searchEnd.setAttribute("readonly", false);
+            searchStart.removeAttribute("readonly"); 
+            searchEnd.removeAttribute("readonly"); 
 			  searchStart.focus();
           }          
         });
@@ -1440,6 +1440,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
