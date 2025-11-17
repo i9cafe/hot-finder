@@ -637,6 +637,35 @@ const app = angular.module('hotFinder', ['ngRoute'
 					  }				  
 				  }
 				}	
+
+				for (let j = 0; j < items.length; j++) {
+				  let object = {};
+
+				  object.channelName = items[j].snippet.channelTitle;
+				  object.videoTitle = items[j].videoInfo.snippet.title;
+				  object.videoUploadDate = items[j].snippet.publishedAt;
+				  object.viewCount = Number(items[j].videoInfo.statistics.viewCount);
+				  let uploadDate = new Date(object.videoUploadDate);
+				  let diffDate = nowDate.getTime() - uploadDate.getTime();
+				  object.viewCountByTime = (Number(object.viewCount) / (diffDate / (1000 * 60 * 60))).toFixed(2);
+				  object.subscriberCount = Number(items[j].channelInfo.statistics.subscriberCount);
+				  object.viewCountBySubscriberCount = (Number(object.viewCount) / Number(object.subscriberCount)).toFixed(2);
+				  object.duration = this.formatISODuration(items[j].videoInfo.contentDetails.duration);
+				  object.playTime = Number(this.formatISODurationSecond(items[j].videoInfo.contentDetails.duration));
+				  object.videoUrl = "https://www.youtube.com/watch?v=" + items[j].id.videoId;
+				  object.thumbnailsUrl = "https://img.youtube.com/vi/" + items[j].id.videoId + "/0.jpg";
+					object.videoUploadDate = object.videoUploadDate.replace("T", " ");
+					object.videoUploadDate = object.videoUploadDate.replace("Z", "");
+			      
+				  if (index === 0) {
+					result[j] = object;
+				  } else {
+					result[j + dataBeforeCnt] = object; 
+				  }
+				}	
+
+				dataBeforeCnt = result.length;
+				
 			}
 
 			if (vm.params.shortsLong === "short" && Number(vm.params.shortsSecond) >= 0) {
@@ -1072,25 +1101,20 @@ const app = angular.module('hotFinder', ['ngRoute'
 	this.escapeCSV = (value) => {
 	    if (value === null || value === undefined) return '';
 	    let cell = String(value);
-	    cell = cell.replace(/"/g, '""'); // 따옴표 이스케이프
+	    cell = cell.replace(/"/g, '""'); 
 	    if (/[",\n]/.test(cell)) {
-	      cell = `"${cell}"`; // 콤마, 따옴표, 줄바꿈이 있으면 전체 감싸기
+	      cell = `"${cell}"`;
 	    }
 	    return cell;
 	  }
 
       this.excelDownload = () => {
-		  //$scope.gridApi.exporter.csvExport("visible", "visible");
-		  
-		  // 컬럼별 name 배열 (데이터 접근용)
 			const columnNames = $scope.gridOptions.columnDefs.map(col => col.name);
 
-			// 컬럼별 displayName 배열 (CSV 헤더용)
 			const columnHeaders = $scope.gridOptions.columnDefs.map(col => col.displayName || col.name);
 			
 			const rows = $scope.gridOptions.data;
 
-			// CSV 문자열 생성
 			let csv = '';
 			  csv += columnHeaders.map(this.escapeCSV).join(',') + '\n';
 			
@@ -1099,20 +1123,16 @@ const app = angular.module('hotFinder', ['ngRoute'
 			    csv += rowData.join(',') + '\n';
 			  });
 
-			// UTF-8 BOM 추가
 			const csvWithBOM = '\uFEFF' + csv;
 			
-			// 오늘 날짜 문자열 생성: YYYYMMDD
 			const today = new Date();
 			const yyyy = today.getFullYear();
-			const mm = String(today.getMonth() + 1).padStart(2, '0'); // 월은 0~11
+			const mm = String(today.getMonth() + 1).padStart(2, '0');
 			const dd = String(today.getDate()).padStart(2, '0');
 			const dateStr = `${yyyy}${mm}${dd}`;
 
-			// 파일명에 날짜 포함
 			const fileName = `유튜브조회결과_${dateStr}.csv`;
 
-			// Blob 생성 후 다운로드
 			const blob = new Blob([csvWithBOM], { type: 'text/csv;charset=utf-8;' });
 			const downloadLink = document.createElement('a');
 			const url = URL.createObjectURL(blob);
@@ -1125,7 +1145,6 @@ const app = angular.module('hotFinder', ['ngRoute'
 		};
 
       this.formatISODuration = (duration) => {
-        // 정규식으로 각 단위를 추출
         const regex = /P(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?)?/;
         const matches = duration.match(regex);
 
@@ -1143,14 +1162,12 @@ const app = angular.module('hotFinder', ['ngRoute'
         if (minutes) result.push(`${minutes}분`);
         if (seconds) result.push(`${seconds}초`);
 
-        // 값이 모두 0일 경우
         if (result.length === 0) result.push('0초');
 
         return result.join(' ');
       };
 
       this.formatISODurationSecond = (duration) => {
-        // 정규식으로 각 단위를 추출
         const regex = /P(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?)?/;
         const matches = duration.match(regex);
       
@@ -1161,7 +1178,6 @@ const app = angular.module('hotFinder', ['ngRoute'
         const minutes = parseInt(matches[3] || 0, 10);
         const seconds = parseInt(matches[4] || 0, 10);
       
-        // 총 초 계산
         const totalSeconds = (days * 86400) + (hours * 3600) + (minutes * 60) + seconds;
       
         return totalSeconds;
@@ -1188,20 +1204,18 @@ const app = angular.module('hotFinder', ['ngRoute'
 		keywordInputControl.focus();
 	  };
 
-      // 로딩 화면 보이기
       this.showLoader = () => {
         document.getElementById('loader').style.display = 'flex';
         document.getElementById('content').style.display = 'none';
       };
 
-      // 로딩 화면 숨기기
       this.hideLoader = () => {
         document.getElementById('loader').style.display = 'none';
         document.getElementById('content').style.display = 'block';
       };
 
 		this.clickHome = () => {
-			location.reload(); // 페이지 새로고침
+			location.reload(); 
 		}
 
 		this.clickGridCheckbox = () => {
@@ -1423,6 +1437,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
