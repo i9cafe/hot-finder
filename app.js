@@ -1178,8 +1178,8 @@ const app = angular.module('hotFinder', ['ngRoute'
       };
 
 		this.changeRecentUse = () => {
-			const searchUse = document.getElementById('searchbox-recentDay');
-	          if (!searchUse) return;    
+			const searchRec = document.getElementById('searchbox-recentDay');
+	          if (!searchRec) return;    
 	          
 	          const searchStart = document.getElementById('search-startDate');
 	          if (!searchStart) return;          
@@ -1189,16 +1189,18 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 			if (vm.data.recentUse === "Y") {				
 				$timeout(() => {
-				  searchUse.removeAttribute("readonly"); 
+				  searchRec.removeAttribute("readonly"); 
 		            searchStart.setAttribute("readonly", true);
 		            searchEnd.setAttribute("readonly", true);
-					  searchUse.focus();
+					vm.params.recentDay = 10;
+					  searchRec.focus();
 				});			
 			} else {
 				$timeout(() => {
-		            searchUse.setAttribute("readonly", true);
+		            searchRec.setAttribute("readonly", true);
 		            searchStart.removeAttribute("readonly"); 
 		            searchEnd.removeAttribute("readonly"); 
+					vm.params.recentDay = null;
 					  searchStart.focus();
 				});		
 			}			
@@ -1442,6 +1444,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
