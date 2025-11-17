@@ -375,32 +375,55 @@ const app = angular.module('hotFinder', ['ngRoute'
 				  continue;					
 				}
 				
+				let videoIdsString = "";
+				let channelIdsString = "";
+
+				for (let i = 0; i < items.length; i++) {
+				  videoIdsString += items[i].id.videoId + ",";
+				  channelIdsString += items[i].snippet.channelId + ",";
+				}			
+				
+				videoIdsString = videoIdsString.slice(0, -1);
+				channelIdsString = channelIdsString.slice(0, -1);
+				
+				  let videoList = await this.doSearchVideos(videoIdsString);			  
+				  let channelList = await this.doSearchChannels(channelIdsString);
+						
+				Loop1:
 				for (let i = 0; i < items.length; i++) {
 				  let item = items[i];
 
-				  let videoId = item.id.videoId;
-				  let videoInfo = await this.doSearchVideo(videoId);
-				  item.videoInfo = videoInfo;
-
-				  let channelId = item.snippet.channelId;
-				  let channelInfo = await this.doSearchChannel(channelId);
-				  item.channelInfo = channelInfo;
+				  Loop2:
+				  for (let m = 0; m < videoList.length; m++) {
+					  if (item.id.videoId === videoList[m].id) {
+						item.videoInfo = videoList[m];
+						break Loop2;					
+					  }
+				  }
+				  
+				  Loop3:
+				  for (let n = 0; n < channelList.length; n++) {
+					  if (item.snippet.channelId === channelList[n].id) {
+						item.channelInfo = channelList[n];
+						break Loop3;					
+					  }				  
+				  }
 				}			
 				
 				for (let j = 0; j < items.length; j++) {
 				  let object = {};
 
 				  object.channelName = items[j].snippet.channelTitle;
-				  object.videoTitle = items[j].videoInfo.data.items[0].snippet.title;
+				  object.videoTitle = items[j].videoInfo.snippet.title;
 				  object.videoUploadDate = items[j].snippet.publishedAt;
-				  object.viewCount = Number(items[j].videoInfo.data.items[0].statistics.viewCount);
+				  object.viewCount = Number(items[j].videoInfo.statistics.viewCount);
 				  let uploadDate = new Date(object.videoUploadDate);
 				  let diffDate = nowDate.getTime() - uploadDate.getTime();
 				  object.viewCountByTime = (Number(object.viewCount) / (diffDate / (1000 * 60 * 60))).toFixed(2);
-				  object.subscriberCount = Number(items[j].channelInfo.data.items[0].statistics.subscriberCount);
+				  object.subscriberCount = Number(items[j].channelInfo.statistics.subscriberCount);
 				  object.viewCountBySubscriberCount = (Number(object.viewCount) / Number(object.subscriberCount)).toFixed(2);
-				  object.duration = this.formatISODuration(items[j].videoInfo.data.items[0].contentDetails.duration);
-				  object.playTime = Number(this.formatISODurationSecond(items[j].videoInfo.data.items[0].contentDetails.duration));
+				  object.duration = this.formatISODuration(items[j].videoInfo.contentDetails.duration);
+				  object.playTime = Number(this.formatISODurationSecond(items[j].videoInfo.contentDetails.duration));
 				  object.videoUrl = "https://www.youtube.com/watch?v=" + items[j].id.videoId;
 				  object.thumbnailsUrl = "https://img.youtube.com/vi/" + items[j].id.videoId + "/0.jpg";
 					object.videoUploadDate = object.videoUploadDate.replace("T", " ");
@@ -486,18 +509,41 @@ const app = angular.module('hotFinder', ['ngRoute'
 			if (items === undefined || items === null || items.length === 0) {
 			  return;
 			}
+			
+			let videoIdsString = "";
+			let channelIdsString = "";
 
+			for (let i = 0; i < items.length; i++) {
+			  videoIdsString += items[i].id.videoId + ",";
+			  channelIdsString += items[i].snippet.channelId + ",";
+			}			
+			
+			videoIdsString = videoIdsString.slice(0, -1);
+			channelIdsString = channelIdsString.slice(0, -1);
+			
+			  let videoList = await this.doSearchVideos(videoIdsString);			  
+			  let channelList = await this.doSearchChannels(channelIdsString);
+			  		
+			Loop1:
 			for (let i = 0; i < items.length; i++) {
 			  let item = items[i];
 
-			  let videoId = item.id.videoId;
-			  let videoInfo = await this.doSearchVideo(videoId);
-			  item.videoInfo = videoInfo;
-
-			  let channelId = item.snippet.channelId;
-			  let channelInfo = await this.doSearchChannel(channelId);
-			  item.channelInfo = channelInfo;
-			}
+			  Loop2:
+			  for (let m = 0; m < videoList.length; m++) {
+				  if (item.id.videoId === videoList[m].id) {
+					item.videoInfo = videoList[m];
+					break Loop2;					
+				  }
+			  }
+			  
+			  Loop3:
+			  for (let n = 0; n < channelList.length; n++) {
+				  if (item.snippet.channelId === channelList[n].id) {
+					item.channelInfo = channelList[n];
+					break Loop3;					
+				  }				  
+			  }
+			}			
 
 			let result = [];
 			let nowDate = new Date();
@@ -506,16 +552,16 @@ const app = angular.module('hotFinder', ['ngRoute'
 			  let object = {};
 
 			  object.channelName = items[j].snippet.channelTitle;
-			  object.videoTitle = items[j].videoInfo.data.items[0].snippet.title;
+			  object.videoTitle = items[j].videoInfo.snippet.title;
 			  object.videoUploadDate = items[j].snippet.publishedAt;
-			  object.viewCount = Number(items[j].videoInfo.data.items[0].statistics.viewCount);
+			  object.viewCount = Number(items[j].videoInfo.statistics.viewCount);
 			  let uploadDate = new Date(object.videoUploadDate);
 			  let diffDate = nowDate.getTime() - uploadDate.getTime();
 			  object.viewCountByTime = (Number(object.viewCount) / (diffDate / (1000 * 60 * 60))).toFixed(2);
-			  object.subscriberCount = Number(items[j].channelInfo.data.items[0].statistics.subscriberCount);
+			  object.subscriberCount = Number(items[j].channelInfo.statistics.subscriberCount);
 			  object.viewCountBySubscriberCount = (Number(object.viewCount) / Number(object.subscriberCount)).toFixed(2);
-			  object.duration = this.formatISODuration(items[j].videoInfo.data.items[0].contentDetails.duration);
-			  object.playTime = Number(this.formatISODurationSecond(items[j].videoInfo.data.items[0].contentDetails.duration));
+			  object.duration = this.formatISODuration(items[j].videoInfo.contentDetails.duration);
+			  object.playTime = Number(this.formatISODurationSecond(items[j].videoInfo.contentDetails.duration));
 			  object.videoUrl = "https://www.youtube.com/watch?v=" + items[j].id.videoId;
 			  object.thumbnailsUrl = "https://img.youtube.com/vi/" + items[j].id.videoId + "/0.jpg";
 					object.videoUploadDate = object.videoUploadDate.replace("T", " ");
@@ -622,32 +668,55 @@ const app = angular.module('hotFinder', ['ngRoute'
 				  continue;
 				}
 				
+				let videoIdsString = "";
+				let channelIdsString = "";
+
+				for (let i = 0; i < items.length; i++) {
+				  videoIdsString += items[i].id.videoId + ",";
+				  channelIdsString += items[i].snippet.channelId + ",";
+				}			
+				
+				videoIdsString = videoIdsString.slice(0, -1);
+				channelIdsString = channelIdsString.slice(0, -1);
+				
+				  let videoList = await this.doSearchVideos(videoIdsString);			  
+				  let channelList = await this.doSearchChannels(channelIdsString);
+						
+				Loop1:
 				for (let i = 0; i < items.length; i++) {
 				  let item = items[i];
 
-				  let videoId = item.id.videoId;
-				  let videoInfo = await this.doSearchVideo(videoId);
-				  item.videoInfo = videoInfo;
-
-				  let channelId = item.snippet.channelId;
-				  let channelInfo = await this.doSearchChannel(channelId);
-				  item.channelInfo = channelInfo;
+				  Loop2:
+				  for (let m = 0; m < videoList.length; m++) {
+					  if (item.id.videoId === videoList[m].id) {
+						item.videoInfo = videoList[m];
+						break Loop2;					
+					  }
+				  }
+				  
+				  Loop3:
+				  for (let n = 0; n < channelList.length; n++) {
+					  if (item.snippet.channelId === channelList[n].id) {
+						item.channelInfo = channelList[n];
+						break Loop3;					
+					  }				  
+				  }
 				}			
 				
 				for (let j = 0; j < items.length; j++) {
 				  let object = {};
 
 				  object.channelName = items[j].snippet.channelTitle;
-				  object.videoTitle = items[j].videoInfo.data.items[0].snippet.title;
+				  object.videoTitle = items[j].videoInfo.snippet.title;
 				  object.videoUploadDate = items[j].snippet.publishedAt;
-				  object.viewCount = Number(items[j].videoInfo.data.items[0].statistics.viewCount);
+				  object.viewCount = Number(items[j].videoInfo.statistics.viewCount);
 				  let uploadDate = new Date(object.videoUploadDate);
 				  let diffDate = nowDate.getTime() - uploadDate.getTime();
 				  object.viewCountByTime = (Number(object.viewCount) / (diffDate / (1000 * 60 * 60))).toFixed(2);
-				  object.subscriberCount = Number(items[j].channelInfo.data.items[0].statistics.subscriberCount);
+				  object.subscriberCount = Number(items[j].channelInfo.statistics.subscriberCount);
 				  object.viewCountBySubscriberCount = (Number(object.viewCount) / Number(object.subscriberCount)).toFixed(2);
-				  object.duration = this.formatISODuration(items[j].videoInfo.data.items[0].contentDetails.duration);
-				  object.playTime = Number(this.formatISODurationSecond(items[j].videoInfo.data.items[0].contentDetails.duration));
+				  object.duration = this.formatISODuration(items[j].videoInfo.contentDetails.duration);
+				  object.playTime = Number(this.formatISODurationSecond(items[j].videoInfo.contentDetails.duration));
 				  object.videoUrl = "https://www.youtube.com/watch?v=" + items[j].id.videoId;
 				  object.thumbnailsUrl = "https://img.youtube.com/vi/" + items[j].id.videoId + "/0.jpg";
 					object.videoUploadDate = object.videoUploadDate.replace("T", " ");
@@ -847,6 +916,36 @@ const app = angular.module('hotFinder', ['ngRoute'
 		  return [];
         }
       };
+	  
+	  
+
+      this.doSearchVideos = async (videoIds) => {
+        try {
+          const response = await apiClient.get('videos', {
+            params: {
+              part: 'snippet, statistics, contentDetails',
+              id: videoIds,
+              //chart: "mostPopular",
+            },
+          });
+
+          return response.data.items;
+        } catch (error) {
+          const resetTimeKST = this.getKoreaTimeFromPacificMidnight();
+          
+          if (error.message.indexOf("403") > -1) {
+            alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST);
+          } else if (error.message.indexOf("400") > -1) {
+			alert('잘못된 API KEY 입니다.');
+		  } else {          
+            alert('[Error] api: search, detail: ' + error);
+          }
+
+	      failedFlag = 'Y';
+          this.hideLoader(); // 로딩 종료
+		  return [];
+        }
+      };
 
       this.doSearchChannel = async (channelId) => {
         try {
@@ -858,6 +957,33 @@ const app = angular.module('hotFinder', ['ngRoute'
           });
 
           return response;
+        } catch (error) {
+          const resetTimeKST = this.getKoreaTimeFromPacificMidnight();
+          
+          if (error.message.indexOf("403") > -1) {
+            alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST);
+          } else if (error.message.indexOf("400") > -1) {
+			alert('잘못된 API KEY 입니다.');
+		  } else {          
+            alert('[Error] api: search, detail: ' + error);
+          }
+
+	      failedFlag = 'Y';
+          this.hideLoader(); // 로딩 종료
+		  return [];
+        }
+      };
+
+      this.doSearchChannels = async (channelIds) => {
+        try {
+          const response = await apiClient.get('channels', {
+            params: {
+              part: 'snippet, statistics',
+              id: channelIds,
+            },
+          });
+
+          return response.data.items;
         } catch (error) {
           const resetTimeKST = this.getKoreaTimeFromPacificMidnight();
           
