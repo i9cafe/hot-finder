@@ -585,6 +585,20 @@ const app = angular.module('hotFinder', ['ngRoute'
 			}
 			
 			lastDataLengthCount = result.length;
+			
+			for (let token_index = 1; token_index < vm.data.pageTokenPage; token_index++) {
+				if (pageToken === "") break;
+				
+				items = await this.doSearchKeywordModeToken(pageToken);
+
+				if (failedFlag === 'Y') {
+					return;	
+				}
+
+				if (items === undefined || items === null || items.length === 0) {
+				  break;
+				}
+			}
 
 			if (vm.params.shortsLong === "short" && Number(vm.params.shortsSecond) >= 0) {
 			  result = result.filter(function(target) {
@@ -1427,6 +1441,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
