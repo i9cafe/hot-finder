@@ -26,7 +26,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 		
       let apiClient = axios.create({
         baseURL: "https://youtube.googleapis.com/youtube/v3",
-        params: { key: vm.data.apiKey },
+        params: { key: vm.data.apiKey }
       });
 
 	  const chanelBaseUrl = "https://www.youtube.com/channel/";
@@ -40,181 +40,181 @@ const app = angular.module('hotFinder', ['ngRoute'
 			name: "썰이빛나는밤에",
 			url: chanelBaseUrl + "UCOZnrJilN9FsL8pGd0by6xg",
 			flag: "Y",
-			comment: "1",
+			comment: "1"
 		  }, {
 			id: "UCrW6eDWbbdmxr-XfOkvQKwQ",
 			name: "사연튜브 • 사연라디오",
 			url: chanelBaseUrl + "UCrW6eDWbbdmxr-XfOkvQKwQ",
 			flag: "Y",
-			comment: "2",
+			comment: "2"
 		  }, {
 			id: "UC8XIOLMm8kpoaEzjovaoesw",
 			name: "금빛이야기",
 			url: chanelBaseUrl + "UC8XIOLMm8kpoaEzjovaoesw",
 			flag: "Y",
-			comment: "3",
+			comment: "3"
 		  }, {
 			id: "UCepniAEbQ3T75M2OuInzIOw",
 			name: "소리로 읽는 세상",
 			url: chanelBaseUrl + "UCepniAEbQ3T75M2OuInzIOw",
 			flag: "Y",
-			comment: "4",
+			comment: "4"
 		  }, {
 			id: "UCjgM7Q280TRWOHmDT6Nr34A",
 			name: "탑골사연공원",
 			url: chanelBaseUrl + "UCjgM7Q280TRWOHmDT6Nr34A",
 			flag: "Y",
-			comment: "5",
+			comment: "5"
 		  }, {
 			id: "UCzmHMfc84ebwfkRQV5ufAKw",
 			name: "황혼사연",
 			url: chanelBaseUrl + "UCzmHMfc84ebwfkRQV5ufAKw",
 			flag: "Y",
-			comment: "6",
+			comment: "6"
 		  }, {
 			id: "UCT2S9OFvyF4rMZZQeNcIu3Q",
 			name: "인생사연",
 			url: chanelBaseUrl + "UCT2S9OFvyF4rMZZQeNcIu3Q",
 			flag: "Y",
-			comment: "7",
+			comment: "7"
 		  }, {
 			id: "UCko5Mjg45-Kz8P2mq_2FFsg",
 			name: "풀빛사연",
 			url: chanelBaseUrl + "UCko5Mjg45-Kz8P2mq_2FFsg",
 			flag: "Y",
-			comment: "8",
+			comment: "8"
 		  }, {
 			id: "UCZmDNNxAYodRPudlI0si0XA",
 			name: "매일사연",
 			url: chanelBaseUrl + "UCZmDNNxAYodRPudlI0si0XA",
 			flag: "Y",
-			comment: "9",
+			comment: "9"
 		  }, {
 			id: "UCnDG7vNvXXpYxtv8ao5oWlw",
 			name: "인생정자",
 			url: chanelBaseUrl + "UCnDG7vNvXXpYxtv8ao5oWlw",
 			flag: "Y",
-			comment: "10",
+			comment: "10"
 		  }, {
 			id: "UC5Fznx6E3uzShi7n_kIEFRA",
 			name: "사연만사",
 			url: chanelBaseUrl + "UC5Fznx6E3uzShi7n_kIEFRA",
 			flag: "Y",
-			comment: "11",
+			comment: "11"
 		  }, {
 			id: "UCXVtesz30jjhcUQZAlhOUqw",
 			name: "은하수별동네",
 			url: chanelBaseUrl + "UCXVtesz30jjhcUQZAlhOUqw",
 			flag: "Y",
-			comment: "12",
+			comment: "12"
 		  }, {
 			id: "UCm9niqYY_OzexSD4zLvNBeQ",
 			name: "운명같은이야기",
 			url: chanelBaseUrl + "UCm9niqYY_OzexSD4zLvNBeQ",
 			flag: "Y",
-			comment: "13",
+			comment: "13"
 		  }, {
 			id: "UCHq8jnJywM22kIwjo8RgCIg",
 			name: "세상만사요지경속이다",
 			url: chanelBaseUrl + "UCHq8jnJywM22kIwjo8RgCIg",
 			flag: "Y",
-			comment: "14",
+			comment: "14"
 		  }, {
 			id: "UCRJK3vc6sLqwTUkAZt7_Z6Q",
 			name: "스페셜튜브",
 			url: chanelBaseUrl + "UCRJK3vc6sLqwTUkAZt7_Z6Q",
 			flag: "Y",
-			comment: "15",
+			comment: "15"
 		  }, {
 			id: "UC6jMDfjyquRk30OSoe1xjJQ",
 			name: "마음의등대",
 			url: chanelBaseUrl + "UC6jMDfjyquRk30OSoe1xjJQ",
 			flag: "Y",
-			comment: "16",
+			comment: "16"
 		  }, {
 			id: "UC-MGBGZzfLLfmDiZP73f6ZQ",
 			name: "노후의아름다운이야기",
 			url: chanelBaseUrl + "UC-MGBGZzfLLfmDiZP73f6ZQ",
 			flag: "Y",
-			comment: "17",
+			comment: "17"
 		  }, {
 			id: "UClmsF6cF0oSTBlR9pfG0MZw",
 			name: "은빛다방",
 			url: chanelBaseUrl + "UClmsF6cF0oSTBlR9pfG0MZw",
 			flag: "Y",
-			comment: "18",
+			comment: "18"
 		  }, {
 			id: "UCNuGU6mCxH-qXcfH7gjMlmA",
 			name: "각설탕회관",
 			url: chanelBaseUrl + "UCNuGU6mCxH-qXcfH7gjMlmA",
 			flag: "Y",
-			comment: "19",
+			comment: "19"
 		  }, {
 			id: "UCOLQ6s0kRWGurtiZkn7lpsA",
 			name: "늘푸른인생",
 			url: chanelBaseUrl + "UCOLQ6s0kRWGurtiZkn7lpsA",
 			flag: "Y",
-			comment: "20",
+			comment: "20"
 		  }, {
 			id: "UCKCN9FEc3M225mFPlGiOteQ",
 			name: "인생풍경",
 			url: chanelBaseUrl + "UCKCN9FEc3M225mFPlGiOteQ",
 			flag: "Y",
-			comment: "21",
+			comment: "21"
 		  }, {
 			id: "UC-jw_--Ma-gr9N0WvD3A9Ow",
 			name: "인생은육십부터",
 			url: chanelBaseUrl + "UC-jw_--Ma-gr9N0WvD3A9Ow",
 			flag: "Y",
-			comment: "22",
+			comment: "22"
 		  }, {
 			id: "UCP51IWwyjeKnf6Xk9rvYLkg",
 			name: "사연의빛",
 			url: chanelBaseUrl + "UCP51IWwyjeKnf6Xk9rvYLkg",
 			flag: "Y",
-			comment: "23",
+			comment: "23"
 		  }, {
 			id: "UCbs5S2Jmrrrk6u_pGJ1EsDg",
 			name: "눈내린소나무같은인생사연",
 			url: chanelBaseUrl + "UCbs5S2Jmrrrk6u_pGJ1EsDg",
 			flag: "Y",
-			comment: "24",
+			comment: "24"
 		  }, {
 			id: "UCwUcHg9hRa-5rjJ7vv8rJzQ",
 			name: "세월의지혜",
 			url: chanelBaseUrl + "UCwUcHg9hRa-5rjJ7vv8rJzQ",
 			flag: "Y",
-			comment: "25",
+			comment: "25"
 		  }, {
 			id: "UCrtZDHeWyWmc_PXYh_bPQog",
 			name: "감사월드",
 			url: chanelBaseUrl + "UCrtZDHeWyWmc_PXYh_bPQog",
 			flag: "Y",
-			comment: "26",
+			comment: "26"
 		  }, {
 			id: "UCJaX4fqnQGoq1oPbpv6pGmg",
 			name: "하늘빛마음",
 			url: chanelBaseUrl + "UCJaX4fqnQGoq1oPbpv6pGmg",
 			flag: "Y",
-			comment: "27",
+			comment: "27"
 		  }, {
 			id: "UC1GyaYKcLa2lU5JBFCDP4VQ",
 			name: "어둠속의빛",
 			url: chanelBaseUrl + "UC1GyaYKcLa2lU5JBFCDP4VQ",
 			flag: "Y",
-			comment: "28",
+			comment: "28"
 		  }, {
 			id: "UCXwBhLpVZQOfBid9_h-FMrA",
 			name: "톡톡사연",
 			url: chanelBaseUrl + "UCXwBhLpVZQOfBid9_h-FMrA",
 			flag: "Y",
-			comment: "29",
+			comment: "29"
 		  }, {
 			id: "UCrRBSlHTvHGOd6hyF3DLPPw",
 			name: "랄라하의사연드라마",
 			url: chanelBaseUrl + "UCrRBSlHTvHGOd6hyF3DLPPw",
 			flag: "Y",
-			comment: "30",
+			comment: "30"
 		  }
 	  ].sort((a, b) => a.name.localeCompare(b.name, 'ko'));	
 		
@@ -1435,6 +1435,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
