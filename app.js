@@ -1178,28 +1178,30 @@ const app = angular.module('hotFinder', ['ngRoute'
       };
 
 		this.changeRecentUse = () => {
-        $timeout(() => {  
-          const searchUse = document.getElementById('searchbox-recentDay');
-          if (!searchUse) return;    
-          
-          const searchStart = document.getElementById('search-startDate');
-          if (!searchStart) return;          
-			
-          const searchEnd = document.getElementById('search-endDate');
-          if (!searchEnd) return;          
-			
-          if (vm.data.recentUse === "Y") {
-            searchUse.removeAttribute("readonly"); 
-            searchStart.setAttribute("readonly", true);
-            searchEnd.setAttribute("readonly", true);
-			  searchUse.focus();
-          } else {
-            searchUse.setAttribute("readonly", true);
-            searchStart.removeAttribute("readonly"); 
-            searchEnd.removeAttribute("readonly"); 
-			  searchStart.focus();
-          }          
-        });
+			const searchUse = document.getElementById('searchbox-recentDay');
+	          if (!searchUse) return;    
+	          
+	          const searchStart = document.getElementById('search-startDate');
+	          if (!searchStart) return;          
+				
+	          const searchEnd = document.getElementById('search-endDate');
+	          if (!searchEnd) return;    
+
+			if (vm.data.recentUse === "Y") {				
+				$timeout(() => {
+				  searchUse.removeAttribute("readonly"); 
+		            searchStart.setAttribute("readonly", true);
+		            searchEnd.setAttribute("readonly", true);
+					  searchUse.focus();
+				});			
+			} else {
+				$timeout(() => {
+		            searchUse.setAttribute("readonly", true);
+		            searchStart.removeAttribute("readonly"); 
+		            searchEnd.removeAttribute("readonly"); 
+					  searchStart.focus();
+				});		
+			}			
       };
 
 	  this.clickKeywordTab = () => {
@@ -1440,6 +1442,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
