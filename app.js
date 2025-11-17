@@ -235,7 +235,7 @@ const app = angular.module('hotFinder', ['ngRoute'
       vm.params.recentDay = 10;
       vm.params.country = "KR";
       vm.params.language = "ko";
-      vm.params.maxSearchCountByChannel = 10;
+      vm.params.maxSearchCountByChannel = 50;
       vm.params.maxSearchCountByKeyword = 50;
       vm.params.minViewCount = 20000;
       vm.params.viewCountByMinTime = 500;
@@ -292,7 +292,7 @@ const app = angular.module('hotFinder', ['ngRoute'
         vm.params.recentDay = 10;
         vm.params.country = "KR";
         vm.params.language = "ko";
-        vm.params.maxSearchCountByChannel = 10;
+        vm.params.maxSearchCountByChannel = 50;
         vm.params.maxSearchCountByKeyword = 50;
         vm.params.minViewCount = 20000;
         vm.params.viewCountByMinTime = 500;
@@ -1367,6 +1367,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
