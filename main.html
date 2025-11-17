@@ -194,7 +194,7 @@
                                         <div class="field col-md-12">
                                             <label class="label col-md-6" title="채널/둘다 모드 에서 검색 시 채널 1개당 조회하는 동영상의 개수">채널당 최대 검색 수</label>
                                             <div class="control col-md-6">
-                                                <input id="searchbox-maxSearchCountByChannel" type="number" min="1" max="50" style="width:100%;" ng-model="vm.params.maxSearchCountByChannel" />
+                                                <input id="searchbox-maxSearchCountByChannel" type="number" min="1" max="50" style="width:100%; color:gray;" ng-model="vm.params.maxSearchCountByChannel" readonly />
                                             </div>
                                         </div>
                                     </div>
@@ -202,7 +202,7 @@
                                         <div class="field col-md-12">
                                             <label class="label col-md-6" title="키워드 모드에서 검색 시 조회하는 동영상의 개수">검색어당 최대 검색 수</label>
                                             <div class="control col-md-6">
-                                                <input id="searchbox-maxSearchCountByKeyword" type="number" min="1" max="50" style="width:100%;" ng-model="vm.params.maxSearchCountByKeyword" />
+                                                <input id="searchbox-maxSearchCountByKeyword" type="number" min="1" max="50" style="width:100%; color:gray;" ng-model="vm.params.maxSearchCountByKeyword" readonly />
                                             </div>
                                         </div>
                                     </div>
@@ -279,6 +279,7 @@
 </body>
 
 </html>
+
 
 
 
