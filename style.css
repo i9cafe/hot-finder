@@ -1,3 +1,27 @@
+input[type="date"] {
+  background: #10141c;
+  border: 0;
+  font-size: 14px;
+  outline: none;  
+}
+
+/* WebKit 계열 (Chrome, Edge, Safari) 날짜 아이콘 색상 반전 */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(90%);
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+/* 날짜 텍스트 컬러 보정 (선택 or 포커스 시) */
+input[type="date"]::-webkit-datetime-edit {
+  border: 0;
+}
+
+input[type="date"]:focus {
+  border: 0;
+  outline: none;  
+}
+
 /* 하이퍼링크 스타일 */
 td a {
     color: #87CEFA !important; /* 밝은 하늘색 */
@@ -489,6 +513,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
