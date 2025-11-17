@@ -253,6 +253,7 @@ const app = angular.module('hotFinder', ['ngRoute'
         enableSorting: true,
         enableColumnMoving: false,	
 		exporterMenuCsv: false, 
+		virtualizationThreshold: 1000,
 
         onRegisterApi: function (gridapi) {
           $scope.gridApi = gridapi;
@@ -1437,6 +1438,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
