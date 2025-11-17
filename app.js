@@ -598,6 +598,14 @@ const app = angular.module('hotFinder', ['ngRoute'
 				if (items === undefined || items === null || items.length === 0) {
 				  break;
 				}
+
+				videoIdsString = "";
+				channelIdsString = "";
+
+				for (let r = 0; r < items.length; r++) {
+				  videoIdsString += items[r].id.videoId + ",";
+				  channelIdsString += items[r].snippet.channelId + ",";
+				}	
 			}
 
 			if (vm.params.shortsLong === "short" && Number(vm.params.shortsSecond) >= 0) {
@@ -1441,6 +1449,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
