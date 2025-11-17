@@ -12,8 +12,8 @@ const app = angular.module('hotFinder', ['ngRoute'
   .controller('MainController', [
     '$scope',
     '$timeout',
-	'$modal',
-    function($scope, $timeout, $modal) {
+	'$uibModal',
+    function($scope, $timeout, $uibModal) {
 
       /*************************** DEFAULT INFO SETUP ***************************/
       const vm = this;
@@ -1205,7 +1205,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 		this.showKey = () => {
 
 			function openModal() {
-					return $modal.open({
+					return $uibModal.open({
 						templateUrl: 'modal.html',
 						windowClass: 'modal-fullscreen',
 						controller: 'SubController',
@@ -1367,6 +1367,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
