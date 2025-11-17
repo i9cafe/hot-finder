@@ -981,37 +981,7 @@ const app = angular.module('hotFinder', ['ngRoute'
           this.hideLoader(); // 로딩 종료
 		  return [];
         }
-      };
-
-      this.doSearchVideo = async (videoId) => {
-        try {
-          const response = await apiClient.get('videos', {
-            params: {
-              part: 'snippet, statistics, contentDetails',
-              id: videoId,
-              //chart: "mostPopular",
-            },
-          });
-
-          return response;
-        } catch (error) {
-          const resetTimeKST = this.getKoreaTimeFromPacificMidnight();
-          
-          if (error.message.indexOf("403") > -1) {
-            alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST);
-          } else if (error.message.indexOf("400") > -1) {
-			alert('잘못된 API KEY 입니다.');
-		  } else {          
-            alert('[Error] api: search, detail: ' + error);
-          }
-
-	      failedFlag = 'Y';
-          this.hideLoader(); // 로딩 종료
-		  return [];
-        }
-      };
-	  
-	  
+      }; 
 
       this.doSearchVideos = async (videoIds) => {
         try {
@@ -1040,34 +1010,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 		  return [];
         }
       };
-
-      this.doSearchChannel = async (channelId) => {
-        try {
-          const response = await apiClient.get('channels', {
-            params: {
-              part: 'snippet, statistics',
-              id: channelId,
-            },
-          });
-
-          return response;
-        } catch (error) {
-          const resetTimeKST = this.getKoreaTimeFromPacificMidnight();
-          
-          if (error.message.indexOf("403") > -1) {
-            alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST);
-          } else if (error.message.indexOf("400") > -1) {
-			alert('잘못된 API KEY 입니다.');
-		  } else {          
-            alert('[Error] api: search, detail: ' + error);
-          }
-
-	      failedFlag = 'Y';
-          this.hideLoader(); // 로딩 종료
-		  return [];
-        }
-      };
-
+		
       this.doSearchChannels = async (channelIds) => {
         try {
           const response = await apiClient.get('channels', {
@@ -1449,6 +1392,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
