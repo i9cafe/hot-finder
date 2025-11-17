@@ -160,6 +160,7 @@
                                         </div>
                                     </div>
                                 </div>
+								
 								<div class="col-md-12" style="margin-top:6px;">
                                     <div class="col-md-4">
                                         <div class="field col-md-12">
@@ -184,12 +185,16 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="field col-md-12">
-                                            <label class="label col-md-5">대상 국가</label>
-                                            <div class="control col-md-7">
+                                            <label class="label col-md-4">대상 국가</label>
+                                            <div class="control col-md-8">
                                                 <input id="searchbox-country" type="text" style="width:100%;" ng-model="vm.params.country" />
                                             </div>
                                         </div>
                                     </div>
+								</div>
+
+									
+								<div class="col-md-12">
                                     <div class="col-md-4">
                                         <div class="field col-md-12">
                                             <label class="label col-md-5" title="채널/둘다 모드 에서 검색 시 채널 1개당 조회하는 동영상의 개수">채널당 최대 검색 수</label>
@@ -212,20 +217,52 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="field col-md-12">
-                                            <label class="label col-md-5">대상 언어</label>
-                                            <div class="control col-md-7">
+                                            <label class="label col-md-4">대상 언어</label>
+                                            <div class="control col-md-8">
                                                 <input id="searchbox-language" type="text" style="width:100%;" ng-model="vm.params.language" />
                                             </div>
                                         </div>
                                     </div>
+								</div>
+									
+									
+								<div class="col-md-12">
                                     <div class="col-md-4">
                                         <div class="field col-md-12">
-                                            <label class="label col-md-8">최근 며칠간의 영상을 조회할까요</label>
-                                            <div class="control col-md-4">
+                                            <label class="label col-md-7">최근 며칠간의 영상을 조회할까요</label>
+											<div class="col-md-1">
+                                                <input style="visibility:hidden;"/>
+                                            </div>
+                                            <div class="control col-md-3">
                                                 <input id="searchbox-recentDay" type="number" min="1" style="width:100%;" ng-model="vm.params.recentDay" />
+                                            </div>
+											<div class="col-md-1" style="padding-left:7px;">
+                                                <input type="checkbox" ng-model="vm.data.recentUse" style="width:20px; height:20px; display:inline; vertical-align:text-bottom; cursor:pointer;" 
+												ng-true-value="'Y'" ng-false-value="'N'" ng-change="vm.changeRecentUse()"></input>
                                             </div>
                                         </div>
                                     </div>
+									 <div class="col-md-4">
+                                        <div class="field col-md-12">
+                                            <label class="label col-md-4">검색 시작일</label>
+                                            <div class="control col-md-8">
+                                                <input id="search-startDate" type="date" style="width:100%;" placeholder="날짜를 선택하세요.">
+                                            </div>
+                                        </div>
+                                    </div>
+									 <div class="col-md-4">
+                                        <div class="field col-md-12">
+                                            <label class="label col-md-4">검색 종료일</label>
+                                            <div class="control col-md-8">
+                                                <input id="search-endDate" type="date" style="width:100%;" placeholder="날짜를 선택하세요.">
+                                            </div>
+                                        </div>
+                                    </div>
+									
+								</div>
+									
+									
+								<div class="col-md-12">
                                     <div class="col-md-4">
                                         <div class="field col-md-12">
                                             <label class="label col-md-4">최소 조회 수</label>
@@ -283,6 +320,7 @@
 </body>
 
 </html>
+
 
 
 
