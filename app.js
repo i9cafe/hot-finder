@@ -606,6 +606,37 @@ const app = angular.module('hotFinder', ['ngRoute'
 				  videoIdsString += items[r].id.videoId + ",";
 				  channelIdsString += items[r].snippet.channelId + ",";
 				}	
+			
+				if (videoIdsString.length > 0) {
+					videoIdsString = videoIdsString.slice(0, -1);
+				}
+				if (channelIdsString.length > 0) {
+					channelIdsString = channelIdsString.slice(0, -1);
+				}
+				
+				  let videoList = await this.doSearchVideos(videoIdsString);			  
+				  let channelList = await this.doSearchChannels(channelIdsString);
+						
+				Loop1:
+				for (let i = 0; i < items.length; i++) {
+				  let item = items[i];
+
+				  Loop2:
+				  for (let m = 0; m < videoList.length; m++) {
+					  if (item.id.videoId === videoList[m].id) {
+						item.videoInfo = videoList[m];
+						break Loop2;					
+					  }
+				  }
+				  
+				  Loop3:
+				  for (let n = 0; n < channelList.length; n++) {
+					  if (item.snippet.channelId === channelList[n].id) {
+						item.channelInfo = channelList[n];
+						break Loop3;					
+					  }				  
+				  }
+				}	
 			}
 
 			if (vm.params.shortsLong === "short" && Number(vm.params.shortsSecond) >= 0) {
@@ -1392,6 +1423,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
