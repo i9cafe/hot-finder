@@ -19,6 +19,7 @@ const app = angular.module('hotFinder', ['ngRoute'
       const vm = this;
 
 	  let failedFlag = 'N';
+	  let pageToken = "";
 	  
       vm.data = {};
       vm.data.apiKey = "AIzaSyCg2tnEwBThaOS6-sdEzz--8skbl_C3Gps";
@@ -227,6 +228,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 	  
 	  vm.data.longTableDesc = '리스트 펼치기';
 	  vm.data.channelAllFlag = 'Y';
+		
+		  vm.data.pageTokenPage = 6;
 
       vm.params = {};
       vm.params.excuteMode = "CHANNEL";
@@ -298,6 +301,8 @@ const app = angular.module('hotFinder', ['ngRoute'
         vm.params.viewCountByMinTime = 500;
         vm.params.checkPopular = "Y";
         vm.params.keyword = "";
+
+		  vm.data.pageTokenPage = 6;
 
         $timeout(() => {
           document.getElementById('searchbox-shortsSecond').setAttribute("readonly", true);
@@ -555,6 +560,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 			let result = [];
 			let nowDate = new Date();
+			let lastDataLengthCount = 0;
 
 			for (let j = 0; j < items.length; j++) {
 			  let object = {};
@@ -809,6 +815,13 @@ const app = angular.module('hotFinder', ['ngRoute'
               publishedAfter: new Date(today.setDate(today.getDate() - vm.params.recentDay)),
             },
           });
+		  
+		  if (response.data.nextPageToken !== undefined && response.data.nextPageToken !== null &&
+			response.data.nextPageToken !== "") {
+				pageToken = response.data.nextPageToken;
+			} else {
+				pageToken = "";				
+			}
 
           return response.data.items;
         } catch (error) {
@@ -1367,6 +1380,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
