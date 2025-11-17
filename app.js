@@ -23,7 +23,6 @@ const app = angular.module('hotFinder', ['ngRoute'
 	  
       vm.data = {};
       vm.data.apiKey = "AIzaSyCg2tnEwBThaOS6-sdEzz--8skbl_C3Gps";
-		// AIzaSyDA4CE4IBeDHUKdAvkYUmioojsF9x_xWww
 		
       let apiClient = axios.create({
         baseURL: "https://youtube.googleapis.com/youtube/v3",
@@ -351,7 +350,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			return;
 		}
 						
-			this.showLoader(); // 로딩 시작
+			this.showLoader(); 
 			
 			let result = [];			
 			let nowDate = new Date();
@@ -477,7 +476,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 			vm.data.totalCount = result.length;
 			
-			this.hideLoader(); // 로딩 종료
+			this.hideLoader();
 
 			if (vm.data.totalCount === 0) {
 			  alert("검색조건을 만족하는 조회 결과가 없습니다.");
@@ -507,7 +506,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			  
 			vm.params.keyword = vm.keyword.includeKey + ' ' + vm.keyword.exceptKey;
 
-			this.showLoader(); // 로딩 시작
+			this.showLoader(); 
 
 			let items = await this.doSearchKeywordMode();
 
@@ -697,12 +696,12 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 			vm.data.totalCount = result.length;
 
-			this.hideLoader(); // 로딩 종료
+			this.hideLoader(); 
 
 			if (vm.data.totalCount === 0) {
 			  alert("검색조건을 만족하는 조회 결과가 없습니다.");
 			}
-		} else { // 둘다
+		} else {
 
 			if (vm.channelMaster.okTotalCount === 0) {
 				alert("채널 모드 사전 설정 탭에서 검색할 채널을 1개 이상 체크하세요.");
@@ -737,7 +736,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			  
 			vm.params.keyword = vm.keyword.includeKey + ' ' + vm.keyword.exceptKey;
 			
-			this.showLoader(); // 로딩 시작
+			this.showLoader(); 
 			
 			let result = [];			
 			let nowDate = new Date();
@@ -863,7 +862,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 			vm.data.totalCount = result.length;
 			
-			this.hideLoader(); // 로딩 종료
+			this.hideLoader(); 
 
 			if (vm.data.totalCount === 0) {
 			  alert("검색조건을 만족하는 조회 결과가 없습니다.");
@@ -896,8 +895,8 @@ const app = angular.module('hotFinder', ['ngRoute'
               videoDuration: vm.params.shortsLong,
 			  order: (vm.params.checkPopular === 'Y' ? 'viewCount' : 'relevance'),
               q: vm.params.keyword,
-              publishedAfter: new Date(today.setDate(today.getDate() - vm.params.recentDay)),
-            },
+              publishedAfter: new Date(today.setDate(today.getDate() - vm.params.recentDay))
+            }
           });
 		  
 		  if (response.data.nextPageToken !== undefined && response.data.nextPageToken !== null &&
@@ -920,7 +919,7 @@ const app = angular.module('hotFinder', ['ngRoute'
           }
 
 	      failedFlag = 'Y';
-          this.hideLoader(); // 로딩 종료
+          this.hideLoader(); 
 		  return [];
         }
       };
@@ -941,8 +940,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 			  order: (vm.params.checkPopular === 'Y' ? 'viewCount' : 'relevance'),
               q: vm.params.keyword,
 			  pageToken: argPageToken,
-              publishedAfter: new Date(today.setDate(today.getDate() - vm.params.recentDay)),
-            },
+              publishedAfter: new Date(today.setDate(today.getDate() - vm.params.recentDay))
+            }
           });
 		  
 		  if (response.data.nextPageToken !== undefined && response.data.nextPageToken !== null &&
@@ -965,7 +964,7 @@ const app = angular.module('hotFinder', ['ngRoute'
           }
 
 	      failedFlag = 'Y';
-          this.hideLoader(); // 로딩 종료
+          this.hideLoader(); 
 		  return [];
         }
       };
@@ -984,8 +983,8 @@ const app = angular.module('hotFinder', ['ngRoute'
               videoDuration: vm.params.shortsLong,
 			  order: (vm.params.checkPopular === 'Y' ? 'viewCount' : 'relevance'),
               channelId: arguChannelId,
-              publishedAfter: new Date(today.setDate(today.getDate() - vm.params.recentDay)),
-            },
+              publishedAfter: new Date(today.setDate(today.getDate() - vm.params.recentDay))
+            }
           });
 			
           return response.data.items;
@@ -1001,7 +1000,7 @@ const app = angular.module('hotFinder', ['ngRoute'
           }
 
 	      failedFlag = 'Y';
-          this.hideLoader(); // 로딩 종료
+          this.hideLoader(); 
 		  return [];
         }
       };
@@ -1021,8 +1020,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 			  order: (vm.params.checkPopular === 'Y' ? 'viewCount' : 'relevance'),
               channelId: arguChannelId,
 			  q: vm.params.keyword,
-              publishedAfter: new Date(today.setDate(today.getDate() - vm.params.recentDay)),
-            },
+              publishedAfter: new Date(today.setDate(today.getDate() - vm.params.recentDay))
+            }
           });
 			
           return response.data.items;
@@ -1038,7 +1037,7 @@ const app = angular.module('hotFinder', ['ngRoute'
           }
 
 	      failedFlag = 'Y';
-          this.hideLoader(); // 로딩 종료
+          this.hideLoader(); 
 		  return [];
         }
       }; 
@@ -1048,8 +1047,7 @@ const app = angular.module('hotFinder', ['ngRoute'
           const response = await apiClient.get('videos', {
             params: {
               part: 'snippet, statistics, contentDetails',
-              id: videoIds,
-              //chart: "mostPopular",
+              id: videoIds
             },
           });
 
@@ -1066,7 +1064,7 @@ const app = angular.module('hotFinder', ['ngRoute'
           }
 
 	      failedFlag = 'Y';
-          this.hideLoader(); // 로딩 종료
+          this.hideLoader(); 
 		  return [];
         }
       };
@@ -1076,7 +1074,7 @@ const app = angular.module('hotFinder', ['ngRoute'
           const response = await apiClient.get('channels', {
             params: {
               part: 'snippet, statistics',
-              id: channelIds,
+              id: channelIds
             },
           });
 
@@ -1093,7 +1091,7 @@ const app = angular.module('hotFinder', ['ngRoute'
           }
 
 	      failedFlag = 'Y';
-          this.hideLoader(); // 로딩 종료
+          this.hideLoader(); 
 		  return [];
         }
       };
@@ -1286,7 +1284,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 						resolve: {
 							parameters: () => {
 								return {
-									data: "success",
+									data: "success"
 								};
 							}
 						}
@@ -1437,6 +1435,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
