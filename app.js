@@ -308,6 +308,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 
         $timeout(() => {
           document.getElementById('searchbox-shortsSecond').setAttribute("readonly", true);
+          document.getElementById('search-startDate').setAttribute("readonly", true);
+          document.getElementById('search-endDate').setAttribute("readonly", true);
         });
       };
 
@@ -1440,6 +1442,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
