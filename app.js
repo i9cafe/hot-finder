@@ -841,6 +841,51 @@ const app = angular.module('hotFinder', ['ngRoute'
         }
       };
 	  
+
+      this.doSearchKeywordModeToken = async (argPageToken) => {
+        try {
+          const today = new Date();
+
+          const response = await apiClient.get('search', {
+            params: {
+              part: 'snippet',
+              maxResults: (vm.params.maxSearchCountByKeyword <= 0 ? 1 : vm.params.maxSearchCountByKeyword),
+              type: "video",
+              regionCode: vm.params.country,
+              relevanceLanguage: vm.params.language,
+              videoDuration: vm.params.shortsLong,
+			  order: (vm.params.checkPopular === 'Y' ? 'viewCount' : 'relevance'),
+              q: vm.params.keyword,
+			  pageToken: argPageToken,
+              publishedAfter: new Date(today.setDate(today.getDate() - vm.params.recentDay)),
+            },
+          });
+		  
+		  if (response.data.nextPageToken !== undefined && response.data.nextPageToken !== null &&
+			response.data.nextPageToken !== "") {
+				pageToken = response.data.nextPageToken;
+			} else {
+				pageToken = "";				
+			}
+
+          return response.data.items;
+        } catch (error) {
+          const resetTimeKST = this.getKoreaTimeFromPacificMidnight();
+          
+          if (error.message.indexOf("403") > -1) {
+            alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST);
+          } else if (error.message.indexOf("400") > -1) {
+			alert('잘못된 API KEY 입니다.');
+		  } else {          
+            alert('[Error] api: search, detail: ' + error);
+          }
+
+	      failedFlag = 'Y';
+          this.hideLoader(); // 로딩 종료
+		  return [];
+        }
+      };
+	  
 	  this.doSearchChannelMode = async (arguChannelId) => {
         try {
           const today = new Date();
@@ -1380,6 +1425,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
