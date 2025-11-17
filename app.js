@@ -642,34 +642,30 @@ const app = angular.module('hotFinder', ['ngRoute'
 					  }				  
 				  }
 				}	
+				
+				for (let v = 0; v < items.length; v++) {
+				  let obj = {};
 
-				for (let j = 0; j < items.length; j++) {
-				  let object = {};
+				  obj.channelName = items[v].snippet.channelTitle;
+				  obj.videoTitle = items[v].videoInfo.snippet.title;
+				  obj.videoUploadDate = items[v].snippet.publishedAt;
+				  obj.viewCount = Number(items[v].videoInfo.statistics.viewCount);
+				  let uploadDate2 = new Date(obj.videoUploadDate);
+				  let diffDate2 = nowDate.getTime() - uploadDate2.getTime();
+				  obj.viewCountByTime = (Number(obj.viewCount) / (diffDate2 / (1000 * 60 * 60))).toFixed(2);
+				  obj.subscriberCount = Number(items[v].channelInfo.statistics.subscriberCount);
+				  obj.viewCountBySubscriberCount = (Number(obj.viewCount) / Number(obj.subscriberCount)).toFixed(2);
+				  obj.duration = this.formatISODuration(items[v].videoInfo.contentDetails.duration);
+				  obj.playTime = Number(this.formatISODurationSecond(items[v].videoInfo.contentDetails.duration));
+				  obj.videoUrl = "https://www.youtube.com/watch?v=" + items[v].id.videoId;
+				  obj.thumbnailsUrl = "https://img.youtube.com/vi/" + items[v].id.videoId + "/0.jpg";
+						obj.videoUploadDate = obj.videoUploadDate.replace("T", " ");
+						obj.videoUploadDate = obj.videoUploadDate.replace("Z", "");
 
-				  object.channelName = items[j].snippet.channelTitle;
-				  object.videoTitle = items[j].videoInfo.snippet.title;
-				  object.videoUploadDate = items[j].snippet.publishedAt;
-				  object.viewCount = Number(items[j].videoInfo.statistics.viewCount);
-				  let uploadDate = new Date(object.videoUploadDate);
-				  let diffDate = nowDate.getTime() - uploadDate.getTime();
-				  object.viewCountByTime = (Number(object.viewCount) / (diffDate / (1000 * 60 * 60))).toFixed(2);
-				  object.subscriberCount = Number(items[j].channelInfo.statistics.subscriberCount);
-				  object.viewCountBySubscriberCount = (Number(object.viewCount) / Number(object.subscriberCount)).toFixed(2);
-				  object.duration = this.formatISODuration(items[j].videoInfo.contentDetails.duration);
-				  object.playTime = Number(this.formatISODurationSecond(items[j].videoInfo.contentDetails.duration));
-				  object.videoUrl = "https://www.youtube.com/watch?v=" + items[j].id.videoId;
-				  object.thumbnailsUrl = "https://img.youtube.com/vi/" + items[j].id.videoId + "/0.jpg";
-					object.videoUploadDate = object.videoUploadDate.replace("T", " ");
-					object.videoUploadDate = object.videoUploadDate.replace("Z", "");
-			      
-				  if (index === 0) {
-					result[j] = object;
-				  } else {
-					result[j + dataBeforeCnt] = object; 
-				  }
-				}	
-
-				dataBeforeCnt = result.length;
+				  result[lastDataLengthCount + v] = obj;
+				}
+				
+				lastDataLengthCount = result.length;
 				
 			}
 
@@ -1441,6 +1437,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
