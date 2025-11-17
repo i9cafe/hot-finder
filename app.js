@@ -583,6 +583,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 			  result[j] = object;
 			}
+			
+			lastDataLengthCount = result.length;
 
 			if (vm.params.shortsLong === "short" && Number(vm.params.shortsSecond) >= 0) {
 			  result = result.filter(function(target) {
@@ -1425,6 +1427,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
