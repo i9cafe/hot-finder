@@ -1251,9 +1251,9 @@ const app = angular.module('hotFinder', ['ngRoute'
 
   .controller('SubController', [
 	'$scope',
-	'$modalInstance',
+	'$uibModalInstance',
 	'parameters',
-	function($scope, $modalInstance, parameters) {
+	function($scope, $uibModalInstance, parameters) {
 
 		/*************************** DEFAULT INFO SETUP ***************************/
 		const self = this;
@@ -1265,62 +1265,62 @@ const app = angular.module('hotFinder', ['ngRoute'
 		
 		this.selectData1 = () => {			
 			const key = document.getElementById('key1').innerText;
-			$modalInstance.close({ apiKey: key });
+			$uibModalInstance.close({ apiKey: key });
 		}	
 		
 		this.selectData2 = () => {			
 			const key = document.getElementById('key2').innerText;
-			$modalInstance.close({ apiKey: key });
+			$uibModalInstance.close({ apiKey: key });
 		}
 		
 		this.selectData3 = () => {			
 			const key = document.getElementById('key3').innerText;
-			$modalInstance.close({ apiKey: key });
+			$uibModalInstance.close({ apiKey: key });
 		}
 		
 		this.selectData4 = () => {			
 			const key = document.getElementById('key4').innerText;
-			$modalInstance.close({ apiKey: key });
+			$uibModalInstance.close({ apiKey: key });
 		}
 		
 		this.selectData5 = () => {			
 			const key = document.getElementById('key5').innerText;
-			$modalInstance.close({ apiKey: key });
+			$uibModalInstance.close({ apiKey: key });
 		}
 		
 		this.selectData6 = () => {			
 			const key = document.getElementById('key6').innerText;
-			$modalInstance.close({ apiKey: key });
+			$uibModalInstance.close({ apiKey: key });
 		}
 		
 		this.selectData7 = () => {			
 			const key = document.getElementById('key7').innerText;
-			$modalInstance.close({ apiKey: key });
+			$uibModalInstance.close({ apiKey: key });
 		}
 		
 		this.selectData8 = () => {			
 			const key = document.getElementById('key8').innerText;
-			$modalInstance.close({ apiKey: key });
+			$uibModalInstance.close({ apiKey: key });
 		}
 		
 		this.selectData9 = () => {			
 			const key = document.getElementById('key9').innerText;
-			$modalInstance.close({ apiKey: key });
+			$uibModalInstance.close({ apiKey: key });
 		}
 		
 		this.selectData10 = () => {			
 			const key = document.getElementById('key10').innerText;
-			$modalInstance.close({ apiKey: key });
+			$uibModalInstance.close({ apiKey: key });
 		}
 		
 		this.selectData11 = () => {			
 			const key = document.getElementById('key11').innerText;
-			$modalInstance.close({ apiKey: key });
+			$uibModalInstance.close({ apiKey: key });
 		}
 		
 		this.selectData12 = () => {			
 			const key = document.getElementById('key12').innerText;
-			$modalInstance.close({ apiKey: key });
+			$uibModalInstance.close({ apiKey: key });
 		}
 
 		}
@@ -1367,6 +1367,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
