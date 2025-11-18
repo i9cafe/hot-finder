@@ -338,8 +338,26 @@ const app = angular.module('hotFinder', ['ngRoute'
 			return;
 		}
 
-		if (vm.params.recentDay === undefined || vm.params.recentDay === null || vm.params.recentDay === "" || vm.params.recentDay < 1) {
+		if (vm.data.recentUse === 'Y' && (vm.params.recentDay === undefined || vm.params.recentDay === null || vm.params.recentDay === "" || vm.params.recentDay < 1)) {
 			alert("1 이상의 값을 입력하세요. [최근 며칠간의 영상을 조회할까요]");
+			return;
+		}
+
+		  if (vm.data.recentUse === 'N' && (vm.params.startDate === undefined || vm.params.startDate === null || vm.params.startDate === "")) {
+			alert("날짜를 선택하세요. [검색 시작일]");
+			return;
+		}
+
+		  if (vm.data.recentUse === 'N' && (vm.params.endDate === undefined || vm.params.endDate === null || vm.params.endDate === "")) {
+			alert("날짜를 선택하세요. [검색 종료일]");
+			return;
+		}		  
+
+		  const start = new Date(vm.params.startDate);
+		  const end = new Date(vm.params.endDate);
+
+		  if (vm.data.recentUse === 'N' && (start.getTime() > end.getTime()) ) {
+			alert("검색 종료일이 검색 시작일보다 이전 날짜일 수 없습니다.");
 			return;
 		}
 
@@ -1483,6 +1501,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
