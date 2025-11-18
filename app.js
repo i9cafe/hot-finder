@@ -1258,45 +1258,6 @@ const app = angular.module('hotFinder', ['ngRoute'
 		  return [];
         }
       };
-
-      this.formatISODuration = (duration) => {
-        const regex = /P(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?)?/;
-        const matches = duration.match(regex);
-
-        if (!matches) return '';
-
-        const days = parseInt(matches[1] || 0, 10);
-        const hours = parseInt(matches[2] || 0, 10);
-        const minutes = parseInt(matches[3] || 0, 10);
-        const seconds = parseInt(matches[4] || 0, 10);
-
-        let result = [];
-
-        if (days) result.push(`${days}일`);
-        if (hours) result.push(`${hours}시간`);
-        if (minutes) result.push(`${minutes}분`);
-        if (seconds) result.push(`${seconds}초`);
-
-        if (result.length === 0) result.push('0초');
-
-        return result.join(' ');
-      };
-
-      this.formatISODurationSecond = (duration) => {
-        const regex = /P(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?)?/;
-        const matches = duration.match(regex);
-      
-        if (!matches) return '0초';
-      
-        const days = parseInt(matches[1] || 0, 10);
-        const hours = parseInt(matches[2] || 0, 10);
-        const minutes = parseInt(matches[3] || 0, 10);
-        const seconds = parseInt(matches[4] || 0, 10);
-      
-        const totalSeconds = (days * 86400) + (hours * 3600) + (minutes * 60) + seconds;
-      
-        return totalSeconds;
-      };
 	  
 	  this.changeStartDate = () => {
 		  const searchEnd = document.getElementById('search-endDate');
@@ -1362,6 +1323,14 @@ const app = angular.module('hotFinder', ['ngRoute'
 		vm.errorFunc = (e) => {
 			UtilsService.errorFunc(e);
 		};
+
+      vm.formatISODuration = (d) => {
+			UtilsService.formatISODuration(d);
+      };
+
+      vm.formatISODurationSecond = (d) => {
+			UtilsService.formatISODurationSecond(d);
+      };
 
 	  vm.clickKeywordTab = () => {
         UtilsService.clickKeywordTab();
@@ -1498,6 +1467,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 		}
 	])
+
 
 
 
