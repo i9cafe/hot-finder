@@ -187,7 +187,8 @@
                                         <div class="field col-md-12">
                                             <label class="label col-md-4">대상 국가</label>
                                             <div class="control col-md-8">
-                                                <input id="searchbox-country" type="text" style="width:100%;" ng-model="vm.params.country" />
+                                                <input id="searchbox-country" type="text" style="width:100%;" ng-model="vm.params.country" 
+												placeholder="-"/>
                                             </div>
                                         </div>
                                     </div>
@@ -199,7 +200,8 @@
                                         <div class="field col-md-12">
                                             <label class="label col-md-5" title="채널/둘다 모드 에서 검색 시 채널 1개당 조회하는 동영상의 개수">채널당 최대 검색 수</label>
                                             <div class="control col-md-7">
-                                                <input id="searchbox-maxSearchCountByChannel" type="number" min="1" max="50" style="width:100%; color:gray;" ng-model="vm.params.maxSearchCountByChannel" readonly />
+                                                <input id="searchbox-maxSearchCountByChannel" type="number" min="1" max="50" style="width:100%; color:gray;" 
+												ng-model="vm.params.maxSearchCountByChannel" readonly placeholder="-"/>
                                             </div>
                                         </div>
                                     </div>
@@ -207,11 +209,13 @@
                                         <div class="field col-md-12">
                                             <label class="label col-md-5" title="키워드 모드에서 검색 시 조회하는 동영상의 개수">검색어당 최대 검색 수</label>
                                             <div class="control col-md-3">
-                                                <input id="searchbox-maxSearchCountByKeyword" type="number" min="1" max="50" style="width:100%; color:gray;" ng-model="vm.params.maxSearchCountByKeyword" readonly />
+                                                <input id="searchbox-maxSearchCountByKeyword" type="number" min="1" max="50" style="width:100%; color:gray;" 
+												ng-model="vm.params.maxSearchCountByKeyword" readonly placeholder="-"/>
                                             </div>											
 											<div class="col-md-1" style="padding-top:6px;">×</div>
 											<div class="control col-md-3">
-												<input id="searchbox-pageToken" type="number" min="1" max="10" style="width:100%;" ng-model="vm.data.pageTokenPage" />
+												<input id="searchbox-pageToken" type="number" min="1" max="10" style="width:100%;" ng-model="vm.data.pageTokenPage" 
+												placeholder="-"/>
 											</div>
                                         </div>
                                     </div>
@@ -219,7 +223,8 @@
                                         <div class="field col-md-12">
                                             <label class="label col-md-4">대상 언어</label>
                                             <div class="control col-md-8">
-                                                <input id="searchbox-language" type="text" style="width:100%;" ng-model="vm.params.language" />
+                                                <input id="searchbox-language" type="text" style="width:100%;" ng-model="vm.params.language" 
+												placeholder="-"/>
                                             </div>
                                         </div>
                                     </div>
@@ -234,7 +239,8 @@
                                                 <input style="visibility:hidden;"/>
                                             </div>
                                             <div class="control col-md-3">
-                                                <input id="searchbox-recentDay" type="number" min="1" style="width:100%;" ng-model="vm.params.recentDay" />
+                                                <input id="searchbox-recentDay" type="number" min="1" style="width:100%;" ng-model="vm.params.recentDay" 
+												placeholder="-"/>
                                             </div>
 											<div class="col-md-1" style="padding-left:7px;">
                                                 <input type="checkbox" ng-model="vm.data.recentUse" style="width:20px; height:20px; display:inline; vertical-align:text-bottom; cursor:pointer;" 
@@ -246,7 +252,8 @@
                                         <div class="field col-md-12">
                                             <label class="label col-md-4">검색 시작일</label>
                                             <div class="control col-md-8">
-                                                <input id="search-startDate" type="date" style="width:100%;" placeholder="날짜를 선택하세요.">
+                                                <input id="search-startDate" type="date" style="width:100%; color:gray;" placeholder="날짜를 선택하세요."
+												ng-model="vm.params.startDate" readonly ng-change="vm.changeStartDate()">
                                             </div>
                                         </div>
                                     </div>
@@ -254,7 +261,8 @@
                                         <div class="field col-md-12">
                                             <label class="label col-md-4">검색 종료일</label>
                                             <div class="control col-md-8">
-                                                <input id="search-endDate" type="date" style="width:100%;" placeholder="날짜를 선택하세요.">
+                                                <input id="search-endDate" type="date" style="width:100%; color:gray;" placeholder="날짜를 선택하세요."
+												ng-model="vm.params.endDate" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -267,7 +275,8 @@
                                         <div class="field col-md-12">
                                             <label class="label col-md-4">최소 조회 수</label>
                                             <div class="control col-md-8">
-                                                <input id="searchbox-minViewCount" type="number" min="1" style="width:100%;" ng-model="vm.params.minViewCount" />
+                                                <input id="searchbox-minViewCount" type="number" min="1" style="width:100%;" ng-model="vm.params.minViewCount" 
+												placeholder="-"/>
                                             </div>
                                         </div>
                                     </div>
@@ -275,7 +284,8 @@
                                         <div class="field col-md-12">
                                             <label class="label col-md-5" title="해당 동영상이 게시된 이후부터 지금까지 1시간당 조회 수">최소 시간당 조회 수</label>
                                             <div class="control col-md-7">
-                                                <input id="searchbox-viewCountByMinTime" type="number" min="1" style="width:100%;" ng-model="vm.params.viewCountByMinTime" />
+                                                <input id="searchbox-viewCountByMinTime" type="number" min="1" style="width:100%;" ng-model="vm.params.viewCountByMinTime" 
+												placeholder="-"/>
                                             </div>
                                         </div>
                                     </div>
