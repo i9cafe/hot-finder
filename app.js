@@ -228,7 +228,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 	  vm.data.longTableDesc = '리스트 펼치기';
 	  vm.data.channelAllFlag = 'Y';
 		
-		  vm.data.pageTokenPage = 6;
+		  vm.data.pageTokenPage = 1;
 	    vm.data.recentUse = 'Y';
 
       vm.params = {};
@@ -305,7 +305,7 @@ const app = angular.module('hotFinder', ['ngRoute'
         vm.params.checkPopular = "Y";
         vm.params.keyword = "";
 
-		  vm.data.pageTokenPage = 6;
+		  vm.data.pageTokenPage = 1;
 	    vm.data.recentUse = 'Y';
 
         $timeout(() => {
@@ -1463,6 +1463,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 		}
 	])
+
 
 
 
