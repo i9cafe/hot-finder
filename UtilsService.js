@@ -1,6 +1,39 @@
 
 angular.module('hotFinder')
-.service('UtilsService', ['$timeout', '$uibModal', function($timeout, $uibModal) {
+.service('UtilsService', ['$timeout', '$uibModal', function($timeout, $uibModal) {	
+	  
+	  this.doSearchBothMode = async (arguChannelId, apiClient, vm) => {
+        try {
+          const today = new Date();
+		  
+		  const [y, m, d] = document.getElementById('search-startDate').value.split("-").map(Number);		  
+		  const [a, b, c] = document.getElementById('search-endDate').value.split("-").map(Number);
+
+          const response = await apiClient.get('search', {
+            params: {
+              part: 'snippet',
+              maxResults: (vm.params.maxSearchCountByChannel <= 0 ? 1 : vm.params.maxSearchCountByChannel),
+              type: "video",
+              regionCode: vm.params.country,
+              relevanceLanguage: vm.params.language,
+              videoDuration: vm.params.shortsLong,
+			  order: (vm.params.checkPopular === 'Y' ? 'viewCount' : 'relevance'),
+              channelId: arguChannelId,
+			  q: vm.params.keyword,
+              publishedAfter: (vm.data.recentUse === 'Y' ? new Date(today.setDate(today.getDate() - vm.params.recentDay)) : new Date(Date.UTC(y, m - 1, d))),
+			  publishedBefore: (vm.data.recentUse === 'Y' ? new Date() : new Date(Date.UTC(a, b - 1, c)))
+            }
+          });
+			
+          return response.data.items;
+        } catch (error) {
+          this.errorFunc(error);
+
+	      vm.failedFlag = 'Y';
+          this.hideLoader(); 
+		  return [];
+        }
+      }; 
 
 	this.doSearchVideos = async (videoIds, apiClient, vm) => {
         try {
