@@ -2,6 +2,44 @@
 angular.module('hotFinder')
 .service('UtilsService', ['$timeout', '$uibModal', function($timeout, $uibModal) {
 
+	this.doSearchVideos = async (videoIds, apiClient) => {
+        try {
+          const response = await apiClient.get('videos', {
+            params: {
+              part: 'snippet, statistics, contentDetails',
+              id: videoIds
+            },
+          });
+
+          return response.data.items;
+        } catch (error) {
+          this.errorFunc(error);
+
+	      failedFlag = 'Y';
+          this.hideLoader(); 
+		  return [];
+        }
+      };
+		
+      this.doSearchChannels = async (channelIds, apiClient) => {
+        try {
+          const response = await apiClient.get('channels', {
+            params: {
+              part: 'snippet, statistics',
+              id: channelIds
+            },
+          });
+
+          return response.data.items;
+        } catch (error) {
+          this.errorFunc(error);
+
+	      failedFlag = 'Y';
+          this.hideLoader(); 
+		  return [];
+        }
+      };
+
       this.reset = (vm) => {
 		  
         vm.params.excuteMode = "CHANNEL";
