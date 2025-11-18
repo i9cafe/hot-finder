@@ -1316,7 +1316,7 @@ const app = angular.module('hotFinder', ['ngRoute'
       };
 
 	  vm.makeObj = (obj, itm) => {
-		    UtilsService.makeObj(obj, itm);
+		    return UtilsService.makeObj(obj, itm);
 	  };
 	  
 	  vm.changeStartDate = () => {
@@ -1406,6 +1406,7 @@ const app = angular.module('hotFinder', ['ngRoute'
     }
   ])
 	
+
 
 
 
