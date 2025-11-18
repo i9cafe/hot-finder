@@ -215,6 +215,10 @@ angular.module('hotFinder')
 			vm.params.recentDay = 10;
 			vm.params.startDate = null;
 			vm.params.endDate = null;
+			
+			vm.data.pageTokenPage = 1;
+			document.getElementById('searchbox-pageToken').setAttribute("readonly", true);
+			document.getElementById('searchbox-pageToken').style.color = 'gray';
         });
       };
 
