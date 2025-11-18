@@ -244,6 +244,8 @@ const app = angular.module('hotFinder', ['ngRoute'
       vm.params.viewCountByMinTime = 500;
       vm.params.checkPopular = "Y";
       vm.params.keyword = "";
+		vm.params.startDate = null;
+		vm.params.endDate = null;
 	  
 	  vm.keyword = {};
 	  vm.keyword.includeKey = "";
@@ -310,6 +312,15 @@ const app = angular.module('hotFinder', ['ngRoute'
           document.getElementById('searchbox-shortsSecond').setAttribute("readonly", true);
           document.getElementById('search-startDate').setAttribute("readonly", true);
           document.getElementById('search-endDate').setAttribute("readonly", true);
+          document.getElementById('searchbox-recentDay').removeAttribute("readonly"); 		  		  
+		  
+			document.getElementById('search-startDate').style.color = 'gray';
+			document.getElementById('search-endDate').style.color = 'gray';
+			document.getElementById('searchbox-recentDay').style.color = 'lightgray';
+			
+			vm.params.recentDay = 10;
+			vm.params.startDate = null;
+			vm.params.endDate = null;
         });
       };
 
@@ -1160,6 +1171,16 @@ const app = angular.module('hotFinder', ['ngRoute'
       
         return totalSeconds;
       };
+	  
+	  this.changeStartDate = () => {
+		  const searchEnd = document.getElementById('search-endDate');
+		  
+		  searchEnd.focus();
+		  
+		  if (searchEnd.showPicker) {
+			searchEnd.showPicker();
+		  }
+	  };
 
       this.changeShortsLong = () => {
         $timeout(() => {  
@@ -1179,19 +1200,19 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 		this.changeRecentUse = () => {
 			const searchRec = document.getElementById('searchbox-recentDay');
-	          if (!searchRec) return;    
 	          
 	          const searchStart = document.getElementById('search-startDate');
-	          if (!searchStart) return;          
 				
 	          const searchEnd = document.getElementById('search-endDate');
-	          if (!searchEnd) return;    
 
 			if (vm.data.recentUse === "Y") {				
 				$timeout(() => {
 				  searchRec.removeAttribute("readonly"); 
 		            searchStart.setAttribute("readonly", true);
 		            searchEnd.setAttribute("readonly", true);
+					searchStart.style.color = 'gray';
+					searchEnd.style.color = 'gray';
+					searchRec.style.color = 'lightgray';
 					vm.params.recentDay = 10;
 					  searchRec.focus();
 				});			
@@ -1200,8 +1221,14 @@ const app = angular.module('hotFinder', ['ngRoute'
 		            searchRec.setAttribute("readonly", true);
 		            searchStart.removeAttribute("readonly"); 
 		            searchEnd.removeAttribute("readonly"); 
+					searchStart.style.color = 'lightgray';
+					searchEnd.style.color = 'lightgray';
+					searchRec.style.color = 'gray';
 					vm.params.recentDay = null;
 					  searchStart.focus();
+					  if (searchStart.showPicker) {
+						searchStart.showPicker();
+					  }
 				});		
 			}			
       };
