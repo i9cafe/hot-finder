@@ -356,8 +356,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 		  const start = new Date(vm.params.startDate);
 		  const end = new Date(vm.params.endDate);
 
-		  if (vm.data.recentUse === 'N' && (start.getTime() > end.getTime()) ) {
-			alert("검색 종료일이 검색 시작일보다 이전 날짜일 수 없습니다.");
+		  if (vm.data.recentUse === 'N' && (start.getTime() >= end.getTime()) ) {
+			alert("검색 종료일이 검색 시작일보다 같거나 이전 날짜일 수 없습니다.");
 			return;
 		}
 
@@ -1501,6 +1501,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
