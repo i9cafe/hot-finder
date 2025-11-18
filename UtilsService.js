@@ -66,6 +66,18 @@ angular.module('hotFinder')
         }
     };
 
+	this.showKey = () => {
+        return $uibModal.open({
+            templateUrl: 'modal.html',
+            windowClass: 'modal-fullscreen',
+            controller: 'SubController',
+            controllerAs: 'self',
+            backdrop: 'static',
+            size: 'sm',
+            animation: true,
+            resolve: { parameters: () => ({ data: "success" }) }
+        });
+    };
   
 
 }]);
