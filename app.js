@@ -886,7 +886,8 @@ const app = angular.module('hotFinder', ['ngRoute'
               videoDuration: vm.params.shortsLong,
 			  order: (vm.params.checkPopular === 'Y' ? 'viewCount' : 'relevance'),
               q: vm.params.keyword,
-              publishedAfter: new Date(today.setDate(today.getDate() - vm.params.recentDay))
+              publishedAfter: new Date(today.setDate(today.getDate() - vm.params.recentDay)),
+			  publishedBefore: new Date()
             }
           });
 		  
@@ -931,7 +932,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 			  order: (vm.params.checkPopular === 'Y' ? 'viewCount' : 'relevance'),
               q: vm.params.keyword,
 			  pageToken: argPageToken,
-              publishedAfter: new Date(today.setDate(today.getDate() - vm.params.recentDay))
+              publishedAfter: new Date(today.setDate(today.getDate() - vm.params.recentDay)),
+			  publishedBefore: new Date()
             }
           });
 		  
@@ -974,7 +976,8 @@ const app = angular.module('hotFinder', ['ngRoute'
               videoDuration: vm.params.shortsLong,
 			  order: (vm.params.checkPopular === 'Y' ? 'viewCount' : 'relevance'),
               channelId: arguChannelId,
-              publishedAfter: new Date(today.setDate(today.getDate() - vm.params.recentDay))
+              publishedAfter: new Date(today.setDate(today.getDate() - vm.params.recentDay)),
+			  publishedBefore: new Date()
             }
           });
 			
@@ -1011,7 +1014,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 			  order: (vm.params.checkPopular === 'Y' ? 'viewCount' : 'relevance'),
               channelId: arguChannelId,
 			  q: vm.params.keyword,
-              publishedAfter: new Date(today.setDate(today.getDate() - vm.params.recentDay))
+              publishedAfter: new Date(today.setDate(today.getDate() - vm.params.recentDay)),
+			  publishedBefore: new Date()
             }
           });
 			
@@ -1471,6 +1475,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
