@@ -1449,41 +1449,19 @@ const app = angular.module('hotFinder', ['ngRoute'
 			UtilsService.getKoreaTimeFromPacificMidnight();
       };
 
-		this.showKey = () => {
-
-			function openModal() {
-					return $uibModal.open({
-						templateUrl: 'modal.html',
-						windowClass: 'modal-fullscreen',
-						controller: 'SubController',
-						controllerAs: 'self',
-						backdrop: 'static',
-						size: 'sm',
-  						animation: true,
-						resolve: {
-							parameters: () => {
-								return {
-									data: "success"
-								};
-							}
-						}
-					});
-				}
-
-				openModal().result.then(result => {
-					if (result.apiKey !== undefined || result.apiKey !== null || result.apiKey !== "") {
-						vm.data.apiKey = result.apiKey;
-					}
-				}, cancel => {
-
+		vm.showKey = () => {
+				UtilsService.showKey().result.then(result => {
+		            if (result && result.apiKey) vm.data.apiKey = result.apiKey;
+		        }, cancel => {
+													  
 				});
 		};
 
-		this.clearInclude = () => {	
+		vm.clearInclude = () => {	
         	UtilsService.clearInclude();
 		};
 
-		this.clearExcept = () => {		
+		vm.clearExcept = () => {		
         	UtilsService.clearExcept();
 		};
 
@@ -1566,6 +1544,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 		}
 	])
+
 
 
 
