@@ -1363,13 +1363,11 @@ const app = angular.module('hotFinder', ['ngRoute'
 	  };
 
       this.showLoader = () => {
-        document.getElementById('loader').style.display = 'flex';
-        document.getElementById('content').style.display = 'none';
+        UtilsService.showLoader();
       };
 
       this.hideLoader = () => {
-        document.getElementById('loader').style.display = 'none';
-        document.getElementById('content').style.display = 'block';
+        UtilsService.hideLoader();
       };
 
 		this.clickHome = () => {
@@ -1553,6 +1551,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 		}
 	])
+
 
 
 
