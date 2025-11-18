@@ -591,39 +591,6 @@ const app = angular.module('hotFinder', ['ngRoute'
 
       $scope.gridOptions.data = [];
 
-      this.reset = () => {
-        vm.params.excuteMode = "CHANNEL";
-        vm.params.shortsLong = "long";
-        vm.params.shortsSecond = "";
-        vm.params.recentDay = 10;
-        vm.params.country = "KR";
-        vm.params.language = "ko";
-        vm.params.maxSearchCountByChannel = 50;
-        vm.params.maxSearchCountByKeyword = 50;
-        vm.params.minViewCount = 20000;
-        vm.params.viewCountByMinTime = 500;
-        vm.params.checkPopular = "Y";
-        vm.params.keyword = "";
-
-		  vm.data.pageTokenPage = 1;
-	    vm.data.recentUse = 'Y';
-
-        $timeout(() => {
-          document.getElementById('searchbox-shortsSecond').setAttribute("readonly", true);
-          document.getElementById('search-startDate').setAttribute("readonly", true);
-          document.getElementById('search-endDate').setAttribute("readonly", true);
-          document.getElementById('searchbox-recentDay').removeAttribute("readonly"); 		  		  
-		  
-			document.getElementById('search-startDate').style.color = 'gray';
-			document.getElementById('search-endDate').style.color = 'gray';
-			document.getElementById('searchbox-recentDay').style.color = 'lightgray';
-			
-			vm.params.recentDay = 10;
-			vm.params.startDate = null;
-			vm.params.endDate = null;
-        });
-      };
-
       this.search = async () => {
 
 		  failedFlag = 'N';
@@ -1368,6 +1335,10 @@ const app = angular.module('hotFinder', ['ngRoute'
 		  return [];
         }
       };
+
+      vm.reset = () => {		  
+			UtilsService.reset(vm);
+      };
 	  
 	  vm.changeStartDate = () => {
 			UtilsService.changeStartDate();
@@ -1456,6 +1427,7 @@ const app = angular.module('hotFinder', ['ngRoute'
     }
   ])
 	
+
 
 
 
