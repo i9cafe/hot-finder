@@ -1259,52 +1259,6 @@ const app = angular.module('hotFinder', ['ngRoute'
         }
       };
 
-	this.escapeCSV = (value) => {
-	    if (value === null || value === undefined) return '';
-	    let cell = String(value);
-	    cell = cell.replace(/"/g, '""'); 
-	    if (/[",\n]/.test(cell)) {
-	      cell = `"${cell}"`;
-	    }
-	    return cell;
-	  }
-
-      this.excelDownload = () => {
-			const columnNames = $scope.gridOptions.columnDefs.map(col => col.name);
-
-			const columnHeaders = $scope.gridOptions.columnDefs.map(col => col.displayName || col.name);
-			
-			const rows = $scope.gridOptions.data;
-
-			let csv = '';
-			  csv += columnHeaders.map(this.escapeCSV).join(',') + '\n';
-			
-			  rows.forEach(row => {
-			    const rowData = columnNames.map(colName => this.escapeCSV(row[colName]));
-			    csv += rowData.join(',') + '\n';
-			  });
-
-			const csvWithBOM = '\uFEFF' + csv;
-			
-			const today = new Date();
-			const yyyy = today.getFullYear();
-			const mm = String(today.getMonth() + 1).padStart(2, '0');
-			const dd = String(today.getDate()).padStart(2, '0');
-			const dateStr = `${yyyy}${mm}${dd}`;
-
-			const fileName = `유튜브조회결과_${dateStr}.csv`;
-
-			const blob = new Blob([csvWithBOM], { type: 'text/csv;charset=utf-8;' });
-			const downloadLink = document.createElement('a');
-			const url = URL.createObjectURL(blob);
-			downloadLink.href = url;
-			downloadLink.download = fileName;
-			document.body.appendChild(downloadLink);
-			downloadLink.click();
-			document.body.removeChild(downloadLink);
-			URL.revokeObjectURL(url);
-		};
-
       this.formatISODuration = (duration) => {
         const regex = /P(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?)?/;
         const matches = duration.match(regex);
@@ -1411,6 +1365,14 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 	  vm.clickKeywordTab = () => {
         UtilsService.clickKeywordTab();
+	  };
+		
+	  vm.escapeCSV = (v) => {
+        UtilsService.escapeCSV(v);
+	  }
+
+      vm.excelDownload = () => {
+        UtilsService.excelDownload($scope.gridOptions);
 	  };
 
       vm.showLoader = () => {
@@ -1536,6 +1498,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 		}
 	])
+
 
 
 
