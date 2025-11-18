@@ -813,8 +813,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 				channelIdsString = channelIdsString.slice(0, -1);
 			}
 				
-				  let videoList = await this.doSearchVideos(videoIdsString);			  
-				  let channelList = await this.doSearchChannels(channelIdsString);
+				  let videoList = await vm.doSearchVideos(videoIdsString, apiClient);			  
+				  let channelList = await vm.doSearchChannels(channelIdsString, apiClient);
 						
 				Loop1:
 				for (let i = 0; i < items.length; i++) {
@@ -945,8 +945,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 				channelIdsString = channelIdsString.slice(0, -1);
 			}
 				
-				  let videoList = await this.doSearchVideos(videoIdsString);			  
-				  let channelList = await this.doSearchChannels(channelIdsString);
+				  let videoList = await vm.doSearchVideos(videoIdsString, apiClient);			  
+				  let channelList = await vm.doSearchChannels(channelIdsString, apiClient);
 			  		
 			Loop1:
 			for (let i = 0; i < items.length; i++) {
@@ -1012,8 +1012,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 					channelIdsString = channelIdsString.slice(0, -1);
 				}
 				
-				  let videoList = await this.doSearchVideos(videoIdsString);			  
-				  let channelList = await this.doSearchChannels(channelIdsString);
+				  let videoList = await vm.doSearchVideos(videoIdsString, apiClient);			  
+				  let channelList = await vm.doSearchChannels(channelIdsString, apiClient);
 						
 				Loop1:
 				for (let i = 0; i < items.length; i++) {
@@ -1162,8 +1162,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 				channelIdsString = channelIdsString.slice(0, -1);
 			}
 				
-				  let videoList = await this.doSearchVideos(videoIdsString);			  
-				  let channelList = await this.doSearchChannels(channelIdsString);
+				  let videoList = await vm.doSearchVideos(videoIdsString, apiClient);			  
+				  let channelList = await vm.doSearchChannels(channelIdsString, apiClient);
 						
 				Loop1:
 				for (let i = 0; i < items.length; i++) {
@@ -1385,42 +1385,12 @@ const app = angular.module('hotFinder', ['ngRoute'
         }
       }; 
 
-      this.doSearchVideos = async (videoIds) => {
-        try {
-          const response = await apiClient.get('videos', {
-            params: {
-              part: 'snippet, statistics, contentDetails',
-              id: videoIds
-            },
-          });
-
-          return response.data.items;
-        } catch (error) {
-          this.errorFunc(error);
-
-	      failedFlag = 'Y';
-          this.hideLoader(); 
-		  return [];
-        }
+      vm.doSearchVideos = async (videoIds, apiClient) => {
+			return await UtilsService.doSearchVideos(videoIds, apiClient);
       };
 		
-      this.doSearchChannels = async (channelIds) => {
-        try {
-          const response = await apiClient.get('channels', {
-            params: {
-              part: 'snippet, statistics',
-              id: channelIds
-            },
-          });
-
-          return response.data.items;
-        } catch (error) {
-          this.errorFunc(error);
-
-	      failedFlag = 'Y';
-          this.hideLoader(); 
-		  return [];
-        }
+      vm.doSearchChannels = async (channelIds, apiClient) => {
+			return await UtilsService.doSearchChannels(channelIds, apiClient);
       };
 
       vm.reset = () => {		  
@@ -1514,6 +1484,7 @@ const app = angular.module('hotFinder', ['ngRoute'
     }
   ])
 	
+
 
 
 
