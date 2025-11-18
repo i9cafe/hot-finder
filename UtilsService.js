@@ -149,6 +149,11 @@ angular.module('hotFinder')
     // ISO Duration 처리
     // ======================
 	 this.formatISODuration = (duration) => {
+
+		 if (!duration) {
+			return '';
+		 }
+		 
         const regex = /P(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?)?/;
         const matches = duration.match(regex);
 
@@ -172,6 +177,11 @@ angular.module('hotFinder')
       };
 
       this.formatISODurationSecond = (duration) => {
+
+		 if (!duration) {
+			return '';
+		 }
+		  
         const regex = /P(?:(\d+)D)?(?:T(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?)?/;
         const matches = duration.match(regex);
       
