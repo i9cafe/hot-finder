@@ -1362,11 +1362,11 @@ const app = angular.module('hotFinder', ['ngRoute'
 		keywordInputControl.focus();
 	  };
 
-      this.showLoader = () => {
+      vm.showLoader = () => {
         UtilsService.showLoader();
       };
 
-      this.hideLoader = () => {
+      vm.hideLoader = () => {
         UtilsService.hideLoader();
       };
 
@@ -1551,6 +1551,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 		}
 	])
+
 
 
 
