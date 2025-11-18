@@ -1249,65 +1249,16 @@ const app = angular.module('hotFinder', ['ngRoute'
         }
       };
 	  
-	  this.changeStartDate = () => {
-		  const searchEnd = document.getElementById('search-endDate');
-		  
-		  searchEnd.focus();
-		  
-		  if (searchEnd.showPicker) {
-			searchEnd.showPicker();
-		  }
+	  vm.changeStartDate = () => {
+			UtilsService.changeStartDate();
 	  };
 
-      this.changeShortsLong = () => {
-        $timeout(() => {  
-          
-          const searchbox = document.getElementById('searchbox-shortsSecond');
-          if (!searchbox) return;          
-          if (vm.params.shortsLong !== "short") {
-            searchbox.setAttribute("readonly", true);
-          } else {
-            searchbox.removeAttribute("readonly");   
-            searchbox.focus();
-          }
-          
-          vm.params.shortsSecond = (vm.params.shortsLong === "short") ? 300 : "";   
-        });
+      vm.changeShortsLong = () => {
+			UtilsService.changeShortsLong(vm);
       };
 
-		this.changeRecentUse = () => {
-			const searchRec = document.getElementById('searchbox-recentDay');
-	          
-	          const searchStart = document.getElementById('search-startDate');
-				
-	          const searchEnd = document.getElementById('search-endDate');
-
-			if (vm.data.recentUse === "Y") {				
-				$timeout(() => {
-				  searchRec.removeAttribute("readonly"); 
-		            searchStart.setAttribute("readonly", true);
-		            searchEnd.setAttribute("readonly", true);
-					searchStart.style.color = 'gray';
-					searchEnd.style.color = 'gray';
-					searchRec.style.color = 'lightgray';
-					vm.params.recentDay = 10;
-					  searchRec.focus();
-				});			
-			} else {
-				$timeout(() => {
-		            searchRec.setAttribute("readonly", true);
-		            searchStart.removeAttribute("readonly"); 
-		            searchEnd.removeAttribute("readonly"); 
-					searchStart.style.color = 'lightgray';
-					searchEnd.style.color = 'lightgray';
-					searchRec.style.color = 'gray';
-					vm.params.recentDay = null;
-					  searchStart.focus();
-					  if (searchStart.showPicker) {
-						searchStart.showPicker();
-					  }
-				});		
-			}			
+		vm.changeRecentUse = () => {
+			UtilsService.changeRecentUse(vm);
       };
 
 		vm.errorFunc = (e) => {
@@ -1347,7 +1298,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 		}
 
       vm.hide = () => {
-        UtilsService.hide();
+        UtilsService.hide(vm);
       };
 
 		vm.clickGridCheckbox = () => {
@@ -1375,11 +1326,11 @@ const app = angular.module('hotFinder', ['ngRoute'
 		};
 
 		vm.clearInclude = () => {	
-        	UtilsService.clearInclude();
+        	UtilsService.clearInclude(vm);
 		};
 
 		vm.clearExcept = () => {		
-        	UtilsService.clearExcept();
+        	UtilsService.clearExcept(vm);
 		};
 
     }
@@ -1461,6 +1412,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 		}
 	])
+
 
 
 
