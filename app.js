@@ -1417,7 +1417,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			}			
       };
 
-	  this.clickKeywordTab = () => {
+	  vm.clickKeywordTab = () => {
         UtilsService.clickKeywordTab();
 	  };
 
@@ -1433,26 +1433,20 @@ const app = angular.module('hotFinder', ['ngRoute'
 			location.reload(); 
 		}
 
-		this.clickGridCheckbox = () => {
+		vm.clickGridCheckbox = () => {
 			UtilsService.clickGridCheckbox(vm.channelMaster);
 		};
 		
-		this.longTable = () => {	
+		vm.longTable = () => {	
 			UtilsService.longTable(vm.data);
 		};
 		
-		this.clickGridCheckboxAll = () => {
+		vm.clickGridCheckboxAll = () => {
 			UtilsService.clickGridCheckboxAll(vm.channelMaster, vm.data.channelAllFlag);				
 		};
 
-      this.getKoreaTimeFromPacificMidnight = () => {
-				const n = new Date(), y = n.getUTCFullYear(),
-		        s = new Date(Date.UTC(y,2,8 + (7-new Date(Date.UTC(y,2,8)).getUTCDay())%7,10)),
-		        e = new Date(Date.UTC(y,10,1 + (7-new Date(Date.UTC(y,10,1)).getUTCDay())%7,9)),
-		        o = (n >= s && n < e ? -7 : -8),
-		        k = new Date(Date.UTC(y,n.getUTCMonth(),n.getUTCDate(),-o,0,0)+9*3600*1000),
-		        h = k.getUTCHours();
-		  return `${h>=12?'오후':'오전'} ${h%12||12}시`; 
+      vm.getKoreaTimeFromPacificMidnight = () => {
+			UtilsService.getKoreaTimeFromPacificMidnight();
       };
 
 		this.showKey = () => {
@@ -1572,6 +1566,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 		}
 	])
+
 
 
 
