@@ -183,7 +183,17 @@ angular.module('hotFinder')
             animation: true,
             resolve: { parameters: () => ({ data: "success" }) }
         });
-    };
+    };	
+
+      this.hide = () => {
+        if (vm.data.hide === "접기") {
+          document.getElementById('search-area').style.display = 'none';
+          vm.data.hide = "펴기";
+        } else {
+          document.getElementById('search-area').style.display = 'block';
+          vm.data.hide = "접기";
+        }
+      };
   
 
 }]);
