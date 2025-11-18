@@ -133,14 +133,14 @@ angular.module('hotFinder')
 		keywordInputControl.focus();
 	  };
 
-	this.clearInclude = () => {			
+	this.clearInclude = (vm) => {			
 	  		vm.keyword.includeKey = "";
 			
 			let element = document.getElementById('keyword-includeKey');
 			  element.focus();
 		};
 
-		this.clearExcept = () => {			
+		this.clearExcept = (vm) => {			
 	  		vm.keyword.exceptKey = "";
 			
 			let element = document.getElementById('keyword-exceptKey');
@@ -185,7 +185,7 @@ angular.module('hotFinder')
         });
     };	
 
-      this.hide = () => {
+      this.hide = (vm) => {
         if (vm.data.hide === "접기") {
           document.getElementById('search-area').style.display = 'none';
           vm.data.hide = "펴기";
@@ -205,7 +205,7 @@ angular.module('hotFinder')
 		  }
 	  };
 
-      this.changeShortsLong = () => {
+      this.changeShortsLong = (vm) => {
         $timeout(() => {  
           
           const searchbox = document.getElementById('searchbox-shortsSecond');
@@ -221,7 +221,7 @@ angular.module('hotFinder')
         });
       };
 
-		this.changeRecentUse = () => {
+		this.changeRecentUse = (vm) => {
 			const searchRec = document.getElementById('searchbox-recentDay');
 	          
 	          const searchStart = document.getElementById('search-startDate');
