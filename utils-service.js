@@ -459,12 +459,27 @@ angular.module('hotFinder')
 	      };
 
 		this.changeExcuteMode = (vm) => {
+
+			const element = document.getElementById('searchbox-pageToken');
+			
 			if (vm.params.excuteMode === "CHANNEL") {
-				vm.data.pageTokenPage = null;
+				$timeout(() => {
+					vm.data.pageTokenPage = 1;
+		            element.setAttribute("readonly", true);
+					
+				});			
 			} else if (vm.params.excuteMode === "KEYWORD") {
-				vm.data.pageTokenPage = 1;
+				$timeout(() => {
+					vm.data.pageTokenPage = 1;
+				    element.removeAttribute("readonly"); 
+					
+				});			
 			} else {
-				vm.data.pageTokenPage = null;
+				$timeout(() => {
+					vm.data.pageTokenPage = 1;
+		            element.setAttribute("readonly", true);
+					
+				});			
 			}
 		};
 
