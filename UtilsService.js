@@ -36,6 +36,31 @@ angular.module('hotFinder')
         });
       };
 
+	this.makeObj = (obj, itm) => {
+			
+			let nowDate = new Date();
+
+			obj = {};
+
+			obj.channelName = itm.snippet.channelTitle;
+				  obj.videoTitle = itm.videoInfo.snippet.title;
+				  obj.videoUploadDate = itm.snippet.publishedAt;
+				  obj.viewCount = Number(itm.videoInfo.statistics.viewCount);
+				  let uploadDate = new Date(obj.videoUploadDate);
+				  let diffDate = nowDate.getTime() - uploadDate.getTime();
+				  obj.viewCountByTime = (Number(obj.viewCount) / (diffDate / (1000 * 60 * 60))).toFixed(2);
+				  obj.subscriberCount = Number(itm.channelInfo.statistics.subscriberCount);
+				  obj.viewCountBySubscriberCount = (Number(obj.viewCount) / Number(obj.subscriberCount)).toFixed(2);
+				  obj.duration = this.formatISODuration(itm.videoInfo.contentDetails.duration);
+				  obj.playTime = Number(this.formatISODurationSecond(itm.videoInfo.contentDetails.duration));
+				  obj.videoUrl = "https://www.youtube.com/watch?v=" + itm.id.videoId;
+				  obj.thumbnailsUrl = "https://img.youtube.com/vi/" + itm.id.videoId + "/0.jpg";
+					obj.videoUploadDate = obj.videoUploadDate.replace("T", " ");
+					obj.videoUploadDate = obj.videoUploadDate.replace("Z", "");
+			
+			return obj;
+		};
+
 	// ======================
   // API 에러 처리
   // ======================
