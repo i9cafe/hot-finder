@@ -1374,47 +1374,15 @@ const app = angular.module('hotFinder', ['ngRoute'
 		}
 
 		this.clickGridCheckbox = () => {
-
-			vm.channelMaster.okTotalCount = vm.channelMaster.array.filter(function(target) {
-				return target.flag === "Y";
-			  }).length;
+			UtilsService.clickGridCheckbox(vm.channelMaster);
 		};
 		
 		this.longTable = () => {	
-
-			if (vm.data.longTableDesc === '리스트 펼치기') {				
-				$timeout(() => {
-				  const element = document.getElementById('scrollable-grid');
-					element.style.removeProperty('max-height');
-					vm.data.longTableDesc = '리스트 접기';
-				});			
-			} else {
-				$timeout(() => {
-				  const element = document.getElementById('scrollable-grid');
-					element.style.setProperty('max-height', '181px');
-					vm.data.longTableDesc = '리스트 펼치기';
-				});		
-			}
+			UtilsService.longTable(vm.data);
 		};
 		
 		this.clickGridCheckboxAll = () => {
-
-			if (vm.data.channelAllFlag === 'Y') {			
-				vm.channelMaster.array.map(function(target) {
-					target.flag = 'Y';
-					return target;
-				});
-				vm.channelMaster.okTotalCount = vm.channelMaster.array.length;
-			
-			} else {
-				vm.channelMaster.array.map(function(target) {
-					target.flag = 'N';
-					return target;
-				});
-				vm.channelMaster.okTotalCount = 0;
-				
-			}		
-			
+			UtilsService.clickGridCheckboxAll(vm.channelMaster, vm.data.channelAllFlag);				
 		};
 
       this.getKoreaTimeFromPacificMidnight = () => {
@@ -1544,6 +1512,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 		}
 	])
+
 
 
 
