@@ -22,6 +22,25 @@ angular.module('hotFinder')
 		  return `${h>=12?'오후':'오전'} ${h%12||12}시`; 
       };
 
+	this.clickKeywordTab = () => {
+		const keywordInputControl = document.getElementById('keyword-includeKey');
+		keywordInputControl.focus();
+	  };
+
+	this.clearInclude = () => {			
+	  		vm.keyword.includeKey = "";
+			
+			let element = document.getElementById('keyword-includeKey');
+			  element.focus();
+		};
+
+		this.clearExcept = () => {			
+	  		vm.keyword.exceptKey = "";
+			
+			let element = document.getElementById('keyword-exceptKey');
+			  element.focus();
+		};
+
   
 
 }]);
