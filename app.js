@@ -395,6 +395,126 @@ const app = angular.module('hotFinder', ['ngRoute'
 			url: chanelBaseUrl + "TEST",
 			flag: "N",
 			comment: "60"
+		  }, {
+			id: "TEST",
+			name: "NAME",
+			url: chanelBaseUrl + "TEST",
+			flag: "N",
+			comment: "61"
+		  }, {
+			id: "TEST",
+			name: "NAME",
+			url: chanelBaseUrl + "TEST",
+			flag: "N",
+			comment: "62"
+		  }, {
+			id: "TEST",
+			name: "NAME",
+			url: chanelBaseUrl + "TEST",
+			flag: "N",
+			comment: "63"
+		  }, {
+			id: "TEST",
+			name: "NAME",
+			url: chanelBaseUrl + "TEST",
+			flag: "N",
+			comment: "64"
+		  }, {
+			id: "TEST",
+			name: "NAME",
+			url: chanelBaseUrl + "TEST",
+			flag: "N",
+			comment: "65"
+		  }, {
+			id: "TEST",
+			name: "NAME",
+			url: chanelBaseUrl + "TEST",
+			flag: "N",
+			comment: "66"
+		  }, {
+			id: "TEST",
+			name: "NAME",
+			url: chanelBaseUrl + "TEST",
+			flag: "N",
+			comment: "67"
+		  }, {
+			id: "TEST",
+			name: "NAME",
+			url: chanelBaseUrl + "TEST",
+			flag: "N",
+			comment: "68"
+		  }, {
+			id: "TEST",
+			name: "NAME",
+			url: chanelBaseUrl + "TEST",
+			flag: "N",
+			comment: "69"
+		  }, {
+			id: "TEST",
+			name: "NAME",
+			url: chanelBaseUrl + "TEST",
+			flag: "N",
+			comment: "70"
+		  }, {
+			id: "TEST",
+			name: "NAME",
+			url: chanelBaseUrl + "TEST",
+			flag: "N",
+			comment: "71"
+		  }, {
+			id: "TEST",
+			name: "NAME",
+			url: chanelBaseUrl + "TEST",
+			flag: "N",
+			comment: "72"
+		  }, {
+			id: "TEST",
+			name: "NAME",
+			url: chanelBaseUrl + "TEST",
+			flag: "N",
+			comment: "73"
+		  }, {
+			id: "TEST",
+			name: "NAME",
+			url: chanelBaseUrl + "TEST",
+			flag: "N",
+			comment: "74"
+		  }, {
+			id: "TEST",
+			name: "NAME",
+			url: chanelBaseUrl + "TEST",
+			flag: "N",
+			comment: "75"
+		  }, {
+			id: "TEST",
+			name: "NAME",
+			url: chanelBaseUrl + "TEST",
+			flag: "N",
+			comment: "76"
+		  }, {
+			id: "TEST",
+			name: "NAME",
+			url: chanelBaseUrl + "TEST",
+			flag: "N",
+			comment: "77"
+		  }, {
+			id: "TEST",
+			name: "NAME",
+			url: chanelBaseUrl + "TEST",
+			flag: "N",
+			comment: "78"
+		  }, {
+			id: "TEST",
+			name: "NAME",
+			url: chanelBaseUrl + "TEST",
+			flag: "N",
+			comment: "79"
+		  }, {
+			id: "TEST",
+			name: "NAME",
+			url: chanelBaseUrl + "TEST",
+			flag: "N",
+			comment: "80"
 		  }
 	  ].sort((a, b) => a.name.localeCompare(b.name, 'ko'));	
 		
@@ -1336,6 +1456,7 @@ const app = angular.module('hotFinder', ['ngRoute'
     }
   ])
 	
+
 
 
 
