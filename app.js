@@ -875,6 +875,8 @@ const app = angular.module('hotFinder', ['ngRoute'
       this.doSearchKeywordMode = async () => {
         try {
           const today = new Date();
+		  const startDate = new Date(vm.params.startDate);
+		  const endDate = new Date(vm.params.endDate);
 
           const response = await apiClient.get('search', {
             params: {
@@ -886,8 +888,8 @@ const app = angular.module('hotFinder', ['ngRoute'
               videoDuration: vm.params.shortsLong,
 			  order: (vm.params.checkPopular === 'Y' ? 'viewCount' : 'relevance'),
               q: vm.params.keyword,
-              publishedAfter: new Date(today.setDate(today.getDate() - vm.params.recentDay)),
-			  publishedBefore: new Date()
+              publishedAfter: (vm.data.recentUse === 'Y' ? new Date(today.setDate(today.getDate() - vm.params.recentDay)) : startDate),
+			  publishedBefore: (vm.data.recentUse === 'Y' ? today : endDate)
             }
           });
 		  
@@ -920,6 +922,8 @@ const app = angular.module('hotFinder', ['ngRoute'
       this.doSearchKeywordModeToken = async (argPageToken) => {
         try {
           const today = new Date();
+		  const startDate = new Date(vm.params.startDate);
+		  const endDate = new Date(vm.params.endDate);
 
           const response = await apiClient.get('search', {
             params: {
@@ -932,8 +936,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 			  order: (vm.params.checkPopular === 'Y' ? 'viewCount' : 'relevance'),
               q: vm.params.keyword,
 			  pageToken: argPageToken,
-              publishedAfter: new Date(today.setDate(today.getDate() - vm.params.recentDay)),
-			  publishedBefore: new Date()
+              publishedAfter: (vm.data.recentUse === 'Y' ? new Date(today.setDate(today.getDate() - vm.params.recentDay)) : startDate),
+			  publishedBefore: (vm.data.recentUse === 'Y' ? today : endDate)
             }
           });
 		  
@@ -965,6 +969,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 	  this.doSearchChannelMode = async (arguChannelId) => {
         try {
           const today = new Date();
+		  const startDate = new Date(vm.params.startDate);
+		  const endDate = new Date(vm.params.endDate);
 
           const response = await apiClient.get('search', {
             params: {
@@ -976,8 +982,8 @@ const app = angular.module('hotFinder', ['ngRoute'
               videoDuration: vm.params.shortsLong,
 			  order: (vm.params.checkPopular === 'Y' ? 'viewCount' : 'relevance'),
               channelId: arguChannelId,
-              publishedAfter: new Date(today.setDate(today.getDate() - vm.params.recentDay)),
-			  publishedBefore: new Date()
+              publishedAfter: (vm.data.recentUse === 'Y' ? new Date(today.setDate(today.getDate() - vm.params.recentDay)) : startDate),
+			  publishedBefore: (vm.data.recentUse === 'Y' ? today : endDate)
             }
           });
 			
@@ -1002,6 +1008,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 	  this.doSearchBothMode = async (arguChannelId) => {
         try {
           const today = new Date();
+		  const startDate = new Date(vm.params.startDate);
+		  const endDate = new Date(vm.params.endDate);
 
           const response = await apiClient.get('search', {
             params: {
@@ -1014,8 +1022,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 			  order: (vm.params.checkPopular === 'Y' ? 'viewCount' : 'relevance'),
               channelId: arguChannelId,
 			  q: vm.params.keyword,
-              publishedAfter: new Date(today.setDate(today.getDate() - vm.params.recentDay)),
-			  publishedBefore: new Date()
+              publishedAfter: (vm.data.recentUse === 'Y' ? new Date(today.setDate(today.getDate() - vm.params.recentDay)) : startDate),
+			  publishedBefore: (vm.data.recentUse === 'Y' ? today : endDate)
             }
           });
 			
@@ -1475,7 +1483,6 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
-
 
 
 
