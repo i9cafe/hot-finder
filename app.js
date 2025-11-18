@@ -941,6 +941,9 @@ const app = angular.module('hotFinder', ['ngRoute'
       this.doSearchKeywordModeToken = async (argPageToken) => {
         try {
           const today = new Date();
+		  
+		  const [y, m, d] = document.getElementById('search-startDate').value.split("-").map(Number);		  
+		  const [a, b, c] = document.getElementById('search-endDate').value.split("-").map(Number);
 
           const response = await apiClient.get('search', {
             params: {
@@ -984,6 +987,9 @@ const app = angular.module('hotFinder', ['ngRoute'
 	  this.doSearchChannelMode = async (arguChannelId) => {
         try {
           const today = new Date();
+		  
+		  const [y, m, d] = document.getElementById('search-startDate').value.split("-").map(Number);		  
+		  const [a, b, c] = document.getElementById('search-endDate').value.split("-").map(Number);
 
           const response = await apiClient.get('search', {
             params: {
@@ -1019,6 +1025,9 @@ const app = angular.module('hotFinder', ['ngRoute'
 	  this.doSearchBothMode = async (arguChannelId) => {
         try {
           const today = new Date();
+		  
+		  const [y, m, d] = document.getElementById('search-startDate').value.split("-").map(Number);		  
+		  const [a, b, c] = document.getElementById('search-endDate').value.split("-").map(Number);
 
           const response = await apiClient.get('search', {
             params: {
@@ -1490,6 +1499,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
