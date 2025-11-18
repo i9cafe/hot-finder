@@ -515,66 +515,6 @@ const app = angular.module('hotFinder', ['ngRoute'
 			url: chanelBaseUrl + "TEST",
 			flag: "N",
 			comment: "80"
-		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: chanelBaseUrl + "TEST",
-			flag: "N",
-			comment: "81"
-		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: chanelBaseUrl + "TEST",
-			flag: "N",
-			comment: "82"
-		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: chanelBaseUrl + "TEST",
-			flag: "N",
-			comment: "83"
-		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: chanelBaseUrl + "TEST",
-			flag: "N",
-			comment: "84"
-		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: chanelBaseUrl + "TEST",
-			flag: "N",
-			comment: "85"
-		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: chanelBaseUrl + "TEST",
-			flag: "N",
-			comment: "86"
-		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: chanelBaseUrl + "TEST",
-			flag: "N",
-			comment: "87"
-		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: chanelBaseUrl + "TEST",
-			flag: "N",
-			comment: "88"
-		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: chanelBaseUrl + "TEST",
-			flag: "N",
-			comment: "89"
-		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: chanelBaseUrl + "TEST",
-			flag: "N",
-			comment: "90"
 		  }
 	  ].sort((a, b) => a.name.localeCompare(b.name, 'ko'));	
 		
@@ -1516,6 +1456,7 @@ const app = angular.module('hotFinder', ['ngRoute'
     }
   ])
 	
+
 
 
 
