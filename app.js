@@ -23,11 +23,6 @@ const app = angular.module('hotFinder', ['ngRoute'
 	  
       vm.data = {};
       vm.data.apiKey = "AIzaSyCg2tnEwBThaOS6-sdEzz--8skbl_C3Gps";
-		
-      let apiClient = axios.create({
-        baseURL: "https://youtube.googleapis.com/youtube/v3",
-        params: { key: vm.data.apiKey }
-      });
 
 	  const chanelBaseUrl = "https://www.youtube.com/channel/";
 
@@ -328,7 +323,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 		  failedFlag = 'N';
 
-		  apiClient = axios.create({
+		  const apiClient = axios.create({
 	        baseURL: "https://youtube.googleapis.com/youtube/v3",
 	        params: { key: vm.data.apiKey }
 	      });
@@ -1469,6 +1464,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 		}
 	])
+
 
 
 
