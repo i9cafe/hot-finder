@@ -956,6 +956,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 			  order: (vm.params.checkPopular === 'Y' ? 'viewCount' : 'relevance'),
               q: vm.params.keyword,
 			  pageToken: argPageToken,
+              publishedAfter: (vm.data.recentUse === 'Y' ? new Date(today.setDate(today.getDate() - vm.params.recentDay)) : new Date(Date.UTC(y, m - 1, d))),
+			  publishedBefore: (vm.data.recentUse === 'Y' ? new Date() : new Date(Date.UTC(a, b - 1, c)))
             }
           });
 		  
@@ -1001,6 +1003,8 @@ const app = angular.module('hotFinder', ['ngRoute'
               videoDuration: vm.params.shortsLong,
 			  order: (vm.params.checkPopular === 'Y' ? 'viewCount' : 'relevance'),
               channelId: arguChannelId,
+              publishedAfter: (vm.data.recentUse === 'Y' ? new Date(today.setDate(today.getDate() - vm.params.recentDay)) : new Date(Date.UTC(y, m - 1, d))),
+			  publishedBefore: (vm.data.recentUse === 'Y' ? new Date() : new Date(Date.UTC(a, b - 1, c)))
             }
           });
 			
@@ -1040,6 +1044,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 			  order: (vm.params.checkPopular === 'Y' ? 'viewCount' : 'relevance'),
               channelId: arguChannelId,
 			  q: vm.params.keyword,
+              publishedAfter: (vm.data.recentUse === 'Y' ? new Date(today.setDate(today.getDate() - vm.params.recentDay)) : new Date(Date.UTC(y, m - 1, d))),
+			  publishedBefore: (vm.data.recentUse === 'Y' ? new Date() : new Date(Date.UTC(a, b - 1, c)))
             }
           });
 			
@@ -1457,6 +1463,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 		}
 	])
+
 
 
 
