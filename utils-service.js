@@ -458,6 +458,16 @@ angular.module('hotFinder')
 	        });
 	      };
 
+		this.changeExcuteMode = (vm) => {
+			if (vm.params.excuteMode === "CHANNEL") {
+
+			} else if (vm.params.excuteMode === "KEYWORD") {
+
+			} else {
+
+			}
+		};
+
 		this.changeRecentUse = (vm) => {
 			const searchRec = document.getElementById('searchbox-recentDay');
 	          
