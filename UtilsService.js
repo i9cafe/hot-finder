@@ -2,7 +2,7 @@
 angular.module('hotFinder')
 .service('UtilsService', ['$timeout', '$uibModal', function($timeout, $uibModal) {	
 
-      this.doSearchKeywordModeToken = async (argPageToken, apiClient, vm) => {
+      this.doSearchKeywordModeToken = async (apiClient, vm) => {
         try {
           const today = new Date();
 		  
@@ -19,7 +19,7 @@ angular.module('hotFinder')
               videoDuration: vm.params.shortsLong,
 			  order: (vm.params.checkPopular === 'Y' ? 'viewCount' : 'relevance'),
               q: vm.params.keyword,
-			  pageToken: argPageToken,
+			  pageToken: vm.pageToken,
               publishedAfter: (vm.data.recentUse === 'Y' ? new Date(today.setDate(today.getDate() - vm.params.recentDay)) : new Date(Date.UTC(y, m - 1, d))),
 			  publishedBefore: (vm.data.recentUse === 'Y' ? new Date() : new Date(Date.UTC(a, b - 1, c + 1)))
             }
