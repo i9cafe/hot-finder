@@ -20,7 +20,7 @@ const app = angular.module('hotFinder', ['ngRoute'
       const vm = this;
 
 	  vm.failedFlag = 'N';
-	  let pageToken = "";
+	  vm.pageToken = "";
 	  
       vm.data = {};
       vm.data.apiKey = "AIzaSyCg2tnEwBThaOS6-sdEzz--8skbl_C3Gps";
@@ -985,9 +985,9 @@ const app = angular.module('hotFinder', ['ngRoute'
 			lastDataLengthCount = result.length;
 			
 			for (let token_index = 1; token_index < vm.data.pageTokenPage; token_index++) {
-				if (pageToken === "") break;
+				if (vm.pageToken === "") break;
 				
-				items = await this.doSearchKeywordModeToken(pageToken);
+				items = await this.doSearchKeywordModeToken(vm.pageToken);
 
 				if (vm.failedFlag === 'Y') {
 					return;	
@@ -1264,9 +1264,9 @@ const app = angular.module('hotFinder', ['ngRoute'
 		  
 		  if (response.data.nextPageToken !== undefined && response.data.nextPageToken !== null &&
 			response.data.nextPageToken !== "") {
-				pageToken = response.data.nextPageToken;
+				vm.pageToken = response.data.nextPageToken;
 			} else {
-				pageToken = "";				
+				vm.pageToken = "";				
 			}
 
           return response.data.items;
@@ -1305,9 +1305,9 @@ const app = angular.module('hotFinder', ['ngRoute'
 		  
 		  if (response.data.nextPageToken !== undefined && response.data.nextPageToken !== null &&
 			response.data.nextPageToken !== "") {
-				pageToken = response.data.nextPageToken;
+				vm.pageToken = response.data.nextPageToken;
 			} else {
-				pageToken = "";				
+				vm.pageToken = "";				
 			}
 
           return response.data.items;
@@ -1455,6 +1455,7 @@ const app = angular.module('hotFinder', ['ngRoute'
     }
   ])
 	
+
 
 
 
