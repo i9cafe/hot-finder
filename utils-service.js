@@ -460,11 +460,11 @@ angular.module('hotFinder')
 
 		this.changeExcuteMode = (vm) => {
 			if (vm.params.excuteMode === "CHANNEL") {
-
+				vm.data.pageTokenPage = null;
 			} else if (vm.params.excuteMode === "KEYWORD") {
-
+				vm.data.pageTokenPage = 1;
 			} else {
-
+				vm.data.pageTokenPage = null;
 			}
 		};
 
