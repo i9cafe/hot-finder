@@ -13,7 +13,8 @@ const app = angular.module('hotFinder', ['ngRoute'
     '$scope',
     '$timeout',
 	'$uibModal',
-    function($scope, $timeout, $uibModal) {
+	  'UtilsService',
+    function($scope, $timeout, $uibModal, UtilsService) {
 
       /*************************** DEFAULT INFO SETUP ***************************/
       const vm = this;
@@ -1552,6 +1553,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 		}
 	])
+
 
 
 
