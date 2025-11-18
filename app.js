@@ -214,6 +214,36 @@ const app = angular.module('hotFinder', ['ngRoute'
 			url: chanelBaseUrl + "UCrRBSlHTvHGOd6hyF3DLPPw",
 			flag: "Y",
 			comment: "30"
+		  }, {
+			id: "TEST",
+			name: "NAME",
+			url: chanelBaseUrl + "TEST",
+			flag: "N",
+			comment: "31"
+		  }, {
+			id: "TEST",
+			name: "NAME",
+			url: chanelBaseUrl + "TEST",
+			flag: "N",
+			comment: "32"
+		  }, {
+			id: "TEST",
+			name: "NAME",
+			url: chanelBaseUrl + "TEST",
+			flag: "N",
+			comment: "33"
+		  }, {
+			id: "TEST",
+			name: "NAME",
+			url: chanelBaseUrl + "TEST",
+			flag: "N",
+			comment: "34"
+		  }, {
+			id: "TEST",
+			name: "NAME",
+			url: chanelBaseUrl + "TEST",
+			flag: "N",
+			comment: "35"
 		  }
 	  ].sort((a, b) => a.name.localeCompare(b.name, 'ko'));	
 		
@@ -1432,6 +1462,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 		}
 	])
+
 
 
 
