@@ -891,6 +891,18 @@ const app = angular.module('hotFinder', ['ngRoute'
         }
       };
 
+		this.errorFunc = (error) => {
+			const resetTimeKST = this.getKoreaTimeFromPacificMidnight();
+          
+          if (error.message.indexOf("403") > -1) {
+            alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST);
+          } else if (error.message.indexOf("400") > -1) {
+			alert('잘못된 API KEY 입니다.');
+		  } else {          
+            alert('[Error]: ' + error.message);
+          }
+		}
+
       this.doSearchKeywordMode = async () => {
         try {
           const today = new Date();
@@ -922,15 +934,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
           return response.data.items;
         } catch (error) {
-          const resetTimeKST = this.getKoreaTimeFromPacificMidnight();
-          
-          if (error.message.indexOf("403") > -1) {
-            alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST);
-          } else if (error.message.indexOf("400") > -1) {
-			alert('잘못된 API KEY 입니다.');
-		  } else {          
-            alert('[Error]: ' + error);
-          }
+          this.errorFunc(error);
 
 	      failedFlag = 'Y';
           this.hideLoader(); 
@@ -971,15 +975,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
           return response.data.items;
         } catch (error) {
-          const resetTimeKST = this.getKoreaTimeFromPacificMidnight();
-          
-          if (error.message.indexOf("403") > -1) {
-            alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST);
-          } else if (error.message.indexOf("400") > -1) {
-			alert('잘못된 API KEY 입니다.');
-		  } else {          
-            alert('[Error]: ' + error);
-          }
+          this.errorFunc(error);
 
 	      failedFlag = 'Y';
           this.hideLoader(); 
@@ -1011,15 +1007,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			
           return response.data.items;
         } catch (error) {
-          const resetTimeKST = this.getKoreaTimeFromPacificMidnight();
-          
-          if (error.message.indexOf("403") > -1) {
-            alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST);
-          } else if (error.message.indexOf("400") > -1) {
-			alert('잘못된 API KEY 입니다.');
-		  } else {          
-            alert('[Error]: ' + error);
-          }
+          this.errorFunc(error);
 
 	      failedFlag = 'Y';
           this.hideLoader(); 
@@ -1052,15 +1040,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			
           return response.data.items;
         } catch (error) {
-          const resetTimeKST = this.getKoreaTimeFromPacificMidnight();
-          
-          if (error.message.indexOf("403") > -1) {
-            alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST);
-          } else if (error.message.indexOf("400") > -1) {
-			alert('잘못된 API KEY 입니다.');
-		  } else {          
-            alert('[Error]: ' + error);
-          }
+          this.errorFunc(error);
 
 	      failedFlag = 'Y';
           this.hideLoader(); 
@@ -1079,15 +1059,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
           return response.data.items;
         } catch (error) {
-          const resetTimeKST = this.getKoreaTimeFromPacificMidnight();
-          
-          if (error.message.indexOf("403") > -1) {
-            alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST);
-          } else if (error.message.indexOf("400") > -1) {
-			alert('잘못된 API KEY 입니다.');
-		  } else {          
-            alert('[Error]: ' + error);
-          }
+          this.errorFunc(error);
 
 	      failedFlag = 'Y';
           this.hideLoader(); 
@@ -1106,15 +1078,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
           return response.data.items;
         } catch (error) {
-          const resetTimeKST = this.getKoreaTimeFromPacificMidnight();
-          
-          if (error.message.indexOf("403") > -1) {
-            alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST);
-          } else if (error.message.indexOf("400") > -1) {
-			alert('잘못된 API KEY 입니다.');
-		  } else {          
-            alert('[Error]: ' + error);
-          }
+          this.errorFunc(error);
 
 	      failedFlag = 'Y';
           this.hideLoader(); 
@@ -1464,6 +1428,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 		}
 	])
+
 
 
 
