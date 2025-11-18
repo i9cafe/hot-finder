@@ -915,6 +915,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 			alert("1 ~ 10 사이의 값을 입력해주세요. [검색어당 최대 검색 수 2]");
 			return;
 		}
+
+			vm.pageToken = "";
 			  
 			vm.params.keyword = vm.keyword.includeKey + ' ' + vm.keyword.exceptKey;
 
@@ -1358,6 +1360,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
