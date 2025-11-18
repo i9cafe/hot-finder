@@ -2,7 +2,7 @@
 angular.module('hotFinder')
 .service('UtilsService', ['$timeout', '$uibModal', function($timeout, $uibModal) {
 
-	this.doSearchVideos = async (videoIds, apiClient) => {
+	this.doSearchVideos = async (videoIds, apiClient, vm) => {
         try {
           const response = await apiClient.get('videos', {
             params: {
@@ -15,13 +15,13 @@ angular.module('hotFinder')
         } catch (error) {
           this.errorFunc(error);
 
-	      failedFlag = 'Y';
+	      vm.failedFlag = 'Y';
           this.hideLoader(); 
 		  return [];
         }
       };
 		
-      this.doSearchChannels = async (channelIds, apiClient) => {
+      this.doSearchChannels = async (channelIds, apiClient, vm) => {
         try {
           const response = await apiClient.get('channels', {
             params: {
@@ -34,7 +34,7 @@ angular.module('hotFinder')
         } catch (error) {
           this.errorFunc(error);
 
-	      failedFlag = 'Y';
+	      vm.failedFlag = 'Y';
           this.hideLoader(); 
 		  return [];
         }
