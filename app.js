@@ -920,7 +920,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 			this.showLoader(); 
 
-			let items = await this.doSearchKeywordMode();
+			let items = await vm.doSearchKeywordMode(apiClient);
 
 			if (vm.failedFlag === 'Y') {
 				return;	
@@ -987,7 +987,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			for (let token_index = 1; token_index < vm.data.pageTokenPage; token_index++) {
 				if (vm.pageToken === "") break;
 				
-				items = await this.doSearchKeywordModeToken(vm.pageToken);
+				items = await vm.doSearchKeywordModeToken(vm.pageToken, apiClient);
 
 				if (vm.failedFlag === 'Y') {
 					return;	
@@ -1240,52 +1240,15 @@ const app = angular.module('hotFinder', ['ngRoute'
 		}
       }
 
-      this.doSearchKeywordMode = async (apiClient) => {
+      vm.doSearchKeywordMode = async (apiClient) => {
 			return await UtilsService.doSearchKeywordMode(apiClient, vm);  
+      };	  
+
+      vm.doSearchKeywordModeToken = async (argPageToken, apiClient) => {
+			return await UtilsService.doSearchKeywordModeToken(argPageToken, apiClient, vm); 
       };
 	  
-
-      this.doSearchKeywordModeToken = async (argPageToken) => {
-        try {
-          const today = new Date();
-		  
-		  const [y, m, d] = document.getElementById('search-startDate').value.split("-").map(Number);		  
-		  const [a, b, c] = document.getElementById('search-endDate').value.split("-").map(Number);
-
-          const response = await apiClient.get('search', {
-            params: {
-              part: 'snippet',
-              maxResults: (vm.params.maxSearchCountByKeyword <= 0 ? 1 : vm.params.maxSearchCountByKeyword),
-              type: "video",
-              regionCode: vm.params.country,
-              relevanceLanguage: vm.params.language,
-              videoDuration: vm.params.shortsLong,
-			  order: (vm.params.checkPopular === 'Y' ? 'viewCount' : 'relevance'),
-              q: vm.params.keyword,
-			  pageToken: argPageToken,
-              publishedAfter: (vm.data.recentUse === 'Y' ? new Date(today.setDate(today.getDate() - vm.params.recentDay)) : new Date(Date.UTC(y, m - 1, d))),
-			  publishedBefore: (vm.data.recentUse === 'Y' ? new Date() : new Date(Date.UTC(a, b - 1, c + 1)))
-            }
-          });
-		  
-		  if (response.data.nextPageToken !== undefined && response.data.nextPageToken !== null &&
-			response.data.nextPageToken !== "") {
-				vm.pageToken = response.data.nextPageToken;
-			} else {
-				vm.pageToken = "";				
-			}
-
-          return response.data.items;
-        } catch (error) {
-          this.errorFunc(error);
-
-	      vm.failedFlag = 'Y';
-          this.hideLoader(); 
-		  return [];
-        }
-      };
-	  
-	  this.doSearchChannelMode = async (arguChannelId, apiClient) => {
+	  vm.doSearchChannelMode = async (arguChannelId, apiClient) => {
 			return await UtilsService.doSearchChannelMode(arguChannelId, apiClient, vm);   
       };
 	  
@@ -1392,6 +1355,7 @@ const app = angular.module('hotFinder', ['ngRoute'
     }
   ])
 	
+
 
 
 
