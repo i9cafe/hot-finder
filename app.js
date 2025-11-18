@@ -987,7 +987,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			for (let token_index = 1; token_index < vm.data.pageTokenPage; token_index++) {
 				if (vm.pageToken === "") break;
 				
-				items = await vm.doSearchKeywordModeToken(vm.pageToken, apiClient);
+				items = await vm.doSearchKeywordModeToken(apiClient);
 
 				if (vm.failedFlag === 'Y') {
 					return;	
@@ -1244,8 +1244,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 			return await UtilsService.doSearchKeywordMode(apiClient, vm);  
       };	  
 
-      vm.doSearchKeywordModeToken = async (argPageToken, apiClient) => {
-			return await UtilsService.doSearchKeywordModeToken(argPageToken, apiClient, vm); 
+      vm.doSearchKeywordModeToken = async (apiClient) => {
+			return await UtilsService.doSearchKeywordModeToken(apiClient, vm); 
       };
 	  
 	  vm.doSearchChannelMode = async (arguChannelId, apiClient) => {
@@ -1355,6 +1355,7 @@ const app = angular.module('hotFinder', ['ngRoute'
     }
   ])
 	
+
 
 
 
