@@ -2,6 +2,23 @@
 angular.module('hotFinder')
 .service('UtilsService', ['$timeout', '$uibModal', function($timeout, $uibModal) {
 
+	// ======================
+  // API 에러 처리
+  // ======================
+  this.errorFunc = (error) => {
+      const resetTimeKST = this.getKoreaTimeFromPacificMidnight();
+      if (error.message.indexOf("403") > -1) {
+          alert('일일 할당량을 모두 사용하셨습니다. \n' + '초기화되는 시간: ' + resetTimeKST);
+      } else if (error.message.indexOf("400") > -1) {
+          alert('잘못된 API KEY 입니다.');
+      } else {          
+          alert('[Error]: ' + error.message);
+      }
+  };
+
+	// ======================
+  // Loader
+  // ======================
   this.showLoader = () => {
         document.getElementById('loader').style.display = 'flex';
         document.getElementById('content').style.display = 'none';
@@ -12,6 +29,9 @@ angular.module('hotFinder')
         document.getElementById('content').style.display = 'block';
       };
 
+	 // ======================
+  // 시간 관련
+  // ======================
   this.getKoreaTimeFromPacificMidnight = () => {
 				const n = new Date(), y = n.getUTCFullYear(),
 		        s = new Date(Date.UTC(y,2,8 + (7-new Date(Date.UTC(y,2,8)).getUTCDay())%7,10)),
