@@ -474,6 +474,7 @@ angular.module('hotFinder')
 					vm.data.pageTokenPage = 1;
 				    element.removeAttribute("readonly"); 
 					element.style.color = 'lightgray';
+					  element.focus();
 					
 				});			
 			} else {
