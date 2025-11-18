@@ -591,6 +591,10 @@ const app = angular.module('hotFinder', ['ngRoute'
 
       $scope.gridOptions.data = [];
 
+		this.clickHome = () => {
+			location.reload(); 
+		}
+
       this.search = async () => {
 
 		  failedFlag = 'N';
@@ -1363,10 +1367,6 @@ const app = angular.module('hotFinder', ['ngRoute'
         UtilsService.hideLoader();
       };
 
-		this.clickHome = () => {
-			location.reload(); 
-		}
-
       vm.hide = () => {
         UtilsService.hide(vm);
       };
@@ -1406,6 +1406,7 @@ const app = angular.module('hotFinder', ['ngRoute'
     }
   ])
 	
+
 
 
 
