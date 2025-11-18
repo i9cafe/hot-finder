@@ -42,6 +42,50 @@ angular.module('hotFinder')
 		  return `${h>=12?'오후':'오전'} ${h%12||12}시`; 
       };
 
+	// ======================
+    // Excel / CSV 처리
+    // ======================
+    this.escapeCSV = (value) => {
+        if (value === null || value === undefined) return '';
+        let cell = String(value);
+        cell = cell.replace(/"/g, '""'); 
+        if (/[",\n]/.test(cell)) cell = `"${cell}"`;
+        return cell;
+    };
+
+    this.excelDownload = (gridOptions) => {
+        if (!gridOptions || !gridOptions.data) return;
+
+        const columnNames = gridOptions.columnDefs.map(col => col.name);
+        const columnHeaders = gridOptions.columnDefs.map(col => col.displayName || col.name);
+        const rows = gridOptions.data;
+
+        let csv = columnHeaders.map(this.escapeCSV).join(',') + '\n';
+        rows.forEach(row => {
+            const rowData = columnNames.map(colName => this.escapeCSV(row[colName]));
+            csv += rowData.join(',') + '\n';
+        });
+
+        const csvWithBOM = '\uFEFF' + csv;
+
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const dd = String(today.getDate()).padStart(2, '0');
+        const dateStr = `${yyyy}${mm}${dd}`;
+
+        const fileName = `유튜브조회결과_${dateStr}.csv`;
+        const blob = new Blob([csvWithBOM], { type: 'text/csv;charset=utf-8;' });
+        const downloadLink = document.createElement('a');
+        const url = URL.createObjectURL(blob);
+        downloadLink.href = url;
+        downloadLink.download = fileName;
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+        URL.revokeObjectURL(url);
+    };
+
 	this.clickKeywordTab = () => {
 		const keywordInputControl = document.getElementById('keyword-includeKey');
 		keywordInputControl.focus();
