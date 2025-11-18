@@ -729,7 +729,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 				  let obj = {};
 					let itm = items[j];
 
-					obj = this.makeObj(obj, itm);
+					obj = vm.makeObj(obj, itm);
 			      
 				  if (index === 0) {
 					result[j] = obj;
@@ -865,7 +865,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			  let obj = {};
 				let itm = items[j];
 
-					obj = this.makeObj(obj, itm);
+					obj = vm.makeObj(obj, itm);
 
 			  result[j] = obj;
 			}
@@ -928,7 +928,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 				  let obj = {};
 					let itm = items[v];
 
-					obj = this.makeObj(obj, itm);
+					obj = vm.makeObj(obj, itm);
 
 				  result[lastDataLengthCount + v] = obj;
 				}
@@ -1078,7 +1078,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 				  let obj = {};
 					let itm = items[j];
 
-					obj = this.makeObj(obj, itm);
+					obj = vm.makeObj(obj, itm);
 			      
 				  if (index === 0) {
 					result[j] = obj;
@@ -1406,6 +1406,7 @@ const app = angular.module('hotFinder', ['ngRoute'
     }
   ])
 	
+
 
 
 
