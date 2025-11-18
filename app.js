@@ -788,7 +788,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 					continue;
 				}
 				
-				let items = await this.doSearchChannelMode(channelId);
+				let items = await vm.doSearchChannelMode(channelId, apiClient);
 
 				if (vm.failedFlag === 'Y') {
 					return;	
@@ -1320,36 +1320,8 @@ const app = angular.module('hotFinder', ['ngRoute'
         }
       };
 	  
-	  this.doSearchChannelMode = async (arguChannelId) => {
-        try {
-          const today = new Date();
-		  
-		  const [y, m, d] = document.getElementById('search-startDate').value.split("-").map(Number);		  
-		  const [a, b, c] = document.getElementById('search-endDate').value.split("-").map(Number);
-
-          const response = await apiClient.get('search', {
-            params: {
-              part: 'snippet',
-              maxResults: (vm.params.maxSearchCountByChannel <= 0 ? 1 : vm.params.maxSearchCountByChannel),
-              type: "video",
-              regionCode: vm.params.country,
-              relevanceLanguage: vm.params.language,
-              videoDuration: vm.params.shortsLong,
-			  order: (vm.params.checkPopular === 'Y' ? 'viewCount' : 'relevance'),
-              channelId: arguChannelId,
-              publishedAfter: (vm.data.recentUse === 'Y' ? new Date(today.setDate(today.getDate() - vm.params.recentDay)) : new Date(Date.UTC(y, m - 1, d))),
-			  publishedBefore: (vm.data.recentUse === 'Y' ? new Date() : new Date(Date.UTC(a, b - 1, c + 1)))
-            }
-          });
-			
-          return response.data.items;
-        } catch (error) {
-          this.errorFunc(error);
-
-	      vm.failedFlag = 'Y';
-          this.hideLoader(); 
-		  return [];
-        }
+	  this.doSearchChannelMode = async (arguChannelId, apiClient) => {
+			return await UtilsService.doSearchChannelMode(arguChannelId, apiClient, vm);   
       };
 	  
 	  vm.doSearchBothMode = async (arguChannelId, apiClient) => {
@@ -1455,6 +1427,7 @@ const app = angular.module('hotFinder', ['ngRoute'
     }
   ])
 	
+
 
 
 
