@@ -1066,16 +1066,6 @@ const app = angular.module('hotFinder', ['ngRoute'
 			return obj;
 		};
 
-      this.hide = () => {
-        if (vm.data.hide === "접기") {
-          document.getElementById('search-area').style.display = 'none';
-          vm.data.hide = "펴기";
-        } else {
-          document.getElementById('search-area').style.display = 'block';
-          vm.data.hide = "접기";
-        }
-      };
-
       this.doSearchKeywordMode = async () => {
         try {
           const today = new Date();
@@ -1356,6 +1346,10 @@ const app = angular.module('hotFinder', ['ngRoute'
 			location.reload(); 
 		}
 
+      vm.hide = () => {
+        UtilsService.hide();
+      };
+
 		vm.clickGridCheckbox = () => {
 			UtilsService.clickGridCheckbox(vm.channelMaster);
 		};
@@ -1467,6 +1461,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 		}
 	])
+
 
 
 
