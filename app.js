@@ -31,8 +31,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 	  const chanelBaseUrl = "https://www.youtube.com/channel/";
 
-		// url 로 채널 id 찾기
-		//https://commentpicker.com/youtube-channel-id.php
+		// 채널ID 찾기 https://commentpicker.com/youtube-channel-id.php
 	  vm.channelMaster = {};
 	  vm.channelMaster.array = [
 		  {
@@ -1433,6 +1432,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 		}
 	])
+
 
 
 
