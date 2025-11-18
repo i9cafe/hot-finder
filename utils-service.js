@@ -466,18 +466,21 @@ angular.module('hotFinder')
 				$timeout(() => {
 					vm.data.pageTokenPage = 1;
 		            element.setAttribute("readonly", true);
+					element.style.color = 'gray';
 					
 				});			
 			} else if (vm.params.excuteMode === "KEYWORD") {
 				$timeout(() => {
 					vm.data.pageTokenPage = 1;
 				    element.removeAttribute("readonly"); 
+					element.style.color = 'lightgray';
 					
 				});			
 			} else {
 				$timeout(() => {
 					vm.data.pageTokenPage = 1;
 		            element.setAttribute("readonly", true);
+					element.style.color = 'gray';
 					
 				});			
 			}
