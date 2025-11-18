@@ -1,6 +1,46 @@
 
 angular.module('hotFinder')
-.service('UtilsService', ['$timeout', '$uibModal', function($timeout, $uibModal) {		
+.service('UtilsService', ['$timeout', '$uibModal', function($timeout, $uibModal) {	
+
+      this.doSearchKeywordModeToken = async (argPageToken, apiClient, vm) => {
+        try {
+          const today = new Date();
+		  
+		  const [y, m, d] = document.getElementById('search-startDate').value.split("-").map(Number);		  
+		  const [a, b, c] = document.getElementById('search-endDate').value.split("-").map(Number);
+
+          const response = await apiClient.get('search', {
+            params: {
+              part: 'snippet',
+              maxResults: (vm.params.maxSearchCountByKeyword <= 0 ? 1 : vm.params.maxSearchCountByKeyword),
+              type: "video",
+              regionCode: vm.params.country,
+              relevanceLanguage: vm.params.language,
+              videoDuration: vm.params.shortsLong,
+			  order: (vm.params.checkPopular === 'Y' ? 'viewCount' : 'relevance'),
+              q: vm.params.keyword,
+			  pageToken: argPageToken,
+              publishedAfter: (vm.data.recentUse === 'Y' ? new Date(today.setDate(today.getDate() - vm.params.recentDay)) : new Date(Date.UTC(y, m - 1, d))),
+			  publishedBefore: (vm.data.recentUse === 'Y' ? new Date() : new Date(Date.UTC(a, b - 1, c + 1)))
+            }
+          });
+		  
+		  if (response.data.nextPageToken !== undefined && response.data.nextPageToken !== null &&
+			response.data.nextPageToken !== "") {
+				vm.pageToken = response.data.nextPageToken;
+			} else {
+				vm.pageToken = "";				
+			}
+
+          return response.data.items;
+        } catch (error) {
+          this.errorFunc(error);
+
+	      vm.failedFlag = 'Y';
+          this.hideLoader(); 
+		  return [];
+        }
+      };
 
       this.doSearchKeywordMode = async (apiClient, vm) => {
         try {
