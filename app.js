@@ -19,7 +19,7 @@ const app = angular.module('hotFinder', ['ngRoute'
       /*************************** DEFAULT INFO SETUP ***************************/
       const vm = this;
 
-	  let failedFlag = 'N';
+	  vm.failedFlag = 'N';
 	  let pageToken = "";
 	  
       vm.data = {};
@@ -705,7 +705,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
       this.search = async () => {
 
-		  failedFlag = 'N';
+		  vm.failedFlag = 'N';
 
 		  apiClient = axios.create({
 	        baseURL: "https://youtube.googleapis.com/youtube/v3",
@@ -790,7 +790,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 				
 				let items = await this.doSearchChannelMode(channelId);
 
-				if (failedFlag === 'Y') {
+				if (vm.failedFlag === 'Y') {
 					return;	
 				}
 
@@ -922,7 +922,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 			let items = await this.doSearchKeywordMode();
 
-			if (failedFlag === 'Y') {
+			if (vm.failedFlag === 'Y') {
 				return;	
 			}
 
@@ -989,7 +989,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 				
 				items = await this.doSearchKeywordModeToken(pageToken);
 
-				if (failedFlag === 'Y') {
+				if (vm.failedFlag === 'Y') {
 					return;	
 				}
 
@@ -1139,7 +1139,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 				
 				let items = await this.doSearchBothMode(channelId);
 
-				if (failedFlag === 'Y') {
+				if (vm.failedFlag === 'Y') {
 					return;	
 				}
 
@@ -1273,7 +1273,7 @@ const app = angular.module('hotFinder', ['ngRoute'
         } catch (error) {
           this.errorFunc(error);
 
-	      failedFlag = 'Y';
+	      vm.failedFlag = 'Y';
           this.hideLoader(); 
 		  return [];
         }
@@ -1314,7 +1314,7 @@ const app = angular.module('hotFinder', ['ngRoute'
         } catch (error) {
           this.errorFunc(error);
 
-	      failedFlag = 'Y';
+	      vm.failedFlag = 'Y';
           this.hideLoader(); 
 		  return [];
         }
@@ -1346,7 +1346,7 @@ const app = angular.module('hotFinder', ['ngRoute'
         } catch (error) {
           this.errorFunc(error);
 
-	      failedFlag = 'Y';
+	      vm.failedFlag = 'Y';
           this.hideLoader(); 
 		  return [];
         }
@@ -1379,18 +1379,18 @@ const app = angular.module('hotFinder', ['ngRoute'
         } catch (error) {
           this.errorFunc(error);
 
-	      failedFlag = 'Y';
+	      vm.failedFlag = 'Y';
           this.hideLoader(); 
 		  return [];
         }
       }; 
 
       vm.doSearchVideos = async (videoIds, apiClient) => {
-			return await UtilsService.doSearchVideos(videoIds, apiClient);
+			return await UtilsService.doSearchVideos(videoIds, apiClient, vm);
       };
 		
       vm.doSearchChannels = async (channelIds, apiClient) => {
-			return await UtilsService.doSearchChannels(channelIds, apiClient);
+			return await UtilsService.doSearchChannels(channelIds, apiClient, vm);
       };
 
       vm.reset = () => {		  
@@ -1484,6 +1484,7 @@ const app = angular.module('hotFinder', ['ngRoute'
     }
   ])
 	
+
 
 
 
