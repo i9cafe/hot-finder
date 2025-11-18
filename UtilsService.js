@@ -41,6 +41,31 @@ angular.module('hotFinder')
 			  element.focus();
 		};
 
+	this.clickGridCheckbox = (channelMaster) => {
+        channelMaster.okTotalCount = channelMaster.array.filter(item => item.flag === 'Y').length;
+    };
+
+    this.clickGridCheckboxAll = (channelMaster, channelAllFlag) => {
+        const flag = channelAllFlag === 'Y' ? 'Y' : 'N';
+        channelMaster.array.forEach(item => item.flag = flag);
+        channelMaster.okTotalCount = flag === 'Y' ? channelMaster.array.length : 0;
+    };
+
+    this.longTable = (data) => {
+        const element = document.getElementById('scrollable-grid');
+        if (data.longTableDesc === '리스트 펼치기') {
+            $timeout(() => {
+                element.style.removeProperty('max-height');
+                data.longTableDesc = '리스트 접기';
+            });
+        } else {
+            $timeout(() => {
+                element.style.setProperty('max-height', '181px');
+                data.longTableDesc = '리스트 펼치기';
+            });
+        }
+    };
+
   
 
 }]);
