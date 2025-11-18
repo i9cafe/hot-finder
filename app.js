@@ -25,12 +25,12 @@ const app = angular.module('hotFinder', ['ngRoute'
       vm.data = {};
       vm.data.apiKey = "AIzaSyCg2tnEwBThaOS6-sdEzz--8skbl_C3Gps";
 
-	let apiClient = axios.create({
+	  let apiClient = axios.create({
 	        baseURL: "https://youtube.googleapis.com/youtube/v3",
 	        params: { key: vm.data.apiKey }
-	      });
+	    });
 
-	  const chanelBaseUrl = "https://www.youtube.com/channel/";
+	  const BU = "https://www.youtube.com/channel/";
 
 		// 채널ID 찾기 https://commentpicker.com/youtube-channel-id.php
 	  vm.channelMaster = {};
@@ -38,589 +38,589 @@ const app = angular.module('hotFinder', ['ngRoute'
 		  {
 			id: "UCOZnrJilN9FsL8pGd0by6xg",
 			name: "썰이빛나는밤에",
-			url: chanelBaseUrl + "UCOZnrJilN9FsL8pGd0by6xg",
+			url: BU + "UCOZnrJilN9FsL8pGd0by6xg",
 			flag: "Y",
 			comment: "1"
 		  }, {
 			id: "UCrW6eDWbbdmxr-XfOkvQKwQ",
 			name: "사연튜브 • 사연라디오",
-			url: chanelBaseUrl + "UCrW6eDWbbdmxr-XfOkvQKwQ",
+			url: BU + "UCrW6eDWbbdmxr-XfOkvQKwQ",
 			flag: "Y",
 			comment: "2"
 		  }, {
 			id: "UC8XIOLMm8kpoaEzjovaoesw",
 			name: "금빛이야기",
-			url: chanelBaseUrl + "UC8XIOLMm8kpoaEzjovaoesw",
+			url: BU + "UC8XIOLMm8kpoaEzjovaoesw",
 			flag: "Y",
 			comment: "3"
 		  }, {
 			id: "UCepniAEbQ3T75M2OuInzIOw",
 			name: "소리로 읽는 세상",
-			url: chanelBaseUrl + "UCepniAEbQ3T75M2OuInzIOw",
+			url: BU + "UCepniAEbQ3T75M2OuInzIOw",
 			flag: "Y",
 			comment: "4"
 		  }, {
 			id: "UCjgM7Q280TRWOHmDT6Nr34A",
 			name: "탑골사연공원",
-			url: chanelBaseUrl + "UCjgM7Q280TRWOHmDT6Nr34A",
+			url: BU + "UCjgM7Q280TRWOHmDT6Nr34A",
 			flag: "Y",
 			comment: "5"
 		  }, {
 			id: "UCzmHMfc84ebwfkRQV5ufAKw",
 			name: "황혼사연",
-			url: chanelBaseUrl + "UCzmHMfc84ebwfkRQV5ufAKw",
+			url: BU + "UCzmHMfc84ebwfkRQV5ufAKw",
 			flag: "Y",
 			comment: "6"
 		  }, {
 			id: "UCT2S9OFvyF4rMZZQeNcIu3Q",
 			name: "인생사연",
-			url: chanelBaseUrl + "UCT2S9OFvyF4rMZZQeNcIu3Q",
+			url: BU + "UCT2S9OFvyF4rMZZQeNcIu3Q",
 			flag: "Y",
 			comment: "7"
 		  }, {
 			id: "UCko5Mjg45-Kz8P2mq_2FFsg",
 			name: "풀빛사연",
-			url: chanelBaseUrl + "UCko5Mjg45-Kz8P2mq_2FFsg",
+			url: BU + "UCko5Mjg45-Kz8P2mq_2FFsg",
 			flag: "Y",
 			comment: "8"
 		  }, {
 			id: "UCZmDNNxAYodRPudlI0si0XA",
 			name: "매일사연",
-			url: chanelBaseUrl + "UCZmDNNxAYodRPudlI0si0XA",
+			url: BU + "UCZmDNNxAYodRPudlI0si0XA",
 			flag: "Y",
 			comment: "9"
 		  }, {
 			id: "UCnDG7vNvXXpYxtv8ao5oWlw",
 			name: "인생정자",
-			url: chanelBaseUrl + "UCnDG7vNvXXpYxtv8ao5oWlw",
+			url: BU + "UCnDG7vNvXXpYxtv8ao5oWlw",
 			flag: "Y",
 			comment: "10"
 		  }, {
 			id: "UC5Fznx6E3uzShi7n_kIEFRA",
 			name: "사연만사",
-			url: chanelBaseUrl + "UC5Fznx6E3uzShi7n_kIEFRA",
+			url: BU + "UC5Fznx6E3uzShi7n_kIEFRA",
 			flag: "Y",
 			comment: "11"
 		  }, {
 			id: "UCXVtesz30jjhcUQZAlhOUqw",
 			name: "은하수별동네",
-			url: chanelBaseUrl + "UCXVtesz30jjhcUQZAlhOUqw",
+			url: BU + "UCXVtesz30jjhcUQZAlhOUqw",
 			flag: "Y",
 			comment: "12"
 		  }, {
 			id: "UCm9niqYY_OzexSD4zLvNBeQ",
 			name: "운명같은이야기",
-			url: chanelBaseUrl + "UCm9niqYY_OzexSD4zLvNBeQ",
+			url: BU + "UCm9niqYY_OzexSD4zLvNBeQ",
 			flag: "Y",
 			comment: "13"
 		  }, {
 			id: "UCHq8jnJywM22kIwjo8RgCIg",
 			name: "세상만사요지경속이다",
-			url: chanelBaseUrl + "UCHq8jnJywM22kIwjo8RgCIg",
+			url: BU + "UCHq8jnJywM22kIwjo8RgCIg",
 			flag: "Y",
 			comment: "14"
 		  }, {
 			id: "UCRJK3vc6sLqwTUkAZt7_Z6Q",
 			name: "스페셜튜브",
-			url: chanelBaseUrl + "UCRJK3vc6sLqwTUkAZt7_Z6Q",
+			url: BU + "UCRJK3vc6sLqwTUkAZt7_Z6Q",
 			flag: "Y",
 			comment: "15"
 		  }, {
 			id: "UC6jMDfjyquRk30OSoe1xjJQ",
 			name: "마음의등대",
-			url: chanelBaseUrl + "UC6jMDfjyquRk30OSoe1xjJQ",
+			url: BU + "UC6jMDfjyquRk30OSoe1xjJQ",
 			flag: "Y",
 			comment: "16"
 		  }, {
 			id: "UC-MGBGZzfLLfmDiZP73f6ZQ",
 			name: "노후의아름다운이야기",
-			url: chanelBaseUrl + "UC-MGBGZzfLLfmDiZP73f6ZQ",
+			url: BU + "UC-MGBGZzfLLfmDiZP73f6ZQ",
 			flag: "Y",
 			comment: "17"
 		  }, {
 			id: "UClmsF6cF0oSTBlR9pfG0MZw",
 			name: "은빛다방",
-			url: chanelBaseUrl + "UClmsF6cF0oSTBlR9pfG0MZw",
+			url: BU + "UClmsF6cF0oSTBlR9pfG0MZw",
 			flag: "Y",
 			comment: "18"
 		  }, {
 			id: "UCNuGU6mCxH-qXcfH7gjMlmA",
 			name: "각설탕회관",
-			url: chanelBaseUrl + "UCNuGU6mCxH-qXcfH7gjMlmA",
+			url: BU + "UCNuGU6mCxH-qXcfH7gjMlmA",
 			flag: "Y",
 			comment: "19"
 		  }, {
 			id: "UCOLQ6s0kRWGurtiZkn7lpsA",
 			name: "늘푸른인생",
-			url: chanelBaseUrl + "UCOLQ6s0kRWGurtiZkn7lpsA",
+			url: BU + "UCOLQ6s0kRWGurtiZkn7lpsA",
 			flag: "Y",
 			comment: "20"
 		  }, {
 			id: "UCKCN9FEc3M225mFPlGiOteQ",
 			name: "인생풍경",
-			url: chanelBaseUrl + "UCKCN9FEc3M225mFPlGiOteQ",
+			url: BU + "UCKCN9FEc3M225mFPlGiOteQ",
 			flag: "Y",
 			comment: "21"
 		  }, {
 			id: "UC-jw_--Ma-gr9N0WvD3A9Ow",
 			name: "인생은육십부터",
-			url: chanelBaseUrl + "UC-jw_--Ma-gr9N0WvD3A9Ow",
+			url: BU + "UC-jw_--Ma-gr9N0WvD3A9Ow",
 			flag: "Y",
 			comment: "22"
 		  }, {
 			id: "UCP51IWwyjeKnf6Xk9rvYLkg",
 			name: "사연의빛",
-			url: chanelBaseUrl + "UCP51IWwyjeKnf6Xk9rvYLkg",
+			url: BU + "UCP51IWwyjeKnf6Xk9rvYLkg",
 			flag: "Y",
 			comment: "23"
 		  }, {
 			id: "UCbs5S2Jmrrrk6u_pGJ1EsDg",
 			name: "눈내린소나무같은인생사연",
-			url: chanelBaseUrl + "UCbs5S2Jmrrrk6u_pGJ1EsDg",
+			url: BU + "UCbs5S2Jmrrrk6u_pGJ1EsDg",
 			flag: "Y",
 			comment: "24"
 		  }, {
 			id: "UCwUcHg9hRa-5rjJ7vv8rJzQ",
 			name: "세월의지혜",
-			url: chanelBaseUrl + "UCwUcHg9hRa-5rjJ7vv8rJzQ",
+			url: BU + "UCwUcHg9hRa-5rjJ7vv8rJzQ",
 			flag: "Y",
 			comment: "25"
 		  }, {
 			id: "UCrtZDHeWyWmc_PXYh_bPQog",
 			name: "감사월드",
-			url: chanelBaseUrl + "UCrtZDHeWyWmc_PXYh_bPQog",
+			url: BU + "UCrtZDHeWyWmc_PXYh_bPQog",
 			flag: "Y",
 			comment: "26"
 		  }, {
 			id: "UCJaX4fqnQGoq1oPbpv6pGmg",
 			name: "하늘빛마음",
-			url: chanelBaseUrl + "UCJaX4fqnQGoq1oPbpv6pGmg",
+			url: BU + "UCJaX4fqnQGoq1oPbpv6pGmg",
 			flag: "Y",
 			comment: "27"
 		  }, {
 			id: "UC1GyaYKcLa2lU5JBFCDP4VQ",
 			name: "어둠속의빛",
-			url: chanelBaseUrl + "UC1GyaYKcLa2lU5JBFCDP4VQ",
+			url: BU + "UC1GyaYKcLa2lU5JBFCDP4VQ",
 			flag: "Y",
 			comment: "28"
 		  }, {
 			id: "UCXwBhLpVZQOfBid9_h-FMrA",
 			name: "톡톡사연",
-			url: chanelBaseUrl + "UCXwBhLpVZQOfBid9_h-FMrA",
+			url: BU + "UCXwBhLpVZQOfBid9_h-FMrA",
 			flag: "Y",
 			comment: "29"
 		  }, {
 			id: "UCrRBSlHTvHGOd6hyF3DLPPw",
 			name: "랄라하의사연드라마",
-			url: chanelBaseUrl + "UCrRBSlHTvHGOd6hyF3DLPPw",
+			url: BU + "UCrRBSlHTvHGOd6hyF3DLPPw",
 			flag: "Y",
 			comment: "30"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "31"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "32"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "33"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "34"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "35"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "36"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "37"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "38"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "39"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "40"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "41"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "42"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "43"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "44"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "45"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "46"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "47"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "48"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "49"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "50"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "51"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "52"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "53"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "54"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "55"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "56"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "57"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "58"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "59"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "60"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "61"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "62"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "63"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "64"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "65"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "66"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "67"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "68"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "69"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "70"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "71"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "72"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "73"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "74"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "75"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "76"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "77"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "78"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "79"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "80"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "81"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "82"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "83"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "84"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "85"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "86"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "87"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "88"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "89"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "90"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "91"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "92"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "93"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "94"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "95"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "96"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "97"
 		  }, {
 			id: "TEST",
 			name: "NAME",
-			url: chanelBaseUrl + "TEST",
+			url: BU + "TEST",
 			flag: "N",
 			comment: "98"
 		  }
@@ -1354,6 +1354,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
