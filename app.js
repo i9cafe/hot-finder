@@ -1358,8 +1358,7 @@ const app = angular.module('hotFinder', ['ngRoute'
       };
 
 	  this.clickKeywordTab = () => {
-		const keywordInputControl = document.getElementById('keyword-includeKey');
-		keywordInputControl.focus();
+        UtilsService.clickKeywordTab();
 	  };
 
       vm.showLoader = () => {
@@ -1458,18 +1457,12 @@ const app = angular.module('hotFinder', ['ngRoute'
 				});
 		};
 
-		this.clearInclude = () => {			
-	  		vm.keyword.includeKey = "";
-			
-			let element = document.getElementById('keyword-includeKey');
-			  element.focus();
+		this.clearInclude = () => {	
+        	UtilsService.clearInclude();
 		};
 
-		this.clearExcept = () => {			
-	  		vm.keyword.exceptKey = "";
-			
-			let element = document.getElementById('keyword-exceptKey');
-			  element.focus();
+		this.clearExcept = () => {		
+        	UtilsService.clearExcept();
 		};
 
     }
@@ -1551,6 +1544,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 		}
 	])
+
 
 
 
