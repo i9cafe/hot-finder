@@ -55,7 +55,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			comment: "3"
 		  }, {
 			id: "UCepniAEbQ3T75M2OuInzIOw",
-			name: "소리로 읽는 세상",
+			name: "소리로읽는세상",
 			url: BU + "UCepniAEbQ3T75M2OuInzIOw",
 			flag: "Y",
 			comment: "4"
@@ -156,10 +156,10 @@ const app = angular.module('hotFinder', ['ngRoute'
 			flag: "Y",
 			comment: "20"
 		  }, {
-			id: "UCKCN9FEc3M225mFPlGiOteQ",
-			name: "인생풍경",
-			url: BU + "UCKCN9FEc3M225mFPlGiOteQ",
-			flag: "Y",
+			id: "TEST",
+			name: "NAME",
+			url: BU + "TEST",
+			flag: "N",
 			comment: "21"
 		  }, {
 			id: "UC-jw_--Ma-gr9N0WvD3A9Ow",
@@ -1360,6 +1360,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
