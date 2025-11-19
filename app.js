@@ -219,7 +219,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			id: "UCMIPYHFP0Y6rMR9pMCfw22Q",
 			name: "추억의향기",
 			url: BU + "UCMIPYHFP0Y6rMR9pMCfw22Q",
-			flag: "N",
+			flag: "Y",
 			comment: "31"
 		  }, {
 			id: "UCV42dR87lzxj1rW_PKBzOFg",
@@ -387,127 +387,127 @@ const app = angular.module('hotFinder', ['ngRoute'
 			id: "UC_nzYc1jF9CHHyaFKnL2tRA",
 			name: "인생세상",
 			url: BU + "UC_nzYc1jF9CHHyaFKnL2tRA",
-			flag: "N",
+			flag: "Y",
 			comment: "59"
 		  }, {
 			id: "UCZwB8Va7XSRKlcy8ralTaVQ",
 			name: "어머니의정원",
 			url: BU + "UCZwB8Va7XSRKlcy8ralTaVQ",
-			flag: "N",
+			flag: "Y",
 			comment: "60"
 		  }, {
 			id: "UCmZkEggG98yxOL4iEvwj7Mg",
 			name: "사연보름달",
 			url: BU + "UCmZkEggG98yxOL4iEvwj7Mg",
-			flag: "N",
+			flag: "Y",
 			comment: "61"
 		  }, {
 			id: "UCTWQLX_se9Go8SJFGQ0xNKQ",
 			name: "지혜백서",
 			url: BU + "UCTWQLX_se9Go8SJFGQ0xNKQ",
-			flag: "N",
+			flag: "Y",
 			comment: "62"
 		  }, {
 			id: "UCl1JOZvMCD9WaC5odFMXQYw",
 			name: "인생마당",
 			url: BU + "UCl1JOZvMCD9WaC5odFMXQYw",
-			flag: "N",
+			flag: "Y",
 			comment: "63"
 		  }, {
 			id: "UCtTsF5hammtb8WYDW2VHpIA",
 			name: "인생의이야기",
 			url: BU + "UCtTsF5hammtb8WYDW2VHpIA",
-			flag: "N",
+			flag: "Y",
 			comment: "64"
 		  }, {
 			id: "UC0YiWzRCN3AAb7a0nrgYseQ",
 			name: "달빛인생사연",
 			url: BU + "UC0YiWzRCN3AAb7a0nrgYseQ",
-			flag: "N",
+			flag: "Y",
 			comment: "65"
 		  }, {
 			id: "UCGNAYwkJkeqvfmOv0o-uY3g",
 			name: "감동정거장",
 			url: BU + "UCGNAYwkJkeqvfmOv0o-uY3g",
-			flag: "N",
+			flag: "Y",
 			comment: "66"
 		  }, {
 			id: "UC6SZ7KSlPrecXoEPflZGEnA",
 			name: "인생지혜길",
 			url: BU + "UC6SZ7KSlPrecXoEPflZGEnA",
-			flag: "N",
+			flag: "Y",
 			comment: "67"
 		  }, {
 			id: "UCKCN9FEc3M225mFPlGiOteQ",
 			name: "인생풍경",
 			url: BU + "UCKCN9FEc3M225mFPlGiOteQ",
-			flag: "N",
+			flag: "Y",
 			comment: "68"
 		  }, {
 			id: "UCj7PybOOLhgx7fqmOmrMJkA",
 			name: "추억찻집",
 			url: BU + "UCj7PybOOLhgx7fqmOmrMJkA",
-			flag: "N",
+			flag: "Y",
 			comment: "69"
 		  }, {
 			id: "UC3E-gJGVeJkevN2ujtrLHkA",
 			name: "감동수다",
 			url: BU + "UC3E-gJGVeJkevN2ujtrLHkA",
-			flag: "N",
+			flag: "Y",
 			comment: "70"
 		  }, {
 			id: "UCQHrg5u6SEUNY-50Q7cDcOw",
 			name: "현자의빛",
 			url: BU + "UCQHrg5u6SEUNY-50Q7cDcOw",
-			flag: "N",
+			flag: "Y",
 			comment: "71"
 		  }, {
 			id: "UCL8PczL6V3e82HazJoaAKUg",
 			name: "햇빛사연",
 			url: BU + "UCL8PczL6V3e82HazJoaAKUg",
-			flag: "N",
+			flag: "Y",
 			comment: "72"
 		  }, {
 			id: "UCYiSJFAzdIXJBknGpnkNDOQ",
 			name: "생각모음",
 			url: BU + "UCYiSJFAzdIXJBknGpnkNDOQ",
-			flag: "N",
+			flag: "Y",
 			comment: "73"
 		  }, {
 			id: "UC56g-Q3t7GjcYtrUGbqYNZw",
 			name: "이야기꾼",
 			url: BU + "UC56g-Q3t7GjcYtrUGbqYNZw",
-			flag: "N",
+			flag: "Y",
 			comment: "74"
 		  }, {
 			id: "UCXemnCQk4I4gZpQW59_zoOQ",
 			name: "인생의필름",
 			url: BU + "UCXemnCQk4I4gZpQW59_zoOQ",
-			flag: "N",
+			flag: "Y",
 			comment: "75"
 		  }, {
 			id: "UCqSaGOxZ_fbEoA6gO04I1EA",
 			name: "그시절책갈피",
 			url: BU + "UCqSaGOxZ_fbEoA6gO04I1EA",
-			flag: "N",
+			flag: "Y",
 			comment: "76"
 		  }, {
 			id: "UCDeTGxoUrj_-fqnBU9ctJig",
 			name: "인생지혜말씀",
 			url: BU + "UCDeTGxoUrj_-fqnBU9ctJig",
-			flag: "N",
+			flag: "Y",
 			comment: "77"
 		  }, {
 			id: "UCGOWtFBBQa5Z4TVlqY-8agw",
 			name: "감동만족",
 			url: BU + "UCGOWtFBBQa5Z4TVlqY-8agw",
-			flag: "N",
+			flag: "Y",
 			comment: "78"
 		  }, {
 			id: "UCO1-4foSzj6kfbrNa3KeajQ",
 			name: "밤의사연",
 			url: BU + "UCO1-4foSzj6kfbrNa3KeajQ",
-			flag: "N",
+			flag: "Y",
 			comment: "79"
 		  }, {
 			id: "TEST",
@@ -1360,6 +1360,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
