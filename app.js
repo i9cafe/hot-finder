@@ -343,7 +343,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			comment: "51"
 		  }, {
 			id: "UCWWlhM1vgxcoRBDolu7GIAw",
-			name: "사연서",
+			name: "사연서점",
 			url: BU + "UCWWlhM1vgxcoRBDolu7GIAw",
 			flag: "N",
 			comment: "52"
@@ -355,7 +355,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			comment: "53"
 		  }, {
 			id: "UCIUwPzbbypAXQ81Y_M6wyLA",
-			name: "이야기아랫목목",
+			name: "이야기아랫목",
 			url: BU + "UCIUwPzbbypAXQ81Y_M6wyLA",
 			flag: "N",
 			comment: "54"
@@ -372,15 +372,15 @@ const app = angular.module('hotFinder', ['ngRoute'
 			flag: "N",
 			comment: "56"
 		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: BU + "TEST",
+			id: "UCkbFDChEAGahpXuIEFtx_BA",
+			name: "드라마인생사연",
+			url: BU + "UCkbFDChEAGahpXuIEFtx_BA",
 			flag: "N",
 			comment: "57"
 		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: BU + "TEST",
+			id: "UCAADkg4ye9oAMjxgmGEKk_w",
+			name: "세월의온기",
+			url: BU + "UCAADkg4ye9oAMjxgmGEKk_w",
 			flag: "N",
 			comment: "58"
 		  }, {
@@ -1360,6 +1360,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
