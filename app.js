@@ -225,121 +225,121 @@ const app = angular.module('hotFinder', ['ngRoute'
 			id: "UCV42dR87lzxj1rW_PKBzOFg",
 			name: "백만사연",
 			url: BU + "UCV42dR87lzxj1rW_PKBzOFg",
-			flag: "N",
+			flag: "Y",
 			comment: "32"
 		  }, {
 			id: "UCVE2CnAhq2k2w9Tzey2Bqcw",
 			name: "구름같은이야기",
 			url: BU + "UCVE2CnAhq2k2w9Tzey2Bqcw",
-			flag: "N",
+			flag: "Y",
 			comment: "33"
 		  }, {
 			id: "UCXKjRRSHojm4fahC0j1LIuQ",
 			name: "인생따라바람따라",
 			url: BU + "UCXKjRRSHojm4fahC0j1LIuQ",
-			flag: "N",
+			flag: "Y",
 			comment: "34"
 		  }, {
 			id: "UCtHooblia6W73O16zN7jxfw",
 			name: "인생나날",
 			url: BU + "UCtHooblia6W73O16zN7jxfw",
-			flag: "N",
+			flag: "Y",
 			comment: "35"
 		  }, {
 			id: "UCfil2r_kgxcFiU8sO0q-Grg",
 			name: "밤의이야기",
 			url: BU + "UCfil2r_kgxcFiU8sO0q-Grg",
-			flag: "N",
+			flag: "Y",
 			comment: "36"
 		  }, {
 			id: "UCeC22b4HaVTyha58HrMjIsA",
 			name: "노을빛인생",
 			url: BU + "UCeC22b4HaVTyha58HrMjIsA",
-			flag: "N",
+			flag: "Y",
 			comment: "37"
 		  }, {
 			id: "UCWL95jlSaNHx2XQHjd4sOeA",
 			name: "감동이야기기",
 			url: BU + "UCWL95jlSaNHx2XQHjd4sOeA",
-			flag: "N",
+			flag: "Y",
 			comment: "38"
 		  }, {
 			id: "UCYEZFZKSR66PyYPY92SKRng",
 			name: "고부관계",
 			url: BU + "UCYEZFZKSR66PyYPY92SKRng",
-			flag: "N",
+			flag: "Y",
 			comment: "39"
 		  }, {
 			id: "UCqId-7lAPFeuzqMqzQm_osA",
 			name: "마음이야기",
 			url: BU + "UCqId-7lAPFeuzqMqzQm_osA",
-			flag: "N",
+			flag: "Y",
 			comment: "40"
 		  }, {
 			id: "UCS2CpRATJ495FCZe7RP_yHg",
 			name: "밤의인생",
 			url: BU + "UCS2CpRATJ495FCZe7RP_yHg",
-			flag: "N",
+			flag: "Y",
 			comment: "41"
 		  }, {
 			id: "UC0miLal8tz9efrRfpfElpGw",
 			name: "보라빛인생사연",
 			url: BU + "UC0miLal8tz9efrRfpfElpGw",
-			flag: "N",
+			flag: "Y",
 			comment: "42"
 		  }, {
 			id: "UCCcouVtd0bGzsn9mM1EeBNw",
 			name: "감동쓰나미",
 			url: BU + "UCCcouVtd0bGzsn9mM1EeBNw",
-			flag: "N",
+			flag: "Y",
 			comment: "43"
 		  }, {
 			id: "UCj82PP56tg53pCQWWXm9Vxg",
 			name: "이야기술술",
 			url: BU + "UCj82PP56tg53pCQWWXm9Vxg",
-			flag: "N",
+			flag: "Y",
 			comment: "44"
 		  }, {
 			id: "UC9AHX1dC3Xofj67Kfm4ZHFg",
 			name: "삶의감동",
 			url: BU + "UC9AHX1dC3Xofj67Kfm4ZHFg",
-			flag: "N",
+			flag: "Y",
 			comment: "45"
 		  }, {
 			id: "UCXGTwL06yRZLjNn_tiVx5ug",
 			name: "포기하지마",
 			url: BU + "UCXGTwL06yRZLjNn_tiVx5ug",
-			flag: "N",
+			flag: "Y",
 			comment: "46"
 		  }, {
 			id: "UCBKugWHJLt-b9QCV01XA3sg",
 			name: "노년생활",
 			url: BU + "UCBKugWHJLt-b9QCV01XA3sg",
-			flag: "N",
+			flag: "Y",
 			comment: "47"
 		  }, {
 			id: "UCl6OqGKkmEEONlSjYD_hynQ",
 			name: "구름같은사연",
 			url: BU + "UCl6OqGKkmEEONlSjYD_hynQ",
-			flag: "N",
+			flag: "Y",
 			comment: "48"
 		  }, {
 			id: "UCRTT55661mbChMNq1XAyJoA",
 			name: "달달한인생여행",
 			url: BU + "UCRTT55661mbChMNq1XAyJoA",
-			flag: "N",
+			flag: "Y",
 			comment: "49"
 		  }, {
 			id: "UCNiF2AnoWdCptQbCFdqBuJw",
 			name: "인생감동",
 			url: BU + "UCNiF2AnoWdCptQbCFdqBuJw",
-			flag: "N",
+			flag: "Y",
 			comment: "50"
 		  }, {
 			id: "UCitqF98OhVgH813fXaNv6sQ",
 			name: "감동은선물",
 			url: BU + "UCitqF98OhVgH813fXaNv6sQ",
-			flag: "N",
+			flag: "Y",
 			comment: "51"
 		  }, {
 			id: "TEST",
@@ -1360,6 +1360,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
