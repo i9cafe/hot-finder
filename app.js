@@ -876,6 +876,11 @@ const app = angular.module('hotFinder', ['ngRoute'
 						alert("채널 모드 사전 설정 탭에서 검색할 채널을 1개 이상 체크하세요.");
 						return;
 					}
+
+					if (vm.channelMaster.okTotalCount > 98) {
+						alert("검색할 채널은 최대 98개까지 가능합니다.");
+						return;
+					}
 		
 					if (vm.params.maxSearchCountByChannel === undefined || vm.params.maxSearchCountByChannel === null || vm.params.maxSearchCountByChannel === "" || 
 					vm.params.maxSearchCountByChannel < 1 || vm.params.maxSearchCountByChannel > 50) {
@@ -1205,6 +1210,11 @@ const app = angular.module('hotFinder', ['ngRoute'
 						alert("채널 모드 사전 설정 탭에서 검색할 채널을 1개 이상 체크하세요.");
 						return;
 					}
+
+					if (vm.channelMaster.okTotalCount > 98) {
+						alert("검색할 채널은 최대 98개까지 가능합니다.");
+						return;
+					}
 				
 					if (vm.keyword.includeKey === "") {
 					  alert("키워드 모드 사전 설정 탭에서 검색 키워드를 입력하세요.");
@@ -1477,6 +1487,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
