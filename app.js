@@ -156,10 +156,10 @@ const app = angular.module('hotFinder', ['ngRoute'
 			flag: "Y",
 			comment: "20"
 		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: BU + "TEST",
-			flag: "N",
+			id: "UC6IIOR-Z7v5_kyMXbmEplfQ",
+			name: "인생바라기",
+			url: BU + "UC6IIOR-Z7v5_kyMXbmEplfQ",
+			flag: "Y",
 			comment: "21"
 		  }, {
 			id: "UC-jw_--Ma-gr9N0WvD3A9Ow",
@@ -228,10 +228,10 @@ const app = angular.module('hotFinder', ['ngRoute'
 			flag: "Y",
 			comment: "32"
 		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: BU + "TEST",
-			flag: "N",
+			id: "UCEgpJ18XQyaaow4VyGWBESA",
+			name: "숨겨진사연",
+			url: BU + "UCEgpJ18XQyaaow4VyGWBESA",
+			flag: "Y",
 			comment: "33"
 		  }, {
 			id: "UCXKjRRSHojm4fahC0j1LIuQ",
@@ -510,10 +510,10 @@ const app = angular.module('hotFinder', ['ngRoute'
 			flag: "Y",
 			comment: "79"
 		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: BU + "TEST",
-			flag: "N",
+			id: "UCZnxPsj0PssE8ysBtpxqVrg",
+			name: "반전의순간",
+			url: BU + "UCZnxPsj0PssE8ysBtpxqVrg",
+			flag: "Y",
 			comment: "80"
 		  }, {
 			id: "UCrqx0Z_eUsvf1M9r1s98d9g",
@@ -600,28 +600,28 @@ const app = angular.module('hotFinder', ['ngRoute'
 			flag: "Y",
 			comment: "94"
 		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: BU + "TEST",
-			flag: "N",
+			id: "UCP4DU-Jz5kqB4c5tgpPKYzg",
+			name: "인생한스푼사연한줌",
+			url: BU + "UCP4DU-Jz5kqB4c5tgpPKYzg",
+			flag: "Y",
 			comment: "95"
 		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: BU + "TEST",
-			flag: "N",
+			id: "UCmivQaFhTIry7sgBg6efzcQ",
+			name: "노을사연",
+			url: BU + "UCmivQaFhTIry7sgBg6efzcQ",
+			flag: "Y",
 			comment: "96"
 		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: BU + "TEST",
-			flag: "N",
+			id: "UCjMupHmI6SMn6H0pwEfC7ew",
+			name: "벼락사연",
+			url: BU + "UCjMupHmI6SMn6H0pwEfC7ew",
+			flag: "Y",
 			comment: "97"
 		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: BU + "TEST",
-			flag: "N",
+			id: "UCBEt3Wa4XPBuSHdehxCOKWw",
+			name: "생생인생극장",
+			url: BU + "UCBEt3Wa4XPBuSHdehxCOKWw",
+			flag: "Y",
 			comment: "98"
 		  }
 	  ].sort((a, b) => a.name.localeCompare(b.name, 'ko'));	
@@ -1365,6 +1365,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
