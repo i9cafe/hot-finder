@@ -705,59 +705,59 @@ const app = angular.module('hotFinder', ['ngRoute'
 
       this.search = async () => {
 
-		  if (confirm("설정한 조건으로 검색을 진행하시겠습니까?")) {
-
-				  vm.failedFlag = 'N';
-		
-				  apiClient = axios.create({
-					baseURL: "https://youtube.googleapis.com/youtube/v3",
-					params: { key: vm.data.apiKey }
-				  });
-		
-				if (vm.params.shortsLong === 'short' && (vm.params.shortsSecond === undefined || vm.params.shortsSecond === null || vm.params.shortsSecond === "" || vm.params.shortsSecond < 1)) {
-					alert("1 이상의 값을 입력하세요. [쇼츠 기준(초)]");
-					return;
-				}
-		
-				if (vm.data.recentUse === 'Y' && (vm.params.recentDay === undefined || vm.params.recentDay === null || vm.params.recentDay === "" || vm.params.recentDay < 1)) {
-					alert("1 이상의 값을 입력하세요. [최근 며칠간의 영상을 조회할까요]");
-					return;
-				}
-		
-				  if (vm.data.recentUse === 'N' && (vm.params.startDate === undefined || vm.params.startDate === null || vm.params.startDate === "")) {
-					alert("날짜를 선택하세요. [검색 시작일]");
-					return;
-				}
-		
-				  if (vm.data.recentUse === 'N' && (vm.params.endDate === undefined || vm.params.endDate === null || vm.params.endDate === "")) {
-					alert("날짜를 선택하세요. [검색 종료일]");
-					return;
-				}		  
-		
-				  const start = new Date(vm.params.startDate);
-				  const end = new Date(vm.params.endDate);
-				  const now = new Date();
-		
-				  if (vm.data.recentUse === 'N' && (start.getTime() >= now.getTime()) ) {
-					alert("검색 시작일이 오늘 날짜를 넘을 수 없습니다.");
-					return;
-				}
-		
-				  if (vm.data.recentUse === 'N' && (start.getTime() >= end.getTime()) ) {
-					alert("검색 종료일이 검색 시작일보다 같거나 이전 날짜일 수 없습니다.");
-					return;
-				}
-		
-				if (vm.params.minViewCount === undefined || vm.params.minViewCount === null || vm.params.minViewCount === "" || vm.params.minViewCount < 1) {
-					alert("1 이상의 값을 입력하세요. [최소 조회수]");
-					return;
-				}
-		
-				if (vm.params.viewCountByMinTime === undefined || vm.params.viewCountByMinTime === null || vm.params.viewCountByMinTime === "" || vm.params.viewCountByMinTime < 1) {
-					alert("1 이상의 값을 입력하세요. [최소 시간당 조회수]");
-					return;
-				}
+			  vm.failedFlag = 'N';
+	
+			  apiClient = axios.create({
+				baseURL: "https://youtube.googleapis.com/youtube/v3",
+				params: { key: vm.data.apiKey }
+			  });
+	
+			if (vm.params.shortsLong === 'short' && (vm.params.shortsSecond === undefined || vm.params.shortsSecond === null || vm.params.shortsSecond === "" || vm.params.shortsSecond < 1)) {
+				alert("1 이상의 값을 입력하세요. [쇼츠 기준(초)]");
+				return;
+			}
+	
+			if (vm.data.recentUse === 'Y' && (vm.params.recentDay === undefined || vm.params.recentDay === null || vm.params.recentDay === "" || vm.params.recentDay < 1)) {
+				alert("1 이상의 값을 입력하세요. [최근 며칠간의 영상을 조회할까요]");
+				return;
+			}
+	
+			  if (vm.data.recentUse === 'N' && (vm.params.startDate === undefined || vm.params.startDate === null || vm.params.startDate === "")) {
+				alert("날짜를 선택하세요. [검색 시작일]");
+				return;
+			}
+	
+			  if (vm.data.recentUse === 'N' && (vm.params.endDate === undefined || vm.params.endDate === null || vm.params.endDate === "")) {
+				alert("날짜를 선택하세요. [검색 종료일]");
+				return;
+			}		  
+	
+			  const start = new Date(vm.params.startDate);
+			  const end = new Date(vm.params.endDate);
+			  const now = new Date();
+	
+			  if (vm.data.recentUse === 'N' && (start.getTime() >= now.getTime()) ) {
+				alert("검색 시작일이 오늘 날짜를 넘을 수 없습니다.");
+				return;
+			}
+	
+			  if (vm.data.recentUse === 'N' && (start.getTime() >= end.getTime()) ) {
+				alert("검색 종료일이 검색 시작일보다 같거나 이전 날짜일 수 없습니다.");
+				return;
+			}
+	
+			if (vm.params.minViewCount === undefined || vm.params.minViewCount === null || vm.params.minViewCount === "" || vm.params.minViewCount < 1) {
+				alert("1 이상의 값을 입력하세요. [최소 조회수]");
+				return;
+			}
+	
+			if (vm.params.viewCountByMinTime === undefined || vm.params.viewCountByMinTime === null || vm.params.viewCountByMinTime === "" || vm.params.viewCountByMinTime < 1) {
+				alert("1 이상의 값을 입력하세요. [최소 시간당 조회수]");
+				return;
+			}
 				
+		  if (confirm("설정한 조건으로 검색을 진행하시겠습니까?")) {
+			  
 				if (vm.params.excuteMode === "CHANNEL") { 
 		
 					if (vm.channelMaster.okTotalCount === 0) {
@@ -1365,6 +1365,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
