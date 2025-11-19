@@ -342,33 +342,33 @@ const app = angular.module('hotFinder', ['ngRoute'
 			flag: "Y",
 			comment: "51"
 		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: BU + "TEST",
+			id: "UCWWlhM1vgxcoRBDolu7GIAw",
+			name: "사연서",
+			url: BU + "UCWWlhM1vgxcoRBDolu7GIAw",
 			flag: "N",
 			comment: "52"
 		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: BU + "TEST",
+			id: "UCaMDndB5LgqRFvIigy0a2Aw",
+			name: "인생교훈지혜",
+			url: BU + "UCaMDndB5LgqRFvIigy0a2Aw",
 			flag: "N",
 			comment: "53"
 		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: BU + "TEST",
+			id: "UCIUwPzbbypAXQ81Y_M6wyLA",
+			name: "이야기아랫목목",
+			url: BU + "UCIUwPzbbypAXQ81Y_M6wyLA",
 			flag: "N",
 			comment: "54"
 		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: BU + "TEST",
+			id: "UCApT86tUJBVMNO52iVWUJ6w",
+			name: "삶의교훈등불",
+			url: BU + "UCApT86tUJBVMNO52iVWUJ6w",
 			flag: "N",
 			comment: "55"
 		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: BU + "TEST",
+			id: "UCQXFk2Rxo83zVgJiRwDVOcg",
+			name: "감정이야기",
+			url: BU + "UCQXFk2Rxo83zVgJiRwDVOcg",
 			flag: "N",
 			comment: "56"
 		  }, {
@@ -1360,6 +1360,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
