@@ -152,12 +152,12 @@
                                     <div class="col-md-8">
                                         <div class="field col-md-12">
                                             <label class="label col-md-12" style="color:yellow; font-weight:500;" ng-show="vm.params.excuteMode === 'CHANNEL'">채널 모드 사전 설정에서 
-												<span style="color:pink;">체크된 총 {{vm.channelMaster.okTotalCount}}개 채널</span>에 대해 검색합니다.</label>
+												<span style="color:pink;">체크된 총 {{vm.channelMaster.okTotalCount}}개 채널</span>에 대해 검색합니다. (MAX 98개)</label>
                                             <label class="label col-md-12" style="color:yellow; font-weight:500;" ng-show="vm.params.excuteMode === 'KEYWORD'">키워드 모드 사전 설정에서 
 												<span style="color:pink;">입력한 키워드 기반</span>으로 검색합니다.</label>
                                             <label class="label col-md-12" style="color:yellow; font-weight:500;" ng-show="vm.params.excuteMode === 'BOTH'">
 												<span style="color:pink;">총 {{vm.channelMaster.okTotalCount}}개 채널</span>을 대상으로 
-												<span style="color:pink;">입력한 키워드</span>에 대한 결과를 검색합니다.</label>
+												<span style="color:pink;">입력한 키워드</span>에 대한 결과를 검색합니다. (MAX 98개)</label>
                                         </div>
                                     </div>
                                 </div>
@@ -331,6 +331,7 @@
 </body>
 
 </html>
+
 
 
 
