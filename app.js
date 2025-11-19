@@ -756,7 +756,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 				return;
 			}
 				
-		  if (confirm("설정한 조건으로 검색을 진행하시겠습니까?")) {
+		  if (confirm("설정한 검색 조건으로 검색을 진행하시겠습니까?")) {
 			  
 				if (vm.params.excuteMode === "CHANNEL") { 
 		
@@ -1365,6 +1365,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
