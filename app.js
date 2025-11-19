@@ -222,27 +222,27 @@ const app = angular.module('hotFinder', ['ngRoute'
 			flag: "N",
 			comment: "31"
 		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: BU + "TEST",
+			id: "UCV42dR87lzxj1rW_PKBzOFg",
+			name: "백만사연",
+			url: BU + "UCV42dR87lzxj1rW_PKBzOFg",
 			flag: "N",
 			comment: "32"
 		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: BU + "TEST",
+			id: "UCVE2CnAhq2k2w9Tzey2Bqcw",
+			name: "구름같은이야기",
+			url: BU + "UCVE2CnAhq2k2w9Tzey2Bqcw",
 			flag: "N",
 			comment: "33"
 		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: BU + "TEST",
+			id: "UCXKjRRSHojm4fahC0j1LIuQ",
+			name: "인생따라바람따라",
+			url: BU + "UCXKjRRSHojm4fahC0j1LIuQ",
 			flag: "N",
 			comment: "34"
 		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: BU + "TEST",
+			id: "UCtHooblia6W73O16zN7jxfw",
+			name: "인생나날",
+			url: BU + "UCtHooblia6W73O16zN7jxfw",
 			flag: "N",
 			comment: "35"
 		  }, {
@@ -1360,6 +1360,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
