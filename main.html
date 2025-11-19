@@ -243,7 +243,7 @@
                                                 <input id="searchbox-recentDay" type="number" min="1" style="width:100%;" ng-model="vm.params.recentDay" 
 												placeholder="-"/>
                                             </div>
-											<div class="col-md-1" style="padding-left:7px;" title="체크 시 '최근 며칠간의 영상을 조회할까요' 조건으로 검색하고, 체크 해제 시 기간을 직접 지정하여 검색할 수 있습니다.">
+											<div class="col-md-1" style="padding-left:7px;" title="체크 시 '최근 며칠간의 영상을 조회할까요' 조건으로 검색하고, 체크 해제 시 기간을 직접 설정하여 검색할 수 있습니다.">
                                                 <input type="checkbox" ng-model="vm.data.recentUse" style="width:20px; height:20px; display:inline; vertical-align:text-bottom; cursor:pointer;" 
 												ng-true-value="'Y'" ng-false-value="'N'" ng-change="vm.changeRecentUse()"></input>
                                             </div>
@@ -331,6 +331,7 @@
 </body>
 
 </html>
+
 
 
 
