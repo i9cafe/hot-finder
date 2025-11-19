@@ -43,7 +43,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			comment: "1"
 		  }, {
 			id: "UCrW6eDWbbdmxr-XfOkvQKwQ",
-			name: "사연튜브 • 사연라디오",
+			name: "사연튜브사연라디오",
 			url: BU + "UCrW6eDWbbdmxr-XfOkvQKwQ",
 			flag: "Y",
 			comment: "2"
@@ -1377,6 +1377,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
