@@ -246,9 +246,9 @@ const app = angular.module('hotFinder', ['ngRoute'
 			flag: "N",
 			comment: "35"
 		  }, {
-			id: "TEST",
-			name: "NAME",
-			url: BU + "TEST",
+			id: "UCfil2r_kgxcFiU8sO0q-Grg",
+			name: "밤의이야기",
+			url: BU + "UCfil2r_kgxcFiU8sO0q-Grg",
 			flag: "N",
 			comment: "36"
 		  }, {
@@ -1360,6 +1360,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
