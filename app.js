@@ -259,7 +259,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			comment: "37"
 		  }, {
 			id: "UCWL95jlSaNHx2XQHjd4sOeA",
-			name: "감동이야기기",
+			name: "감동이야기",
 			url: BU + "UCWL95jlSaNHx2XQHjd4sOeA",
 			flag: "Y",
 			comment: "38"
@@ -345,43 +345,43 @@ const app = angular.module('hotFinder', ['ngRoute'
 			id: "UCWWlhM1vgxcoRBDolu7GIAw",
 			name: "사연서점",
 			url: BU + "UCWWlhM1vgxcoRBDolu7GIAw",
-			flag: "N",
+			flag: "Y",
 			comment: "52"
 		  }, {
 			id: "UCaMDndB5LgqRFvIigy0a2Aw",
 			name: "인생교훈지혜",
 			url: BU + "UCaMDndB5LgqRFvIigy0a2Aw",
-			flag: "N",
+			flag: "Y",
 			comment: "53"
 		  }, {
 			id: "UCIUwPzbbypAXQ81Y_M6wyLA",
 			name: "이야기아랫목",
 			url: BU + "UCIUwPzbbypAXQ81Y_M6wyLA",
-			flag: "N",
+			flag: "Y",
 			comment: "54"
 		  }, {
 			id: "UCApT86tUJBVMNO52iVWUJ6w",
 			name: "삶의교훈등불",
 			url: BU + "UCApT86tUJBVMNO52iVWUJ6w",
-			flag: "N",
+			flag: "Y",
 			comment: "55"
 		  }, {
 			id: "UCQXFk2Rxo83zVgJiRwDVOcg",
 			name: "감정이야기",
 			url: BU + "UCQXFk2Rxo83zVgJiRwDVOcg",
-			flag: "N",
+			flag: "Y",
 			comment: "56"
 		  }, {
 			id: "UCkbFDChEAGahpXuIEFtx_BA",
 			name: "드라마인생사연",
 			url: BU + "UCkbFDChEAGahpXuIEFtx_BA",
-			flag: "N",
+			flag: "Y",
 			comment: "57"
 		  }, {
 			id: "UCAADkg4ye9oAMjxgmGEKk_w",
 			name: "세월의온기",
 			url: BU + "UCAADkg4ye9oAMjxgmGEKk_w",
-			flag: "N",
+			flag: "Y",
 			comment: "58"
 		  }, {
 			id: "TEST",
@@ -1360,6 +1360,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
