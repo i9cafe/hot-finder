@@ -866,9 +866,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			if (vm.params.viewCountByMinTime === undefined || vm.params.viewCountByMinTime === null || vm.params.viewCountByMinTime === "" || vm.params.viewCountByMinTime < 1) {
 				alert("1 이상의 값을 입력하세요. [최소 시간당 조회수]");
 				return;
-			}
-				
-		  if (confirm("설정한 검색 조건으로 검색을 진행하시겠습니까?")) {
+			}				
 			  
 				if (vm.params.excuteMode === "CHANNEL") { 
 		
@@ -887,6 +885,9 @@ const app = angular.module('hotFinder', ['ngRoute'
 					alert("1 ~ 50 사이의 값을 입력해주세요. [채널당 최대 검색 수]");
 					return;
 				}
+
+						
+			  if (confirm("설정한 검색 조건으로 검색을 진행하시겠습니까?")) {
 								
 					this.showLoader(); 
 					
@@ -925,12 +926,12 @@ const app = angular.module('hotFinder', ['ngRoute'
 						  channelIdsString += items[i].snippet.channelId + ",";
 						}				
 					
-					if (videoIdsString.length > 0) {
-						videoIdsString = videoIdsString.slice(0, -1);
-					}
-					if (channelIdsString.length > 0) {
-						channelIdsString = channelIdsString.slice(0, -1);
-					}
+						if (videoIdsString.length > 0) {
+							videoIdsString = videoIdsString.slice(0, -1);
+						}
+						if (channelIdsString.length > 0) {
+							channelIdsString = channelIdsString.slice(0, -1);
+						}
 						
 						  let videoList = await vm.doSearchVideos(videoIdsString, apiClient);			  
 						  let channelList = await vm.doSearchChannels(channelIdsString, apiClient);
@@ -970,42 +971,47 @@ const app = angular.module('hotFinder', ['ngRoute'
 						}	
 		
 						dataBeforeCnt = result.length;				
-					}			
-		
-					if (vm.params.shortsLong === "short" && Number(vm.params.shortsSecond) >= 0) {
-					  result = result.filter(function(target) {
-						return Number(target.playTime) <= Number(vm.params.shortsSecond);
-					  });
-					}
-		
-					if (Number(vm.params.minViewCount) >= 0) {
-					  result = result.filter(function(target) {
-						return Number(target.viewCount) >= Number(vm.params.minViewCount);
-					  });
-					}
-		
-					if (Number(vm.params.viewCountByMinTime) >= 0) {
-					  result = result.filter(function(target) {
-						return Number(target.viewCountByTime) >= Number(vm.params.viewCountByMinTime);
-					  });
-					}
-		
-					result = result.sort((a, b) => b.viewCount - a.viewCount); 
-		
-					for (let k = 0; k < result.length; k++) {
-					  result[k].no = k + 1;
-					}
-		
-					$scope.gridOptions.data = result;
-					$scope.$apply();
-		
-					vm.data.totalCount = result.length;
+							}			
+				
+							if (vm.params.shortsLong === "short" && Number(vm.params.shortsSecond) >= 0) {
+							  result = result.filter(function(target) {
+								return Number(target.playTime) <= Number(vm.params.shortsSecond);
+							  });
+							}
+				
+							if (Number(vm.params.minViewCount) >= 0) {
+							  result = result.filter(function(target) {
+								return Number(target.viewCount) >= Number(vm.params.minViewCount);
+							  });
+							}
+				
+							if (Number(vm.params.viewCountByMinTime) >= 0) {
+							  result = result.filter(function(target) {
+								return Number(target.viewCountByTime) >= Number(vm.params.viewCountByMinTime);
+							  });
+							}
+				
+							result = result.sort((a, b) => b.viewCount - a.viewCount); 
+				
+							for (let k = 0; k < result.length; k++) {
+							  result[k].no = k + 1;
+							}
+				
+							$scope.gridOptions.data = result;
+							$scope.$apply();
+				
+							vm.data.totalCount = result.length;
+							
+							this.hideLoader();
+				
+							if (vm.data.totalCount === 0) {
+							  alert("검색조건을 만족하는 조회 결과가 없습니다.");
+							}
 					
-					this.hideLoader();
-		
-					if (vm.data.totalCount === 0) {
-					  alert("검색조건을 만족하는 조회 결과가 없습니다.");
-					}
+			
+					  } else {
+						  
+					  }
 					
 				} else if (vm.params.excuteMode === "KEYWORD") {	
 					
@@ -1034,6 +1040,9 @@ const app = angular.module('hotFinder', ['ngRoute'
 					alert("1 ~ 10 사이의 값을 입력해주세요. [검색어당 최대 검색 수 2]");
 					return;
 				}
+
+						
+			  if (confirm("설정한 검색 조건으로 검색을 진행하시겠습니까?")) {
 		
 					vm.pageToken = "";
 					  
@@ -1168,42 +1177,46 @@ const app = angular.module('hotFinder', ['ngRoute'
 						
 						lastDataLengthCount = result.length;
 						
-					}
+						}
 		
-					if (vm.params.shortsLong === "short" && Number(vm.params.shortsSecond) >= 0) {
-					  result = result.filter(function(target) {
-						return Number(target.playTime) <= Number(vm.params.shortsSecond);
-					  });
-					}
-		
-					if (Number(vm.params.minViewCount) >= 0) {
-					  result = result.filter(function(target) {
-						return Number(target.viewCount) >= Number(vm.params.minViewCount);
-					  });
-					}
-		
-					if (Number(vm.params.viewCountByMinTime) >= 0) {
-					  result = result.filter(function(target) {
-						return Number(target.viewCountByTime) >= Number(vm.params.viewCountByMinTime);
-					  });
-					}
-		
-					result = result.sort((a, b) => b.viewCount - a.viewCount); 
-		
-					for (let k = 0; k < result.length; k++) {
-					  result[k].no = k + 1;
-					}
-		
-					$scope.gridOptions.data = result;
-					$scope.$apply();
-		
-					vm.data.totalCount = result.length;
-		
-					this.hideLoader(); 
-		
-					if (vm.data.totalCount === 0) {
-					  alert("검색조건을 만족하는 조회 결과가 없습니다.");
-					}
+						if (vm.params.shortsLong === "short" && Number(vm.params.shortsSecond) >= 0) {
+						  result = result.filter(function(target) {
+							return Number(target.playTime) <= Number(vm.params.shortsSecond);
+						  });
+						}
+			
+						if (Number(vm.params.minViewCount) >= 0) {
+						  result = result.filter(function(target) {
+							return Number(target.viewCount) >= Number(vm.params.minViewCount);
+						  });
+						}
+			
+						if (Number(vm.params.viewCountByMinTime) >= 0) {
+						  result = result.filter(function(target) {
+							return Number(target.viewCountByTime) >= Number(vm.params.viewCountByMinTime);
+						  });
+						}
+			
+						result = result.sort((a, b) => b.viewCount - a.viewCount); 
+			
+						for (let k = 0; k < result.length; k++) {
+						  result[k].no = k + 1;
+						}
+			
+						$scope.gridOptions.data = result;
+						$scope.$apply();
+			
+						vm.data.totalCount = result.length;
+			
+						this.hideLoader(); 
+			
+						if (vm.data.totalCount === 0) {
+						  alert("검색조건을 만족하는 조회 결과가 없습니다.");
+						}
+								
+					  } else {
+						  
+					  }
 				} else {
 		
 					if (vm.channelMaster.okTotalCount === 0) {
@@ -1241,6 +1254,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 					alert("1 ~ 50 사이의 값을 입력해주세요. [검색어당 최대 검색 수]");
 					return;
 				}
+					
+			  if (confirm("설정한 검색 조건으로 검색을 진행하시겠습니까?")) {
 					  
 					vm.params.keyword = vm.keyword.includeKey + ' ' + vm.keyword.exceptKey;
 					
@@ -1328,45 +1343,45 @@ const app = angular.module('hotFinder', ['ngRoute'
 						dataBeforeCnt = result.length;				
 					}			
 		
-					if (vm.params.shortsLong === "short" && Number(vm.params.shortsSecond) >= 0) {
-					  result = result.filter(function(target) {
-						return Number(target.playTime) <= Number(vm.params.shortsSecond);
-					  });
-					}
-		
-					if (Number(vm.params.minViewCount) >= 0) {
-					  result = result.filter(function(target) {
-						return Number(target.viewCount) >= Number(vm.params.minViewCount);
-					  });
-					}
-		
-					if (Number(vm.params.viewCountByMinTime) >= 0) {
-					  result = result.filter(function(target) {
-						return Number(target.viewCountByTime) >= Number(vm.params.viewCountByMinTime);
-					  });
-					}
-		
-					result = result.sort((a, b) => b.viewCount - a.viewCount); 
-		
-					for (let k = 0; k < result.length; k++) {
-					  result[k].no = k + 1;
-					}
-		
-					$scope.gridOptions.data = result;
-					$scope.$apply();
-		
-					vm.data.totalCount = result.length;
-					
-					this.hideLoader(); 
-		
-					if (vm.data.totalCount === 0) {
-					  alert("검색조건을 만족하는 조회 결과가 없습니다.");
-					}					
-				}
-
-		  } else {
-			  
-		  }
+						if (vm.params.shortsLong === "short" && Number(vm.params.shortsSecond) >= 0) {
+						  result = result.filter(function(target) {
+							return Number(target.playTime) <= Number(vm.params.shortsSecond);
+						  });
+						}
+			
+						if (Number(vm.params.minViewCount) >= 0) {
+						  result = result.filter(function(target) {
+							return Number(target.viewCount) >= Number(vm.params.minViewCount);
+						  });
+						}
+			
+						if (Number(vm.params.viewCountByMinTime) >= 0) {
+						  result = result.filter(function(target) {
+							return Number(target.viewCountByTime) >= Number(vm.params.viewCountByMinTime);
+						  });
+						}
+			
+						result = result.sort((a, b) => b.viewCount - a.viewCount); 
+			
+						for (let k = 0; k < result.length; k++) {
+						  result[k].no = k + 1;
+						}
+			
+						$scope.gridOptions.data = result;
+						$scope.$apply();
+			
+						vm.data.totalCount = result.length;
+						
+						this.hideLoader(); 
+			
+						if (vm.data.totalCount === 0) {
+						  alert("검색조건을 만족하는 조회 결과가 없습니다.");
+						}	
+				  		
+					  } else {
+						  
+					  }
+			}
       }
 
       vm.doSearchKeywordMode = async (apiClient) => {
@@ -1487,6 +1502,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
