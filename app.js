@@ -228,10 +228,10 @@ const app = angular.module('hotFinder', ['ngRoute'
 			flag: "Y",
 			comment: "32"
 		  }, {
-			id: "UCVE2CnAhq2k2w9Tzey2Bqcw",
-			name: "구름같은이야기",
-			url: BU + "UCVE2CnAhq2k2w9Tzey2Bqcw",
-			flag: "Y",
+			id: "TEST",
+			name: "NAME",
+			url: BU + "TEST",
+			flag: "N",
 			comment: "33"
 		  }, {
 			id: "UCXKjRRSHojm4fahC0j1LIuQ",
@@ -1365,6 +1365,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
