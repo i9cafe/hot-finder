@@ -2,7 +2,7 @@ input[type="date"] {
   background: #10141c;
   border: 0;
   font-size: 14px;
-  outline: none;  
+  outline: none;   
 }
 
 /* WebKit 계열 (Chrome, Edge, Safari) 날짜 아이콘 색상 반전 */
@@ -513,6 +513,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
