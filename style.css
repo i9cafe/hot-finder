@@ -293,7 +293,7 @@ input[type="number"] {
   text-decoration: underline;
   position:absolute; 
   top:12px; 
-  right:81px; 
+  right:82px; 
   cursor:pointer;
 }
 
@@ -535,4 +535,5 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
