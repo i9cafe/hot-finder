@@ -3,7 +3,7 @@
   color: #9aa3b2;
   position: absolute; 
   top: 8px; 
-  right: 265px; 
+  right: 180px; 
   border-radius: 8px;
   border-color: darkgray;
   padding: 1px 5px;
@@ -14,7 +14,7 @@
   color: #9aa3b2;
   position: absolute; 
   top: 8px; 
-  right: 405px; 
+  right: 322px; 
   border-radius: 8px;
   border-color: darkgray;
   padding: 1px 5px;
@@ -293,7 +293,7 @@ input[type="number"] {
   text-decoration: underline;
   position:absolute; 
   top:12px; 
-  right:166px; 
+  right:81px; 
   cursor:pointer;
 }
 
@@ -535,7 +535,4 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
-
-
-
 
