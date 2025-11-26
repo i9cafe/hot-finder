@@ -751,10 +751,12 @@ const app = angular.module('hotFinder', ['ngRoute'
       vm.data.totalCount = 0;
 	  
 	  vm.data.longTableDesc = '리스트 펼치기';
-	  vm.data.channelAllFlag = 'Y';
+	  vm.data.channelAllFlag = 'N';
 		
 		  vm.data.pageTokenPage = 1;
 	    vm.data.recentUse = 'Y';
+		
+		vm.data.set = "set1";
 
       vm.params = {};
       vm.params.excuteMode = "CHANNEL";
@@ -1433,6 +1435,10 @@ const app = angular.module('hotFinder', ['ngRoute'
 			UtilsService.changeShortsLong(vm);
       };
 
+      vm.changeChannelSet = () => {
+			UtilsService.changeChannelSet(vm);
+      };
+
 		vm.changeRecentUse = () => {
 			UtilsService.changeRecentUse(vm);
       };
@@ -1474,15 +1480,15 @@ const app = angular.module('hotFinder', ['ngRoute'
       };
 
 		vm.clickGridCheckbox = () => {
-			UtilsService.clickGridCheckbox(vm.channelMaster);
+			UtilsService.clickGridCheckbox(vm);
 		};
 		
 		vm.longTable = () => {	
-			UtilsService.longTable(vm.data);
+			UtilsService.longTable(vm);
 		};
 		
 		vm.clickGridCheckboxAll = () => {
-			UtilsService.clickGridCheckboxAll(vm.channelMaster, vm.data.channelAllFlag);				
+			UtilsService.clickGridCheckboxAll(vm);				
 		};
 
       vm.getKoreaTimeFromPacificMidnight = () => {
@@ -1507,43 +1513,5 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
