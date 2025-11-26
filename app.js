@@ -1355,7 +1355,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 							result[j] = obj;
 						  } else {
 							result[j + dataBeforeCnt] = obj; 
-						  }
+						  } 
 						}	
 		
 						dataBeforeCnt = result.length;				
@@ -1532,4 +1532,5 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
