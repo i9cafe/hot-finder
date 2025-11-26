@@ -42,705 +42,710 @@ const app = angular.module('hotFinder', ['ngRoute'
 			url: BU + "UCOZnrJilN9FsL8pGd0by6xg",
 			flag: "Y",
 			ord: 1,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCrW6eDWbbdmxr-XfOkvQKwQ",
 			name: "사연튜브사연라디오",
 			url: BU + "UCrW6eDWbbdmxr-XfOkvQKwQ",
 			flag: "Y",
 			ord: 2,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UC8XIOLMm8kpoaEzjovaoesw",
 			name: "금빛이야기",
 			url: BU + "UC8XIOLMm8kpoaEzjovaoesw",
 			flag: "Y",
 			ord: 3,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCepniAEbQ3T75M2OuInzIOw",
 			name: "소리로읽는세상",
 			url: BU + "UCepniAEbQ3T75M2OuInzIOw",
 			flag: "Y",
 			ord: 4,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCjgM7Q280TRWOHmDT6Nr34A",
 			name: "탑골사연공원",
 			url: BU + "UCjgM7Q280TRWOHmDT6Nr34A",
 			flag: "Y",
 			ord: 5,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCzmHMfc84ebwfkRQV5ufAKw",
 			name: "황혼사연",
 			url: BU + "UCzmHMfc84ebwfkRQV5ufAKw",
 			flag: "Y",
 			ord: 6,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCT2S9OFvyF4rMZZQeNcIu3Q",
 			name: "인생사연",
 			url: BU + "UCT2S9OFvyF4rMZZQeNcIu3Q",
 			flag: "Y",
 			ord: 7,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCko5Mjg45-Kz8P2mq_2FFsg",
 			name: "풀빛사연",
 			url: BU + "UCko5Mjg45-Kz8P2mq_2FFsg",
 			flag: "Y",
 			ord: 8,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCZmDNNxAYodRPudlI0si0XA",
 			name: "매일사연",
 			url: BU + "UCZmDNNxAYodRPudlI0si0XA",
 			flag: "Y",
 			ord: 9,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCnDG7vNvXXpYxtv8ao5oWlw",
 			name: "인생정자",
 			url: BU + "UCnDG7vNvXXpYxtv8ao5oWlw",
 			flag: "Y",
 			ord: 10,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UC5Fznx6E3uzShi7n_kIEFRA",
 			name: "사연만사",
 			url: BU + "UC5Fznx6E3uzShi7n_kIEFRA",
 			flag: "Y",
 			ord: 11,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCXVtesz30jjhcUQZAlhOUqw",
 			name: "은하수별동네",
 			url: BU + "UCXVtesz30jjhcUQZAlhOUqw",
 			flag: "Y",
 			ord: 12,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCm9niqYY_OzexSD4zLvNBeQ",
 			name: "운명같은이야기",
 			url: BU + "UCm9niqYY_OzexSD4zLvNBeQ",
 			flag: "Y",
 			ord: 13,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCHq8jnJywM22kIwjo8RgCIg",
 			name: "세상만사요지경속이다",
 			url: BU + "UCHq8jnJywM22kIwjo8RgCIg",
 			flag: "Y",
 			ord: 14,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCRJK3vc6sLqwTUkAZt7_Z6Q",
 			name: "스페셜튜브",
 			url: BU + "UCRJK3vc6sLqwTUkAZt7_Z6Q",
 			flag: "Y",
 			ord: 15,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UC6jMDfjyquRk30OSoe1xjJQ",
 			name: "마음의등대",
 			url: BU + "UC6jMDfjyquRk30OSoe1xjJQ",
 			flag: "Y",
 			ord: 16,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UC-MGBGZzfLLfmDiZP73f6ZQ",
 			name: "노후의아름다운이야기",
 			url: BU + "UC-MGBGZzfLLfmDiZP73f6ZQ",
 			flag: "Y",
 			ord: 17,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UClmsF6cF0oSTBlR9pfG0MZw",
 			name: "은빛다방",
 			url: BU + "UClmsF6cF0oSTBlR9pfG0MZw",
 			flag: "Y",
 			ord: 18,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCNuGU6mCxH-qXcfH7gjMlmA",
 			name: "각설탕회관",
 			url: BU + "UCNuGU6mCxH-qXcfH7gjMlmA",
 			flag: "Y",
 			ord: 19,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCOLQ6s0kRWGurtiZkn7lpsA",
 			name: "늘푸른인생",
 			url: BU + "UCOLQ6s0kRWGurtiZkn7lpsA",
 			flag: "Y",
 			ord: 20,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UC6IIOR-Z7v5_kyMXbmEplfQ",
 			name: "인생바라기",
 			url: BU + "UC6IIOR-Z7v5_kyMXbmEplfQ",
 			flag: "Y",
 			ord: 21,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UC-jw_--Ma-gr9N0WvD3A9Ow",
 			name: "인생은육십부터",
 			url: BU + "UC-jw_--Ma-gr9N0WvD3A9Ow",
 			flag: "Y",
 			ord: 22,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCP51IWwyjeKnf6Xk9rvYLkg",
 			name: "사연의빛",
 			url: BU + "UCP51IWwyjeKnf6Xk9rvYLkg",
 			flag: "Y",
 			ord: 23,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCbs5S2Jmrrrk6u_pGJ1EsDg",
 			name: "눈내린소나무같은인생사연",
 			url: BU + "UCbs5S2Jmrrrk6u_pGJ1EsDg",
 			flag: "Y",
 			ord: 24,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCwUcHg9hRa-5rjJ7vv8rJzQ",
 			name: "세월의지혜",
 			url: BU + "UCwUcHg9hRa-5rjJ7vv8rJzQ",
 			flag: "Y",
 			ord: 25,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCrtZDHeWyWmc_PXYh_bPQog",
 			name: "감사월드",
 			url: BU + "UCrtZDHeWyWmc_PXYh_bPQog",
 			flag: "Y",
 			ord: 26,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCJaX4fqnQGoq1oPbpv6pGmg",
 			name: "하늘빛마음",
 			url: BU + "UCJaX4fqnQGoq1oPbpv6pGmg",
 			flag: "Y",
 			ord: 27,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UC1GyaYKcLa2lU5JBFCDP4VQ",
 			name: "어둠속의빛",
 			url: BU + "UC1GyaYKcLa2lU5JBFCDP4VQ",
 			flag: "Y",
 			ord: 28,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCXwBhLpVZQOfBid9_h-FMrA",
 			name: "톡톡사연",
 			url: BU + "UCXwBhLpVZQOfBid9_h-FMrA",
 			flag: "Y",
 			ord: 29,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCrRBSlHTvHGOd6hyF3DLPPw",
 			name: "랄라하의사연드라마",
 			url: BU + "UCrRBSlHTvHGOd6hyF3DLPPw",
 			flag: "Y",
 			ord: 30,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCMIPYHFP0Y6rMR9pMCfw22Q",
 			name: "추억의향기",
 			url: BU + "UCMIPYHFP0Y6rMR9pMCfw22Q",
 			flag: "Y",
 			ord: 31,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCV42dR87lzxj1rW_PKBzOFg",
 			name: "백만사연",
 			url: BU + "UCV42dR87lzxj1rW_PKBzOFg",
 			flag: "Y",
 			ord: 32,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UC8uOInmvo02yFikl3sJ1ohg",
 			name: "사연속으로",
 			url: BU + "UC8uOInmvo02yFikl3sJ1ohg",
 			flag: "Y",
 			ord: 33,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCXKjRRSHojm4fahC0j1LIuQ",
 			name: "인생따라바람따라",
 			url: BU + "UCXKjRRSHojm4fahC0j1LIuQ",
 			flag: "Y",
 			ord: 34,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCtHooblia6W73O16zN7jxfw",
 			name: "인생나날",
 			url: BU + "UCtHooblia6W73O16zN7jxfw",
 			flag: "Y",
 			ord: 35,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCfil2r_kgxcFiU8sO0q-Grg",
 			name: "밤의이야기",
 			url: BU + "UCfil2r_kgxcFiU8sO0q-Grg",
 			flag: "Y",
 			ord: 36,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCeC22b4HaVTyha58HrMjIsA",
 			name: "노을빛인생",
 			url: BU + "UCeC22b4HaVTyha58HrMjIsA",
 			flag: "Y",
 			ord: 37,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCWL95jlSaNHx2XQHjd4sOeA",
 			name: "감동이야기",
 			url: BU + "UCWL95jlSaNHx2XQHjd4sOeA",
 			flag: "Y",
 			ord: 38,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCYEZFZKSR66PyYPY92SKRng",
 			name: "고부관계",
 			url: BU + "UCYEZFZKSR66PyYPY92SKRng",
 			flag: "Y",
 			ord: 39,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCqId-7lAPFeuzqMqzQm_osA",
 			name: "마음이야기",
 			url: BU + "UCqId-7lAPFeuzqMqzQm_osA",
 			flag: "Y",
 			ord: 40,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCS2CpRATJ495FCZe7RP_yHg",
 			name: "밤의인생",
 			url: BU + "UCS2CpRATJ495FCZe7RP_yHg",
 			flag: "Y",
 			ord: 41,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UC0miLal8tz9efrRfpfElpGw",
 			name: "보라빛인생사연",
 			url: BU + "UC0miLal8tz9efrRfpfElpGw",
 			flag: "Y",
 			ord: 42,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCCcouVtd0bGzsn9mM1EeBNw",
 			name: "감동쓰나미",
 			url: BU + "UCCcouVtd0bGzsn9mM1EeBNw",
 			flag: "Y",
 			ord: 43,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCj82PP56tg53pCQWWXm9Vxg",
 			name: "이야기술술",
 			url: BU + "UCj82PP56tg53pCQWWXm9Vxg",
 			flag: "Y",
 			ord: "44",
-			res: 0
+			sub: 0
 		  }, {
 			id: "UC9AHX1dC3Xofj67Kfm4ZHFg",
 			name: "삶의감동",
 			url: BU + "UC9AHX1dC3Xofj67Kfm4ZHFg",
 			flag: "Y",
 			ord: 45,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCXGTwL06yRZLjNn_tiVx5ug",
 			name: "포기하지마",
 			url: BU + "UCXGTwL06yRZLjNn_tiVx5ug",
 			flag: "Y",
 			ord: 46,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCBKugWHJLt-b9QCV01XA3sg",
 			name: "노년생활",
 			url: BU + "UCBKugWHJLt-b9QCV01XA3sg",
 			flag: "Y",
 			ord: 47,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCl6OqGKkmEEONlSjYD_hynQ",
 			name: "구름같은사연",
 			url: BU + "UCl6OqGKkmEEONlSjYD_hynQ",
 			flag: "Y",
 			ord: 48,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCRTT55661mbChMNq1XAyJoA",
 			name: "달달한인생여행",
 			url: BU + "UCRTT55661mbChMNq1XAyJoA",
 			flag: "Y",
 			ord: 49,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCNiF2AnoWdCptQbCFdqBuJw",
 			name: "인생감동",
 			url: BU + "UCNiF2AnoWdCptQbCFdqBuJw",
 			flag: "Y",
 			ord: 50,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCitqF98OhVgH813fXaNv6sQ",
 			name: "감동은선물",
 			url: BU + "UCitqF98OhVgH813fXaNv6sQ",
 			flag: "Y",
 			ord: 51,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCWWlhM1vgxcoRBDolu7GIAw",
 			name: "사연서점",
 			url: BU + "UCWWlhM1vgxcoRBDolu7GIAw",
 			flag: "Y",
 			ord: 52,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCaMDndB5LgqRFvIigy0a2Aw",
 			name: "인생교훈지혜",
 			url: BU + "UCaMDndB5LgqRFvIigy0a2Aw",
 			flag: "Y",
 			ord: 53,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCIUwPzbbypAXQ81Y_M6wyLA",
 			name: "이야기아랫목",
 			url: BU + "UCIUwPzbbypAXQ81Y_M6wyLA",
 			flag: "Y",
 			ord: 54,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCApT86tUJBVMNO52iVWUJ6w",
 			name: "삶의교훈등불",
 			url: BU + "UCApT86tUJBVMNO52iVWUJ6w",
 			flag: "Y",
 			ord: 55,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCQXFk2Rxo83zVgJiRwDVOcg",
 			name: "감정이야기",
 			url: BU + "UCQXFk2Rxo83zVgJiRwDVOcg",
 			flag: "Y",
 			ord: 56,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCkbFDChEAGahpXuIEFtx_BA",
 			name: "드라마인생사연",
 			url: BU + "UCkbFDChEAGahpXuIEFtx_BA",
 			flag: "Y",
 			ord: 57,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCAADkg4ye9oAMjxgmGEKk_w",
 			name: "세월의온기",
 			url: BU + "UCAADkg4ye9oAMjxgmGEKk_w",
 			flag: "Y",
 			ord: 58,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UC_nzYc1jF9CHHyaFKnL2tRA",
 			name: "인생세상",
 			url: BU + "UC_nzYc1jF9CHHyaFKnL2tRA",
 			flag: "Y",
 			ord: 59,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCZwB8Va7XSRKlcy8ralTaVQ",
 			name: "어머니의정원",
 			url: BU + "UCZwB8Va7XSRKlcy8ralTaVQ",
 			flag: "Y",
 			ord: 60,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCmZkEggG98yxOL4iEvwj7Mg",
 			name: "사연보름달",
 			url: BU + "UCmZkEggG98yxOL4iEvwj7Mg",
 			flag: "Y",
 			ord: 61,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCTWQLX_se9Go8SJFGQ0xNKQ",
 			name: "지혜백서",
 			url: BU + "UCTWQLX_se9Go8SJFGQ0xNKQ",
 			flag: "Y",
 			ord: 62,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCl1JOZvMCD9WaC5odFMXQYw",
 			name: "인생마당",
 			url: BU + "UCl1JOZvMCD9WaC5odFMXQYw",
 			flag: "Y",
 			ord: 63,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCtTsF5hammtb8WYDW2VHpIA",
 			name: "인생의이야기",
 			url: BU + "UCtTsF5hammtb8WYDW2VHpIA",
 			flag: "Y",
 			ord: 64,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UC0YiWzRCN3AAb7a0nrgYseQ",
 			name: "달빛인생사연",
 			url: BU + "UC0YiWzRCN3AAb7a0nrgYseQ",
 			flag: "Y",
 			ord: 65,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCGNAYwkJkeqvfmOv0o-uY3g",
 			name: "감동정거장",
 			url: BU + "UCGNAYwkJkeqvfmOv0o-uY3g",
 			flag: "Y",
 			ord: 66,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UC6SZ7KSlPrecXoEPflZGEnA",
 			name: "인생지혜길",
 			url: BU + "UC6SZ7KSlPrecXoEPflZGEnA",
 			flag: "Y",
 			ord: 67,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCKCN9FEc3M225mFPlGiOteQ",
 			name: "인생풍경",
 			url: BU + "UCKCN9FEc3M225mFPlGiOteQ",
 			flag: "Y",
 			ord: 68,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCj7PybOOLhgx7fqmOmrMJkA",
 			name: "추억찻집",
 			url: BU + "UCj7PybOOLhgx7fqmOmrMJkA",
 			flag: "Y",
 			ord: 69,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UC3E-gJGVeJkevN2ujtrLHkA",
 			name: "감동수다",
 			url: BU + "UC3E-gJGVeJkevN2ujtrLHkA",
 			flag: "Y",
 			ord: 70,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCQHrg5u6SEUNY-50Q7cDcOw",
 			name: "현자의빛",
 			url: BU + "UCQHrg5u6SEUNY-50Q7cDcOw",
 			flag: "Y",
 			ord: 71,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCL8PczL6V3e82HazJoaAKUg",
 			name: "햇빛사연",
 			url: BU + "UCL8PczL6V3e82HazJoaAKUg",
 			flag: "Y",
 			ord: 72,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCYiSJFAzdIXJBknGpnkNDOQ",
 			name: "생각모음",
 			url: BU + "UCYiSJFAzdIXJBknGpnkNDOQ",
 			flag: "Y",
 			ord: 73,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UC56g-Q3t7GjcYtrUGbqYNZw",
 			name: "이야기꾼",
 			url: BU + "UC56g-Q3t7GjcYtrUGbqYNZw",
 			flag: "Y",
 			ord: 74,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCXemnCQk4I4gZpQW59_zoOQ",
 			name: "인생의필름",
 			url: BU + "UCXemnCQk4I4gZpQW59_zoOQ",
 			flag: "Y",
 			ord: 75,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCqSaGOxZ_fbEoA6gO04I1EA",
 			name: "그시절책갈피",
 			url: BU + "UCqSaGOxZ_fbEoA6gO04I1EA",
 			flag: "Y",
 			ord: 76,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCDeTGxoUrj_-fqnBU9ctJig",
 			name: "인생지혜말씀",
 			url: BU + "UCDeTGxoUrj_-fqnBU9ctJig",
 			flag: "Y",
 			ord: 77,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCGOWtFBBQa5Z4TVlqY-8agw",
 			name: "감동만족",
 			url: BU + "UCGOWtFBBQa5Z4TVlqY-8agw",
 			flag: "Y",
 			ord: 78,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCO1-4foSzj6kfbrNa3KeajQ",
 			name: "밤의사연",
 			url: BU + "UCO1-4foSzj6kfbrNa3KeajQ",
 			flag: "Y",
 			ord: 79,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCZnxPsj0PssE8ysBtpxqVrg",
 			name: "반전의순간",
 			url: BU + "UCZnxPsj0PssE8ysBtpxqVrg",
 			flag: "Y",
 			ord: 80,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCrqx0Z_eUsvf1M9r1s98d9g",
 			name: "인생드라마주식회사",
 			url: BU + "UCrqx0Z_eUsvf1M9r1s98d9g",
 			flag: "Y",
 			ord: 81,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UC7AAByethNqAYxWdUzpGYKQ",
 			name: "인생두글자",
 			url: BU + "UC7AAByethNqAYxWdUzpGYKQ",
 			flag: "Y",
 			ord: 82,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCKfJgcK0GO3_QRrFBnIU6Cw",
 			name: "노후의벗",
 			url: BU + "UCKfJgcK0GO3_QRrFBnIU6Cw",
 			flag: "Y",
 			ord: 83,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCCS0E_UoX_MmN3Wu3k9z2ag",
 			name: "우리의인생은봄날",
 			url: BU + "UCCS0E_UoX_MmN3Wu3k9z2ag",
 			flag: "Y",
 			ord: 84,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCfOh6emG2Ke9IfN1z-WFsQg",
 			name: "뒷집사연",
 			url: BU + "UCfOh6emG2Ke9IfN1z-WFsQg",
 			flag: "Y",
 			ord: 85,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCeVCvsxQqUI7WGz-CXahjGA",
 			name: "천년만년인생",
 			url: BU + "UCeVCvsxQqUI7WGz-CXahjGA",
 			flag: "Y",
 			ord: 86,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCQNuZVeRLIIymAfCFLZOVwA",
 			name: "세월이야속해",
 			url: BU + "UCQNuZVeRLIIymAfCFLZOVwA",
 			flag: "Y",
 			ord: 87,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UC7WL420V87oPi6b580vgDJQ",
 			name: "은빛이야기다방",
 			url: BU + "UC7WL420V87oPi6b580vgDJQ",
 			flag: "Y",
 			ord: 88,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCN9eb0JUyAKFL7bUou_ZZLQ",
 			name: "삶의여정",
 			url: BU + "UCN9eb0JUyAKFL7bUou_ZZLQ",
 			flag: "Y",
 			ord: 89,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCgw1JIxlFp1uFbp93d9LIWw",
 			name: "사연쌀롱",
 			url: BU + "UCgw1JIxlFp1uFbp93d9LIWw",
 			flag: "Y",
 			ord: 90,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCg1lK3oQwAUCRvXSqvvwwUw",
 			name: "꽃보다내인생",
 			url: BU + "UCg1lK3oQwAUCRvXSqvvwwUw",
 			flag: "Y",
 			ord: 91,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCVE2CnAhq2k2w9Tzey2Bqcw",
 			name: "구름같은이야기",
 			url: BU + "UCVE2CnAhq2k2w9Tzey2Bqcw",
 			flag: "Y",
 			ord: 92,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCisJX40-aHLeQAKvgOkva7g",
 			name: "오늘도사이다",
 			url: BU + "UCisJX40-aHLeQAKvgOkva7g",
 			flag: "Y",
 			ord: 93,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCVusNTjDbwyo9UwviW-CHEA",
 			name: "쿵따리인생사연",
 			url: BU + "UCVusNTjDbwyo9UwviW-CHEA",
 			flag: "Y",
 			ord: 94,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCP4DU-Jz5kqB4c5tgpPKYzg",
 			name: "인생한스푼사연한줌",
 			url: BU + "UCP4DU-Jz5kqB4c5tgpPKYzg",
 			flag: "Y",
 			ord: 95,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCmivQaFhTIry7sgBg6efzcQ",
 			name: "노을사연",
 			url: BU + "UCmivQaFhTIry7sgBg6efzcQ",
 			flag: "Y",
 			ord: 96,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCjMupHmI6SMn6H0pwEfC7ew",
 			name: "벼락사연",
 			url: BU + "UCjMupHmI6SMn6H0pwEfC7ew",
 			flag: "Y",
 			ord: 97,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCBEt3Wa4XPBuSHdehxCOKWw",
 			name: "생생인생극장",
 			url: BU + "UCBEt3Wa4XPBuSHdehxCOKWw",
 			flag: "Y",
 			ord: 98,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCEgpJ18XQyaaow4VyGWBESA",
 			name: "숨겨진사연",
 			url: BU + "UCEgpJ18XQyaaow4VyGWBESA",
-			flag: "N",
+			flag: "Y",
 			ord: 99,
-			res: 0
+			sub: 0
 		  }, {
 			id: "UCOHL9SQpsqSBl0G7eqN6iJw",
 			name: "목소리로듣는인생",
 			url: BU + "UCOHL9SQpsqSBl0G7eqN6iJw",
-			flag: "N",
+			flag: "Y",
 			ord: 100,
-			res: 0
+			sub: 0
 		  }
 	  ].sort((a, b) => b.flag.localeCompare(a.flag) || a.name.localeCompare(b.name, 'ko'));
 
 	vm.channelMaster.array.forEach((item, index) => {
 	  item.ord = index + 1;
+	  if (item.ord >= 1 && item.ord <= 98) {
+		  item.flag = "Y";
+	  } else if (item.ord > 98) {
+		  item.flag = "N";		
+	  }
 	});
 		
 	vm.channelMaster.okTotalCount = vm.channelMaster.array.filter((target) => {
@@ -1513,6 +1518,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
