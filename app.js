@@ -737,7 +737,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			ord: 100,
 			sub: 0
 		  }
-	  ].sort((a, b) => b.flag.localeCompare(a.flag) || a.name.localeCompare(b.name, 'ko'));
+	  ].sort((a, b) => a.name.localeCompare(b.name, 'ko'));
 
 	vm.channelMaster.array.forEach((item, index) => {
 	  item.ord = index + 1;
@@ -1518,6 +1518,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
