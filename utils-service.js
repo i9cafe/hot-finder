@@ -1,5 +1,574 @@
 angular.module('hotFinder')
-.service('UtilsService', ['$timeout', '$uibModal', function($timeout, $uibModal) {	
+.service('UtilsService', ['$timeout', '$uibModal', '$rootScope', function($timeout, $uibModal, $rootScope) {	
+
+		this.search = async (vm) => {
+
+			  vm.failedFlag = 'N';
+	
+			  vm.apiClient = axios.create({
+				baseURL: vm.data.bu,
+				params: { key: vm.data.apiKey }
+			  });
+	
+			if (vm.params.shortsLong === 'short' && (vm.isNullOrEmpty(vm.params.shortsSecond) || vm.params.shortsSecond < 1)) {
+				alert("1 이상의 값을 입력하세요. [쇼츠 기준(초)]");
+				return;
+			}
+	
+			if (vm.data.recentUse === 'Y' && (vm.isNullOrEmpty(vm.params.recentDay) || vm.params.recentDay < 1)) {
+				alert("1 이상의 값을 입력하세요. [최근 며칠간의 영상을 조회할까요]");
+				return;
+			}
+	
+			  if (vm.data.recentUse === 'N' && vm.isNullOrEmpty(vm.params.startDate)) {
+				alert("날짜를 선택하세요. [검색 시작일]");
+				return;
+			}
+	
+			  if (vm.data.recentUse === 'N' && vm.isNullOrEmpty(vm.params.endDate)) {
+				alert("날짜를 선택하세요. [검색 종료일]");
+				return;
+			}		  
+	
+			  const start = new Date(vm.params.startDate);
+			  const end = new Date(vm.params.endDate);
+			  const now = new Date();
+	
+			  if (vm.data.recentUse === 'N' && (start.getTime() >= now.getTime()) ) {
+				alert("검색 시작일이 오늘 날짜를 넘을 수 없습니다.");
+				return;
+			}
+	
+			  if (vm.data.recentUse === 'N' && (start.getTime() >= end.getTime()) ) {
+				alert("검색 종료일이 검색 시작일보다 같거나 이전 날짜일 수 없습니다.");
+				return;
+			}
+	
+			if (vm.isNullOrEmpty(vm.params.minViewCount) || vm.params.minViewCount < 1) {
+				alert("1 이상의 값을 입력하세요. [최소 조회수]");
+				return;
+			}
+	
+			if (vm.isNullOrEmpty(vm.params.viewCountByMinTime) || vm.params.viewCountByMinTime < 1) {
+				alert("1 이상의 값을 입력하세요. [최소 시간당 조회수]");
+				return;
+			}				
+			  
+				if (vm.params.excuteMode === "CHANNEL") { 
+		
+					if (vm.channelMaster.okTotalCount === 0) {
+						alert("채널 모드 사전 설정 탭에서 검색할 채널을 1개 이상 체크하세요.");
+						return;
+					}
+
+					if (vm.channelMaster.okTotalCount > 98) {
+						alert("검색할 채널은 최대 98개까지 가능합니다.");
+						return;
+					}
+		
+					if (vm.isNullOrEmpty(vm.params.maxSearchCountByChannel) || 
+					vm.params.maxSearchCountByChannel < 1 || vm.params.maxSearchCountByChannel > 50) {
+					alert("1 ~ 50 사이의 값을 입력해주세요. [채널당 최대 검색 수]");
+					return;
+				}
+
+						
+			  if (confirm("설정한 검색 조건으로 검색을 진행하시겠습니까?")) {
+								
+					vm.showLoader(); 
+					
+					let result = [];			
+					let nowDate = new Date();
+					
+					let dataBeforeCnt = 0;
+								
+					for (let index = 0; index < vm.channelMaster.array.length; index++) {
+						
+						let channelId = vm.channelMaster.array[index].id;
+						
+						if (vm.isNullOrEmpty(channelId) || channelId.indexOf("U") === -1) {
+						  continue;
+						}
+		
+						if (vm.channelMaster.array[index].flag === "N") {
+							continue;
+						}
+						
+						let items = await vm.doSearchChannelMode(channelId);
+		
+						if (vm.failedFlag === 'Y') {
+							return;	
+						}
+		
+						if (vm.isNullOrEmpty(items) || items.length === 0) {
+						  continue;					
+						}
+						
+						let videoIdsString = "";
+						let channelIdsString = "";
+		
+						for (let i = 0; i < items.length; i++) {
+						  videoIdsString += items[i].id.videoId + ",";
+						  channelIdsString += items[i].snippet.channelId + ",";
+						}				
+					
+						if (videoIdsString.length > 0) {
+							videoIdsString = videoIdsString.slice(0, -1);
+						}
+						if (channelIdsString.length > 0) {
+							channelIdsString = channelIdsString.slice(0, -1);
+						}
+						
+						  let videoList = await vm.doSearchVideos(videoIdsString);			  
+						  let channelList = await vm.doSearchChannels(channelIdsString);
+								
+						Loop1:
+						for (let i = 0; i < items.length; i++) {
+						  let item = items[i];
+		
+						  Loop2:
+						  for (let m = 0; m < videoList.length; m++) {
+							  if (item.id.videoId === videoList[m].id) {
+								item.videoInfo = videoList[m];
+								break Loop2;					
+							  }
+						  }
+						  
+						  Loop3:
+						  for (let n = 0; n < channelList.length; n++) {
+							  if (item.snippet.channelId === channelList[n].id) {
+								item.channelInfo = channelList[n];
+								break Loop3;					
+							  }				  
+						  }
+						}			
+						
+						for (let j = 0; j < items.length; j++) {
+						  let obj = {};
+							let itm = items[j];
+		
+							obj = vm.makeObj(obj, itm);
+						  
+						  if (index === 0) {
+							result[j] = obj;
+						  } else {
+							result[j + dataBeforeCnt] = obj; 
+						  }
+						}	
+		
+						dataBeforeCnt = result.length;				
+							}			
+				
+							if (vm.params.shortsLong === "short" && Number(vm.params.shortsSecond) >= 0) {
+							  result = result.filter(function(target) {
+								return Number(target.playTime) <= Number(vm.params.shortsSecond);
+							  });
+							}
+				
+							if (Number(vm.params.minViewCount) >= 0) {
+							  result = result.filter(function(target) {
+								return Number(target.viewCount) >= Number(vm.params.minViewCount);
+							  });
+							}
+				
+							if (Number(vm.params.viewCountByMinTime) >= 0) {
+							  result = result.filter(function(target) {
+								return Number(target.viewCountByTime) >= Number(vm.params.viewCountByMinTime);
+							  });
+							}
+				
+							result = result.sort((a, b) => b.viewCount - a.viewCount); 
+				
+							for (let k = 0; k < result.length; k++) {
+							  result[k].no = k + 1;
+							}
+				
+							vm.gridOptions.data = result;
+							$rootScope.$applyAsync();
+				
+							vm.data.totalCount = result.length;
+							
+							vm.hideLoader();
+				
+							if (vm.data.totalCount === 0) {
+							  alert("검색조건을 만족하는 조회 결과가 없습니다.");
+							}
+					
+			
+					  } else {
+						  
+					  }
+					
+				} else if (vm.params.excuteMode === "KEYWORD") {	
+					
+					if (vm.keyword.includeKey === "") {
+					  alert("키워드 모드 사전 설정 탭에서 검색 키워드를 입력하세요.");
+					  const keywordInput = document.getElementById('keyword-includeKey');
+					  keywordInput.focus();
+					  return;
+					}		
+		
+					if (vm.keyword.exceptKey.length > 0 && vm.keyword.exceptKey.indexOf("-") === -1) {
+					  alert("제외할 키워드는 키워드 앞에 '-'를 붙여주세요. 예) -낚시 -다이빙");
+					  const keywordInput2 = document.getElementById('keyword-exceptKey');
+					  keywordInput2.focus();
+					  return;
+					}	
+		
+				  if (vm.params.maxSearchCountByKeyword === undefined || vm.params.maxSearchCountByKeyword === null || vm.params.maxSearchCountByKeyword === "" || 
+					  vm.params.maxSearchCountByKeyword < 1 || vm.params.maxSearchCountByKeyword > 50) {
+					alert("1 ~ 50 사이의 값을 입력해주세요. [검색어당 최대 검색 수 1]");
+					return;
+				}
+		
+					if (vm.data.pageTokenPage === undefined || vm.data.pageTokenPage === null || vm.data.pageTokenPage === "" || 
+					  vm.data.pageTokenPage < 1 || vm.data.pageTokenPage > 10) {
+					alert("1 ~ 10 사이의 값을 입력해주세요. [검색어당 최대 검색 수 2]");
+					return;
+				}
+
+						
+			  if (confirm("설정한 검색 조건으로 검색을 진행하시겠습니까?")) {
+		
+					vm.pageToken = "";
+					  
+					vm.params.keyword = vm.keyword.includeKey + ' ' + vm.keyword.exceptKey;
+		
+					vm.showLoader(); 
+		
+					let items = await vm.doSearchKeywordMode();
+		
+					if (vm.failedFlag === 'Y') {
+						return;	
+					}
+		
+					if (vm.isNullOrEmpty(items) || items.length === 0) {
+					  return;
+					}
+					
+					let videoIdsString = "";
+					let channelIdsString = "";
+		
+					for (let i = 0; i < items.length; i++) {
+					  videoIdsString += items[i].id.videoId + ",";
+					  channelIdsString += items[i].snippet.channelId + ",";
+					}				
+					
+					if (videoIdsString.length > 0) {
+						videoIdsString = videoIdsString.slice(0, -1);
+					}
+					if (channelIdsString.length > 0) {
+						channelIdsString = channelIdsString.slice(0, -1);
+					}
+						
+						  let videoList = await vm.doSearchVideos(videoIdsString);			  
+						  let channelList = await vm.doSearchChannels(channelIdsString);
+							
+					Loop1:
+					for (let i = 0; i < items.length; i++) {
+					  let item = items[i];
+		
+					  Loop2:
+					  for (let m = 0; m < videoList.length; m++) {
+						  if (item.id.videoId === videoList[m].id) {
+							item.videoInfo = videoList[m];
+							break Loop2;					
+						  }
+					  }
+					  
+					  Loop3:
+					  for (let n = 0; n < channelList.length; n++) {
+						  if (item.snippet.channelId === channelList[n].id) {
+							item.channelInfo = channelList[n];
+							break Loop3;					
+						  }				  
+					  }
+					}			
+		
+					let result = [];
+					let nowDate = new Date();
+					let lastDataLengthCount = 0;
+		
+					for (let j = 0; j < items.length; j++) {
+					  let obj = {};
+						let itm = items[j];
+		
+							obj = vm.makeObj(obj, itm);
+		
+					  result[j] = obj;
+					}
+					
+					lastDataLengthCount = result.length;
+					
+					for (let token_index = 1; token_index < vm.data.pageTokenPage; token_index++) {
+						if (vm.pageToken === "") break;
+						
+						items = await vm.doSearchKeywordModeToken();
+		
+						if (vm.failedFlag === 'Y') {
+							return;	
+						}
+		
+						if (vm.isNullOrEmpty(items) || items.length === 0) {
+						  break;
+						}
+		
+						videoIdsString = "";
+						channelIdsString = "";
+		
+						for (let r = 0; r < items.length; r++) {
+						  videoIdsString += items[r].id.videoId + ",";
+						  channelIdsString += items[r].snippet.channelId + ",";
+						}	
+					
+						if (videoIdsString.length > 0) {
+							videoIdsString = videoIdsString.slice(0, -1);
+						}
+						if (channelIdsString.length > 0) {
+							channelIdsString = channelIdsString.slice(0, -1);
+						}
+						
+						  let videoList = await vm.doSearchVideos(videoIdsString);			  
+						  let channelList = await vm.doSearchChannels(channelIdsString);
+								
+						Loop1:
+						for (let i = 0; i < items.length; i++) {
+						  let item = items[i];
+		
+						  Loop2:
+						  for (let m = 0; m < videoList.length; m++) {
+							  if (item.id.videoId === videoList[m].id) {
+								item.videoInfo = videoList[m];
+								break Loop2;					
+							  }
+						  }
+						  
+						  Loop3:
+						  for (let n = 0; n < channelList.length; n++) {
+							  if (item.snippet.channelId === channelList[n].id) {
+								item.channelInfo = channelList[n];
+								break Loop3;					
+							  }				  
+						  }
+						}	
+						
+						for (let v = 0; v < items.length; v++) {
+						  let obj = {};
+							let itm = items[v];
+		
+							obj = vm.makeObj(obj, itm);
+		
+						  result[lastDataLengthCount + v] = obj;
+						}
+						
+						lastDataLengthCount = result.length;
+						
+						}
+		
+						if (vm.params.shortsLong === "short" && Number(vm.params.shortsSecond) >= 0) {
+						  result = result.filter(function(target) {
+							return Number(target.playTime) <= Number(vm.params.shortsSecond);
+						  });
+						}
+			
+						if (Number(vm.params.minViewCount) >= 0) {
+						  result = result.filter(function(target) {
+							return Number(target.viewCount) >= Number(vm.params.minViewCount);
+						  });
+						}
+			
+						if (Number(vm.params.viewCountByMinTime) >= 0) {
+						  result = result.filter(function(target) {
+							return Number(target.viewCountByTime) >= Number(vm.params.viewCountByMinTime);
+						  });
+						}
+			
+						result = result.sort((a, b) => b.viewCount - a.viewCount); 
+			
+						for (let k = 0; k < result.length; k++) {
+						  result[k].no = k + 1;
+						}
+			
+						vm.gridOptions.data = result;
+						$rootScope.$applyAsync();
+			
+						vm.data.totalCount = result.length;
+			
+						vm.hideLoader(); 
+			
+						if (vm.data.totalCount === 0) {
+						  alert("검색조건을 만족하는 조회 결과가 없습니다.");
+						}
+								
+					  } else {
+						  
+					  }
+				} else {
+		
+					if (vm.channelMaster.okTotalCount === 0) {
+						alert("채널 모드 사전 설정 탭에서 검색할 채널을 1개 이상 체크하세요.");
+						return;
+					}
+
+					if (vm.channelMaster.okTotalCount > 98) {
+						alert("검색할 채널은 최대 98개까지 가능합니다.");
+						return;
+					}
+				
+					if (vm.keyword.includeKey === "") {
+					  alert("키워드 모드 사전 설정 탭에서 검색 키워드를 입력하세요.");
+					  const keywordInput = document.getElementById('keyword-includeKey');
+					  keywordInput.focus();
+					  return;
+					}			
+		
+					if (vm.keyword.exceptKey.length > 0 && vm.keyword.exceptKey.indexOf("-") === -1) {
+					  alert("제외할 키워드는 키워드 앞에 '-'를 붙여주세요. 예) -낚시 -다이빙");
+					  const keywordInput2 = document.getElementById('keyword-exceptKey');
+					  keywordInput2.focus();
+					  return;
+					}	
+		
+					if (vm.isNullOrEmpty(vm.params.maxSearchCountByChannel) || 
+					vm.params.maxSearchCountByChannel < 1 || vm.params.maxSearchCountByChannel > 50) {
+					alert("1 ~ 50 사이의 값을 입력해주세요. [채널당 최대 검색 수]");
+					return;
+				}
+		
+				  if (vm.isNullOrEmpty(vm.params.maxSearchCountByKeyword) || 
+					  vm.params.maxSearchCountByKeyword < 1 || vm.params.maxSearchCountByKeyword > 50) {
+					alert("1 ~ 50 사이의 값을 입력해주세요. [검색어당 최대 검색 수]");
+					return;
+				}
+					
+			  if (confirm("설정한 검색 조건으로 검색을 진행하시겠습니까?")) {
+					  
+					vm.params.keyword = vm.keyword.includeKey + ' ' + vm.keyword.exceptKey;
+					
+					vm.showLoader(); 
+					
+					let result = [];			
+					let nowDate = new Date();
+					
+					let dataBeforeCnt = 0;
+								
+					for (let index = 0; index < vm.channelMaster.array.length; index++) {
+						
+						let channelId = vm.channelMaster.array[index].id;
+						
+						if (vm.isNullOrEmpty(channelId) || channelId.indexOf("U") === -1) {
+						  continue;
+						}
+		
+						if (vm.channelMaster.array[index].flag === "N") {
+							continue;
+						}
+						
+						let items = await vm.doSearchBothMode(channelId);
+		
+						if (vm.failedFlag === 'Y') {
+							return;	
+						}
+		
+						if (items === undefined || items === null || items.length === 0) {
+						  continue;
+						}
+						
+						let videoIdsString = "";
+						let channelIdsString = "";
+		
+						for (let i = 0; i < items.length; i++) {
+						  videoIdsString += items[i].id.videoId + ",";
+						  channelIdsString += items[i].snippet.channelId + ",";
+						}				
+					
+					if (videoIdsString.length > 0) {
+						videoIdsString = videoIdsString.slice(0, -1);
+					}
+					if (channelIdsString.length > 0) {
+						channelIdsString = channelIdsString.slice(0, -1);
+					}
+						
+						  let videoList = await vm.doSearchVideos(videoIdsString);			  
+						  let channelList = await vm.doSearchChannels(channelIdsString);
+								
+						Loop1:
+						for (let i = 0; i < items.length; i++) {
+						  let item = items[i];
+		
+						  Loop2:
+						  for (let m = 0; m < videoList.length; m++) {
+							  if (item.id.videoId === videoList[m].id) {
+								item.videoInfo = videoList[m];
+								break Loop2;					
+							  }
+						  }
+						  
+						  Loop3:
+						  for (let n = 0; n < channelList.length; n++) {
+							  if (item.snippet.channelId === channelList[n].id) {
+								item.channelInfo = channelList[n];
+								break Loop3;					
+							  }				  
+						  }
+						}			
+						
+						for (let j = 0; j < items.length; j++) {
+						  let obj = {};
+							let itm = items[j];
+		
+							obj = vm.makeObj(obj, itm);
+						  
+						  if (index === 0) {
+							result[j] = obj;
+						  } else {
+							result[j + dataBeforeCnt] = obj; 
+						  } 
+						}	
+		
+						dataBeforeCnt = result.length;				
+					}			
+		
+						if (vm.params.shortsLong === "short" && Number(vm.params.shortsSecond) >= 0) {
+						  result = result.filter(function(target) {
+							return Number(target.playTime) <= Number(vm.params.shortsSecond);
+						  });
+						}
+			
+						if (Number(vm.params.minViewCount) >= 0) {
+						  result = result.filter(function(target) {
+							return Number(target.viewCount) >= Number(vm.params.minViewCount);
+						  });
+						}
+			
+						if (Number(vm.params.viewCountByMinTime) >= 0) {
+						  result = result.filter(function(target) {
+							return Number(target.viewCountByTime) >= Number(vm.params.viewCountByMinTime);
+						  });
+						}
+			
+						result = result.sort((a, b) => b.viewCount - a.viewCount); 
+			
+						for (let k = 0; k < result.length; k++) {
+						  result[k].no = k + 1;
+						}
+			
+						vm.gridOptions.data = result;
+						$rootScope.$applyAsync();
+			
+						vm.data.totalCount = result.length;
+						
+						vm.hideLoader(); 
+			
+						if (vm.data.totalCount === 0) {
+						  alert("검색조건을 만족하는 조회 결과가 없습니다.");
+						}	
+				  		
+					  } else {
+						  
+					  }
+			}
+      }
 
       this.doSearchKeywordModeToken = async (vm) => {
         try {
