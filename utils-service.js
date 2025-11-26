@@ -2,14 +2,14 @@
 angular.module('hotFinder')
 .service('UtilsService', ['$timeout', '$uibModal', function($timeout, $uibModal) {	
 
-      this.doSearchKeywordModeToken = async (apiClient, vm) => {
+      this.doSearchKeywordModeToken = async (vm) => {
         try {
           const today = new Date();
 		  
 		  const [y, m, d] = document.getElementById('search-startDate').value.split("-").map(Number);		  
 		  const [a, b, c] = document.getElementById('search-endDate').value.split("-").map(Number);
 
-          const response = await apiClient.get('search', {
+          const response = await vm.apiClient.get('search', {
             params: {
               part: 'snippet',
               maxResults: (vm.params.maxSearchCountByKeyword <= 0 ? 1 : vm.params.maxSearchCountByKeyword),
@@ -42,14 +42,14 @@ angular.module('hotFinder')
         }
       };
 
-      this.doSearchKeywordMode = async (apiClient, vm) => {
+      this.doSearchKeywordMode = async (vm) => {
         try {
           const today = new Date();
 		  
 		  const [y, m, d] = document.getElementById('search-startDate').value.split("-").map(Number);		  
 		  const [a, b, c] = document.getElementById('search-endDate').value.split("-").map(Number);
 
-          const response = await apiClient.get('search', {
+          const response = await vm.apiClient.get('search', {
             params: {
               part: 'snippet',
               maxResults: (vm.params.maxSearchCountByKeyword <= 0 ? 1 : vm.params.maxSearchCountByKeyword),
@@ -81,14 +81,14 @@ angular.module('hotFinder')
         }
       };
 	  
-	  this.doSearchChannelMode = async (arguChannelId, apiClient, vm) => {
+	  this.doSearchChannelMode = async (arguChannelId, vm) => {
         try {
           const today = new Date();
 		  
 		  const [y, m, d] = document.getElementById('search-startDate').value.split("-").map(Number);		  
 		  const [a, b, c] = document.getElementById('search-endDate').value.split("-").map(Number);
 
-          const response = await apiClient.get('search', {
+          const response = await vm.apiClient.get('search', {
             params: {
               part: 'snippet',
               maxResults: (vm.params.maxSearchCountByChannel <= 0 ? 1 : vm.params.maxSearchCountByChannel),
@@ -113,14 +113,14 @@ angular.module('hotFinder')
         }
       };
 	  
-	  this.doSearchBothMode = async (arguChannelId, apiClient, vm) => {
+	  this.doSearchBothMode = async (arguChannelId, vm) => {
         try {
           const today = new Date();
 		  
 		  const [y, m, d] = document.getElementById('search-startDate').value.split("-").map(Number);		  
 		  const [a, b, c] = document.getElementById('search-endDate').value.split("-").map(Number);
 
-          const response = await apiClient.get('search', {
+          const response = await vm.apiClient.get('search', {
             params: {
               part: 'snippet',
               maxResults: (vm.params.maxSearchCountByChannel <= 0 ? 1 : vm.params.maxSearchCountByChannel),
@@ -146,9 +146,9 @@ angular.module('hotFinder')
         }
       }; 
 
-	this.doSearchVideos = async (videoIds, apiClient, vm) => {
+	this.doSearchVideos = async (videoIds, vm) => {
         try {
-          const response = await apiClient.get('videos', {
+          const response = await vm.apiClient.get('videos', {
             params: {
               part: 'snippet, statistics, contentDetails',
               id: videoIds
@@ -165,9 +165,9 @@ angular.module('hotFinder')
         }
       };
 		
-      this.doSearchChannels = async (channelIds, apiClient, vm) => {
+      this.doSearchChannels = async (channelIds, vm) => {
         try {
-          const response = await apiClient.get('channels', {
+          const response = await vm.apiClient.get('channels', {
             params: {
               part: 'snippet, statistics',
               id: channelIds
