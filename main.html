@@ -70,7 +70,11 @@
 										<option value="set1" style="color:#9aa3b2;">1세트 (1~98)</option>
 										<option value="set2" style="color:#9aa3b2;">2세트 (99~196)</option>
 										<option value="set3" style="color:#9aa3b2;">3세트 (197~294)</option>
-									</select>									
+									</select>			
+									<select id="select-order" ng-model="vm.data.order" ng-change="vm.changeChannelOrder()">
+										<option value="abc" style="color:#9aa3b2;">가나다순</option>
+										<option value="sub" style="color:#9aa3b2;">구독자순</option>
+									</select>
                                     <span id="longTable" ng-click="vm.longTable();">{{vm.data.longTableDesc}}</span>
                                     <div class="field col-md-12">
                                         <div id="scrollable-grid" class="scrollable-table" style="max-height: 188px;">
@@ -331,5 +335,6 @@
 </body>
 
 </html>
+
 
 
