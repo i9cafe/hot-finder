@@ -738,10 +738,10 @@ const app = angular.module('hotFinder', ['ngRoute'
 			sub: 1990
 		  }
 	  ].sort((a, b) => {
-		  const nameCompare = a.name.localeCompare(b.name, 'ko');
-		  if (nameCompare !== 0) return nameCompare;
+		  const subCompare = b.sub - a.sub; 
+		  if (subCompare !== 0) return subCompare;
 		  
-		  return b.sub - a.sub;   
+		  return a.name.localeCompare(b.name, 'ko');
 		});
 
 	vm.channelMaster.array.forEach((item, index) => {
@@ -767,7 +767,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 	    vm.data.recentUse = 'Y';
 		
 		vm.data.set = "set1";
-		vm.data.order = "abc";
+		vm.data.order = "sub";
 
       vm.params = {};
       vm.params.excuteMode = "CHANNEL";
@@ -1450,6 +1450,10 @@ const app = angular.module('hotFinder', ['ngRoute'
 			UtilsService.changeChannelSet(vm);
       };
 
+      vm.changeChannelOrder = () => {
+			UtilsService.changeChannelOrder(vm);
+      };
+
 		vm.changeRecentUse = () => {
 			UtilsService.changeRecentUse(vm);
       };
@@ -1524,15 +1528,4 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
-
-
-
-
-
-
-
-
-
-
-
 
