@@ -388,27 +388,38 @@ angular.module('hotFinder')
 			  element.focus();
 		};
 
-		this.clickGridCheckbox = (channelMaster) => {
-	        channelMaster.okTotalCount = channelMaster.array.filter(item => item.flag === 'Y').length;
+		this.clickGridCheckbox = (vm) => {
+	        vm.channelMaster.okTotalCount = vm.channelMaster.array.filter(item => item.flag === 'Y').length;
+			
+			if (vm.channelMaster.array.length === vm.channelMaster.okTotalCount) {
+				$timeout(() => {
+					vm.data.channelAllFlag = 'Y';
+				});
+			} else {
+				$timeout(() => {
+					vm.data.channelAllFlag = 'N';
+				});
+			}			
 	    };
 	
-	    this.clickGridCheckboxAll = (channelMaster, channelAllFlag) => {
-	        const flag = channelAllFlag === 'Y' ? 'Y' : 'N';
-	        channelMaster.array.forEach(item => item.flag = flag);
-	        channelMaster.okTotalCount = flag === 'Y' ? channelMaster.array.length : 0;
-	    };
+	    this.clickGridCheckboxAll = (vm) => {
+	        const flag = vm.data.channelAllFlag === 'Y' ? 'Y' : 'N';
+	        vm.channelMaster.array.forEach(item => item.flag = flag);
+	        vm.channelMaster.okTotalCount = flag === 'Y' ? vm.channelMaster.array.length : 0;
+	    };	
 
-	    this.longTable = (data) => {
+	    this.longTable = (vm) => {
 	        const element = document.getElementById('scrollable-grid');
-	        if (data.longTableDesc === '리스트 펼치기') {
+			
+	        if (vm.data.longTableDesc === '리스트 펼치기') {
 	            $timeout(() => {
 	                element.style.removeProperty('max-height');
-	                data.longTableDesc = '리스트 접기';
+	                vm.data.longTableDesc = '리스트 접기';
 	            });
 	        } else {
 	            $timeout(() => {
 	                element.style.setProperty('max-height', '181px');
-	                data.longTableDesc = '리스트 펼치기';
+	                vm.data.longTableDesc = '리스트 펼치기';
 	            });
 	        }
 	    };
@@ -489,6 +500,56 @@ angular.module('hotFinder')
 					
 				});			
 			}
+		};	
+
+		this.changeChannelSet = (vm) => {
+			
+			if (vm.data.set === "set1") {
+				$timeout(() => {					
+					vm.channelMaster.array.forEach((item, index) => {
+					  if (item.ord >= 1 && item.ord <= 98) {
+						  item.flag = "Y";
+					  } else {
+						  item.flag = "N";
+					  }
+					});
+					
+					vm.channelMaster.okTotalCount = vm.channelMaster.array.filter((target) => {
+						return target.flag === "Y";
+					  }).length;
+					
+				});			
+			} else if (vm.data.set === "set2") {
+				$timeout(() => {					
+					vm.channelMaster.array.forEach((item, index) => {
+					  if (item.ord >= 99 && item.ord <= 196) {
+						  item.flag = "Y";
+					  } else {
+						  item.flag = "N";
+					  }
+					});
+					
+					vm.channelMaster.okTotalCount = vm.channelMaster.array.filter((target) => {
+						return target.flag === "Y";
+					  }).length;
+					
+				});			
+			} else if (vm.data.set === "set3") {
+				$timeout(() => {					
+					vm.channelMaster.array.forEach((item, index) => {
+					  if (item.ord >= 197 && item.ord <= 294) {
+						  item.flag = "Y";
+					  } else {
+						  item.flag = "N";
+					  }
+					});
+					
+					vm.channelMaster.okTotalCount = vm.channelMaster.array.filter((target) => {
+						return target.flag === "Y";
+					  }).length;
+					
+				});			
+			} 
 		};
 
 		this.changeRecentUse = (vm) => {
