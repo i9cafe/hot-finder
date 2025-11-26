@@ -1,3 +1,14 @@
+#select-set {
+  background-color: #10141c;
+  color: #9aa3b2;
+  position: absolute; 
+  top: 8px; 
+  right: 435px; 
+  border-radius: 8px;
+  border-color: darkgray;
+  padding: 1px 3px;
+}
+
 input[type="date"] {
   background: #10141c;
   border: 0;
@@ -513,56 +524,5 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
