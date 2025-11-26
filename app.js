@@ -42,35 +42,35 @@ const app = angular.module('hotFinder', ['ngRoute'
 			url: BU + "UCOZnrJilN9FsL8pGd0by6xg",
 			flag: "Y",
 			ord: 1,
-			sub: 0
+			sub: 575000
 		  }, {
 			id: "UCrW6eDWbbdmxr-XfOkvQKwQ",
 			name: "사연튜브사연라디오",
 			url: BU + "UCrW6eDWbbdmxr-XfOkvQKwQ",
 			flag: "Y",
 			ord: 2,
-			sub: 0
+			sub: 447000
 		  }, {
 			id: "UC8XIOLMm8kpoaEzjovaoesw",
 			name: "금빛이야기",
 			url: BU + "UC8XIOLMm8kpoaEzjovaoesw",
 			flag: "Y",
 			ord: 3,
-			sub: 0
+			sub: 86300
 		  }, {
 			id: "UCepniAEbQ3T75M2OuInzIOw",
 			name: "소리로읽는세상",
 			url: BU + "UCepniAEbQ3T75M2OuInzIOw",
 			flag: "Y",
 			ord: 4,
-			sub: 0
+			sub: 82500
 		  }, {
 			id: "UCjgM7Q280TRWOHmDT6Nr34A",
 			name: "탑골사연공원",
 			url: BU + "UCjgM7Q280TRWOHmDT6Nr34A",
 			flag: "Y",
 			ord: 5,
-			sub: 0
+			sub: 17800
 		  }, {
 			id: "UCzmHMfc84ebwfkRQV5ufAKw",
 			name: "황혼사연",
@@ -84,28 +84,28 @@ const app = angular.module('hotFinder', ['ngRoute'
 			url: BU + "UCT2S9OFvyF4rMZZQeNcIu3Q",
 			flag: "Y",
 			ord: 7,
-			sub: 0
+			sub: 238000
 		  }, {
 			id: "UCko5Mjg45-Kz8P2mq_2FFsg",
 			name: "풀빛사연",
 			url: BU + "UCko5Mjg45-Kz8P2mq_2FFsg",
 			flag: "Y",
 			ord: 8,
-			sub: 0
+			sub: 71600
 		  }, {
 			id: "UCZmDNNxAYodRPudlI0si0XA",
 			name: "매일사연",
 			url: BU + "UCZmDNNxAYodRPudlI0si0XA",
 			flag: "Y",
 			ord: 9,
-			sub: 0
+			sub: 46400
 		  }, {
 			id: "UCnDG7vNvXXpYxtv8ao5oWlw",
 			name: "인생정자",
 			url: BU + "UCnDG7vNvXXpYxtv8ao5oWlw",
 			flag: "Y",
 			ord: 10,
-			sub: 0
+			sub: 29600
 		  }, {
 			id: "UC5Fznx6E3uzShi7n_kIEFRA",
 			name: "사연만사",
@@ -119,28 +119,28 @@ const app = angular.module('hotFinder', ['ngRoute'
 			url: BU + "UCXVtesz30jjhcUQZAlhOUqw",
 			flag: "Y",
 			ord: 12,
-			sub: 0
+			sub: 11600
 		  }, {
 			id: "UCm9niqYY_OzexSD4zLvNBeQ",
 			name: "운명같은이야기",
 			url: BU + "UCm9niqYY_OzexSD4zLvNBeQ",
 			flag: "Y",
 			ord: 13,
-			sub: 0
+			sub: 50900
 		  }, {
 			id: "UCHq8jnJywM22kIwjo8RgCIg",
 			name: "세상만사요지경속이다",
 			url: BU + "UCHq8jnJywM22kIwjo8RgCIg",
 			flag: "Y",
 			ord: 14,
-			sub: 0
+			sub: 124000
 		  }, {
 			id: "UCRJK3vc6sLqwTUkAZt7_Z6Q",
 			name: "스페셜튜브",
 			url: BU + "UCRJK3vc6sLqwTUkAZt7_Z6Q",
 			flag: "Y",
 			ord: 15,
-			sub: 0
+			sub: 162000
 		  }, {
 			id: "UC6jMDfjyquRk30OSoe1xjJQ",
 			name: "마음의등대",
@@ -154,42 +154,42 @@ const app = angular.module('hotFinder', ['ngRoute'
 			url: BU + "UC-MGBGZzfLLfmDiZP73f6ZQ",
 			flag: "Y",
 			ord: 17,
-			sub: 0
+			sub: 69600
 		  }, {
 			id: "UClmsF6cF0oSTBlR9pfG0MZw",
 			name: "은빛다방",
 			url: BU + "UClmsF6cF0oSTBlR9pfG0MZw",
 			flag: "Y",
 			ord: 18,
-			sub: 0
+			sub: 44800
 		  }, {
 			id: "UCNuGU6mCxH-qXcfH7gjMlmA",
 			name: "각설탕회관",
 			url: BU + "UCNuGU6mCxH-qXcfH7gjMlmA",
 			flag: "Y",
 			ord: 19,
-			sub: 0
+			sub: 5310
 		  }, {
 			id: "UCOLQ6s0kRWGurtiZkn7lpsA",
 			name: "늘푸른인생",
 			url: BU + "UCOLQ6s0kRWGurtiZkn7lpsA",
 			flag: "Y",
 			ord: 20,
-			sub: 0
+			sub: 43000
 		  }, {
 			id: "UC6IIOR-Z7v5_kyMXbmEplfQ",
 			name: "인생바라기",
 			url: BU + "UC6IIOR-Z7v5_kyMXbmEplfQ",
 			flag: "Y",
 			ord: 21,
-			sub: 0
+			sub: 57800
 		  }, {
 			id: "UC-jw_--Ma-gr9N0WvD3A9Ow",
 			name: "인생은육십부터",
 			url: BU + "UC-jw_--Ma-gr9N0WvD3A9Ow",
 			flag: "Y",
 			ord: 22,
-			sub: 0
+			sub: 45000
 		  }, {
 			id: "UCP51IWwyjeKnf6Xk9rvYLkg",
 			name: "사연의빛",
@@ -203,14 +203,14 @@ const app = angular.module('hotFinder', ['ngRoute'
 			url: BU + "UCbs5S2Jmrrrk6u_pGJ1EsDg",
 			flag: "Y",
 			ord: 24,
-			sub: 0
+			sub: 50200
 		  }, {
 			id: "UCwUcHg9hRa-5rjJ7vv8rJzQ",
 			name: "세월의지혜",
 			url: BU + "UCwUcHg9hRa-5rjJ7vv8rJzQ",
 			flag: "Y",
 			ord: 25,
-			sub: 0
+			sub: 84600
 		  }, {
 			id: "UCrtZDHeWyWmc_PXYh_bPQog",
 			name: "감사월드",
@@ -231,35 +231,35 @@ const app = angular.module('hotFinder', ['ngRoute'
 			url: BU + "UC1GyaYKcLa2lU5JBFCDP4VQ",
 			flag: "Y",
 			ord: 28,
-			sub: 0
+			sub: 32300
 		  }, {
 			id: "UCXwBhLpVZQOfBid9_h-FMrA",
 			name: "톡톡사연",
 			url: BU + "UCXwBhLpVZQOfBid9_h-FMrA",
 			flag: "Y",
 			ord: 29,
-			sub: 0
+			sub: 348000
 		  }, {
 			id: "UCrRBSlHTvHGOd6hyF3DLPPw",
 			name: "랄라하의사연드라마",
 			url: BU + "UCrRBSlHTvHGOd6hyF3DLPPw",
 			flag: "Y",
 			ord: 30,
-			sub: 0
+			sub: 433000
 		  }, {
 			id: "UCMIPYHFP0Y6rMR9pMCfw22Q",
 			name: "추억의향기",
 			url: BU + "UCMIPYHFP0Y6rMR9pMCfw22Q",
 			flag: "Y",
 			ord: 31,
-			sub: 0
+			sub: 10100
 		  }, {
 			id: "UCV42dR87lzxj1rW_PKBzOFg",
 			name: "백만사연",
 			url: BU + "UCV42dR87lzxj1rW_PKBzOFg",
 			flag: "Y",
 			ord: 32,
-			sub: 0
+			sub: 56400
 		  }, {
 			id: "UC8uOInmvo02yFikl3sJ1ohg",
 			name: "사연속으로",
@@ -273,203 +273,203 @@ const app = angular.module('hotFinder', ['ngRoute'
 			url: BU + "UCXKjRRSHojm4fahC0j1LIuQ",
 			flag: "Y",
 			ord: 34,
-			sub: 0
+			sub: 28100
 		  }, {
 			id: "UCtHooblia6W73O16zN7jxfw",
 			name: "인생나날",
 			url: BU + "UCtHooblia6W73O16zN7jxfw",
 			flag: "Y",
 			ord: 35,
-			sub: 0
+			sub: 70000
 		  }, {
 			id: "UCfil2r_kgxcFiU8sO0q-Grg",
 			name: "밤의이야기",
 			url: BU + "UCfil2r_kgxcFiU8sO0q-Grg",
 			flag: "Y",
 			ord: 36,
-			sub: 0
+			sub: 28500
 		  }, {
 			id: "UCeC22b4HaVTyha58HrMjIsA",
 			name: "노을빛인생",
 			url: BU + "UCeC22b4HaVTyha58HrMjIsA",
 			flag: "Y",
 			ord: 37,
-			sub: 0
+			sub: 25800
 		  }, {
 			id: "UCWL95jlSaNHx2XQHjd4sOeA",
 			name: "감동이야기",
 			url: BU + "UCWL95jlSaNHx2XQHjd4sOeA",
 			flag: "Y",
 			ord: 38,
-			sub: 0
+			sub: 114000
 		  }, {
 			id: "UCYEZFZKSR66PyYPY92SKRng",
 			name: "고부관계",
 			url: BU + "UCYEZFZKSR66PyYPY92SKRng",
 			flag: "Y",
 			ord: 39,
-			sub: 0
+			sub: 2280
 		  }, {
 			id: "UCqId-7lAPFeuzqMqzQm_osA",
 			name: "마음이야기",
 			url: BU + "UCqId-7lAPFeuzqMqzQm_osA",
 			flag: "Y",
 			ord: 40,
-			sub: 0
+			sub: 10500
 		  }, {
 			id: "UCS2CpRATJ495FCZe7RP_yHg",
 			name: "밤의인생",
 			url: BU + "UCS2CpRATJ495FCZe7RP_yHg",
 			flag: "Y",
 			ord: 41,
-			sub: 0
+			sub: 15200
 		  }, {
 			id: "UC0miLal8tz9efrRfpfElpGw",
 			name: "보라빛인생사연",
 			url: BU + "UC0miLal8tz9efrRfpfElpGw",
 			flag: "Y",
 			ord: 42,
-			sub: 0
+			sub: 15300
 		  }, {
 			id: "UCCcouVtd0bGzsn9mM1EeBNw",
 			name: "감동쓰나미",
 			url: BU + "UCCcouVtd0bGzsn9mM1EeBNw",
 			flag: "Y",
 			ord: 43,
-			sub: 0
+			sub: 15800
 		  }, {
 			id: "UCj82PP56tg53pCQWWXm9Vxg",
 			name: "이야기술술",
 			url: BU + "UCj82PP56tg53pCQWWXm9Vxg",
 			flag: "Y",
 			ord: "44",
-			sub: 0
+			sub: 5030
 		  }, {
 			id: "UC9AHX1dC3Xofj67Kfm4ZHFg",
 			name: "삶의감동",
 			url: BU + "UC9AHX1dC3Xofj67Kfm4ZHFg",
 			flag: "Y",
 			ord: 45,
-			sub: 0
+			sub: 13600
 		  }, {
 			id: "UCXGTwL06yRZLjNn_tiVx5ug",
 			name: "포기하지마",
 			url: BU + "UCXGTwL06yRZLjNn_tiVx5ug",
 			flag: "Y",
 			ord: 46,
-			sub: 0
+			sub: 3720
 		  }, {
 			id: "UCBKugWHJLt-b9QCV01XA3sg",
 			name: "노년생활",
 			url: BU + "UCBKugWHJLt-b9QCV01XA3sg",
 			flag: "Y",
 			ord: 47,
-			sub: 0
+			sub: 11100
 		  }, {
 			id: "UCl6OqGKkmEEONlSjYD_hynQ",
 			name: "구름같은사연",
 			url: BU + "UCl6OqGKkmEEONlSjYD_hynQ",
 			flag: "Y",
 			ord: 48,
-			sub: 0
+			sub: 14000
 		  }, {
 			id: "UCRTT55661mbChMNq1XAyJoA",
 			name: "달달한인생여행",
 			url: BU + "UCRTT55661mbChMNq1XAyJoA",
 			flag: "Y",
 			ord: 49,
-			sub: 0
+			sub: 135000
 		  }, {
 			id: "UCNiF2AnoWdCptQbCFdqBuJw",
 			name: "인생감동",
 			url: BU + "UCNiF2AnoWdCptQbCFdqBuJw",
 			flag: "Y",
 			ord: 50,
-			sub: 0
+			sub: 35400
 		  }, {
 			id: "UCitqF98OhVgH813fXaNv6sQ",
 			name: "감동은선물",
 			url: BU + "UCitqF98OhVgH813fXaNv6sQ",
 			flag: "Y",
 			ord: 51,
-			sub: 0
+			sub: 1710
 		  }, {
 			id: "UCWWlhM1vgxcoRBDolu7GIAw",
 			name: "사연서점",
 			url: BU + "UCWWlhM1vgxcoRBDolu7GIAw",
 			flag: "Y",
 			ord: 52,
-			sub: 0
+			sub: 88000
 		  }, {
 			id: "UCaMDndB5LgqRFvIigy0a2Aw",
 			name: "인생교훈지혜",
 			url: BU + "UCaMDndB5LgqRFvIigy0a2Aw",
 			flag: "Y",
 			ord: 53,
-			sub: 0
+			sub: 141000
 		  }, {
 			id: "UCIUwPzbbypAXQ81Y_M6wyLA",
 			name: "이야기아랫목",
 			url: BU + "UCIUwPzbbypAXQ81Y_M6wyLA",
 			flag: "Y",
 			ord: 54,
-			sub: 0
+			sub: 9730
 		  }, {
 			id: "UCApT86tUJBVMNO52iVWUJ6w",
 			name: "삶의교훈등불",
 			url: BU + "UCApT86tUJBVMNO52iVWUJ6w",
 			flag: "Y",
 			ord: 55,
-			sub: 0
+			sub: 38500
 		  }, {
 			id: "UCQXFk2Rxo83zVgJiRwDVOcg",
 			name: "감정이야기",
 			url: BU + "UCQXFk2Rxo83zVgJiRwDVOcg",
 			flag: "Y",
 			ord: 56,
-			sub: 0
+			sub: 20400
 		  }, {
 			id: "UCkbFDChEAGahpXuIEFtx_BA",
 			name: "드라마인생사연",
 			url: BU + "UCkbFDChEAGahpXuIEFtx_BA",
 			flag: "Y",
 			ord: 57,
-			sub: 0
+			sub: 4470
 		  }, {
 			id: "UCAADkg4ye9oAMjxgmGEKk_w",
 			name: "세월의온기",
 			url: BU + "UCAADkg4ye9oAMjxgmGEKk_w",
 			flag: "Y",
 			ord: 58,
-			sub: 0
+			sub: 21300
 		  }, {
 			id: "UC_nzYc1jF9CHHyaFKnL2tRA",
 			name: "인생세상",
 			url: BU + "UC_nzYc1jF9CHHyaFKnL2tRA",
 			flag: "Y",
 			ord: 59,
-			sub: 0
+			sub: 120000
 		  }, {
 			id: "UCZwB8Va7XSRKlcy8ralTaVQ",
 			name: "어머니의정원",
 			url: BU + "UCZwB8Va7XSRKlcy8ralTaVQ",
 			flag: "Y",
 			ord: 60,
-			sub: 0
+			sub: 92300
 		  }, {
 			id: "UCmZkEggG98yxOL4iEvwj7Mg",
 			name: "사연보름달",
 			url: BU + "UCmZkEggG98yxOL4iEvwj7Mg",
 			flag: "Y",
 			ord: 61,
-			sub: 0
+			sub: 50400
 		  }, {
 			id: "UCTWQLX_se9Go8SJFGQ0xNKQ",
 			name: "지혜백서",
 			url: BU + "UCTWQLX_se9Go8SJFGQ0xNKQ",
 			flag: "Y",
 			ord: 62,
-			sub: 0
+			sub: 158000
 		  }, {
 			id: "UCl1JOZvMCD9WaC5odFMXQYw",
 			name: "인생마당",
@@ -483,49 +483,49 @@ const app = angular.module('hotFinder', ['ngRoute'
 			url: BU + "UCtTsF5hammtb8WYDW2VHpIA",
 			flag: "Y",
 			ord: 64,
-			sub: 0
+			sub: 89100
 		  }, {
 			id: "UC0YiWzRCN3AAb7a0nrgYseQ",
 			name: "달빛인생사연",
 			url: BU + "UC0YiWzRCN3AAb7a0nrgYseQ",
 			flag: "Y",
 			ord: 65,
-			sub: 0
+			sub: 53400
 		  }, {
 			id: "UCGNAYwkJkeqvfmOv0o-uY3g",
 			name: "감동정거장",
 			url: BU + "UCGNAYwkJkeqvfmOv0o-uY3g",
 			flag: "Y",
 			ord: 66,
-			sub: 0
+			sub: 40200
 		  }, {
 			id: "UC6SZ7KSlPrecXoEPflZGEnA",
 			name: "인생지혜길",
 			url: BU + "UC6SZ7KSlPrecXoEPflZGEnA",
 			flag: "Y",
 			ord: 67,
-			sub: 0
+			sub: 54200
 		  }, {
 			id: "UCKCN9FEc3M225mFPlGiOteQ",
 			name: "인생풍경",
 			url: BU + "UCKCN9FEc3M225mFPlGiOteQ",
 			flag: "Y",
 			ord: 68,
-			sub: 0
+			sub: 133000
 		  }, {
 			id: "UCj7PybOOLhgx7fqmOmrMJkA",
 			name: "추억찻집",
 			url: BU + "UCj7PybOOLhgx7fqmOmrMJkA",
 			flag: "Y",
 			ord: 69,
-			sub: 0
+			sub: 13100
 		  }, {
 			id: "UC3E-gJGVeJkevN2ujtrLHkA",
 			name: "감동수다",
 			url: BU + "UC3E-gJGVeJkevN2ujtrLHkA",
 			flag: "Y",
 			ord: 70,
-			sub: 0
+			sub: 14000
 		  }, {
 			id: "UCQHrg5u6SEUNY-50Q7cDcOw",
 			name: "현자의빛",
@@ -539,14 +539,14 @@ const app = angular.module('hotFinder', ['ngRoute'
 			url: BU + "UCL8PczL6V3e82HazJoaAKUg",
 			flag: "Y",
 			ord: 72,
-			sub: 0
+			sub: 21300
 		  }, {
 			id: "UCYiSJFAzdIXJBknGpnkNDOQ",
 			name: "생각모음",
 			url: BU + "UCYiSJFAzdIXJBknGpnkNDOQ",
 			flag: "Y",
 			ord: 73,
-			sub: 0
+			sub: 18600
 		  }, {
 			id: "UC56g-Q3t7GjcYtrUGbqYNZw",
 			name: "이야기꾼",
@@ -560,182 +560,182 @@ const app = angular.module('hotFinder', ['ngRoute'
 			url: BU + "UCXemnCQk4I4gZpQW59_zoOQ",
 			flag: "Y",
 			ord: 75,
-			sub: 0
+			sub: 12000
 		  }, {
 			id: "UCqSaGOxZ_fbEoA6gO04I1EA",
 			name: "그시절책갈피",
 			url: BU + "UCqSaGOxZ_fbEoA6gO04I1EA",
 			flag: "Y",
 			ord: 76,
-			sub: 0
+			sub: 7230
 		  }, {
 			id: "UCDeTGxoUrj_-fqnBU9ctJig",
 			name: "인생지혜말씀",
 			url: BU + "UCDeTGxoUrj_-fqnBU9ctJig",
 			flag: "Y",
 			ord: 77,
-			sub: 0
+			sub: 18800
 		  }, {
 			id: "UCGOWtFBBQa5Z4TVlqY-8agw",
 			name: "감동만족",
 			url: BU + "UCGOWtFBBQa5Z4TVlqY-8agw",
 			flag: "Y",
 			ord: 78,
-			sub: 0
+			sub: 7690
 		  }, {
 			id: "UCO1-4foSzj6kfbrNa3KeajQ",
 			name: "밤의사연",
 			url: BU + "UCO1-4foSzj6kfbrNa3KeajQ",
 			flag: "Y",
 			ord: 79,
-			sub: 0
+			sub: 39700
 		  }, {
 			id: "UCZnxPsj0PssE8ysBtpxqVrg",
 			name: "반전의순간",
 			url: BU + "UCZnxPsj0PssE8ysBtpxqVrg",
 			flag: "Y",
 			ord: 80,
-			sub: 0
+			sub: 11200
 		  }, {
 			id: "UCrqx0Z_eUsvf1M9r1s98d9g",
 			name: "인생드라마주식회사",
 			url: BU + "UCrqx0Z_eUsvf1M9r1s98d9g",
 			flag: "Y",
 			ord: 81,
-			sub: 0
+			sub: 3910
 		  }, {
 			id: "UC7AAByethNqAYxWdUzpGYKQ",
 			name: "인생두글자",
 			url: BU + "UC7AAByethNqAYxWdUzpGYKQ",
 			flag: "Y",
 			ord: 82,
-			sub: 0
+			sub: 26700
 		  }, {
 			id: "UCKfJgcK0GO3_QRrFBnIU6Cw",
 			name: "노후의벗",
 			url: BU + "UCKfJgcK0GO3_QRrFBnIU6Cw",
 			flag: "Y",
 			ord: 83,
-			sub: 0
+			sub: 22600
 		  }, {
 			id: "UCCS0E_UoX_MmN3Wu3k9z2ag",
 			name: "우리의인생은봄날",
 			url: BU + "UCCS0E_UoX_MmN3Wu3k9z2ag",
 			flag: "Y",
 			ord: 84,
-			sub: 0
+			sub: 9570
 		  }, {
 			id: "UCfOh6emG2Ke9IfN1z-WFsQg",
 			name: "뒷집사연",
 			url: BU + "UCfOh6emG2Ke9IfN1z-WFsQg",
 			flag: "Y",
 			ord: 85,
-			sub: 0
+			sub: 48300
 		  }, {
 			id: "UCeVCvsxQqUI7WGz-CXahjGA",
 			name: "천년만년인생",
 			url: BU + "UCeVCvsxQqUI7WGz-CXahjGA",
 			flag: "Y",
 			ord: 86,
-			sub: 0
+			sub: 12600
 		  }, {
 			id: "UCQNuZVeRLIIymAfCFLZOVwA",
 			name: "세월이야속해",
 			url: BU + "UCQNuZVeRLIIymAfCFLZOVwA",
 			flag: "Y",
 			ord: 87,
-			sub: 0
+			sub: 38100
 		  }, {
 			id: "UC7WL420V87oPi6b580vgDJQ",
 			name: "은빛이야기다방",
 			url: BU + "UC7WL420V87oPi6b580vgDJQ",
 			flag: "Y",
 			ord: 88,
-			sub: 0
+			sub: 576
 		  }, {
 			id: "UCN9eb0JUyAKFL7bUou_ZZLQ",
 			name: "삶의여정",
 			url: BU + "UCN9eb0JUyAKFL7bUou_ZZLQ",
 			flag: "Y",
 			ord: 89,
-			sub: 0
+			sub: 44000
 		  }, {
 			id: "UCgw1JIxlFp1uFbp93d9LIWw",
 			name: "사연쌀롱",
 			url: BU + "UCgw1JIxlFp1uFbp93d9LIWw",
 			flag: "Y",
 			ord: 90,
-			sub: 0
+			sub: 349000
 		  }, {
 			id: "UCg1lK3oQwAUCRvXSqvvwwUw",
 			name: "꽃보다내인생",
 			url: BU + "UCg1lK3oQwAUCRvXSqvvwwUw",
 			flag: "Y",
 			ord: 91,
-			sub: 0
+			sub: 6520
 		  }, {
 			id: "UCVE2CnAhq2k2w9Tzey2Bqcw",
 			name: "구름같은이야기",
 			url: BU + "UCVE2CnAhq2k2w9Tzey2Bqcw",
 			flag: "Y",
 			ord: 92,
-			sub: 0
+			sub: 142000
 		  }, {
 			id: "UCisJX40-aHLeQAKvgOkva7g",
 			name: "오늘도사이다",
 			url: BU + "UCisJX40-aHLeQAKvgOkva7g",
 			flag: "Y",
 			ord: 93,
-			sub: 0
+			sub: 6320
 		  }, {
 			id: "UCVusNTjDbwyo9UwviW-CHEA",
 			name: "쿵따리인생사연",
 			url: BU + "UCVusNTjDbwyo9UwviW-CHEA",
 			flag: "Y",
 			ord: 94,
-			sub: 0
+			sub: 12900
 		  }, {
 			id: "UCP4DU-Jz5kqB4c5tgpPKYzg",
 			name: "인생한스푼사연한줌",
 			url: BU + "UCP4DU-Jz5kqB4c5tgpPKYzg",
 			flag: "Y",
 			ord: 95,
-			sub: 0
+			sub: 21800
 		  }, {
 			id: "UCmivQaFhTIry7sgBg6efzcQ",
 			name: "노을사연",
 			url: BU + "UCmivQaFhTIry7sgBg6efzcQ",
 			flag: "Y",
 			ord: 96,
-			sub: 0
+			sub: 16000
 		  }, {
 			id: "UCjMupHmI6SMn6H0pwEfC7ew",
 			name: "벼락사연",
 			url: BU + "UCjMupHmI6SMn6H0pwEfC7ew",
 			flag: "Y",
 			ord: 97,
-			sub: 0
+			sub: 3260
 		  }, {
 			id: "UCBEt3Wa4XPBuSHdehxCOKWw",
 			name: "생생인생극장",
 			url: BU + "UCBEt3Wa4XPBuSHdehxCOKWw",
 			flag: "Y",
 			ord: 98,
-			sub: 0
+			sub: 28400
 		  }, {
 			id: "UCEgpJ18XQyaaow4VyGWBESA",
 			name: "숨겨진사연",
 			url: BU + "UCEgpJ18XQyaaow4VyGWBESA",
 			flag: "Y",
 			ord: 99,
-			sub: 0
+			sub: 20100
 		  }, {
 			id: "UCOHL9SQpsqSBl0G7eqN6iJw",
 			name: "목소리로듣는인생",
 			url: BU + "UCOHL9SQpsqSBl0G7eqN6iJw",
 			flag: "Y",
 			ord: 100,
-			sub: 0
+			sub: 1990
 		  }
 	  ].sort((a, b) => a.name.localeCompare(b.name, 'ko'));
 
@@ -1519,6 +1519,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
