@@ -83,6 +83,7 @@
                                                     <tr>
                                                         <th>No</th>
                                                         <th>채널명</th>
+														<th>구독자 수</th>
                                                         <th>채널 ID</th>
                                                         <th>채널 링크</th>
                                                         <th>검색 대상 여부
@@ -96,6 +97,7 @@
                                                     <tr ng-repeat="channel in vm.channelMaster.array">
                                                         <td>{{$index + 1}}</td>
                                                         <td>{{channel.name}}</td>
+                                                        <td>{{channel.sub.toLocaleString()}}</td>
                                                         <td>{{channel.id}}</td>
                                                         <td><a href="{{channel.url}}" target="_blank">{{channel.url}}</a></td>
                                                         <td id="checkbox-column">
@@ -335,6 +337,7 @@
 </body>
 
 </html>
+
 
 
 
