@@ -842,22 +842,22 @@ const app = angular.module('hotFinder', ['ngRoute'
 				params: { key: vm.data.apiKey }
 			  });
 	
-			if (vm.params.shortsLong === 'short' && (vm.params.shortsSecond === undefined || vm.params.shortsSecond === null || vm.params.shortsSecond === "" || vm.params.shortsSecond < 1)) {
+			if (vm.params.shortsLong === 'short' && (vm.isNullOrEmpty(vm.params.shortsSecond) || vm.params.shortsSecond < 1)) {
 				alert("1 이상의 값을 입력하세요. [쇼츠 기준(초)]");
 				return;
 			}
 	
-			if (vm.data.recentUse === 'Y' && (vm.params.recentDay === undefined || vm.params.recentDay === null || vm.params.recentDay === "" || vm.params.recentDay < 1)) {
+			if (vm.data.recentUse === 'Y' && (vm.isNullOrEmpty(vm.params.recentDay) || vm.params.recentDay < 1)) {
 				alert("1 이상의 값을 입력하세요. [최근 며칠간의 영상을 조회할까요]");
 				return;
 			}
 	
-			  if (vm.data.recentUse === 'N' && (vm.params.startDate === undefined || vm.params.startDate === null || vm.params.startDate === "")) {
+			  if (vm.data.recentUse === 'N' && vm.isNullOrEmpty(vm.params.startDate)) {
 				alert("날짜를 선택하세요. [검색 시작일]");
 				return;
 			}
 	
-			  if (vm.data.recentUse === 'N' && (vm.params.endDate === undefined || vm.params.endDate === null || vm.params.endDate === "")) {
+			  if (vm.data.recentUse === 'N' && vm.isNullOrEmpty(vm.params.endDate)) {
 				alert("날짜를 선택하세요. [검색 종료일]");
 				return;
 			}		  
@@ -876,12 +876,12 @@ const app = angular.module('hotFinder', ['ngRoute'
 				return;
 			}
 	
-			if (vm.params.minViewCount === undefined || vm.params.minViewCount === null || vm.params.minViewCount === "" || vm.params.minViewCount < 1) {
+			if (vm.isNullOrEmpty(vm.params.minViewCount) || vm.params.minViewCount < 1) {
 				alert("1 이상의 값을 입력하세요. [최소 조회수]");
 				return;
 			}
 	
-			if (vm.params.viewCountByMinTime === undefined || vm.params.viewCountByMinTime === null || vm.params.viewCountByMinTime === "" || vm.params.viewCountByMinTime < 1) {
+			if (vm.isNullOrEmpty(vm.params.viewCountByMinTime) || vm.params.viewCountByMinTime < 1) {
 				alert("1 이상의 값을 입력하세요. [최소 시간당 조회수]");
 				return;
 			}				
@@ -898,7 +898,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 						return;
 					}
 		
-					if (vm.params.maxSearchCountByChannel === undefined || vm.params.maxSearchCountByChannel === null || vm.params.maxSearchCountByChannel === "" || 
+					if (vm.isNullOrEmpty(vm.params.maxSearchCountByChannel) || 
 					vm.params.maxSearchCountByChannel < 1 || vm.params.maxSearchCountByChannel > 50) {
 					alert("1 ~ 50 사이의 값을 입력해주세요. [채널당 최대 검색 수]");
 					return;
@@ -918,7 +918,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 						
 						let channelId = vm.channelMaster.array[index].id;
 						
-						if (channelId === undefined || channelId === null || channelId.indexOf("U") === -1) {
+						if (vm.isNullOrEmpty(channelId) || channelId.indexOf("U") === -1) {
 						  continue;
 						}
 		
@@ -932,7 +932,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 							return;	
 						}
 		
-						if (items === undefined || items === null || items.length === 0) {
+						if (vm.isNullOrEmpty(items) || items.length === 0) {
 						  continue;					
 						}
 						
@@ -1074,7 +1074,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 						return;	
 					}
 		
-					if (items === undefined || items === null || items.length === 0) {
+					if (vm.isNullOrEmpty(items) || items.length === 0) {
 					  return;
 					}
 					
@@ -1141,7 +1141,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 							return;	
 						}
 		
-						if (items === undefined || items === null || items.length === 0) {
+						if (vm.isNullOrEmpty(items) || items.length === 0) {
 						  break;
 						}
 		
@@ -1261,13 +1261,13 @@ const app = angular.module('hotFinder', ['ngRoute'
 					  return;
 					}	
 		
-					if (vm.params.maxSearchCountByChannel === undefined || vm.params.maxSearchCountByChannel === null || vm.params.maxSearchCountByChannel === "" || 
+					if (vm.isNullOrEmpty(vm.params.maxSearchCountByChannel) || 
 					vm.params.maxSearchCountByChannel < 1 || vm.params.maxSearchCountByChannel > 50) {
 					alert("1 ~ 50 사이의 값을 입력해주세요. [채널당 최대 검색 수]");
 					return;
 				}
 		
-				  if (vm.params.maxSearchCountByKeyword === undefined || vm.params.maxSearchCountByKeyword === null || vm.params.maxSearchCountByKeyword === "" || 
+				  if (vm.isNullOrEmpty(vm.params.maxSearchCountByKeyword) || 
 					  vm.params.maxSearchCountByKeyword < 1 || vm.params.maxSearchCountByKeyword > 50) {
 					alert("1 ~ 50 사이의 값을 입력해주세요. [검색어당 최대 검색 수]");
 					return;
@@ -1288,7 +1288,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 						
 						let channelId = vm.channelMaster.array[index].id;
 						
-						if (channelId === undefined || channelId === null || channelId.indexOf("U") === -1) {
+						if (vm.isNullOrEmpty(channelId) || channelId.indexOf("U") === -1) {
 						  continue;
 						}
 		
@@ -1457,6 +1457,10 @@ const app = angular.module('hotFinder', ['ngRoute'
 		vm.changeRecentUse = () => {
 			UtilsService.changeRecentUse(vm);
       };
+	  
+	  vm.isNullOrEmpty = (v) => {
+			UtilsService.isNullOrEmpty(v);
+		};
 
 		vm.errorFunc = (e) => {
 			UtilsService.errorFunc(e);
