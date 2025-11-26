@@ -746,7 +746,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 	  } else if (item.ord > 98) {
 		  item.flag = "N";		
 	  }
-	});
+	}); 
 		
 	vm.channelMaster.okTotalCount = vm.channelMaster.array.filter((target) => {
 			return target.flag === "Y";
@@ -1519,6 +1519,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
