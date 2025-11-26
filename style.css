@@ -3,7 +3,18 @@
   color: #9aa3b2;
   position: absolute; 
   top: 8px; 
-  right: 435px; 
+  right: 265px; 
+  border-radius: 8px;
+  border-color: darkgray;
+  padding: 1px 3px;
+}
+
+#select-order {
+  background-color: #10141c;
+  color: #9aa3b2;
+  position: absolute; 
+  top: 8px; 
+  right: 405px; 
   border-radius: 8px;
   border-color: darkgray;
   padding: 1px 3px;
@@ -524,5 +535,6 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
