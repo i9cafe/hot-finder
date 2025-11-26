@@ -1,4 +1,3 @@
-
 angular.module('hotFinder')
 .service('UtilsService', ['$timeout', '$uibModal', function($timeout, $uibModal) {	
 
