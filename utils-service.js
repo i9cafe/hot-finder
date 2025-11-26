@@ -514,6 +514,8 @@ angular.module('hotFinder')
 					  }
 					});
 					
+					vm.data.channelAllFlag = 'N';
+					
 					vm.channelMaster.okTotalCount = vm.channelMaster.array.filter((target) => {
 						return target.flag === "Y";
 					  }).length;
@@ -529,6 +531,8 @@ angular.module('hotFinder')
 					  }
 					});
 					
+					vm.data.channelAllFlag = 'N';
+					
 					vm.channelMaster.okTotalCount = vm.channelMaster.array.filter((target) => {
 						return target.flag === "Y";
 					  }).length;
@@ -543,6 +547,8 @@ angular.module('hotFinder')
 						  item.flag = "N";
 					  }
 					});
+					
+					vm.data.channelAllFlag = 'N';
 					
 					vm.channelMaster.okTotalCount = vm.channelMaster.array.filter((target) => {
 						return target.flag === "Y";
