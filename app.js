@@ -1516,3 +1516,4 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 
 
+
