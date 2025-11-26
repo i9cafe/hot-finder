@@ -70,11 +70,13 @@
 											<option value="sub" style="color:#9aa3b2;">구독자순</option>
 											<option value="abc" style="color:#9aa3b2;">가나다순</option>
 										</select>			
+										<span id="label-order">으로 정렬하고,</span>	
 										<select id="select-set" ng-model="vm.data.set" ng-change="vm.changeChannelSet()">
-											<option value="set1" style="color:#9aa3b2;">1세트 (1~98)</option>
-											<option value="set2" style="color:#9aa3b2;">2세트 (99~196)</option>
-											<option value="set3" style="color:#9aa3b2;">3세트 (197~294)</option>
+											<option value="set1" style="color:#9aa3b2;">1~98</option>
+											<option value="set2" style="color:#9aa3b2;">99~196</option>
+											<option value="set3" style="color:#9aa3b2;">197~294</option>
 										</select>	
+										<span id="label-set">채널을 체크합니다.</span>	
 	                                    <span id="longTable" ng-click="vm.longTable();">{{vm.data.longTableDesc}}</span>
 	                                    <div class="field col-md-12">
 	                                        <div id="scrollable-grid" class="scrollable-table" style="max-height: 188px;">
@@ -331,6 +333,7 @@
 	</body>
 
 </html>
+
 
 
 
