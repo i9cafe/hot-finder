@@ -789,6 +789,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 	  vm.keyword.includeKey = "";
 	  vm.keyword.exceptKey = "";
 
+ 	  /*************************** GRID ***************************/
       vm.gridOptions = {
         enableColumnResizing: true,
         enableSorting: true,
@@ -829,6 +830,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 
       vm.gridOptions.data = [];
 
+	
+      /*************************** FUNCTION ***************************/
 		this.clickHome = () => {
 			location.reload(); 
 		}
@@ -967,4 +970,5 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
