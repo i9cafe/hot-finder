@@ -762,6 +762,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 	    vm.data.recentUse = 'Y';
 		
 		vm.data.set = "set1";
+		vm.data.order = "abc";
 
       vm.params = {};
       vm.params.excuteMode = "CHANNEL";
@@ -1518,6 +1519,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
