@@ -77,7 +77,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			url: BU + "UCzmHMfc84ebwfkRQV5ufAKw",
 			flag: "Y",
 			ord: 6,
-			sub: 0
+			sub: 13100
 		  }, {
 			id: "UCT2S9OFvyF4rMZZQeNcIu3Q",
 			name: "인생사연",
@@ -147,7 +147,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			url: BU + "UC6jMDfjyquRk30OSoe1xjJQ",
 			flag: "Y",
 			ord: 16,
-			sub: 0
+			sub: 23800
 		  }, {
 			id: "UC-MGBGZzfLLfmDiZP73f6ZQ",
 			name: "노후의아름다운이야기",
@@ -196,7 +196,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			url: BU + "UCP51IWwyjeKnf6Xk9rvYLkg",
 			flag: "Y",
 			ord: 23,
-			sub: 0
+			sub: 37400
 		  }, {
 			id: "UCbs5S2Jmrrrk6u_pGJ1EsDg",
 			name: "눈내린소나무같은인생사연",
@@ -476,7 +476,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			url: BU + "UCl1JOZvMCD9WaC5odFMXQYw",
 			flag: "Y",
 			ord: 63,
-			sub: 0
+			sub: 128000
 		  }, {
 			id: "UCtTsF5hammtb8WYDW2VHpIA",
 			name: "인생의이야기",
@@ -532,7 +532,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			url: BU + "UCQHrg5u6SEUNY-50Q7cDcOw",
 			flag: "Y",
 			ord: 71,
-			sub: 0
+			sub: 146000
 		  }, {
 			id: "UCL8PczL6V3e82HazJoaAKUg",
 			name: "햇빛사연",
@@ -553,7 +553,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			url: BU + "UC56g-Q3t7GjcYtrUGbqYNZw",
 			flag: "Y",
 			ord: 74,
-			sub: 0
+			sub: 24200
 		  }, {
 			id: "UCXemnCQk4I4gZpQW59_zoOQ",
 			name: "인생의필름",
@@ -1519,6 +1519,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
