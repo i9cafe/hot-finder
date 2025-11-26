@@ -72,8 +72,8 @@
 										<option value="set3" style="color:#9aa3b2;">3세트 (197~294)</option>
 									</select>			
 									<select id="select-order" ng-model="vm.data.order" ng-change="vm.changeChannelOrder()">
-										<option value="abc" style="color:#9aa3b2;">가나다순</option>
 										<option value="sub" style="color:#9aa3b2;">구독자순</option>
+										<option value="abc" style="color:#9aa3b2;">가나다순</option>
 									</select>
                                     <span id="longTable" ng-click="vm.longTable();">{{vm.data.longTableDesc}}</span>
                                     <div class="field col-md-12">
@@ -114,7 +114,6 @@
                         </div>
                     </uib-tab>
 
-                    <!-- 탭2 -->
                     <uib-tab heading="키워드 모드 사전 설정" ng-click="vm.clickKeywordTab()">
                         <div class="body" style="margin-top:15px;">
                             <form class="filters" style="gap:10px;">
@@ -201,7 +200,6 @@
                                         </div>
                                     </div>
 								</div>
-
 									
 								<div class="col-md-12">
                                     <div class="col-md-4">
@@ -236,8 +234,7 @@
                                             </div>
                                         </div>
                                     </div>
-								</div>
-									
+								</div>									
 									
 								<div class="col-md-12">
                                     <div class="col-md-4">
@@ -273,10 +270,8 @@
 												ng-model="vm.params.endDate" readonly>
                                             </div>
                                         </div>
-                                    </div>
-									
-								</div>
-									
+                                    </div>									
+								</div>									
 									
 								<div class="col-md-12">
                                     <div class="col-md-4">
@@ -311,11 +306,10 @@
                                     <button class="btn primary" type="submit" ng-click="vm.search()"></i>검색</button>
                                     <button class="btn ghost" ng-click="vm.reset()" title="검색조건 탭을 초기화합니다."></i>리셋</button>
                                 </div>
+							</form>
                         </div>
-                        </form>
-            </div>
-            </uib-tab>
-            </uib-tabset>
+					</uib-tab>
+				</uib-tabset>
             </div>
         </section>
 
