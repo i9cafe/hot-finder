@@ -907,7 +907,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 						
 			  if (confirm("설정한 검색 조건으로 검색을 진행하시겠습니까?")) {
 								
-					this.showLoader(); 
+					vm.showLoader(); 
 					
 					let result = [];			
 					let nowDate = new Date();
@@ -1020,7 +1020,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 				
 							vm.data.totalCount = result.length;
 							
-							this.hideLoader();
+							vm.hideLoader();
 				
 							if (vm.data.totalCount === 0) {
 							  alert("검색조건을 만족하는 조회 결과가 없습니다.");
@@ -1066,7 +1066,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 					  
 					vm.params.keyword = vm.keyword.includeKey + ' ' + vm.keyword.exceptKey;
 		
-					this.showLoader(); 
+					vm.showLoader(); 
 		
 					let items = await vm.doSearchKeywordMode();
 		
@@ -1226,7 +1226,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			
 						vm.data.totalCount = result.length;
 			
-						this.hideLoader(); 
+						vm.hideLoader(); 
 			
 						if (vm.data.totalCount === 0) {
 						  alert("검색조건을 만족하는 조회 결과가 없습니다.");
@@ -1277,7 +1277,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 					  
 					vm.params.keyword = vm.keyword.includeKey + ' ' + vm.keyword.exceptKey;
 					
-					this.showLoader(); 
+					vm.showLoader(); 
 					
 					let result = [];			
 					let nowDate = new Date();
@@ -1390,7 +1390,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			
 						vm.data.totalCount = result.length;
 						
-						this.hideLoader(); 
+						vm.hideLoader(); 
 			
 						if (vm.data.totalCount === 0) {
 						  alert("검색조건을 만족하는 조회 결과가 없습니다.");
@@ -1532,5 +1532,6 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
