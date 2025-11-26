@@ -256,6 +256,10 @@ angular.module('hotFinder')
 		          alert('[Error]: ' + error.message);
 		      }
 		  };
+		  
+		  this.isNullOrEmpty = (value) => {
+		      return value === undefined || value === null || value === "";
+		  };
 
 		  this.showLoader = () => {
 		        document.getElementById('loader').style.display = 'flex';
