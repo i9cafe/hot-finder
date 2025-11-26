@@ -112,7 +112,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			url: BU + "UC5Fznx6E3uzShi7n_kIEFRA",
 			flag: "Y",
 			ord: 11,
-			sub: 0
+			sub: 51300
 		  }, {
 			id: "UCXVtesz30jjhcUQZAlhOUqw",
 			name: "은하수별동네",
@@ -217,14 +217,14 @@ const app = angular.module('hotFinder', ['ngRoute'
 			url: BU + "UCrtZDHeWyWmc_PXYh_bPQog",
 			flag: "Y",
 			ord: 26,
-			sub: 0
+			sub: 42900
 		  }, {
 			id: "UCJaX4fqnQGoq1oPbpv6pGmg",
 			name: "하늘빛마음",
 			url: BU + "UCJaX4fqnQGoq1oPbpv6pGmg",
 			flag: "Y",
 			ord: 27,
-			sub: 0
+			sub: 24300
 		  }, {
 			id: "UC1GyaYKcLa2lU5JBFCDP4VQ",
 			name: "어둠속의빛",
@@ -266,7 +266,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 			url: BU + "UC8uOInmvo02yFikl3sJ1ohg",
 			flag: "Y",
 			ord: 33,
-			sub: 0
+			sub: 210000
 		  }, {
 			id: "UCXKjRRSHojm4fahC0j1LIuQ",
 			name: "인생따라바람따라",
@@ -1519,6 +1519,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
