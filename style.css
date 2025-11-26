@@ -6,7 +6,7 @@
   right: 265px; 
   border-radius: 8px;
   border-color: darkgray;
-  padding: 1px 3px;
+  padding: 1px 5px;
 }
 
 #select-order {
@@ -17,7 +17,7 @@
   right: 405px; 
   border-radius: 8px;
   border-color: darkgray;
-  padding: 1px 3px;
+  padding: 1px 5px;
 }
 
 input[type="date"] {
@@ -535,6 +535,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
