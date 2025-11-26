@@ -1,6 +1,6 @@
 #select-set {
   background-color: #10141c;
-  color: #9aa3b2;
+  color: lightgray;
   position: absolute; 
   top: 8px; 
   right: 180px; 
@@ -11,7 +11,7 @@
 
 #select-order {
   background-color: #10141c;
-  color: #9aa3b2;
+  color: lightgray;
   position: absolute; 
   top: 8px; 
   right: 322px; 
@@ -535,5 +535,6 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
