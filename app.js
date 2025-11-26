@@ -26,7 +26,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 	  vm.data.bu = "https://youtube.googleapis.com/youtube/v3";
       vm.data.apiKey = "AIzaSyCg2tnEwBThaOS6-sdEzz--8skbl_C3Gps";
 
-	  let apiClient = axios.create({
+	   vm.apiClient = axios.create({
 	        baseURL: vm.data.bu,
 	        params: { key: vm.data.apiKey }
 	    });
@@ -826,7 +826,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
 			  vm.failedFlag = 'N';
 	
-			  apiClient = axios.create({
+			  vm.apiClient = axios.create({
 				baseURL: vm.data.bu,
 				params: { key: vm.data.apiKey }
 			  });
@@ -915,7 +915,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 							continue;
 						}
 						
-						let items = await vm.doSearchChannelMode(channelId, apiClient);
+						let items = await vm.doSearchChannelMode(channelId);
 		
 						if (vm.failedFlag === 'Y') {
 							return;	
@@ -940,8 +940,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 							channelIdsString = channelIdsString.slice(0, -1);
 						}
 						
-						  let videoList = await vm.doSearchVideos(videoIdsString, apiClient);			  
-						  let channelList = await vm.doSearchChannels(channelIdsString, apiClient);
+						  let videoList = await vm.doSearchVideos(videoIdsString);			  
+						  let channelList = await vm.doSearchChannels(channelIdsString);
 								
 						Loop1:
 						for (let i = 0; i < items.length; i++) {
@@ -1057,7 +1057,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 		
 					this.showLoader(); 
 		
-					let items = await vm.doSearchKeywordMode(apiClient);
+					let items = await vm.doSearchKeywordMode();
 		
 					if (vm.failedFlag === 'Y') {
 						return;	
@@ -1082,8 +1082,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 						channelIdsString = channelIdsString.slice(0, -1);
 					}
 						
-						  let videoList = await vm.doSearchVideos(videoIdsString, apiClient);			  
-						  let channelList = await vm.doSearchChannels(channelIdsString, apiClient);
+						  let videoList = await vm.doSearchVideos(videoIdsString);			  
+						  let channelList = await vm.doSearchChannels(channelIdsString);
 							
 					Loop1:
 					for (let i = 0; i < items.length; i++) {
@@ -1124,7 +1124,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 					for (let token_index = 1; token_index < vm.data.pageTokenPage; token_index++) {
 						if (vm.pageToken === "") break;
 						
-						items = await vm.doSearchKeywordModeToken(apiClient);
+						items = await vm.doSearchKeywordModeToken();
 		
 						if (vm.failedFlag === 'Y') {
 							return;	
@@ -1149,8 +1149,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 							channelIdsString = channelIdsString.slice(0, -1);
 						}
 						
-						  let videoList = await vm.doSearchVideos(videoIdsString, apiClient);			  
-						  let channelList = await vm.doSearchChannels(channelIdsString, apiClient);
+						  let videoList = await vm.doSearchVideos(videoIdsString);			  
+						  let channelList = await vm.doSearchChannels(channelIdsString);
 								
 						Loop1:
 						for (let i = 0; i < items.length; i++) {
@@ -1285,7 +1285,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 							continue;
 						}
 						
-						let items = await vm.doSearchBothMode(channelId, apiClient);
+						let items = await vm.doSearchBothMode(channelId);
 		
 						if (vm.failedFlag === 'Y') {
 							return;	
@@ -1310,8 +1310,8 @@ const app = angular.module('hotFinder', ['ngRoute'
 						channelIdsString = channelIdsString.slice(0, -1);
 					}
 						
-						  let videoList = await vm.doSearchVideos(videoIdsString, apiClient);			  
-						  let channelList = await vm.doSearchChannels(channelIdsString, apiClient);
+						  let videoList = await vm.doSearchVideos(videoIdsString);			  
+						  let channelList = await vm.doSearchChannels(channelIdsString);
 								
 						Loop1:
 						for (let i = 0; i < items.length; i++) {
@@ -1391,28 +1391,28 @@ const app = angular.module('hotFinder', ['ngRoute'
 			}
       }
 
-      vm.doSearchKeywordMode = async (apiClient) => {
-			return await UtilsService.doSearchKeywordMode(apiClient, vm);  
+      vm.doSearchKeywordMode = async () => {
+			return await UtilsService.doSearchKeywordMode(vm);  
       };	  
 
-      vm.doSearchKeywordModeToken = async (apiClient) => {
-			return await UtilsService.doSearchKeywordModeToken(apiClient, vm); 
+      vm.doSearchKeywordModeToken = async () => {
+			return await UtilsService.doSearchKeywordModeToken(vm); 
       };
 	  
-	  vm.doSearchChannelMode = async (arguChannelId, apiClient) => {
-			return await UtilsService.doSearchChannelMode(arguChannelId, apiClient, vm);   
+	  vm.doSearchChannelMode = async (arguChannelId) => {
+			return await UtilsService.doSearchChannelMode(arguChannelId, vm);   
       };
 	  
-	  vm.doSearchBothMode = async (arguChannelId, apiClient) => {
-			return await UtilsService.doSearchBothMode(arguChannelId, apiClient, vm);        
+	  vm.doSearchBothMode = async (arguChannelId) => {
+			return await UtilsService.doSearchBothMode(arguChannelId, vm);        
       }; 
 
-      vm.doSearchVideos = async (videoIds, apiClient) => {
-			return await UtilsService.doSearchVideos(videoIds, apiClient, vm);
+      vm.doSearchVideos = async (videoIds) => {
+			return await UtilsService.doSearchVideos(videoIds, vm);
       };
 		
-      vm.doSearchChannels = async (channelIds, apiClient) => {
-			return await UtilsService.doSearchChannels(channelIds, apiClient, vm);
+      vm.doSearchChannels = async (channelIds) => {
+			return await UtilsService.doSearchChannels(channelIds, vm);
       };
 
       vm.reset = () => {		  
@@ -1513,5 +1513,6 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
