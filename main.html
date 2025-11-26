@@ -68,7 +68,12 @@
 											총 {{vm.channelMaster.okTotalCount}}개
 										</span>
 										에 대해서 검색합니다.)
-                                    </h4>
+                                    </h4>				
+									<select id="select-set" ng-model="vm.data.set" ng-change="vm.changeChannelSet()">
+										<option value="set1" style="color:#9aa3b2;">1세트 (1~98)</option>
+										<option value="set2" style="color:#9aa3b2;">2세트 (99~196)</option>
+										<option value="set3" style="color:#9aa3b2;">3세트 (197~294)</option>
+									</select>									
                                     <span id="longTable" ng-click="vm.longTable();">{{vm.data.longTableDesc}}</span>
                                     <div class="field col-md-12">
                                         <div id="scrollable-grid" class="scrollable-table" style="max-height: 188px;">
@@ -81,7 +86,7 @@
                                                         <th>채널 링크</th>
                                                         <th>검색 대상 여부
                                                             <input type="checkbox" ng-model="vm.data.channelAllFlag" ng-true-value="'Y'" ng-false-value="'N'" ng-click="vm.clickGridCheckboxAll()" style="width:15px;height:15px;margin-left:8px;
-														margin-right:5px;cursor:pointer;">
+																margin-right:5px;cursor:pointer;">															
                                                         </th>
                                                         <th style="display: none;">비고</th>
                                                     </tr>
@@ -93,7 +98,7 @@
                                                         <td>{{channel.id}}</td>
                                                         <td><a href="{{channel.url}}" target="_blank">{{channel.url}}</a></td>
                                                         <td id="checkbox-column">
-                                                            <input type="checkbox" ng-model="channel.flag" ng-true-value="'Y'" ng-false-value="'N'" ng-click="vm.clickGridCheckbox()">
+                                                            <input type="checkbox" ng-model="channel.flag" ng-true-value="'Y'" ng-false-value="'N'" ng-click="vm.clickGridCheckbox()">															
                                                         </td>
                                                         <td style="display: none;">{{channel.comment}}</td>
                                                     </tr>
@@ -141,10 +146,10 @@
                                         <div class="field col-md-12">
                                             <label class="label col-md-4" style="color:yellow;">검색 모드</label>
                                             <div class="control col-md-8" style="border-color:yellow;">
-                                                <select id="searchbox-excuteMode" ng-model="vm.params.excuteMode" style="color:yellow;" ng-change="vm.changeExcuteMode()">
-                                                    <option value="CHANNEL" style="color:black;">채널</option>
-                                                    <option value="KEYWORD" style="color:black;">키워드</option>
-                                                    <option value="BOTH" style="color:black;">둘다</option>
+                                                <select id="searchbox-excuteMode" ng-model="vm.params.excuteMode" style="color:yellow; background-color:#10141c;" ng-change="vm.changeExcuteMode()">
+                                                    <option value="CHANNEL" style="color:lightgray;">채널</option>
+                                                    <option value="KEYWORD" style="color:lightgray;">키워드</option>
+                                                    <option value="BOTH" style="color:lightgray;">둘다</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -167,11 +172,11 @@
                                         <div class="field col-md-12">
                                             <label class="label col-md-4">쇼츠 / 롱폼</label>
                                             <div class="control col-md-8">
-                                                <select id="searchbox-shortsLong" ng-model="vm.params.shortsLong" ng-change="vm.changeShortsLong()">
-                                                    <option value="short" style="color:black;">쇼츠 (4분 미만)</option>
-                                                    <option value="medium" style="color:black;">중간 (4분 이상~20분 이하)</option>
-                                                    <option value="long" style="color:black;">롱폼 (20분 초과)</option>
-                                                    <option value="any" style="color:black;">전체</option>
+                                                <select id="searchbox-shortsLong" ng-model="vm.params.shortsLong" ng-change="vm.changeShortsLong()" style="background-color:#10141c;">
+                                                    <option value="short" style="color:lightgray;">쇼츠 (4분 미만)</option>
+                                                    <option value="medium" style="color:lightgray;">중간 (4분 이상~20분 이하)</option>
+                                                    <option value="long" style="color:lightgray;">롱폼 (20분 초과)</option>
+                                                    <option value="any" style="color:lightgray;">전체</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -331,73 +336,4 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
