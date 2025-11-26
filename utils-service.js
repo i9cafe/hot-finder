@@ -558,6 +558,65 @@ angular.module('hotFinder')
 			} 
 		};
 
+		this.changeChannelOrder = (vm) => {
+			
+			if (vm.data.order === "abc") {
+				$timeout(() => {					
+					vm.channelMaster.array.sort((a, b) => {
+						  const nameCompare = a.name.localeCompare(b.name, 'ko');
+						  if (nameCompare !== 0) return nameCompare;
+						  
+						  return b.sub - a.sub;   
+						});
+
+					vm.channelMaster.array.forEach((item, index) => {
+					  item.ord = index + 1;
+					  if (item.ord >= 1 && item.ord <= 98) {
+						  item.flag = "Y";
+					  } else if (item.ord > 98) {
+						  item.flag = "N";		
+					  }
+					}); 
+					
+					vm.data.channelAllFlag = 'N';
+					
+					vm.channelMaster.okTotalCount = vm.channelMaster.array.filter((target) => {
+						return target.flag === "Y";
+					  }).length;
+					  
+					  vm.data.set = "set1";
+					
+				});			
+			} else if (vm.data.order === "sub") {
+				$timeout(() => {					
+					vm.channelMaster.array.sort((a, b) => {
+						  const subCompare = b.sub - a.sub; 
+						  if (subCompare !== 0) return subCompare;
+						  
+						  return a.name.localeCompare(b.name, 'ko');   
+						});
+
+					vm.channelMaster.array.forEach((item, index) => {
+					  item.ord = index + 1;
+					  if (item.ord >= 1 && item.ord <= 98) {
+						  item.flag = "Y";
+					  } else if (item.ord > 98) {
+						  item.flag = "N";		
+					  }
+					}); 
+					
+					vm.data.channelAllFlag = 'N';
+					
+					vm.channelMaster.okTotalCount = vm.channelMaster.array.filter((target) => {
+						return target.flag === "Y";
+					  }).length;
+					  
+					  vm.data.set = "set1";
+					
+				});			
+			} 
+		};
+
 		this.changeRecentUse = (vm) => {
 			const searchRec = document.getElementById('searchbox-recentDay');
 	          
