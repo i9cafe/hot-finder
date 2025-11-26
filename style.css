@@ -1,12 +1,8 @@
-#select-set {
-  background-color: #10141c;
-  color: lightgray;
+#label-order {
+  color: #9AA3B2;
   position: absolute; 
-  top: 8px; 
-  right: 180px; 
-  border-radius: 8px;
-  border-color: darkgray;
-  padding: 1px 5px;
+  top: 11px; 
+  right: 383px; 
 }
 
 #select-order {
@@ -14,7 +10,25 @@
   color: lightgray;
   position: absolute; 
   top: 8px; 
-  right: 322px; 
+  right: 472px; 
+  border-radius: 8px;
+  border-color: darkgray;
+  padding: 1px 5px;
+}
+
+#label-set {
+  color: #9AA3B2;
+  position: absolute; 
+  top: 11px; 
+  right: 176px; 
+}
+
+#select-set {
+  background-color: #10141c;
+  color: lightgray;
+  position: absolute; 
+  top: 8px; 
+  right: 291px; 
   border-radius: 8px;
   border-color: darkgray;
   padding: 1px 5px;
@@ -535,6 +549,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
