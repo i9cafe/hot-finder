@@ -98,7 +98,7 @@
 	                                                    <tr ng-repeat="channel in vm.channelMaster.array">
 	                                                        <td>{{$index + 1}}</td>
 	                                                        <td>{{channel.name}}</td>
-	                                                        <td>{{channel.sub.toLocaleString()}}</td>
+	                                                        <td style="text-align:right;">{{channel.sub.toLocaleString()}}</td>
 	                                                        <td>{{channel.id}}</td>
 	                                                        <td><a href="{{channel.url}}" target="_blank">{{channel.url}}</a></td>
 	                                                        <td id="checkbox-column">
@@ -331,6 +331,7 @@
 	
 	</body>
 </html>
+
 
 
 
