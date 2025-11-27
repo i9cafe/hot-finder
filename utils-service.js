@@ -1027,15 +1027,23 @@ angular.module('hotFinder')
 
 	    this.updateConsume = (vm) => {
 			if (vm.params.excuteMode === "CHANNEL") {
-				vm.data.consume = vm.channelMaster.okTotalCount === 0 ? '-' : Number(vm.channelMaster.okTotalCount) * 102;	
-			} else if (vm.params.excuteMode === "KEYWORD") {
-				if (vm.data.pageTokenPage && vm.data.pageTokenPage >= 1 && vm.data.pageTokenPage <= 10) {					
+				$timeout(() => {
 					vm.data.consume = vm.channelMaster.okTotalCount === 0 ? '-' : Number(vm.channelMaster.okTotalCount) * 102;
+	            });	
+			} else if (vm.params.excuteMode === "KEYWORD") {
+				if (vm.data.pageTokenPage && vm.data.pageTokenPage >= 1 && vm.data.pageTokenPage <= 10) {
+					$timeout(() => {
+						vm.data.consume = vm.channelMaster.okTotalCount === 0 ? '-' : Number(vm.channelMaster.okTotalCount) * 102;						
+	            	});
 				} else {
-					vm.data.consume = '-';
+					$timeout(() => {
+						vm.data.consume = '-';
+	          		  });
 				}
 			} else {
-				vm.data.consume = Number(vm.channelMaster.okTotalCount) * 102;	
+				$timeout(() => {
+					vm.data.consume = Number(vm.channelMaster.okTotalCount) * 102;	
+	            });
 			}
 			
 			const element = document.getElementById('consume');
