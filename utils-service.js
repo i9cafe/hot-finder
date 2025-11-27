@@ -859,15 +859,15 @@ angular.module('hotFinder')
 		        return cell;
 		    };
 
-		    this.excelDownload = (gridOptions) => {
-		        if (!gridOptions || !gridOptions.data || vm.data.totalCount === 0) {
+		    this.excelDownload = (vm) => {
+		        if (!vm.gridOptions || !vm.gridOptions.data || vm.data.totalCount === 0) {
 					alert("다운로드할 데이터가 없습니다.");
 					return;
 				}
 				
-		        const columnNames = gridOptions.columnDefs.map(col => col.name);
-		        const columnHeaders = gridOptions.columnDefs.map(col => col.displayName || col.name);
-		        const rows = gridOptions.data;
+		        const columnNames = vm.gridOptions.columnDefs.map(col => col.name);
+		        const columnHeaders = vm.gridOptions.columnDefs.map(col => col.displayName || col.name);
+		        const rows = vm.gridOptions.data;
 		
 		        let csv = columnHeaders.map(this.escapeCSV).join(',') + '\n';
 		        rows.forEach(row => {
