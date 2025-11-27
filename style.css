@@ -1,3 +1,15 @@
+.grd-text-right {
+  text-align: right;
+}
+
+.grd-text-left {
+  text-align: left;
+}
+
+.grd-text-center {
+  text-align: center;
+}
+
 #label-order {
   color: #9AA3B2;
   position: absolute; 
@@ -549,6 +561,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
