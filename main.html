@@ -304,12 +304,12 @@
 	                                </div>
 
 									<span ng-if="vm.params.excuteMode !== 'KEYWORD'" id="label-consume">
-									예상 소모 할당량: {{vm.channelMaster.okTotalCount > 1 ? '102 × ' + vm.channelMaster.okTotalCount + ' = ' : ''}}
-									<span id="consume" style="font-weight:500; color:gainsboro;">{{vm.data.consume.toLocaleString()}}
+										예상 소모 할당량: {{vm.channelMaster.okTotalCount > 1 ? '102 × ' + vm.channelMaster.okTotalCount + ' = ' : ''}}
+										<span id="consume" style="font-weight:500; color:gainsboro;">{{vm.data.consume.toLocaleString()}}
 									</span> (10,000 / 1 KEY)</span>
 									<span ng-if="vm.params.excuteMode === 'KEYWORD'" id="label-consume">
-									예상 소모 할당량: {{vm.data.pageTokenPage && vm.data.pageTokenPage <= 10 && vm.data.pageTokenPage >= 1 ? '102 × ' + vm.data.pageTokenPage + ' = ' : ''}}
-									<span id="consume" style="font-weight:500; color:gainsboro;">{{vm.data.consume.toLocaleString()}}
+										예상 소모 할당량: {{vm.data.pageTokenPage && vm.data.pageTokenPage <= 10 && vm.data.pageTokenPage >= 1 ? '102 × ' + vm.data.pageTokenPage + ' = ' : ''}}
+										<span id="consume" style="font-weight:500; color:gainsboro;">{{vm.data.consume.toLocaleString()}}
 									</span> (10,000 / 1 KEY)</span>	
 	                                <div class="actions" style="justify-content: end; padding-left:15px; padding-right:15px;">
 	                                    <button class="btn primary" type="submit" ng-click="vm.search()"></i>검색</button>
@@ -339,6 +339,7 @@
 	
 	</body>
 </html>
+
 
 
 
