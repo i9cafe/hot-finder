@@ -1,3 +1,11 @@
+#label-consume {
+  color: #9AA3B2;
+  position: absolute; 
+  top: 458px; 
+  right: 267px; 
+  font-weight: 400;
+}
+
 .grd-text-right {
   text-align: right;
 }
@@ -559,6 +567,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
