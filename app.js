@@ -921,7 +921,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 	  }
 
       vm.excelDownload = () => {
-        UtilsService.excelDownload($scope.gridOptions);
+        UtilsService.excelDownload(vm);
 	  };
 
       vm.showLoader = () => {
@@ -970,5 +970,6 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
