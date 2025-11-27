@@ -848,12 +848,12 @@ const app = angular.module('hotFinder', ['ngRoute'
 			return await UtilsService.doSearchKeywordModeToken(vm); 
       };
 	  
-	  vm.doSearchChannelMode = async (arguChannelId) => {
-			return await UtilsService.doSearchChannelMode(arguChannelId, vm);   
+	  vm.doSearchChannelMode = async (channelId) => {
+			return await UtilsService.doSearchChannelMode(channelId, vm);   
       };
 	  
-	  vm.doSearchBothMode = async (arguChannelId) => {
-			return await UtilsService.doSearchBothMode(arguChannelId, vm);        
+	  vm.doSearchBothMode = async (channelId) => {
+			return await UtilsService.doSearchBothMode(channelId, vm);        
       }; 
 
       vm.doSearchVideos = async (videoIds) => {
@@ -970,6 +970,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
