@@ -1,11 +1,9 @@
 .grd-text-right {
   text-align: right;
 }
-
 .grd-text-left {
   text-align: left;
 }
-
 .grd-text-center {
   text-align: center;
 }
@@ -561,6 +559,7 @@ tbody tr:hover{background:#121726}
 #main-grid {
   color: black;
 }
+
 
 
 
