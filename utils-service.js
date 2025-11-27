@@ -860,8 +860,11 @@ angular.module('hotFinder')
 		    };
 
 		    this.excelDownload = (gridOptions) => {
-		        if (!gridOptions || !gridOptions.data) return;
-		
+		        if (!gridOptions || !gridOptions.data || vm.data.totalCount === 0) {
+					alert("다운로드할 데이터가 없습니다.");
+					return;
+				}
+				
 		        const columnNames = gridOptions.columnDefs.map(col => col.name);
 		        const columnHeaders = gridOptions.columnDefs.map(col => col.displayName || col.name);
 		        const rows = gridOptions.data;
