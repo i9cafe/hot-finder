@@ -784,6 +784,8 @@ angular.module('hotFinder')
 
 		  vm.data.pageTokenPage = 1;
 	    vm.data.recentUse = 'Y';
+		
+		this.updateConsume(vm);
 
         $timeout(() => {
           document.getElementById('searchbox-shortsSecond').setAttribute("readonly", true);
@@ -981,6 +983,8 @@ angular.module('hotFinder')
 		this.clickGridCheckbox = (vm) => {
 	        vm.channelMaster.okTotalCount = vm.channelMaster.array.filter(item => item.flag === 'Y').length;
 			
+			this.updateConsume(vm);
+			
 			if (vm.channelMaster.array.length === vm.channelMaster.okTotalCount) {
 				$timeout(() => {
 					vm.data.channelAllFlag = 'Y';
@@ -996,6 +1000,8 @@ angular.module('hotFinder')
 	        const flag = vm.data.channelAllFlag === 'Y' ? 'Y' : 'N';
 	        vm.channelMaster.array.forEach(item => item.flag = flag);
 	        vm.channelMaster.okTotalCount = flag === 'Y' ? vm.channelMaster.array.length : 0;
+			
+			this.updateConsume(vm);
 	    };	
 
 	    this.longTable = (vm) => {
@@ -1012,6 +1018,36 @@ angular.module('hotFinder')
 	                vm.data.longTableDesc = '리스트 펼치기';
 	            });
 	        }
+	    };	
+		
+		this.changePageToken = (vm) => {
+			this.updateConsume(vm);			
+		}
+
+	    this.updateConsume = (vm) => {
+			if (vm.params.excuteMode === "CHANNEL") {
+				vm.data.consume = Number(vm.channelMaster.okTotalCount) * 102;	
+			} else if (vm.params.excuteMode === "KEYWORD") {
+				if (vm.data.pageTokenPage && vm.data.pageTokenPage >= 1 && vm.data.pageTokenPage <= 10) {					
+					vm.data.consume = Number(vm.data.pageTokenPage) * 102;	
+				} else {
+					vm.data.consume = '-';
+				}
+			} else {
+				vm.data.consume = Number(vm.channelMaster.okTotalCount) * 102;	
+			}
+			
+			const element = document.getElementById('consume');
+			
+			if (vm.data.consume > 10000) {			
+				$timeout(() => {
+	                element.style.color = 'orangered';
+	            });
+			} else {
+				$timeout(() => {
+	                element.style.color = 'gainsboro';
+	            });
+			}
 	    };
 
 		this.showKey = () => {
@@ -1089,7 +1125,9 @@ angular.module('hotFinder')
 					element.style.color = 'gray';
 					
 				});			
-			}
+			}			
+			
+			this.updateConsume(vm);
 		};	
 
 		this.changeChannelSet = (vm) => {
@@ -1109,7 +1147,8 @@ angular.module('hotFinder')
 					vm.channelMaster.okTotalCount = vm.channelMaster.array.filter((target) => {
 						return target.flag === "Y";
 					  }).length;
-					
+					  
+					  this.updateConsume(vm);					
 				});			
 			} else if (vm.data.set === "set2") {
 				$timeout(() => {					
@@ -1126,7 +1165,8 @@ angular.module('hotFinder')
 					vm.channelMaster.okTotalCount = vm.channelMaster.array.filter((target) => {
 						return target.flag === "Y";
 					  }).length;
-					
+					  
+					  this.updateConsume(vm);					
 				});			
 			} else if (vm.data.set === "set3") {
 				$timeout(() => {					
@@ -1143,7 +1183,8 @@ angular.module('hotFinder')
 					vm.channelMaster.okTotalCount = vm.channelMaster.array.filter((target) => {
 						return target.flag === "Y";
 					  }).length;
-					
+					  
+					  this.updateConsume(vm);					
 				});			
 			} 
 		};
@@ -1175,6 +1216,8 @@ angular.module('hotFinder')
 					  }).length;
 					  
 					  vm.data.set = "set1";
+					  
+					  this.updateConsume(vm);
 					
 				});			
 			} else if (vm.data.order === "sub") {
@@ -1202,6 +1245,8 @@ angular.module('hotFinder')
 					  }).length;
 					  
 					  vm.data.set = "set1";
+					  
+					  this.updateConsume(vm);
 					
 				});			
 			} 
