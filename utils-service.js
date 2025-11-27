@@ -177,8 +177,13 @@ angular.module('hotFinder')
 							  });
 							}
 				
-							result = result.sort((a, b) => b.viewCount - a.viewCount); 
-				
+							result = result.sort((a, b) => {
+							  const cmp = b.viewCount - a.viewCount;
+							  if (cmp !== 0) return cmp;
+							  
+							  return b.viewCountByTime - a.viewCountByTime;   
+							});
+								
 							for (let k = 0; k < result.length; k++) {
 							  result[k].no = k + 1;
 							}
@@ -383,7 +388,12 @@ angular.module('hotFinder')
 						  });
 						}
 			
-						result = result.sort((a, b) => b.viewCount - a.viewCount); 
+						result = result.sort((a, b) => {
+							  const cmp = b.viewCount - a.viewCount;
+							  if (cmp !== 0) return cmp;
+							  
+							  return b.viewCountByTime - a.viewCountByTime;   
+							});
 			
 						for (let k = 0; k < result.length; k++) {
 						  result[k].no = k + 1;
@@ -547,7 +557,12 @@ angular.module('hotFinder')
 						  });
 						}
 			
-						result = result.sort((a, b) => b.viewCount - a.viewCount); 
+						result = result.sort((a, b) => {
+							  const cmp = b.viewCount - a.viewCount;
+							  if (cmp !== 0) return cmp;
+							  
+							  return b.viewCountByTime - a.viewCountByTime;   
+							});
 			
 						for (let k = 0; k < result.length; k++) {
 						  result[k].no = k + 1;
