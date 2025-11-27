@@ -810,7 +810,7 @@ const app = angular.module('hotFinder', ['ngRoute'
         { displayName: "조회수", field: "viewCount", width: "7%", cellFilter: 'number', cellClass: 'grd-text-right' },
         { displayName: "시간당조회수", field: "viewCountByTime", width: "9%", cellFilter: 'number:2', cellClass: 'grd-text-right' },
         { displayName: "구독자수", field: "subscriberCount", width: "7%", cellFilter: 'number', cellClass: 'grd-text-right' },
-        { displayName: "구독자수대비조회수", field: "viewCountBySubscriberCount", width: "12%", cellFilter: 'number:2', cellClass: 'grd-text-right' },
+        { displayName: "구독자수대비조회수", field: "viewCountBySubscriberCount", width: "12%", cellFilter: 'number:2', cellClass:'grd-text-right' },
         { displayName: "영상길이", field: "duration", width: "9%", cellClass: 'grd-text-right' },
         { displayName: "영상링크", field: "videoUrl", width: "7%",
           cellTemplate: '<div class="ui-grid-cell-contents">' +
@@ -970,6 +970,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
