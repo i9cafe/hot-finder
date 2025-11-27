@@ -768,6 +768,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 		
 		vm.data.set = "set1";
 		vm.data.order = "sub";
+		vm.data.consume = Number(vm.channelMaster.okTotalCount) * 102;
 
       vm.params = {};
       vm.params.excuteMode = "CHANNEL";
@@ -944,6 +945,14 @@ const app = angular.module('hotFinder', ['ngRoute'
 			UtilsService.longTable(vm);
 		};
 		
+		vm.updateConsume = () => {
+			UtilsService.updateConsume(vm);				
+		};
+		
+		vm.changePageToken = () => {
+			UtilsService.changePageToken(vm);				
+		};
+		
 		vm.clickGridCheckboxAll = () => {
 			UtilsService.clickGridCheckboxAll(vm);				
 		};
@@ -970,6 +979,7 @@ const app = angular.module('hotFinder', ['ngRoute'
 
     }
   ])
+
 
 
 
