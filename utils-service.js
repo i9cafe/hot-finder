@@ -783,7 +783,9 @@ angular.module('hotFinder')
         vm.params.keyword = "";
 
 		  vm.data.pageTokenPage = 1;
-	    vm.data.recentUse = 'Y';		
+	    vm.data.recentUse = 'Y';
+		
+		this.updateConsume(vm);
 
         $timeout(() => {
           document.getElementById('searchbox-shortsSecond').setAttribute("readonly", true);
@@ -802,8 +804,6 @@ angular.module('hotFinder')
 			vm.data.pageTokenPage = 1;
 			document.getElementById('searchbox-pageToken').setAttribute("readonly", true);
 			document.getElementById('searchbox-pageToken').style.color = 'gray';
-			
-			this.updateConsume(vm);
         });
       };
 
@@ -983,16 +983,15 @@ angular.module('hotFinder')
 		this.clickGridCheckbox = (vm) => {
 	        vm.channelMaster.okTotalCount = vm.channelMaster.array.filter(item => item.flag === 'Y').length;
 			
+			this.updateConsume(vm);
 			
 			if (vm.channelMaster.array.length === vm.channelMaster.okTotalCount) {
 				$timeout(() => {
 					vm.data.channelAllFlag = 'Y';
-					this.updateConsume(vm);
 				});
 			} else {
 				$timeout(() => {
 					vm.data.channelAllFlag = 'N';
-					this.updateConsume(vm);
 				});
 			}			
 	    };
@@ -1027,23 +1026,15 @@ angular.module('hotFinder')
 
 	    this.updateConsume = (vm) => {
 			if (vm.params.excuteMode === "CHANNEL") {
-				$timeout(() => {
-					vm.data.consume = vm.channelMaster.okTotalCount === 0 ? '-' : Number(vm.channelMaster.okTotalCount) * 102;
-	            });	
+				vm.data.consume = Number(vm.channelMaster.okTotalCount) * 102;	
 			} else if (vm.params.excuteMode === "KEYWORD") {
-				if (vm.data.pageTokenPage && vm.data.pageTokenPage >= 1 && vm.data.pageTokenPage <= 10) {
-					$timeout(() => {
-						vm.data.consume = vm.channelMaster.okTotalCount === 0 ? '-' : Number(vm.channelMaster.okTotalCount) * 102;						
-	            	});
+				if (vm.data.pageTokenPage && vm.data.pageTokenPage >= 1 && vm.data.pageTokenPage <= 10) {					
+					vm.data.consume = Number(vm.data.pageTokenPage) * 102;	
 				} else {
-					$timeout(() => {
-						vm.data.consume = '-';
-	          		  });
+					vm.data.consume = '-';
 				}
 			} else {
-				$timeout(() => {
-					vm.data.consume = Number(vm.channelMaster.okTotalCount) * 102;	
-	            });
+				vm.data.consume = Number(vm.channelMaster.okTotalCount) * 102;	
 			}
 			
 			const element = document.getElementById('consume');
@@ -1117,7 +1108,6 @@ angular.module('hotFinder')
 					vm.data.pageTokenPage = 1;
 		            element.setAttribute("readonly", true);
 					element.style.color = 'gray';
-					this.updateConsume(vm);
 					
 				});			
 			} else if (vm.params.excuteMode === "KEYWORD") {
@@ -1126,7 +1116,6 @@ angular.module('hotFinder')
 				    element.removeAttribute("readonly"); 
 					element.style.color = 'lightgray';
 					  element.focus();
-					this.updateConsume(vm);
 					
 				});			
 			} else {
@@ -1134,11 +1123,11 @@ angular.module('hotFinder')
 					vm.data.pageTokenPage = 1;
 		            element.setAttribute("readonly", true);
 					element.style.color = 'gray';
-					this.updateConsume(vm);
 					
 				});			
 			}			
 			
+			this.updateConsume(vm);
 		};	
 
 		this.changeChannelSet = (vm) => {
