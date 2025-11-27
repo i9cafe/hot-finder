@@ -96,7 +96,7 @@
 	                                                </thead>
 	                                                <tbody>
 	                                                    <tr ng-repeat="channel in vm.channelMaster.array">
-	                                                        <td>{{$index + 1}}</td>
+	                                                        <td style="text-align:center;">{{$index + 1}}</td>
 	                                                        <td>{{channel.name}}</td>
 	                                                        <td style="text-align:right;">{{channel.sub.toLocaleString()}}</td>
 	                                                        <td>{{channel.id}}</td>
@@ -331,6 +331,7 @@
 	
 	</body>
 </html>
+
 
 
 
